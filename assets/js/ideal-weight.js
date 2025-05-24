@@ -6,12 +6,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 短縮URL生成関数
     function getShortUrl() {
-        const baseUrl = 'https://health-calc.jp';
-        const currentPath = window.location.pathname;
-        if (currentPath.includes('ideal-weight')) {
-            return `${baseUrl}/weight`;
-        }
-        return baseUrl;
+        // 短縮URL形式で返す（実際のドメインに合わせて調整）
+        const path = window.location.pathname;
+        const fileName = path.split('/').pop().replace('.html', '');
+        return `https://minna-no-kenko.com/${fileName}`;
     }
 
     // BMI判定基準

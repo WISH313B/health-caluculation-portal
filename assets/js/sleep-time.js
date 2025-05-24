@@ -6,12 +6,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 短縮URL生成関数
     function getShortUrl() {
-        const baseUrl = 'https://health-calc.jp';
-        const currentPath = window.location.pathname;
-        if (currentPath.includes('sleep-time')) {
-            return `${baseUrl}/sleep`;
-        }
-        return baseUrl;
+        // 短縮URL形式で返す（実際のドメインに合わせて調整）
+        const path = window.location.pathname;
+        const fileName = path.split('/').pop().replace('.html', '');
+        return `https://minna-no-kenko.com/${fileName}`;
     }
 
     // 年齢層別の推奨睡眠時間（時間）

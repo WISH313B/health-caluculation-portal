@@ -168,12 +168,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 短縮URL生成関数
     function getShortUrl() {
-        const baseUrl = 'https://health-calc.jp';
-        const currentPath = window.location.pathname;
-        if (currentPath.includes('tdee')) {
-            return `${baseUrl}/tdee`;
-        }
-        return baseUrl;
+        // 短縮URL形式で返す（実際のドメインに合わせて調整）
+        const path = window.location.pathname;
+        const fileName = path.split('/').pop().replace('.html', '');
+        return `https://minna-no-kenko.com/${fileName}`;
     }
 
     shareButton.addEventListener('click', () => {

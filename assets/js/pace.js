@@ -66,12 +66,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 短縮URL生成関数
     function getShortUrl() {
-        const baseUrl = 'https://health-calc.jp';
-        const currentPath = window.location.pathname;
-        if (currentPath.includes('pace')) {
-            return `${baseUrl}/pace`;
-        }
-        return baseUrl;
+        // 短縮URL形式で返す（実際のドメインに合わせて調整）
+        const path = window.location.pathname;
+        const fileName = path.split('/').pop().replace('.html', '');
+        return `https://minna-no-kenko.com/${fileName}`;
     }
 
     // フォーム送信の処理
@@ -387,4 +385,4 @@ document.addEventListener('DOMContentLoaded', function() {
         const tweetUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(fullShareText)}&url=${encodeURIComponent(currentUrl)}`;
         window.open(tweetUrl, '_blank');
     });
-}); 
+});
