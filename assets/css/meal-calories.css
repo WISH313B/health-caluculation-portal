@@ -1,0 +1,342 @@
+/* メインコンテナ */
+.calculator-container {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.description {
+    color: #666;
+    margin-bottom: 2rem;
+    line-height: 1.8;
+}
+
+.description br {
+    display: block;
+    margin: 0.8rem 0;
+    content: "";
+}
+
+/* 食事プランナー */
+.meal-planner {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* 食材検索セクション */
+.food-search-section {
+    background-color: #f5f5f7;
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.search-box {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.search-box input {
+    flex: 1;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+.search-box button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 0.8rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.search-box button:hover {
+    background-color: var(--hover-color);
+}
+
+/* 食材カテゴリー */
+.food-categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.category-button {
+    background: none;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.category-button i {
+    font-size: 1rem;
+}
+
+.category-button.active {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.category-button:hover:not(.active) {
+    background-color: #eee;
+}
+
+/* 食材リスト */
+.food-list {
+    height: 400px;
+    overflow-y: auto;
+    background-color: white;
+    border-radius: 6px;
+    padding: 0.5rem;
+}
+
+.food-item {
+    display: flex;
+    align-items: center;
+    padding: 0.8rem;
+    border: 1px solid #eee;
+    border-radius: 6px;
+    margin-bottom: 0.5rem;
+    cursor: move;
+    background-color: white;
+    transition: all 0.3s;
+}
+
+.food-item:hover {
+    background-color: #f5f5f7;
+    transform: translateY(-2px);
+}
+
+.food-item-info {
+    flex: 1;
+}
+
+.food-item-name {
+    font-weight: 500;
+    margin-bottom: 0.2rem;
+}
+
+.food-item-nutrition {
+    font-size: 0.8rem;
+    color: #666;
+}
+
+/* 食事プランセクション */
+.meal-plan-section {
+    background-color: #f5f5f7;
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.meal-time-tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+}
+
+.meal-tab {
+    background: none;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.3s;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.meal-tab i {
+    font-size: 1rem;
+}
+
+.meal-tab.active {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.meal-tab:hover:not(.active) {
+    background-color: #eee;
+}
+
+.meal-items {
+    min-height: 400px;
+    background-color: white;
+    border-radius: 6px;
+    padding: 1rem;
+}
+
+.empty-state {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+    text-align: center;
+}
+
+.empty-state i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+/* 栄養サマリー */
+.nutrition-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.total-calories {
+    background-color: #f5f5f7;
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.calorie-value {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin: 1rem 0;
+}
+
+.unit {
+    font-size: 1rem;
+    color: #666;
+}
+
+.calorie-goal {
+    margin-top: 1rem;
+}
+
+.progress-bar {
+    height: 8px;
+    background-color: #eee;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+}
+
+.progress {
+    height: 100%;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.nutrition-chart {
+    background-color: #f5f5f7;
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.chart-container {
+    height: 200px;
+    margin: 1rem 0;
+}
+
+.nutrition-legend {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.legend-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+}
+
+.legend-color.protein {
+    background-color: #FF6B6B;
+}
+
+.legend-color.fat {
+    background-color: #4ECDC4;
+}
+
+.legend-color.carbs {
+    background-color: #45B7D1;
+}
+
+/* アクションボタン */
+.action-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.action-buttons button {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem;
+}
+
+.action-buttons i {
+    font-size: 1.1rem;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+    .calculator-container {
+        margin: 1rem;
+        padding: 1rem;
+    }
+
+    .meal-planner {
+        grid-template-columns: 1fr;
+    }
+
+    .food-list {
+        height: 300px;
+    }
+
+    .meal-items {
+        min-height: 300px;
+    }
+
+    .nutrition-summary {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+    }
+} 

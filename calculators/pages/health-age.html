@@ -1,0 +1,1167 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="蛛･蠎ｷ險育ｮ励・繝ｼ繧ｿ繝ｫ縺ｮ險育ｮ玲ｩ溘〒蛛･蠎ｷ邂｡逅・ｒ繧ｵ繝昴・繝医・MI縲∽ｽ楢р閧ｪ邇・√き繝ｭ繝ｪ繝ｼ險育ｮ励↑縺ｩ20遞ｮ鬘樔ｻ･荳翫・蛛･蠎ｷ繝・・繝ｫ繧堤┌譁吶〒謠蝉ｾ帙・>
+    <meta name="keywords" content="蛛･蠎ｷ險育ｮ玲ｩ・BMI,菴楢р閧ｪ邇・繧ｫ繝ｭ繝ｪ繝ｼ險育ｮ・蛛･蠎ｷ邂｡逅・繝繧､繧ｨ繝・ヨ,繝輔ぅ繝・ヨ繝阪せ">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <title>健康年齢計算機 - 健康計算ポータル</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../../style.css">
+    <style>
+/* メインコンテナ */
+.calculator-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* 説明文 */
+.description {
+    color: #666;
+    margin-bottom: 2rem;
+    line-height: 1.8;
+}
+
+.description br {
+    display: block;
+    margin: 0.8rem 0;
+    content: "";
+}
+
+/* セクショングループ */
+.section-group {
+    margin-bottom: 2.5rem;
+    padding: 1.5rem;
+    background-color: var(--tile-background);
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.section-group h3 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+}
+
+/* フォームレイアウト */
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+input[type="number"], select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+input[type="number"]:focus, select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(0, 122, 255, 0.1);
+}
+
+select {
+    background-color: white;
+    cursor: pointer;
+}
+
+/* ボタンスタイル */
+.primary-button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+    margin-top: 2rem;
+}
+
+.primary-button:hover {
+    background-color: var(--hover-color);
+}
+
+.secondary-button {
+    background-color: var(--background-color);
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    border-radius: 8px;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.secondary-button:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.share-button {
+    background-color: #1DA1F2;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.share-button:hover {
+    background-color: #1991DA;
+}
+
+/* 結果比較セクション */
+.result-comparison {
+    background-color: var(--tile-background);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.age-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.age-box {
+    text-align: center;
+    padding: 1.5rem;
+    border-radius: 12px;
+    min-width: 150px;
+}
+
+.age-box.actual-age {
+    background-color: #f5f5f5;
+    border: 2px solid #ddd;
+}
+
+.age-box.health-age {
+    background-color: rgba(0, 122, 255, 0.1);
+    border: 2px solid var(--primary-color);
+}
+
+.age-box h3 {
+    margin-bottom: 1rem;
+    color: var(--text-color);
+    font-size: 1.1rem;
+}
+
+.age-value {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.age-value .unit {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-left: 0.3rem;
+}
+
+.vs-indicator {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--text-secondary);
+    background-color: white;
+    padding: 1rem;
+    border-radius: 50%;
+    border: 2px solid var(--border-color);
+}
+
+.age-difference {
+    text-align: center;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.age-difference.younger {
+    background-color: #e8f5e8;
+    color: #2e7d32;
+}
+
+.age-difference.older {
+    background-color: #ffebee;
+    color: #d32f2f;
+}
+
+.age-difference.same {
+    background-color: #fff3e0;
+    color: #f57c00;
+}
+
+/* 分析セクション */
+.health-analysis {
+    background-color: var(--tile-background);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.health-analysis h3 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+    font-size: 1.2rem;
+}
+
+.analysis-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.analysis-item {
+    background-color: white;
+    border-radius: 8px;
+    padding: 1rem;
+    border-left: 4px solid var(--primary-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.analysis-item .category {
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+.analysis-item .status {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.analysis-item .score {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.analysis-item .score.good {
+    color: #2e7d32;
+}
+
+.analysis-item .score.fair {
+    color: #f57c00;
+}
+
+.analysis-item .score.poor {
+    color: #d32f2f;
+}
+
+/* 改善提案セクション */
+.improvement-suggestions {
+    background-color: var(--tile-background);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.improvement-suggestions h3 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+    font-size: 1.2rem;
+}
+
+.suggestions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+}
+
+.suggestion-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    border-left: 4px solid var(--primary-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.suggestion-card .icon {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.suggestion-card .title {
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.suggestion-card .content {
+    color: var(--text-secondary);
+    line-height: 1.5;
+    font-size: 0.9rem;
+}
+
+/* ヘルスtips */
+.health-tips {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background-color: var(--tile-background);
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.health-tips h4 {
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+.health-tips ul {
+    list-style: none;
+    padding: 0;
+}
+
+.health-tips li {
+    margin-bottom: 0.8rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.health-tips li::before {
+    content: "•";
+    color: var(--primary-color);
+    position: absolute;
+    left: 0;
+    font-size: 1.2rem;
+}
+
+/* アクションボタン */
+.action-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.action-buttons button {
+    flex: 1;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+    .calculator-container {
+        padding: 1rem;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .age-display {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .vs-indicator {
+        transform: rotate(90deg);
+        font-size: 1.2rem;
+    }
+
+    .analysis-grid, .suggestions-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+    }
+
+    .age-value {
+        font-size: 2rem;
+    }
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1><a href="../../index.html" class="home-link">健康計算ポータル</a></h1>
+            <div class="search-container">
+                <input type="search" placeholder="計算機能を検索..." aria-label="計算機能を検索">
+                <button type="button" aria-label="検索"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="calculator-container">
+            <h2>健康年齢計算機</h2>
+            <p class="description">
+                実年齢と生活習慣から、あなたの健康年齢を算出します。<br>
+                運動習慣、食生活、睡眠、ストレス管理などの項目を考慮して<br>
+                身体の実際の状態を年齢として表現します。<br>
+                ※この結果は目安であり、医学的診断ではありません。
+            </p>
+
+            <form id="health-age-form">
+                <div class="section-group">
+                    <h3>基本情報</h3>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="actual-age">実年齢</label>
+                            <input type="number" id="actual-age" required min="18" max="100" placeholder="例: 35">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="gender">性別</label>
+                            <select id="gender" required>
+                                <option value="">選択してください</option>
+                                <option value="male">男性</option>
+                                <option value="female">女性</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="height">身長 (cm)</label>
+                            <input type="number" id="height" required min="140" max="220" placeholder="例: 170">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="weight">体重 (kg)</label>
+                            <input type="number" id="weight" required min="40" max="200" step="0.1" placeholder="例: 65">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <h3>運動習慣</h3>
+                    
+                    <div class="form-group">
+                        <label for="exercise-frequency">運動頻度</label>
+                        <select id="exercise-frequency" required>
+                            <option value="">選択してください</option>
+                            <option value="never">ほとんどしない</option>
+                            <option value="rarely">月に1-2回程度</option>
+                            <option value="sometimes">週に1-2回程度</option>
+                            <option value="often">週に3-4回程度</option>
+                            <option value="daily">ほぼ毎日</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="exercise-intensity">運動強度</label>
+                        <select id="exercise-intensity" required>
+                            <option value="">選択してください</option>
+                            <option value="light">軽い運動（散歩など）</option>
+                            <option value="moderate">中程度の運動（ジョギングなど）</option>
+                            <option value="vigorous">激しい運動（ランニング、筋トレなど）</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <h3>食生活</h3>
+                    
+                    <div class="form-group">
+                        <label for="meal-regularity">食事の規則性</label>
+                        <select id="meal-regularity" required>
+                            <option value="">選択してください</option>
+                            <option value="irregular">不規則</option>
+                            <option value="somewhat-regular">やや規則的</option>
+                            <option value="regular">規則的</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="vegetable-intake">野菜・果物の摂取</label>
+                        <select id="vegetable-intake" required>
+                            <option value="">選択してください</option>
+                            <option value="low">少ない（1日2回以下）</option>
+                            <option value="moderate">普通（1日3-4回）</option>
+                            <option value="high">多い（1日5回以上）</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="processed-food">加工食品・外食の頻度</label>
+                        <select id="processed-food" required>
+                            <option value="">選択してください</option>
+                            <option value="high">よく食べる（週5回以上）</option>
+                            <option value="moderate">たまに食べる（週2-4回）</option>
+                            <option value="low">あまり食べない（週1回以下）</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <h3>睡眠・生活習慣</h3>
+                    
+                    <div class="form-group">
+                        <label for="sleep-hours">平均睡眠時間</label>
+                        <select id="sleep-hours" required>
+                            <option value="">選択してください</option>
+                            <option value="short">6時間未満</option>
+                            <option value="moderate">6-8時間</option>
+                            <option value="long">8時間以上</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="sleep-quality">睡眠の質</label>
+                        <select id="sleep-quality" required>
+                            <option value="">選択してください</option>
+                            <option value="poor">悪い</option>
+                            <option value="fair">普通</option>
+                            <option value="good">良い</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="smoking">喫煙習慣</label>
+                        <select id="smoking" required>
+                            <option value="">選択してください</option>
+                            <option value="never">吸わない</option>
+                            <option value="former">以前吸っていた</option>
+                            <option value="current">現在吸っている</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="alcohol">飲酒習慣</label>
+                        <select id="alcohol" required>
+                            <option value="">選択してください</option>
+                            <option value="none">飲まない</option>
+                            <option value="light">週1-2回程度</option>
+                            <option value="moderate">週3-4回程度</option>
+                            <option value="heavy">ほぼ毎日</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="section-group">
+                    <h3>健康管理・ストレス</h3>
+                    
+                    <div class="form-group">
+                        <label for="health-checkup">健康診断の受診</label>
+                        <select id="health-checkup" required>
+                            <option value="">選択してください</option>
+                            <option value="never">受けていない</option>
+                            <option value="irregular">不定期</option>
+                            <option value="annual">年1回</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="stress-level">ストレスレベル</label>
+                        <select id="stress-level" required>
+                            <option value="">選択してください</option>
+                            <option value="low">低い</option>
+                            <option value="moderate">普通</option>
+                            <option value="high">高い</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="social-connection">社会的つながり</label>
+                        <select id="social-connection" required>
+                            <option value="">選択してください</option>
+                            <option value="poor">少ない</option>
+                            <option value="moderate">普通</option>
+                            <option value="good">豊富</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="primary-button">
+                    <i class="fas fa-calculator"></i>
+                    健康年齢を計算する
+                </button>
+            </form>
+
+            <div id="result-section" style="display: none;">
+                <div class="result-comparison">
+                    <div class="age-display">
+                        <div class="age-box actual-age">
+                            <h3>実年齢</h3>
+                            <div class="age-value">
+                                <span id="actual-age-display">-</span>
+                                <span class="unit">歳</span>
+                            </div>
+                        </div>
+                        
+                        <div class="vs-indicator">VS</div>
+                        
+                        <div class="age-box health-age">
+                            <h3>健康年齢</h3>
+                            <div class="age-value">
+                                <span id="health-age-display">-</span>
+                                <span class="unit">歳</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="age-difference" id="age-difference">
+                        <!-- JavaScriptで生成 -->
+                    </div>
+                </div>
+
+                <div class="health-analysis">
+                    <h3>健康状態分析</h3>
+                    <div class="analysis-grid" id="analysis-grid">
+                        <!-- JavaScriptで生成 -->
+                    </div>
+                </div>
+
+                <div class="improvement-suggestions">
+                    <h3>改善提案</h3>
+                    <div class="suggestions-grid" id="suggestions-grid">
+                        <!-- JavaScriptで生成 -->
+                    </div>
+                </div>
+
+                <div class="health-tips">
+                    <h4>健康年齢について</h4>
+                    <p>健康年齢は、生活習慣や健康状態を総合的に評価して算出される指標です。</p>
+                    <ul>
+                        <li>健康年齢が実年齢より若い場合、良好な健康状態を表します</li>
+                        <li>健康年齢が実年齢より高い場合、生活習慣の見直しが推奨されます</li>
+                        <li>定期的な運動と バランスの取れた食事が重要です</li>
+                        <li>禁煙・節酒・十分な睡眠を心がけましょう</li>
+                    </ul>
+                    <h4>継続的な健康管理のために</h4>
+                    <ul>
+                        <li>年1回の健康診断を受診しましょう</li>
+                        <li>小さな変化でも継続することが大切です</li>
+                        <li>ストレス管理と社会的つながりも重要な要素です</li>
+                        <li>心配な症状があれば早めに医師に相談しましょう</li>
+                    </ul>
+                </div>
+
+                <div class="action-buttons">
+                    <button id="recalculate" class="secondary-button">再計算</button>
+                    <button id="share-twitter" class="share-button">
+                        <i class="fab fa-twitter"></i> 結果をシェア
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 健康計算ポータル All Rights Reserved.</p>
+    </footer>
+
+    <script src="../../search.js"></script>
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('health-age-form');
+    const resultSection = document.getElementById('result-section');
+    const recalculateButton = document.getElementById('recalculate');
+    const shareButton = document.getElementById('share-twitter');
+
+    // 入力要素
+    const actualAgeInput = document.getElementById('actual-age');
+    const genderSelect = document.getElementById('gender');
+    const heightInput = document.getElementById('height');
+    const weightInput = document.getElementById('weight');
+    const exerciseFrequencySelect = document.getElementById('exercise-frequency');
+    const exerciseIntensitySelect = document.getElementById('exercise-intensity');
+    const mealRegularitySelect = document.getElementById('meal-regularity');
+    const vegetableIntakeSelect = document.getElementById('vegetable-intake');
+    const processedFoodSelect = document.getElementById('processed-food');
+    const sleepHoursSelect = document.getElementById('sleep-hours');
+    const sleepQualitySelect = document.getElementById('sleep-quality');
+    const smokingSelect = document.getElementById('smoking');
+    const alcoholSelect = document.getElementById('alcohol');
+    const healthCheckupSelect = document.getElementById('health-checkup');
+    const stressLevelSelect = document.getElementById('stress-level');
+    const socialConnectionSelect = document.getElementById('social-connection');
+
+    // 結果表示要素
+    const actualAgeDisplay = document.getElementById('actual-age-display');
+    const healthAgeDisplay = document.getElementById('health-age-display');
+    const ageDifference = document.getElementById('age-difference');
+    const analysisGrid = document.getElementById('analysis-grid');
+    const suggestionsGrid = document.getElementById('suggestions-grid');
+
+    let calculationResult = null;
+
+    // フォーム送信イベント
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        calculateHealthAge();
+    });
+
+    // 再計算ボタン
+    recalculateButton.addEventListener('click', function() {
+        form.reset();
+        resultSection.style.display = 'none';
+        calculationResult = null;
+    });
+
+    // シェアボタン
+    shareButton.addEventListener('click', function() {
+        if (calculationResult) {
+            const shareText = `私の健康年齢は${calculationResult.healthAge}歳（実年齢${calculationResult.actualAge}歳）でした - 健康年齢計算機`;
+            const tweetUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}`;
+            window.open(tweetUrl, '_blank');
+        }
+    });
+
+    function calculateHealthAge() {
+        // 入力値の取得と検証
+        const formData = getFormData();
+        if (!validateFormData(formData)) {
+            return;
+        }
+
+        // BMI計算
+        const bmi = formData.weight / (formData.height / 100) ** 2;
+
+        // 健康年齢計算
+        let healthAge = formData.actualAge;
+
+        // 運動による調整
+        healthAge += getExerciseAdjustment(formData.exerciseFrequency, formData.exerciseIntensity);
+
+        // 食事による調整
+        healthAge += getDietAdjustment(formData.mealRegularity, formData.vegetableIntake, formData.processedFood);
+
+        // 睡眠による調整
+        healthAge += getSleepAdjustment(formData.sleepHours, formData.sleepQuality);
+
+        // 生活習慣による調整
+        healthAge += getLifestyleAdjustment(formData.smoking, formData.alcohol);
+
+        // ストレス・社会的要因による調整
+        healthAge += getStressAdjustment(formData.stressLevel, formData.socialConnection);
+
+        // 健康管理による調整
+        healthAge += getHealthManagementAdjustment(formData.healthCheckup);
+
+        // BMIによる調整
+        healthAge += getBMIAdjustment(bmi);
+
+        // 性別・年齢による調整
+        healthAge += getGenderAgeAdjustment(formData.gender, formData.actualAge);
+
+        // 結果を整数に丸める
+        healthAge = Math.round(healthAge);
+
+        // 結果を表示
+        displayResults(formData.actualAge, healthAge, formData);
+
+        // 分析と提案を表示
+        displayAnalysis(formData, bmi);
+        displaySuggestions(formData, healthAge);
+
+        // 結果を保存
+        calculationResult = {
+            actualAge: formData.actualAge,
+            healthAge: healthAge,
+            difference: healthAge - formData.actualAge
+        };
+
+        resultSection.style.display = 'block';
+        resultSection.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function getFormData() {
+        return {
+            actualAge: parseInt(actualAgeInput.value),
+            gender: genderSelect.value,
+            height: parseFloat(heightInput.value),
+            weight: parseFloat(weightInput.value),
+            exerciseFrequency: exerciseFrequencySelect.value,
+            exerciseIntensity: exerciseIntensitySelect.value,
+            mealRegularity: mealRegularitySelect.value,
+            vegetableIntake: vegetableIntakeSelect.value,
+            processedFood: processedFoodSelect.value,
+            sleepHours: sleepHoursSelect.value,
+            sleepQuality: sleepQualitySelect.value,
+            smoking: smokingSelect.value,
+            alcohol: alcoholSelect.value,
+            healthCheckup: healthCheckupSelect.value,
+            stressLevel: stressLevelSelect.value,
+            socialConnection: socialConnectionSelect.value
+        };
+    }
+
+    function validateFormData(data) {
+        // 必須項目の検証
+        for (const key in data) {
+            if (data[key] === '' || data[key] === null || data[key] === undefined) {
+                alert('すべての項目を入力してください。');
+                return false;
+            }
+        }
+
+        // 数値範囲の検証
+        if (data.actualAge < 18 || data.actualAge > 100) {
+            alert('年齢は18歳～100歳の範囲で入力してください。');
+            return false;
+        }
+
+        if (data.height < 140 || data.height > 220) {
+            alert('身長は140cm～220cmの範囲で入力してください。');
+            return false;
+        }
+
+        if (data.weight < 40 || data.weight > 200) {
+            alert('体重は40kg～200kgの範囲で入力してください。');
+            return false;
+        }
+
+        return true;
+    }
+
+    function getExerciseAdjustment(frequency, intensity) {
+        const frequencyScores = {
+            'never': 8,
+            'rarely': 5,
+            'sometimes': 0,
+            'often': -3,
+            'daily': -5
+        };
+
+        const intensityScores = {
+            'light': 2,
+            'moderate': 0,
+            'vigorous': -2
+        };
+
+        return (frequencyScores[frequency] || 0) + (intensityScores[intensity] || 0);
+    }
+
+    function getDietAdjustment(regularity, vegetables, processed) {
+        const regularityScores = {
+            'irregular': 3,
+            'somewhat-regular': 1,
+            'regular': -2
+        };
+
+        const vegetableScores = {
+            'low': 3,
+            'moderate': 0,
+            'high': -3
+        };
+
+        const processedScores = {
+            'high': 4,
+            'moderate': 1,
+            'low': -2
+        };
+
+        return (regularityScores[regularity] || 0) + (vegetableScores[vegetables] || 0) + (processedScores[processed] || 0);
+    }
+
+    function getSleepAdjustment(hours, quality) {
+        const hoursScores = {
+            'short': 4,
+            'moderate': 0,
+            'long': 1
+        };
+
+        const qualityScores = {
+            'poor': 4,
+            'fair': 1,
+            'good': -2
+        };
+
+        return (hoursScores[hours] || 0) + (qualityScores[quality] || 0);
+    }
+
+    function getLifestyleAdjustment(smoking, alcohol) {
+        const smokingScores = {
+            'never': -2,
+            'former': 2,
+            'current': 8
+        };
+
+        const alcoholScores = {
+            'none': 0,
+            'light': -1,
+            'moderate': 2,
+            'heavy': 5
+        };
+
+        return (smokingScores[smoking] || 0) + (alcoholScores[alcohol] || 0);
+    }
+
+    function getStressAdjustment(stress, social) {
+        const stressScores = {
+            'low': -2,
+            'moderate': 1,
+            'high': 4
+        };
+
+        const socialScores = {
+            'poor': 3,
+            'moderate': 0,
+            'good': -2
+        };
+
+        return (stressScores[stress] || 0) + (socialScores[social] || 0);
+    }
+
+    function getHealthManagementAdjustment(checkup) {
+        const checkupScores = {
+            'never': 3,
+            'irregular': 1,
+            'annual': -2
+        };
+
+        return checkupScores[checkup] || 0;
+    }
+
+    function getBMIAdjustment(bmi) {
+        if (bmi < 18.5) return 3; // 低体重
+        if (bmi >= 18.5 && bmi < 25) return -1; // 正常体重
+        if (bmi >= 25 && bmi < 30) return 3; // 過体重
+        return 6; // 肥満
+    }
+
+    function getGenderAgeAdjustment(gender, age) {
+        let adjustment = 0;
+        
+        // 年齢による調整
+        if (age >= 65) adjustment += 2;
+        else if (age >= 50) adjustment += 1;
+        
+        // 性別による調整（統計的な平均寿命の差を考慮）
+        if (gender === 'male') adjustment += 1;
+        
+        return adjustment;
+    }
+
+    function displayResults(actualAge, healthAge, formData) {
+        actualAgeDisplay.textContent = actualAge;
+        healthAgeDisplay.textContent = healthAge;
+
+        const difference = healthAge - actualAge;
+        let differenceText, differenceClass;
+
+        if (difference < 0) {
+            differenceText = `実年齢より${Math.abs(difference)}歳若い状態です！`;
+            differenceClass = 'younger';
+        } else if (difference > 0) {
+            differenceText = `実年齢より${difference}歳年上の状態です`;
+            differenceClass = 'older';
+        } else {
+            differenceText = '実年齢と同じ健康状態です';
+            differenceClass = 'same';
+        }
+
+        ageDifference.textContent = differenceText;
+        ageDifference.className = `age-difference ${differenceClass}`;
+    }
+
+    function displayAnalysis(formData, bmi) {
+        const analyses = [
+            {
+                category: '運動習慣',
+                status: getExerciseStatus(formData.exerciseFrequency, formData.exerciseIntensity),
+                score: getExerciseScore(formData.exerciseFrequency, formData.exerciseIntensity)
+            },
+            {
+                category: '食生活',
+                status: getDietStatus(formData.mealRegularity, formData.vegetableIntake, formData.processedFood),
+                score: getDietScore(formData.mealRegularity, formData.vegetableIntake, formData.processedFood)
+            },
+            {
+                category: '睡眠',
+                status: getSleepStatus(formData.sleepHours, formData.sleepQuality),
+                score: getSleepScore(formData.sleepHours, formData.sleepQuality)
+            },
+            {
+                category: 'BMI',
+                status: getBMIStatus(bmi),
+                score: getBMIScore(bmi)
+            }
+        ];
+
+        analysisGrid.innerHTML = '';
+        analyses.forEach(analysis => {
+            const item = document.createElement('div');
+            item.className = 'analysis-item';
+            item.innerHTML = `
+                <div class="category">${analysis.category}</div>
+                <div class="status">${analysis.status}</div>
+                <div class="score ${analysis.score.class}">${analysis.score.text}</div>
+            `;
+            analysisGrid.appendChild(item);
+        });
+    }
+
+    function getExerciseStatus(frequency, intensity) {
+        if (frequency === 'never' || frequency === 'rarely') {
+            return '運動不足の状態です';
+        } else if (frequency === 'often' || frequency === 'daily') {
+            return '十分な運動をしています';
+        }
+        return '適度な運動をしています';
+    }
+
+    function getExerciseScore(frequency, intensity) {
+        const adjustment = getExerciseAdjustment(frequency, intensity);
+        if (adjustment <= -3) return { text: '良好', class: 'good' };
+        if (adjustment <= 3) return { text: '普通', class: 'fair' };
+        return { text: '要改善', class: 'poor' };
+    }
+
+    function getDietStatus(regularity, vegetables, processed) {
+        if (regularity === 'regular' && vegetables === 'high' && processed === 'low') {
+            return 'バランスの取れた食生活です';
+        } else if (regularity === 'irregular' || processed === 'high') {
+            return '食生活の改善が必要です';
+        }
+        return '概ね良い食生活です';
+    }
+
+    function getDietScore(regularity, vegetables, processed) {
+        const adjustment = getDietAdjustment(regularity, vegetables, processed);
+        if (adjustment <= -2) return { text: '良好', class: 'good' };
+        if (adjustment <= 3) return { text: '普通', class: 'fair' };
+        return { text: '要改善', class: 'poor' };
+    }
+
+    function getSleepStatus(hours, quality) {
+        if (hours === 'moderate' && quality === 'good') {
+            return '良質な睡眠を取れています';
+        } else if (hours === 'short' || quality === 'poor') {
+            return '睡眠の改善が必要です';
+        }
+        return '概ね良い睡眠です';
+    }
+
+    function getSleepScore(hours, quality) {
+        const adjustment = getSleepAdjustment(hours, quality);
+        if (adjustment <= 0) return { text: '良好', class: 'good' };
+        if (adjustment <= 3) return { text: '普通', class: 'fair' };
+        return { text: '要改善', class: 'poor' };
+    }
+
+    function getBMIStatus(bmi) {
+        if (bmi < 18.5) return '低体重（やせ）です';
+        if (bmi >= 18.5 && bmi < 25) return '正常体重です';
+        if (bmi >= 25 && bmi < 30) return '過体重です';
+        return '肥満です';
+    }
+
+    function getBMIScore(bmi) {
+        if (bmi >= 18.5 && bmi < 25) return { text: '良好', class: 'good' };
+        if ((bmi >= 17 && bmi < 18.5) || (bmi >= 25 && bmi < 27)) return { text: '普通', class: 'fair' };
+        return { text: '要改善', class: 'poor' };
+    }
+
+    function displaySuggestions(formData, healthAge) {
+        const suggestions = generateSuggestions(formData, healthAge);
+        suggestionsGrid.innerHTML = '';
+
+        suggestions.forEach(suggestion => {
+            const card = document.createElement('div');
+            card.className = 'suggestion-card';
+            card.innerHTML = `
+                <span class="icon">${suggestion.icon}</span>
+                <div class="title">${suggestion.title}</div>
+                <div class="content">${suggestion.content}</div>
+            `;
+            suggestionsGrid.appendChild(card);
+        });
+    }
+
+    function generateSuggestions(formData, healthAge) {
+        const suggestions = [];
+
+        // 運動に関する提案
+        if (formData.exerciseFrequency === 'never' || formData.exerciseFrequency === 'rarely') {
+            suggestions.push({
+                icon: '🏃‍♂️',
+                title: '運動習慣の確立',
+                content: '週に2-3回、30分程度の有酸素運動から始めましょう。ウォーキングや軽いジョギングがおすすめです。'
+            });
+        }
+
+        // 食事に関する提案
+        if (formData.vegetableIntake === 'low' || formData.processedFood === 'high') {
+            suggestions.push({
+                icon: '🥗',
+                title: '食生活の改善',
+                content: '野菜・果物を1日5回以上摂取し、加工食品を減らしましょう。バランスの取れた食事を心がけてください。'
+            });
+        }
+
+        // 睡眠に関する提案
+        if (formData.sleepHours === 'short' || formData.sleepQuality === 'poor') {
+            suggestions.push({
+                icon: '😴',
+                title: '睡眠の質向上',
+                content: '規則正しい睡眠時間を確保し、就寝前のスマホ使用を控えましょう。リラックスできる睡眠環境を整えてください。'
+            });
+        }
+
+        // 生活習慣に関する提案
+        if (formData.smoking === 'current') {
+            suggestions.push({
+                icon: '🚭',
+                title: '禁煙',
+                content: '喫煙は健康に深刻な影響を与えます。禁煙外来や禁煙補助剤の利用を検討し、段階的に禁煙に取り組みましょう。'
+            });
+        }
+
+        // ストレス管理に関する提案
+        if (formData.stressLevel === 'high') {
+            suggestions.push({
+                icon: '🧘‍♀️',
+                title: 'ストレス管理',
+                content: '深呼吸、瞑想、ヨガなどのリラクゼーション法を取り入れ、適度な休息を心がけましょう。'
+            });
+        }
+
+        // 基本的な提案を追加
+        if (suggestions.length < 3) {
+            suggestions.push({
+                icon: '💪',
+                title: '継続的な健康管理',
+                content: '小さな変化でも継続することが重要です。無理のない範囲で生活習慣の改善に取り組みましょう。'
+            });
+        }
+
+        return suggestions.slice(0, 4);
+    }
+});
+    </script>
+</body>
+</html> 
+

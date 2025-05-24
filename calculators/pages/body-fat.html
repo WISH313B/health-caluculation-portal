@@ -1,0 +1,236 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>体脂肪率計算機 | 無料で体脂肪率を計算・分析 - 健康計算ポータル</title>
+    
+    <!-- SEO メタタグ -->
+    <meta name="description" content="身長・体重・年齢・性別から体脂肪率を簡単計算。健康的な体脂肪率の範囲や改善アドバイスも提供。無料の体脂肪率計算機で体組成管理を始めましょう。">
+    <meta name="keywords" content="体脂肪率計算機,体脂肪率,体組成,肥満,痩身,ダイエット,健康管理,フィットネス">
+    <meta name="author" content="健康計算ポータル">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="体脂肪率計算機 | 無料で体脂肪率を計算・分析 - 健康計算ポータル">
+    <meta property="og:description" content="身長・体重・年齢・性別から体脂肪率を簡単計算。健康的な体脂肪率の範囲や改善アドバイスも提供。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://your-domain.com/calculators/pages/body-fat.html">
+    <meta property="og:image" content="https://your-domain.com/assets/images/body-fat-og-image.jpg">
+    <meta property="og:site_name" content="健康計算ポータル">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="体脂肪率計算機 | 無料で体脂肪率を計算・分析">
+    <meta name="twitter:description" content="身長・体重・年齢・性別から体脂肪率を簡単計算。健康的な体脂肪率の範囲や改善アドバイスも提供。">
+    <meta name="twitter:image" content="https://your-domain.com/assets/images/body-fat-og-image.jpg">
+    
+    <!-- ファビコン -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <!-- 構造化データ -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "体脂肪率計算機",
+        "description": "身長・体重・年齢・性別から体脂肪率を計算し、健康的な体組成管理をサポートするツール",
+        "url": "https://your-domain.com/calculators/pages/body-fat.html",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "JPY"
+        }
+    }
+    </script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../../assets/css/body-fat.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1><a href="../../index.html" class="home-link">健康計算ポータル</a></h1>
+            <div class="search-container">
+                <input type="search" placeholder="計算機能を検索..." aria-label="計算機能を検索">
+                <button type="button" aria-label="検索"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="calculator-container">
+            <h2>体脂肪率計算機</h2>
+            <p class="description">
+                米海軍式計算方法を用いて、体脂肪率を正確に測定します。<br>
+                身体の各部位を測定することで、より精密な体組成分析を行います。
+            </p>
+
+            <form id="body-fat-form">
+                <div class="form-group">
+                    <label>性別</label>
+                    <div class="radio-group">
+                        <input type="radio" id="male" name="gender" value="male" checked>
+                        <label for="male">男性</label>
+                        <input type="radio" id="female" name="gender" value="female">
+                        <label for="female">女性</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="age">年齢 (歳)</label>
+                    <input type="number" id="age" required min="18" max="120" placeholder="例: 25">
+                </div>
+
+                <div class="form-group">
+                    <label for="height">身長 (cm)</label>
+                    <input type="number" id="height" required min="120" max="300" step="0.1" placeholder="例: 170">
+                </div>
+
+                <div class="form-group">
+                    <label for="weight">体重 (kg)</label>
+                    <input type="number" id="weight" required min="30" max="300" step="0.1" placeholder="例: 65">
+                </div>
+
+                <div class="form-group">
+                    <label for="waist">ウエストサイズ (cm)</label>
+                    <div class="measurement-help">
+                        <input type="number" id="waist" required min="50" max="200" step="0.1" placeholder="例: 80">
+                        <button type="button" class="help-button" data-tooltip="へその高さで水平に測ります">
+                            <i class="fas fa-question-circle"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="neck">首周り (cm)</label>
+                    <div class="measurement-help">
+                        <input type="number" id="neck" required min="20" max="100" step="0.1" placeholder="例: 35">
+                        <button type="button" class="help-button" data-tooltip="喉仏の下で水平に測ります">
+                            <i class="fas fa-question-circle"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="form-group hip-measurement" style="display: none;">
+                    <label for="hip">ヒップ (cm)</label>
+                    <div class="measurement-help">
+                        <input type="number" id="hip" min="50" max="200" step="0.1" placeholder="例: 95">
+                        <button type="button" class="help-button" data-tooltip="お尻の一番太い部分で水平に測ります">
+                            <i class="fas fa-question-circle"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <button type="submit" class="primary-button">計算する</button>
+            </form>
+
+            <div id="result-section" style="display: none;">
+                <div class="result-box">
+                    <h3>あなたの体脂肪率</h3>
+                    <div class="result-value primary"><span id="body-fat-value">0.0</span>%</div>
+                    <p class="result-description" id="body-fat-description">体脂肪率の判定結果です。</p>
+                </div>
+
+                <div class="composition-section">
+                    <h3>体組成分析</h3>
+                    <div class="composition-visual">
+                        <div class="composition-bar">
+                            <div class="fat-mass" id="fat-mass-bar"></div>
+                            <div class="lean-mass" id="lean-mass-bar"></div>
+                        </div>
+                        <div class="composition-legend">
+                            <div class="legend-item">
+                                <span class="legend-color fat"></span>
+                                <span>体脂肪量 <span id="fat-mass-value">0.0</span>kg</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color lean"></span>
+                                <span>除脂肪量 <span id="lean-mass-value">0.0</span>kg</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="range-section">
+                    <h3>体脂肪率評価</h3>
+                    <div class="range-indicator">
+                        <div class="range-scale">
+                            <div class="range-marker" id="range-marker"></div>
+                            <div class="range-segments">
+                                <div class="segment low">低体脂肪</div>
+                                <div class="segment normal">標準</div>
+                                <div class="segment high">やや高め</div>
+                                <div class="segment very-high">高体脂肪</div>
+                            </div>
+                        </div>
+                        <div class="ideal-range-info">
+                            <p>推奨範囲: <span id="ideal-range">--%～-%</span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-section">
+                    <h3>体脂肪率について</h3>
+                    <div class="info-content">
+                        <h4>体脂肪率とは</h4>
+                        <p>体脂肪率は、体重に占める脂肪の割合を示す指標です。健康維持や体型管理において重要な数値の一つです。</p>
+                        
+                        <h4>測定方法について</h4>
+                        <p>この計算機では米海軍式計算方法を使用しています。この方法は身体の各部位の周囲を測定することで、比較的正確な体脂肪率を算出できます。</p>
+
+                        <h4>年齢・性別別の基準値</h4>
+                        <div class="standards-grid">
+                            <div class="standard-item">
+                                <h5>男性の基準</h5>
+                                <ul>
+                                    <li>標準: 10-20%</li>
+                                    <li>やや高め: 20-25%</li>
+                                    <li>高体脂肪: 25%以上</li>
+                                </ul>
+                            </div>
+                            <div class="standard-item">
+                                <h5>女性の基準</h5>
+                                <ul>
+                                    <li>標準: 20-30%</li>
+                                    <li>やや高め: 30-35%</li>
+                                    <li>高体脂肪: 35%以上</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <h4>健康的な体脂肪率を維持するために</h4>
+                        <ul class="health-tips">
+                            <li><i class="fas fa-circle"></i> 筋力トレーニングを取り入れる</li>
+                            <li><i class="fas fa-circle"></i> 有酸素運動を継続する</li>
+                            <li><i class="fas fa-circle"></i> タンパク質を十分摂取する</li>
+                            <li><i class="fas fa-circle"></i> 睡眠時間を確保する</li>
+                            <li><i class="fas fa-circle"></i> 定期的に測定して変化を把握する</li>
+                        </ul>
+
+                        <h4>注意事項</h4>
+                        <p>この計算は推定値です。より正確な測定には、体組成計（DXA法、インピーダンス法など）の使用をおすすめします。また、筋肉量や骨密度なども健康管理において重要な指標です。</p>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button id="recalculate" class="secondary-button">再計算</button>
+                    <button id="share-twitter" class="share-button">
+                        <i class="fab fa-twitter"></i> 結果をシェア
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 健康計算ポータル All Rights Reserved.</p>
+    </footer>
+
+    <script src="../../assets/js/../../search.js"></script>
+    <script src="../../assets/js/body-fat.js"></script>
+</body>
+</html> 
+

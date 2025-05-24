@@ -1,0 +1,214 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>理想体重計算機 | 無料で理想・標準体重を計算 - 健康計算ポータル</title>
+    
+    <!-- SEO メタタグ -->
+    <meta name="description" content="身長から理想体重・標準体重を瞬時に計算。健康的な体重の範囲や体重管理のアドバイスも提供。無料の理想体重計算機で健康管理を始めましょう。">
+    <meta name="keywords" content="理想体重計算機,理想体重,標準体重,適正体重,健康管理,ダイエット,体重管理">
+    <meta name="author" content="健康計算ポータル">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="理想体重計算機 | 無料で理想・標準体重を計算 - 健康計算ポータル">
+    <meta property="og:description" content="身長から理想体重・標準体重を瞬時に計算。健康的な体重の範囲や体重管理のアドバイスも提供。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://your-domain.com/calculators/pages/ideal-weight.html">
+    <meta property="og:image" content="https://your-domain.com/assets/images/ideal-weight-og-image.jpg">
+    <meta property="og:site_name" content="健康計算ポータル">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="理想体重計算機 | 無料で理想・標準体重を計算">
+    <meta name="twitter:description" content="身長から理想体重・標準体重を瞬時に計算。健康的な体重の範囲や体重管理のアドバイスも提供。">
+    <meta name="twitter:image" content="https://your-domain.com/assets/images/ideal-weight-og-image.jpg">
+    
+    <!-- ファビコン -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <!-- 構造化データ -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "理想体重計算機",
+        "description": "身長から理想体重・標準体重を計算し、健康的な体重管理をサポートするツール",
+        "url": "https://your-domain.com/calculators/pages/ideal-weight.html",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "JPY"
+        }
+    }
+    </script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../../assets/css/ideal-weight.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1><a href="../../index.html" class="home-link">健康計算ポータル</a></h1>
+            <div class="search-container">
+                <input type="search" placeholder="計算機能を検索..." aria-label="計算機能を検索">
+                <button type="button" aria-label="検索"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="calculator-container">
+            <h2>理想体重計算機</h2>
+            <p class="description">
+                身長・体重・年齢から、あなたの適正体重を計算します。<br>
+                BMIと体格指数に基づいて、健康的な体重範囲と目標設定をサポートします。
+            </p>
+
+            <form id="ideal-weight-form">
+                <div class="form-group">
+                    <label>性別:</label>
+                    <div class="radio-group">
+                        <input type="radio" id="male" name="gender" value="male" checked>
+                        <label for="male">男性</label>
+                        <input type="radio" id="female" name="gender" value="female">
+                        <label for="female">女性</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="age">年齢 (歳)</label>
+                    <input type="number" id="age" name="age" required min="18" max="120" placeholder="例: 25">
+                </div>
+
+                <div class="form-group">
+                    <label for="height">身長 (cm)</label>
+                    <input type="number" id="height" name="height" required min="120" max="300" step="0.1" placeholder="例: 170">
+                </div>
+
+                <div class="form-group">
+                    <label for="weight">現在の体重 (kg)</label>
+                    <input type="number" id="weight" name="weight" required min="30" max="300" step="0.1" placeholder="例: 65">
+                </div>
+
+                <div class="form-group">
+                    <label for="frame-size">体格</label>
+                    <select id="frame-size" name="frame-size" required>
+                        <option value="small">小柄</option>
+                        <option value="medium" selected>普通</option>
+                        <option value="large">大柄</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="primary-button">計算する</button>
+            </form>
+
+            <div id="result-section" style="display: none;">
+                <div class="result-grid">
+                    <div class="result-box bmi-box">
+                        <h3>BMI</h3>
+                        <div class="result-value">
+                            <span id="bmi-value">0.0</span>
+                        </div>
+                        <div class="bmi-category" id="bmi-category">判定中...</div>
+                    </div>
+
+                    <div class="result-box ideal-weight-box">
+                        <h3>理想体重</h3>
+                        <div class="result-value">
+                            <span id="ideal-weight-value">0.0</span>
+                            <span class="unit">kg</span>
+                        </div>
+                        <div class="weight-range" id="weight-range">
+                            適正範囲: <span id="weight-range-min">0.0</span>kg ～ <span id="weight-range-max">0.0</span>kg
+                        </div>
+                    </div>
+
+                    <div class="result-box difference-box">
+                        <h3>目標までの差</h3>
+                        <div class="result-value">
+                            <span id="weight-difference">0.0</span>
+                            <span class="unit">kg</span>
+                        </div>
+                        <div class="difference-label" id="difference-label">判定中...</div>
+                    </div>
+                </div>
+
+                <div class="weight-chart">
+                    <h3>体重の位置づけ</h3>
+                    <div class="chart-container">
+                        <div class="weight-scale">
+                            <div class="scale-marker" id="current-weight-marker">
+                                <span class="marker-label">現在</span>
+                            </div>
+                            <div class="scale-marker" id="ideal-weight-marker">
+                                <span class="marker-label">適正</span>
+                            </div>
+                            <div class="scale-sections">
+                                <div class="section underweight">
+                                    <span>低体重</span>
+                                </div>
+                                <div class="section normal">
+                                    <span>標準</span>
+                                </div>
+                                <div class="section overweight">
+                                    <span>肥満</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="details-section">
+                    <div class="health-risks">
+                        <h3>健康リスク評価</h3>
+                        <div class="risk-level" id="risk-level">
+                            <i class="fas fa-exclamation-circle"></i>
+                            <span>リスクレベル判定中...</span>
+                        </div>
+                        <ul class="risk-details" id="risk-details">
+                            <!-- JavaScriptで動的に生成 -->
+                        </ul>
+                    </div>
+
+                    <div class="recommendations">
+                        <h3>推奨プラン</h3>
+                        <div class="plan-details">
+                            <div class="plan-section">
+                                <h4>目標設定</h4>
+                                <ul id="goal-recommendations">
+                                    <!-- JavaScriptで動的に生成 -->
+                                </ul>
+                            </div>
+                            <div class="plan-section">
+                                <h4>実践アドバイス</h4>
+                                <ul id="practical-tips">
+                                    <!-- JavaScriptで動的に生成 -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button id="recalculate" class="secondary-button">再計算</button>
+                    <button id="share-twitter" class="share-button">
+                        <i class="fab fa-twitter"></i> 結果をシェア
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 健康計算ポータル All Rights Reserved.</p>
+    </footer>
+
+    <script src="../../search.js"></script>
+    <script src="../../assets/js/ideal-weight.js"></script>
+</body>
+</html> 
+

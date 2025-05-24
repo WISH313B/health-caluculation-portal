@@ -1,0 +1,201 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基礎代謝量計算機 | 無料でBMR・カロリー消費を計算 - 健康計算ポータル</title>
+    
+    <!-- SEO メタタグ -->
+    <meta name="description" content="身長・体重・年齢・性別から基礎代謝量（BMR）を正確に計算。1日に必要なカロリーや代謝アップのアドバイスも提供。無料のBMR計算機でダイエット・健康管理を始めましょう。">
+    <meta name="keywords" content="基礎代謝量計算機,BMR,基礎代謝,カロリー,消費カロリー,ダイエット,健康管理,代謝アップ">
+    <meta name="author" content="健康計算ポータル">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="基礎代謝量計算機 | 無料でBMR・カロリー消費を計算 - 健康計算ポータル">
+    <meta property="og:description" content="身長・体重・年齢・性別から基礎代謝量（BMR）を正確に計算。1日に必要なカロリーや代謝アップのアドバイスも提供。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://your-domain.com/calculators/pages/bmr.html">
+    <meta property="og:image" content="https://your-domain.com/assets/images/bmr-og-image.jpg">
+    <meta property="og:site_name" content="健康計算ポータル">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="基礎代謝量計算機 | 無料でBMR・カロリー消費を計算">
+    <meta name="twitter:description" content="身長・体重・年齢・性別から基礎代謝量（BMR）を正確に計算。1日に必要なカロリーや代謝アップのアドバイスも提供。">
+    <meta name="twitter:image" content="https://your-domain.com/assets/images/bmr-og-image.jpg">
+    
+    <!-- ファビコン -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <!-- 構造化データ -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "基礎代謝量計算機",
+        "description": "基礎代謝量（BMR）を計算し、1日の必要カロリーや代謝向上をサポートするツール",
+        "url": "https://your-domain.com/calculators/pages/bmr.html",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "JPY"
+        }
+    }
+    </script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../../assets/css/bmr.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1><a href="../../index.html" class="home-link">健康計算ポータル</a></h1>
+            <div class="search-container">
+                <input type="search" placeholder="計算機能を検索...">
+                <button type="button"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="calculator-container">
+            <h2>基礎代謝量計算機</h2>
+            <p class="description">
+                基礎代謝量（BMR）は、生命維持に必要な最小限のエネルギー量です。<br>
+                年齢、性別、身長、体重から算出し、活動レベルに応じた1日の必要カロリーを計算します。
+            </p>
+
+            <form id="bmr-form">
+                <div class="form-group">
+                    <label>性別:</label>
+                    <div class="radio-group">
+                        <input type="radio" id="male" name="gender" value="male" checked>
+                        <label for="male">男性</label>
+                        <input type="radio" id="female" name="gender" value="female">
+                        <label for="female">女性</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="age">年齢 (歳)</label>
+                    <input type="number" id="age" required min="1" max="120" placeholder="例: 25">
+                </div>
+
+                <div class="form-group">
+                    <label for="height">身長 (cm)</label>
+                    <input type="number" id="height" required min="1" max="300" step="0.1" placeholder="例: 170">
+                </div>
+
+                <div class="form-group">
+                    <label for="weight">体重 (kg)</label>
+                    <input type="number" id="weight" required min="1" max="500" step="0.1" placeholder="例: 60">
+                </div>
+
+                <div class="form-group">
+                    <label for="activity">活動レベル</label>
+                    <div class="activity-selector">
+                        <div class="activity-option" data-value="1.2">
+                            <i class="fas fa-couch"></i>
+                            <span>座り仕事中心</span>
+                            <small>デスクワーク中心の生活</small>
+                        </div>
+                        <div class="activity-option" data-value="1.375">
+                            <i class="fas fa-walking"></i>
+                            <span>軽い運動</span>
+                            <small>通勤や買い物程度の活動</small>
+                        </div>
+                        <div class="activity-option" data-value="1.55">
+                            <i class="fas fa-running"></i>
+                            <span>中程度の運動</span>
+                            <small>週3-5回の運動習慣</small>
+                        </div>
+                        <div class="activity-option" data-value="1.725">
+                            <i class="fas fa-dumbbell"></i>
+                            <span>活発な運動</span>
+                            <small>週6-7回の運動習慣</small>
+                        </div>
+                        <div class="activity-option" data-value="1.9">
+                            <i class="fas fa-fire"></i>
+                            <span>非常に活発</span>
+                            <small>アスリートレベルの運動量</small>
+                        </div>
+                    </div>
+                    <input type="hidden" id="activity-level" value="1.2">
+                </div>
+
+                <button type="submit" class="primary-button">計算する</button>
+            </form>
+
+            <div id="result-section" style="display: none;">
+                <div class="result-box">
+                    <h3>基礎代謝量（BMR）</h3>
+                    <div class="result-value"><span id="bmr-value">0</span> kcal</div>
+                    <p class="result-description">これは、何も活動せずじっとしている状態で消費するカロリーです。</p>
+                </div>
+
+                <div class="result-box">
+                    <h3>1日の消費カロリー（TDEE）</h3>
+                    <div class="result-value primary"><span id="tdee-value">0</span> kcal</div>
+                    <p class="result-description">これは、あなたの活動レベルを考慮した1日の消費カロリーです。</p>
+                </div>
+
+                <div class="calorie-goals">
+                    <div class="goal-box weight-loss">
+                        <h4>減量目標</h4>
+                        <div class="goal-value"><span id="weight-loss-value">0</span> kcal</div>
+                        <small>1週間あたり0.5kgの減量ペース</small>
+                    </div>
+                    <div class="goal-box maintenance">
+                        <h4>現状維持</h4>
+                        <div class="goal-value"><span id="maintenance-value">0</span> kcal</div>
+                        <small>現在の体重を維持</small>
+                    </div>
+                    <div class="goal-box weight-gain">
+                        <h4>増量目標</h4>
+                        <div class="goal-value"><span id="weight-gain-value">0</span> kcal</div>
+                        <small>1週間あたり0.5kgの増量ペース</small>
+                    </div>
+                </div>
+
+                <div class="nutrition-tips">
+                    <h3>栄養バランスの目安</h3>
+                    <div class="macros-distribution">
+                        <div class="macro protein">
+                            <i class="fas fa-drumstick-bite"></i>
+                            <span>タンパク質</span>
+                            <div class="macro-value"><span id="protein-value">0</span>g</div>
+                        </div>
+                        <div class="macro fat">
+                            <i class="fas fa-cheese"></i>
+                            <span>脂質</span>
+                            <div class="macro-value"><span id="fat-value">0</span>g</div>
+                        </div>
+                        <div class="macro carbs">
+                            <i class="fas fa-bread-slice"></i>
+                            <span>炭水化物</span>
+                            <div class="macro-value"><span id="carbs-value">0</span>g</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button id="recalculate" class="secondary-button">再計算</button>
+                    <button id="share-twitter" class="share-button">
+                        <i class="fab fa-twitter"></i> 結果をシェア
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 健康計算ポータル All Rights Reserved.</p>
+    </footer>
+
+    <script src="../../assets/js/../../search.js"></script>
+    <script src="../../assets/js/bmr.js"></script>
+</body>
+</html> 

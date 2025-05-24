@@ -1,0 +1,479 @@
+/* BMI計算機 - 統一デザインCSS */
+
+/* カラーパレット */
+:root {
+    --primary-color: #007AFF;
+    --primary-hover: #0056CC;
+    --text-primary: #1D1D1F;
+    --text-secondary: #86868B;
+    --background-primary: #F5F5F7;
+    --tile-background: #FFFFFF;
+    --border-color: #E5E5E7;
+    --twitter-blue: #1DA1F2;
+    
+    /* BMI分類カラー */
+    --underweight-color: #5AC8FA;
+    --normal-color: #30D158;
+    --overweight-color: #FF9500;
+    --obesity-color: #FF3B30;
+}
+
+/* メインコンテナ */
+.calculator-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 説明文 */
+.description {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    line-height: 1.8;
+    font-size: 1rem;
+}
+
+.description br {
+    display: block;
+    margin: 0.8rem 0;
+    content: "";
+}
+
+/* フォームスタイル */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    color: var(--text-primary);
+    background-color: var(--tile-background);
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+input[type="number"]:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.1);
+}
+
+/* ボタンスタイル */
+.primary-button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s ease;
+    margin-top: 1.5rem;
+}
+
+.primary-button:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-1px);
+}
+
+.secondary-button {
+    background-color: var(--tile-background);
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    border-radius: 12px;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.secondary-button:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-1px);
+}
+
+.share-button {
+    background-color: var(--twitter-blue);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.share-button:hover {
+    background-color: #1991DA;
+    transform: translateY(-1px);
+}
+
+/* 結果セクション */
+.result-box {
+    background-color: var(--tile-background);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+.result-box h3 {
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.result-value.primary {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin: 1rem 0;
+}
+
+.result-description {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-top: 0.5rem;
+}
+
+.result-description .underweight {
+    color: var(--underweight-color);
+    font-weight: 600;
+}
+
+.result-description .normal {
+    color: var(--normal-color);
+    font-weight: 600;
+}
+
+.result-description .overweight {
+    color: var(--overweight-color);
+    font-weight: 600;
+}
+
+.result-description .obesity {
+    color: var(--obesity-color);
+    font-weight: 600;
+}
+
+/* 詳細セクション */
+.details-section {
+    background-color: var(--tile-background);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.details-section h3 {
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+}
+
+.detail-item {
+    background-color: var(--background-primary);
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.detail-item:hover {
+    transform: translateY(-2px);
+}
+
+.detail-label {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.detail-value {
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+/* BMIスケールセクション */
+.bmi-scale-section {
+    background-color: var(--tile-background);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.bmi-scale-section h3 {
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.bmi-scale {
+    position: relative;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.scale-segments {
+    display: flex;
+    height: 40px;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.segment {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.segment.underweight {
+    background-color: var(--underweight-color);
+    flex: 20;
+}
+
+.segment.normal {
+    background-color: var(--normal-color);
+    flex: 30;
+}
+
+.segment.overweight1 {
+    background-color: var(--overweight-color);
+    flex: 25;
+}
+
+.segment.overweight2 {
+    background-color: #FF6B35;
+    flex: 15;
+}
+
+.segment.obesity {
+    background-color: var(--obesity-color);
+    flex: 10;
+}
+
+.scale-values {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    position: relative;
+    padding: 0 5px;
+}
+
+.bmi-marker {
+    position: absolute;
+    top: -5px;
+    width: 10px;
+    height: 50px;
+    background-color: var(--text-primary);
+    border-radius: 5px;
+    transform: translateX(-50%);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+    transition: left 0.3s ease;
+}
+
+.bmi-marker::after {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 8px solid var(--text-primary);
+}
+
+/* 情報セクション */
+.info-section {
+    background-color: var(--tile-background);
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.info-section h3 {
+    color: var(--text-primary);
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.info-content h4 {
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    margin: 1.5rem 0 1rem 0;
+    font-weight: 600;
+}
+
+.info-content p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.bmi-categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.category-item {
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: transform 0.3s ease;
+    border-left: 4px solid;
+}
+
+.category-item:hover {
+    transform: translateY(-2px);
+}
+
+.category-item.underweight {
+    background-color: rgba(90, 200, 250, 0.1);
+    border-left-color: var(--underweight-color);
+}
+
+.category-item.normal {
+    background-color: rgba(48, 209, 88, 0.1);
+    border-left-color: var(--normal-color);
+}
+
+.category-item.overweight {
+    background-color: rgba(255, 149, 0, 0.1);
+    border-left-color: var(--overweight-color);
+}
+
+.category-item.obesity {
+    background-color: rgba(255, 59, 48, 0.1);
+    border-left-color: var(--obesity-color);
+}
+
+.category-item h5 {
+    color: var(--text-primary);
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.category-item p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.health-tips {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+}
+
+.health-tips li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 0.8rem;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.health-tips li i {
+    color: var(--primary-color);
+    margin-top: 0.3rem;
+    font-size: 0.5rem;
+    flex-shrink: 0;
+}
+
+/* アクションボタン */
+.action-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.action-buttons button {
+    flex: 1;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+    .calculator-container {
+        padding: 1rem;
+    }
+
+    .result-value.primary {
+        font-size: 1.5rem;
+    }
+
+    .details-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .bmi-categories {
+        grid-template-columns: 1fr;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+    }
+
+    .scale-segments .segment {
+        font-size: 0.7rem;
+    }
+
+    .scale-values {
+        font-size: 0.7rem;
+    }
+} 

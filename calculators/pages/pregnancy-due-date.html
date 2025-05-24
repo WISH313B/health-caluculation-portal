@@ -1,0 +1,164 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="蛛･蠎ｷ險育ｮ励・繝ｼ繧ｿ繝ｫ縺ｮ險育ｮ玲ｩ溘〒蛛･蠎ｷ邂｡逅・ｒ繧ｵ繝昴・繝医・MI縲∽ｽ楢р閧ｪ邇・√き繝ｭ繝ｪ繝ｼ險育ｮ励↑縺ｩ20遞ｮ鬘樔ｻ･荳翫・蛛･蠎ｷ繝・・繝ｫ繧堤┌譁吶〒謠蝉ｾ帙・>
+    <meta name="keywords" content="蛛･蠎ｷ險育ｮ玲ｩ・BMI,菴楢р閧ｪ邇・繧ｫ繝ｭ繝ｪ繝ｼ險育ｮ・蛛･蠎ｷ邂｡逅・繝繧､繧ｨ繝・ヨ,繝輔ぅ繝・ヨ繝阪せ">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <title>出産予定日計算機 - 健康計算ポータル</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../../assets/css/pregnancy-due-date.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1><a href="../../index.html" class="home-link">健康計算ポータル</a></h1>
+            <div class="search-container">
+                <input type="search" placeholder="計算機能を検索..." aria-label="計算機能を検索">
+                <button type="button" aria-label="検索"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="calculator-container">
+            <h2>出産予定日計算機</h2>
+            <p class="description">
+                最終月経開始日または現在の妊娠週数から、出産予定日を計算します。<br>
+                妊娠週数や現在のトリメスター、重要なマイルストーンも確認できます。
+            </p>
+
+            <div class="calculator-section">
+                <div class="input-section">
+                    <div class="calculation-method">
+                        <div class="method-select">
+                            <button class="method-btn active" data-method="lmp">最終月経開始日から計算</button>
+                            <button class="method-btn" data-method="weeks">妊娠週数から計算</button>
+                        </div>
+
+                        <div id="lmpMethod" class="method-inputs active">
+                            <div class="input-group">
+                                <label for="lmpDate">最終月経開始日</label>
+                                <input type="date" id="lmpDate">
+                            </div>
+                        </div>
+
+                        <div id="weeksMethod" class="method-inputs">
+                            <div class="input-group">
+                                <label for="examDate">診察日</label>
+                                <input type="date" id="examDate">
+                            </div>
+                            <div class="input-group">
+                                <label>妊娠週数</label>
+                                <div class="weeks-input">
+                                    <div class="input-with-unit">
+                                        <input type="number" id="weeksPregnant" min="0" max="42">
+                                        <span class="unit">週</span>
+                                    </div>
+                                    <div class="input-with-unit">
+                                        <input type="number" id="daysPregnant" min="0" max="6">
+                                        <span class="unit">日</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="result-section">
+                    <div class="due-date-result">
+                        <h3>出産予定日</h3>
+                        <div class="result-value" id="dueDate">-</div>
+                    </div>
+
+                    <div class="pregnancy-info">
+                        <div class="info-item">
+                            <h4>現在の妊娠週数</h4>
+                            <div class="info-value">
+                                <span id="currentWeek">0</span>週<span id="currentDay">0</span>日
+                            </div>
+                        </div>
+
+                        <div class="pregnancy-progress">
+                            <div class="progress-bar">
+                                <div class="progress" id="progressBar"></div>
+                            </div>
+                            <div class="trimester-marks">
+                                <span>初期（0-15週）</span>
+                                <span>中期（16-27週）</span>
+                                <span>後期（28週〜）</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="milestone-section">
+                <h3>妊娠中の重要なマイルストーン</h3>
+                <div class="milestone-timeline">
+                    <div class="timeline-item" data-week="4">
+                        <div class="timeline-date">4週</div>
+                        <div class="timeline-content">
+                            <h4>妊娠初期</h4>
+                            <p>妊娠が確認できる時期です。つわりが始まることもあります。</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-week="12">
+                        <div class="timeline-date">12週</div>
+                        <div class="timeline-content">
+                            <h4>安定期に入る</h4>
+                            <p>流産のリスクが低下し、つわりも落ち着いてきます。</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-week="20">
+                        <div class="timeline-date">20週</div>
+                        <div class="timeline-content">
+                            <h4>胎動の自覚</h4>
+                            <p>赤ちゃんの動きを感じ始める時期です。</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-week="28">
+                        <div class="timeline-date">28週</div>
+                        <div class="timeline-content">
+                            <h4>後期に入る</h4>
+                            <p>赤ちゃんの体重が急激に増加する時期です。</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-week="36">
+                        <div class="timeline-date">36週</div>
+                        <div class="timeline-content">
+                            <h4>臨月が近づく</h4>
+                            <p>赤ちゃんが頭を下に向け始めます。出産の準備を始めましょう。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <h3>妊娠週数について</h3>
+                <div class="info-content">
+                    <h4>妊娠週数の数え方</h4>
+                    <p>妊娠週数は最終月経開始日を起点として数えます。通常、妊娠期間は40週（280日）とされています。</p>
+
+                    <h4>トリメスター（妊娠期）の区分</h4>
+                    <ul>
+                        <li>初期（第1トリメスター）：妊娠0-15週</li>
+                        <li>中期（第2トリメスター）：妊娠16-27週</li>
+                        <li>後期（第3トリメスター）：妊娠28週〜出産</li>
+                    </ul>
+
+                    <h4>注意事項</h4>
+                    <p>この計算結果はあくまで目安です。実際の出産日は前後する可能性があります。定期的に医師の診察を受け、適切な健康管理を行ってください。</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="../../search.js"></script>
+
+    <script src="../../assets/js/pregnancy-due-date.js"></script>
+</body>
+</html> 
+
+

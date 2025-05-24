@@ -1,0 +1,434 @@
+/* ペース計算機専用スタイル */
+
+.calculator-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.description {
+    color: #86868B;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+/* フォームスタイル */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #1D1D1F;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #D2D2D7;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #FFFFFF;
+    transition: border-color 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #007AFF;
+    box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.1);
+}
+
+/* 計算方法選択 */
+.method-select {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.method-btn {
+    flex: 1;
+    padding: 0.8rem 1rem;
+    background-color: #F5F5F7;
+    color: #1D1D1F;
+    border: 1px solid #D2D2D7;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.method-btn:hover {
+    background-color: #E5E5EA;
+}
+
+.method-btn.active {
+    background-color: #007AFF;
+    color: white;
+    border-color: #007AFF;
+}
+
+/* 入力フォーム */
+.method-inputs {
+    display: none;
+}
+
+.method-inputs.active {
+    display: block;
+}
+
+.distance-input-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.distance-input-group input {
+    flex: 3;
+}
+
+.distance-input-group select {
+    flex: 1;
+    min-width: 80px;
+}
+
+.preset-distances {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.preset-distances button {
+    padding: 0.5rem 1rem;
+    border: 1px solid #D2D2D7;
+    border-radius: 6px;
+    background-color: #FFFFFF;
+    color: #1D1D1F;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.85rem;
+}
+
+.preset-distances button:hover {
+    border-color: #007AFF;
+    color: #007AFF;
+    background-color: #F5F5F7;
+}
+
+.time-inputs {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.time-inputs input[type="number"] {
+    width: 80px;
+    text-align: center;
+}
+
+.time-inputs span {
+    color: #86868B;
+    font-weight: 500;
+}
+
+/* ボタンスタイル */
+.primary-button {
+    width: 100%;
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, #007AFF, #005AE6);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+}
+
+.primary-button:hover {
+    background: linear-gradient(135deg, #005AE6, #004CC7);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 122, 255, 0.3);
+}
+
+/* 結果セクション */
+.result-box {
+    background-color: #F5F5F7;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.result-box h3 {
+    color: #1D1D1F;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.result-value {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #86868B;
+    margin-bottom: 0.5rem;
+}
+
+.result-value.primary {
+    color: #007AFF;
+}
+
+.result-value .unit {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #86868B;
+    margin-left: 0.3rem;
+    vertical-align: baseline;
+}
+
+.result-description {
+    color: #86868B;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* スプリットタイム表 */
+.splits-section {
+    margin: 2rem 0;
+}
+
+.splits-section h3 {
+    color: #1D1D1F;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.splits-table {
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border: 1px solid #E5E5EA;
+}
+
+.table-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    background-color: #007AFF;
+    color: white;
+    padding: 1rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.table-body {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.table-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid #E5E5EA;
+    transition: background-color 0.2s ease;
+    text-align: center;
+}
+
+.table-row:hover {
+    background-color: #F5F5F7;
+}
+
+.table-row:last-child {
+    border-bottom: none;
+}
+
+/* 情報セクション */
+.info-section {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background-color: #F5F5F7;
+    border-radius: 12px;
+}
+
+.info-section h3 {
+    color: #1D1D1F;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.info-content h4 {
+    color: #1D1D1F;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.info-content h4:first-child {
+    margin-top: 0;
+}
+
+.info-content p {
+    color: #86868B;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.pace-explanations {
+    display: grid;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.pace-item {
+    background-color: #FFFFFF;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid #E5E5EA;
+}
+
+.pace-item h5 {
+    color: #1D1D1F;
+    margin: 0 0 0.5rem 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.pace-item p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #86868B;
+    line-height: 1.4;
+}
+
+.warnings {
+    display: grid;
+    gap: 0.8rem;
+}
+
+.warning-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    padding: 1rem;
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    border: 1px solid #E5E5EA;
+}
+
+.warning-item i {
+    color: #FF9500;
+    font-size: 1rem;
+    margin-top: 0.1rem;
+}
+
+.warning-item p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #86868B;
+    line-height: 1.4;
+}
+
+/* アクションボタン */
+.action-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.secondary-button {
+    flex: 1;
+    padding: 0.8rem 1.5rem;
+    background-color: #F5F5F7;
+    color: #1D1D1F;
+    border: 1px solid #D2D2D7;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.secondary-button:hover {
+    background-color: #E5E5EA;
+    transform: translateY(-1px);
+}
+
+.share-button {
+    flex: 1;
+    padding: 0.8rem 1.5rem;
+    background-color: #1DA1F2;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.share-button:hover {
+    background-color: #1A91DA;
+    transform: translateY(-1px);
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .calculator-container {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+
+    .method-select {
+        flex-direction: column;
+    }
+
+    .distance-input-group {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    .distance-input-group input,
+    .distance-input-group select {
+        width: 100%;
+    }
+
+    .time-inputs {
+        justify-content: center;
+    }
+
+    .time-inputs input[type="number"] {
+        width: 70px;
+        font-size: 0.9rem;
+    }
+
+    .preset-distances {
+        justify-content: center;
+    }
+
+    .table-header,
+    .table-row {
+        font-size: 0.85rem;
+        padding: 0.6rem 0.8rem;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+    }
+
+    .result-value {
+        font-size: 2rem;
+    }
+} 

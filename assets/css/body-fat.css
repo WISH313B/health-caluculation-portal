@@ -1,0 +1,524 @@
+/* 体脂肪率計算機 - 統一デザインCSS */
+
+/* カラーパレット */
+:root {
+    --primary-color: #007AFF;
+    --primary-hover: #0056CC;
+    --text-primary: #1D1D1F;
+    --text-secondary: #86868B;
+    --background-primary: #F5F5F7;
+    --tile-background: #FFFFFF;
+    --border-color: #E5E5E7;
+    --twitter-blue: #1DA1F2;
+    
+    /* 体脂肪率分類カラー */
+    --low-bodyfat-color: #5AC8FA;
+    --normal-bodyfat-color: #30D158;
+    --high-bodyfat-color: #FF9500;
+    --very-high-bodyfat-color: #FF3B30;
+    --fat-color: #FF6B35;
+    --lean-color: #34C759;
+}
+
+/* メインコンテナ */
+.calculator-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 説明文 */
+.description {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    line-height: 1.8;
+    font-size: 1rem;
+}
+
+.description br {
+    display: block;
+    margin: 0.8rem 0;
+    content: "";
+}
+
+/* フォームスタイル */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.radio-group {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+.radio-group input[type="radio"] {
+    margin-right: 0.5rem;
+    accent-color: var(--primary-color);
+}
+
+.radio-group label {
+    margin-bottom: 0;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    color: var(--text-primary);
+    background-color: var(--tile-background);
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+input[type="number"]:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.1);
+}
+
+/* 測定ヘルプ */
+.measurement-help {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.measurement-help input {
+    flex: 1;
+}
+
+.help-button {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.help-button:hover {
+    background-color: rgba(0, 122, 255, 0.1);
+}
+
+.help-button[data-tooltip]:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background-color: var(--text-color);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    z-index: 1;
+}
+
+/* ボタンスタイル */
+.primary-button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s ease;
+    margin-top: 1.5rem;
+}
+
+.primary-button:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-1px);
+}
+
+.secondary-button {
+    background-color: var(--tile-background);
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    border-radius: 12px;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.secondary-button:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-1px);
+}
+
+.share-button {
+    background-color: var(--twitter-blue);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.share-button:hover {
+    background-color: #1991DA;
+    transform: translateY(-1px);
+}
+
+/* 結果セクション */
+.result-box {
+    background-color: var(--tile-background);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+.result-box h3 {
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.result-value.primary {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin: 1rem 0;
+}
+
+.result-description {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-top: 0.5rem;
+}
+
+/* 体組成セクション */
+.composition-section {
+    background-color: var(--tile-background);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.composition-section h3 {
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.composition-bar {
+    display: flex;
+    height: 40px;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    background-color: var(--background-primary);
+}
+
+.fat-mass {
+    background-color: var(--fat-color);
+    transition: width 0.5s ease;
+}
+
+.lean-mass {
+    background-color: var(--lean-color);
+    transition: width 0.5s ease;
+}
+
+.composition-legend {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+}
+
+.legend-color {
+    width: 16px;
+    height: 16px;
+    border-radius: 3px;
+}
+
+.legend-color.fat {
+    background-color: var(--fat-color);
+}
+
+.legend-color.lean {
+    background-color: var(--lean-color);
+}
+
+/* 範囲評価セクション */
+.range-section {
+    background-color: var(--tile-background);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.range-section h3 {
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.range-scale {
+    position: relative;
+    max-width: 500px;
+    margin: 0 auto 1rem;
+}
+
+.range-segments {
+    display: flex;
+    height: 40px;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.segment {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.segment.low {
+    background-color: var(--low-bodyfat-color);
+}
+
+.segment.normal {
+    background-color: var(--normal-bodyfat-color);
+}
+
+.segment.high {
+    background-color: var(--high-bodyfat-color);
+}
+
+.segment.very-high {
+    background-color: var(--very-high-bodyfat-color);
+}
+
+.range-marker {
+    position: absolute;
+    top: -5px;
+    width: 10px;
+    height: 50px;
+    background-color: var(--text-primary);
+    border-radius: 5px;
+    transform: translateX(-50%);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+    transition: left 0.3s ease;
+}
+
+.range-marker::after {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 8px solid var(--text-primary);
+}
+
+.ideal-range-info {
+    text-align: center;
+}
+
+.ideal-range-info p {
+    color: var(--text-secondary);
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.ideal-range-info span {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* 情報セクション */
+.info-section {
+    background-color: var(--tile-background);
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.info-section h3 {
+    color: var(--text-primary);
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.info-content h4 {
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    margin: 1.5rem 0 1rem 0;
+    font-weight: 600;
+}
+
+.info-content p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.standards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.standard-item {
+    background-color: var(--background-primary);
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.standard-item:hover {
+    transform: translateY(-2px);
+}
+
+.standard-item h5 {
+    color: var(--primary-color);
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.standard-item ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.standard-item li {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 0.3rem;
+}
+
+.health-tips {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+}
+
+.health-tips li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 0.8rem;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.health-tips li i {
+    color: var(--primary-color);
+    margin-top: 0.3rem;
+    font-size: 0.5rem;
+    flex-shrink: 0;
+}
+
+/* アクションボタン */
+.action-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.action-buttons button {
+    flex: 1;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+    .calculator-container {
+        padding: 1rem;
+    }
+
+    .result-value.primary {
+        font-size: 1.5rem;
+    }
+
+    .standards-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+    }
+
+    .composition-legend {
+        gap: 1rem;
+    }
+
+    .radio-group {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .measurement-help {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .measurement-help input {
+        width: 100%;
+    }
+} 

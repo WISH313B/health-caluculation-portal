@@ -1,0 +1,235 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1日の消費カロリー計算機 | 無料でTDEE・代謝を計算 - 健康計算ポータル</title>
+    
+    <!-- SEO メタタグ -->
+    <meta name="description" content="基礎代謝と活動レベルから1日の総消費カロリー（TDEE）を正確に計算。ダイエットや体重維持に必要なカロリーも算出。無料のTDEE計算機で理想の体重管理を。">
+    <meta name="keywords" content="TDEE計算機,総消費カロリー,1日消費カロリー,代謝,ダイエット,カロリー計算,体重管理">
+    <meta name="author" content="健康計算ポータル">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="1日の消費カロリー計算機 | 無料でTDEE・代謝を計算 - 健康計算ポータル">
+    <meta property="og:description" content="基礎代謝と活動レベルから1日の総消費カロリー（TDEE）を正確に計算。ダイエットや体重維持に必要なカロリーも算出。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://your-domain.com/calculators/pages/tdee.html">
+    <meta property="og:image" content="https://your-domain.com/assets/images/tdee-og-image.jpg">
+    <meta property="og:site_name" content="健康計算ポータル">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="1日の消費カロリー計算機 | 無料でTDEE・代謝を計算">
+    <meta name="twitter:description" content="基礎代謝と活動レベルから1日の総消費カロリー（TDEE）を正確に計算。ダイエットや体重維持に必要なカロリーも算出。">
+    <meta name="twitter:image" content="https://your-domain.com/assets/images/tdee-og-image.jpg">
+    
+    <!-- ファビコン -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <!-- 構造化データ -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "1日の消費カロリー計算機",
+        "description": "1日の総消費カロリー（TDEE）を計算し、効果的な体重管理をサポートするツール",
+        "url": "https://your-domain.com/calculators/pages/tdee.html",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "JPY"
+        }
+    }
+    </script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../../assets/css/tdee.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1><a href="../../index.html" class="home-link">健康計算ポータル</a></h1>
+            <div class="search-container">
+                <input type="search" placeholder="計算機能を検索..." aria-label="計算機能を検索">
+                <button type="button" aria-label="検索"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="calculator-container">
+            <h2>1日の消費カロリー計算機</h2>
+            <p class="description">
+                基礎代謝量と活動レベルから1日の総消費カロリー（TDEE）を計算します。<br>
+                あなたの生活スタイルに合わせた適切なカロリー摂取量を把握しましょう。
+            </p>
+
+            <form id="tdee-form">
+                <div class="form-group">
+                    <label for="bmr">基礎代謝量（BMR）</label>
+                    <div class="input-with-unit">
+                        <input type="number" id="bmr" name="bmr" required min="500" max="5000" step="1">
+                        <span class="unit">kcal</span>
+                    </div>
+                    <a href="bmr.html" class="calculate-bmr-link">
+                        <i class="fas fa-calculator"></i>
+                        基礎代謝量を計算する
+                    </a>
+                </div>
+
+                <div class="form-group">
+                    <label>活動レベル（PAL）</label>
+                    <div class="activity-level-grid">
+                        <div class="activity-level-item">
+                            <input type="radio" id="pal-1.2" name="activity-level" value="1.2" required>
+                            <label for="pal-1.2">
+                                <i class="fas fa-laptop"></i>
+                                <span class="level-title">座り仕事中心</span>
+                                <span class="level-description">デスクワーク中心、運動習慣なし</span>
+                            </label>
+                        </div>
+                        <div class="activity-level-item">
+                            <input type="radio" id="pal-1.375" name="activity-level" value="1.375">
+                            <label for="pal-1.375">
+                                <i class="fas fa-walking"></i>
+                                <span class="level-title">軽い活動</span>
+                                <span class="level-description">立ち仕事または週1-3回の運動</span>
+                            </label>
+                        </div>
+                        <div class="activity-level-item">
+                            <input type="radio" id="pal-1.55" name="activity-level" value="1.55">
+                            <label for="pal-1.55">
+                                <i class="fas fa-running"></i>
+                                <span class="level-title">中程度の活動</span>
+                                <span class="level-description">週3-5回の定期的な運動</span>
+                            </label>
+                        </div>
+                        <div class="activity-level-item">
+                            <input type="radio" id="pal-1.725" name="activity-level" value="1.725">
+                            <label for="pal-1.725">
+                                <i class="fas fa-dumbbell"></i>
+                                <span class="level-title">活発な活動</span>
+                                <span class="level-description">週6-7回の活発な運動</span>
+                            </label>
+                        </div>
+                        <div class="activity-level-item">
+                            <input type="radio" id="pal-1.9" name="activity-level" value="1.9">
+                            <label for="pal-1.9">
+                                <i class="fas fa-fire"></i>
+                                <span class="level-title">非常に活発</span>
+                                <span class="level-description">アスリート相当の運動量</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="primary-button">計算する</button>
+            </form>
+
+            <div id="result-section" style="display: none;">
+                <div class="result-grid">
+                    <div class="result-box main-result">
+                        <h3>1日の総消費カロリー</h3>
+                        <div class="result-value">
+                            <span id="tdee-value">0</span>
+                            <span class="unit">kcal</span>
+                        </div>
+                        <p class="result-note">これはあなたの1日の基礎代謝と活動による消費カロリーの合計です</p>
+                    </div>
+                </div>
+
+                <div class="calorie-breakdown">
+                    <h3>消費カロリーの内訳</h3>
+                    <div class="chart-container">
+                        <canvas id="calorie-chart"></canvas>
+                    </div>
+                    <div class="chart-legend">
+                        <div class="legend-item">
+                            <span class="legend-color bmr"></span>
+                            <span>基礎代謝（BMR）：体を維持するために必要なエネルギー</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color activity"></span>
+                            <span>活動による消費：日常生活や運動での消費エネルギー</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="calorie-goals">
+                    <h3>目的別推奨摂取カロリー</h3>
+                    <div class="goals-grid">
+                        <div class="goal-item weight-loss">
+                            <div class="goal-icon">
+                                <i class="fas fa-weight"></i>
+                            </div>
+                            <h4>減量</h4>
+                            <div class="goal-value">
+                                <span id="weight-loss-calories">0</span>
+                                <span class="unit">kcal</span>
+                            </div>
+                            <p class="goal-description">基礎代謝を維持しながら減量するための推奨カロリー（-20%）</p>
+                            <ul class="goal-tips">
+                                <li>ゆっくりと健康的な減量が可能</li>
+                                <li>週に0.5kg程度の減量を目標にします</li>
+                            </ul>
+                        </div>
+                        <div class="goal-item maintenance">
+                            <div class="goal-icon">
+                                <i class="fas fa-balance-scale"></i>
+                            </div>
+                            <h4>現状維持</h4>
+                            <div class="goal-value">
+                                <span id="maintenance-calories">0</span>
+                                <span class="unit">kcal</span>
+                            </div>
+                            <p class="goal-description">現在の体重を維持するための推奨カロリー</p>
+                            <ul class="goal-tips">
+                                <li>現在の体型を維持したい方向け</li>
+                                <li>筋力トレーニング時の基準に</li>
+                            </ul>
+                        </div>
+                        <div class="goal-item weight-gain">
+                            <div class="goal-icon">
+                                <i class="fas fa-dumbbell"></i>
+                            </div>
+                            <h4>増量</h4>
+                            <div class="goal-value">
+                                <span id="weight-gain-calories">0</span>
+                                <span class="unit">kcal</span>
+                            </div>
+                            <p class="goal-description">筋肉量を増やすための推奨カロリー（+20%）</p>
+                            <ul class="goal-tips">
+                                <li>適度な筋力トレーニングと組み合わせて</li>
+                                <li>週に0.25-0.5kgの増量を目標にします</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button type="button" id="recalculate" class="secondary-button">
+                        <i class="fas fa-redo"></i>
+                        再計算
+                    </button>
+                    <button type="button" id="share-twitter" class="share-button">
+                        <i class="fab fa-twitter"></i>
+                        結果をシェア
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 健康計算ポータル All Rights Reserved.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../../search.js"></script>
+    <script src="../../assets/js/tdee.js"></script>
+</body>
+</html> 
+
+

@@ -1,0 +1,328 @@
+/* 計算機コンテナ */
+.calculator-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: var(--tile-background);
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* 説明文 */
+.description {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    line-height: 1.8;
+}
+
+.description br {
+    display: block;
+    margin: 0.8rem 0;
+    content: "";
+}
+
+/* フォームスタイル */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.radio-group {
+    display: flex;
+    gap: 2rem;
+    margin-top: 0.5rem;
+}
+
+.radio-group input[type="radio"] {
+    margin-right: 0.5rem;
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: var(--tile-background);
+    color: var(--text-color);
+    transition: all 0.2s ease;
+}
+
+input[type="number"]:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(10, 132, 255, 0.1);
+}
+
+[data-theme="light"] input[type="number"]:focus {
+    box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.1);
+}
+
+/* 活動レベルセレクター */
+.activity-selector {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.activity-option {
+    background-color: var(--tile-background);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.activity-option:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-1px);
+}
+
+.activity-option.selected {
+    border-color: var(--primary-color);
+    background-color: rgba(0, 122, 255, 0.08);
+    box-shadow: 0 0 0 3px rgba(10, 132, 255, 0.1);
+}
+
+[data-theme="dark"] .activity-option.selected {
+    background-color: rgba(10, 132, 255, 0.15);
+}
+
+[data-theme="light"] .activity-option.selected {
+    background-color: rgba(0, 122, 255, 0.08);
+    box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.1);
+}
+
+.activity-option i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.activity-option span {
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+}
+
+.activity-option small {
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+}
+
+/* ボタンスタイル */
+.primary-button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+.primary-button:hover {
+    background-color: var(--hover-color);
+}
+
+.secondary-button {
+    background-color: var(--background-color);
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    border-radius: 8px;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.secondary-button:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.share-button {
+    background-color: #1DA1F2;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.share-button:hover {
+    background-color: #1991DA;
+}
+
+/* 結果セクション */
+.result-box {
+    background-color: var(--tile-background);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.result-value {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--text-color);
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.result-value.primary {
+    color: var(--primary-color);
+}
+
+.result-description {
+    color: var(--text-secondary);
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* カロリー目標 */
+.calorie-goals {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.goal-box {
+    background-color: var(--tile-background);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.goal-box h4 {
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+.goal-value {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0.5rem 0;
+}
+
+.goal-box small {
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+}
+
+.weight-loss .goal-value {
+    color: #FF3B30;
+}
+
+.maintenance .goal-value {
+    color: var(--primary-color);
+}
+
+.weight-gain .goal-value {
+    color: #34C759;
+}
+
+/* 栄養バランス */
+.nutrition-tips {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.macros-distribution {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.macro {
+    text-align: center;
+    padding: 1rem;
+    border-radius: 8px;
+    background-color: var(--background-color);
+}
+
+.macro i {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.macro span {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.macro-value {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+/* アクションボタン */
+.action-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.action-buttons button {
+    flex: 1;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+    .calculator-container {
+        padding: 1rem;
+        margin: 1rem;
+    }
+
+    .activity-selector {
+        grid-template-columns: 1fr;
+    }
+
+    .calorie-goals {
+        grid-template-columns: 1fr;
+    }
+
+    .macros-distribution {
+        grid-template-columns: 1fr;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+    }
+
+    .result-value {
+        font-size: 2rem;
+    }
+
+    .goal-value {
+        font-size: 1.3rem;
+    }
+} 

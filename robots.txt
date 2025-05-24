@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://your-domain.com/sitemap.xml
+
+# Block access to development files
+Disallow: /.git/
+Disallow: /README.md
+Disallow: /assets/js/
+Disallow: /assets/css/ 

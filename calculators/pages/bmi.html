@@ -1,0 +1,187 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI計算機 | 無料でBMI・適正体重を計算 - 健康計算ポータル</title>
+    
+    <!-- SEO メタタグ -->
+    <meta name="description" content="身長と体重からBMI（ボディマスインデックス）を瞬時に計算。適正体重の範囲や健康リスクの評価も表示。無料で使えるBMI計算機で健康管理を始めましょう。">
+    <meta name="keywords" content="BMI計算機,BMI,ボディマスインデックス,体重,肥満度,適正体重,健康管理,ダイエット">
+    <meta name="author" content="健康計算ポータル">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="BMI計算機 | 無料でBMI・適正体重を計算 - 健康計算ポータル">
+    <meta property="og:description" content="身長と体重からBMI（ボディマスインデックス）を瞬時に計算。適正体重の範囲や健康リスクの評価も表示。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://your-domain.com/calculators/pages/bmi.html">
+    <meta property="og:image" content="https://your-domain.com/assets/images/bmi-og-image.jpg">
+    <meta property="og:site_name" content="健康計算ポータル">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="BMI計算機 | 無料でBMI・適正体重を計算">
+    <meta name="twitter:description" content="身長と体重からBMI（ボディマスインデックス）を瞬時に計算。適正体重の範囲や健康リスクの評価も表示。">
+    <meta name="twitter:image" content="https://your-domain.com/assets/images/bmi-og-image.jpg">
+    
+    <!-- ファビコン -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <!-- 構造化データ -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "BMI計算機",
+        "description": "身長と体重からBMI（ボディマスインデックス）を計算し、適正体重の範囲や健康リスクを評価するツール",
+        "url": "https://your-domain.com/calculators/pages/bmi.html",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "JPY"
+        }
+    }
+    </script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../../assets/css/bmi.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1><a href="../../index.html" class="home-link">健康計算ポータル</a></h1>
+            <div class="search-container">
+                <input type="search" placeholder="計算機能を検索..." aria-label="計算機能を検索">
+                <button type="button" aria-label="検索"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="calculator-container">
+            <h2>BMI計算機</h2>
+            <p class="description">
+                身長と体重からBMI（Body Mass Index）を計算し、あなたの体格指数と健康状態を評価します。<br>
+                適正体重の範囲や健康管理のアドバイスも提供します。
+            </p>
+
+            <form id="bmi-form">
+                <div class="form-group">
+                    <label for="height">身長 (cm)</label>
+                    <input type="number" id="height" required min="1" max="300" step="0.1" placeholder="例: 170">
+                </div>
+                <div class="form-group">
+                    <label for="weight">体重 (kg)</label>
+                    <input type="number" id="weight" required min="1" max="500" step="0.1" placeholder="例: 60">
+                </div>
+                <button type="submit" class="primary-button">計算する</button>
+            </form>
+
+            <div id="result-section" style="display: none;">
+                <div class="result-box">
+                    <h3>あなたのBMI</h3>
+                    <div class="result-value primary" id="bmi-value">0.0</div>
+                    <p class="result-description">
+                        BMI値：<span id="bmi-category">判定中...</span>
+                    </p>
+                </div>
+
+                <div class="details-section">
+                    <h3>詳細分析</h3>
+                    <div class="details-grid">
+                        <div class="detail-item">
+                            <div class="detail-label">適正体重範囲</div>
+                            <div class="detail-value">
+                                <span id="weight-range-value">0.0 - 0.0</span> kg
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">現在との差</div>
+                            <div class="detail-value">
+                                <span id="weight-difference">0.0</span> kg
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bmi-scale-section">
+                    <h3>BMI指標</h3>
+                    <div class="bmi-scale">
+                        <div id="bmi-marker" class="bmi-marker"></div>
+                        <div class="scale-segments">
+                            <div class="segment underweight">低体重</div>
+                            <div class="segment normal">普通体重</div>
+                            <div class="segment overweight1">肥満度1</div>
+                            <div class="segment overweight2">肥満度2</div>
+                            <div class="segment obesity">肥満度3+</div>
+                        </div>
+                        <div class="scale-values">
+                            <span>18.5</span>
+                            <span>25</span>
+                            <span>30</span>
+                            <span>35</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-section">
+                    <h3>BMIについて</h3>
+                    <div class="info-content">
+                        <h4>BMI（Body Mass Index）とは</h4>
+                        <p>BMIは体重と身長の関係から肥満度を示す体格指数です。世界保健機関（WHO）が定めた国際的な基準により、健康リスクの評価に使用されています。</p>
+                        
+                        <h4>BMI分類</h4>
+                        <div class="bmi-categories">
+                            <div class="category-item underweight">
+                                <h5>低体重（18.5未満）</h5>
+                                <p>栄養不足や免疫力低下のリスクがあります</p>
+                            </div>
+                            <div class="category-item normal">
+                                <h5>普通体重（18.5～25未満）</h5>
+                                <p>最も健康的とされる範囲です</p>
+                            </div>
+                            <div class="category-item overweight">
+                                <h5>肥満度1（25～30未満）</h5>
+                                <p>生活習慣病のリスクが少し高まります</p>
+                            </div>
+                            <div class="category-item obesity">
+                                <h5>肥満度2以上（30以上）</h5>
+                                <p>生活習慣病のリスクが高く、医師への相談をおすすめします</p>
+                            </div>
+                        </div>
+
+                        <h4>健康的な体重維持のために</h4>
+                        <ul class="health-tips">
+                            <li><i class="fas fa-circle"></i> バランスの良い食事を心がける</li>
+                            <li><i class="fas fa-circle"></i> 適度な運動を継続する</li>
+                            <li><i class="fas fa-circle"></i> 規則正しい生活リズムを保つ</li>
+                            <li><i class="fas fa-circle"></i> ストレス管理を行う</li>
+                            <li><i class="fas fa-circle"></i> 定期的な健康チェックを受ける</li>
+                        </ul>
+
+                        <h4>BMIの限界</h4>
+                        <p>BMIは筋肉量と脂肪量を区別できないため、筋肉量の多いアスリートや高齢者では正確な評価ができない場合があります。体脂肪率や体組成も併せて確認することをおすすめします。</p>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button id="recalculate" class="secondary-button">再計算</button>
+                    <button id="share-twitter" class="share-button">
+                        <i class="fab fa-twitter"></i> 結果をシェア
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 健康計算ポータル All Rights Reserved.</p>
+    </footer>
+
+    <script src="../../search.js"></script>
+    <script src="../../assets/js/bmi.js"></script>
+</body>
+</html> 

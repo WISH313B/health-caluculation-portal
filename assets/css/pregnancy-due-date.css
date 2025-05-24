@@ -1,0 +1,354 @@
+/* メインコンテナ */
+.calculator-container {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 説明文 */
+.description {
+    color: #666;
+    margin-bottom: 2rem;
+    line-height: 1.8;
+}
+
+.description br {
+    display: block;
+    margin: 0.8rem 0;
+    content: "";
+}
+
+/* 計算セクション */
+.calculator-section {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background-color: #f5f5f7;
+    border-radius: 8px;
+}
+
+/* 入力セクション */
+.input-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.calculation-method {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.method-select {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.method-btn {
+    flex: 1;
+    padding: 0.8rem;
+    border: 1px solid var(--primary-color);
+    border-radius: 6px;
+    background-color: white;
+    color: var(--primary-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.method-btn.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.method-inputs {
+    display: none;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.method-inputs.active {
+    display: flex;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.input-group label {
+    font-weight: 500;
+    color: #333;
+}
+
+.input-group input[type="date"] {
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.weeks-input {
+    display: flex;
+    gap: 1rem;
+}
+
+.input-with-unit {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.input-with-unit input {
+    width: 80px;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.unit {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* 結果セクション */
+.result-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    min-width: 300px;
+    padding: 1.5rem;
+    background-color: white;
+    border-radius: 8px;
+}
+
+.due-date-result {
+    text-align: center;
+}
+
+.due-date-result h3 {
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.result-value {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.pregnancy-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.info-item h4 {
+    color: #333;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.info-value {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+}
+
+.pregnancy-progress {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.progress-bar {
+    height: 8px;
+    background-color: #eee;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+/* トリメスターマーク */
+.trimester-marks {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: #666;
+    position: relative;
+    padding-top: 0.5rem;
+}
+
+.trimester-marks span {
+    position: relative;
+    padding: 0.3rem 0.6rem;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.trimester-marks span.current {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: bold;
+}
+
+/* マイルストーンセクション */
+.milestone-section {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background-color: #f5f5f7;
+    border-radius: 8px;
+}
+
+.milestone-timeline {
+    margin-top: 1.5rem;
+    position: relative;
+    padding: 0 1rem;
+}
+
+.milestone-timeline::before {
+    content: '';
+    position: absolute;
+    left: 5.5rem;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: #ddd;
+}
+
+.timeline-item {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-date {
+    min-width: 4rem;
+    text-align: right;
+    font-weight: bold;
+    color: var(--primary-color);
+    padding: 0.5rem 1rem;
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.timeline-content {
+    flex: 1;
+    background-color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    border-left: 4px solid transparent;
+    transition: all 0.3s ease;
+    margin-left: 1rem;
+}
+
+.timeline-item.achieved .timeline-content {
+    border-left: 4px solid var(--primary-color);
+}
+
+.timeline-content h4 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.timeline-content p {
+    color: #666;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* 情報セクション */
+.info-section {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background-color: #f5f5f7;
+    border-radius: 8px;
+}
+
+.info-content {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 6px;
+    margin-top: 1rem;
+}
+
+.info-content h4 {
+    color: var(--primary-color);
+    margin: 1.5rem 0 0.5rem;
+}
+
+.info-content h4:first-child {
+    margin-top: 0;
+}
+
+.info-content ul {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+    color: #666;
+}
+
+.info-content li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+    .calculator-container {
+        margin: 1rem;
+        padding: 1rem;
+    }
+
+    .calculator-section {
+        grid-template-columns: 1fr;
+    }
+
+    .method-select {
+        flex-direction: column;
+    }
+
+    .weeks-input {
+        flex-direction: column;
+    }
+
+    .timeline-item {
+        flex-direction: column;
+        gap: 0.5rem;
+        padding-left: 1rem;
+    }
+
+    .timeline-date {
+        text-align: left;
+        padding-left: 0;
+        background: none;
+        box-shadow: none;
+    }
+
+    .milestone-timeline::before {
+        left: 0;
+    }
+
+    .timeline-content {
+        margin-left: 0;
+    }
+} 

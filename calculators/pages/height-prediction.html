@@ -1,0 +1,220 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>身長予測計算機 | 子供の将来身長を無料で予測 - 健康計算ポータル</title>
+    
+    <!-- SEO メタタグ -->
+    <meta name="description" content="子供の現在の身長と両親の身長から将来の身長を科学的に予測。成長曲線や身長偏差値も表示。無料の身長予測計算機で子供の成長を見守りましょう。">
+    <meta name="keywords" content="身長予測計算機,身長予測,将来身長,子供,成長,身長偏差値,成長曲線">
+    <meta name="author" content="健康計算ポータル">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="身長予測計算機 | 子供の将来身長を無料で予測 - 健康計算ポータル">
+    <meta property="og:description" content="子供の現在の身長と両親の身長から将来の身長を科学的に予測。成長曲線や身長偏差値も表示。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://your-domain.com/calculators/pages/height-prediction.html">
+    <meta property="og:image" content="https://your-domain.com/assets/images/height-prediction-og-image.jpg">
+    <meta property="og:site_name" content="健康計算ポータル">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="身長予測計算機 | 子供の将来身長を無料で予測">
+    <meta name="twitter:description" content="子供の現在の身長と両親の身長から将来の身長を科学的に予測。成長曲線や身長偏差値も表示。">
+    <meta name="twitter:image" content="https://your-domain.com/assets/images/height-prediction-og-image.jpg">
+    
+    <!-- ファビコン -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <!-- 構造化データ -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "身長予測計算機",
+        "description": "子供の将来身長を予測し、成長過程をサポートするツール",
+        "url": "https://your-domain.com/calculators/pages/height-prediction.html",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "JPY"
+        }
+    }
+    </script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../../assets/css/height-prediction.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1><a href="../../index.html" class="home-link">健康計算ポータル</a></h1>
+            <div class="search-container">
+                <input type="search" placeholder="計算機能を検索..." aria-label="計算機能を検索">
+                <button type="button" aria-label="検索"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="calculator-container">
+            <h2>身長予測計算機</h2>
+            <p class="description">
+                お子様の将来の身長を科学的に予測します。<br>
+                両親の身長と現在の身体データから、成人時の予測身長を詳細に分析します。
+            </p>
+
+            <form id="prediction-form">
+                <div class="form-group">
+                    <label>性別</label>
+                    <div class="radio-group">
+                        <input type="radio" id="male" name="gender" value="male" checked>
+                        <label for="male">男性</label>
+                        <input type="radio" id="female" name="gender" value="female">
+                        <label for="female">女性</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="age">年齢 (歳)</label>
+                    <input type="number" id="age" name="age" min="0" max="25" required placeholder="例: 12">
+                </div>
+                <div class="form-group">
+                    <label for="current-height">現在の身長 (cm)</label>
+                    <input type="number" id="current-height" name="current-height" min="30" max="250" step="0.1" required placeholder="例: 150">
+                </div>
+                <div class="form-group">
+                    <label for="father-height">父親の身長 (cm)</label>
+                    <input type="number" id="father-height" name="father-height" min="100" max="250" step="0.1" required placeholder="例: 175">
+                </div>
+                <div class="form-group">
+                    <label for="mother-height">母親の身長 (cm)</label>
+                    <input type="number" id="mother-height" name="mother-height" min="100" max="250" step="0.1" required placeholder="例: 160">
+                </div>
+                <button type="submit" class="primary-button">予測する</button>
+            </form>
+
+            <div id="result-section" style="display:none;">
+                <div class="result-box">
+                    <h3>予測身長</h3>
+                    <div class="result-value primary"><span id="predicted-height">---</span> cm</div>
+                    <p class="result-description" id="prediction-description">成人時の予測身長です。</p>
+                </div>
+
+                <div class="growth-analysis-section">
+                    <h3>成長分析</h3>
+                    <div class="analysis-grid">
+                        <div class="analysis-item">
+                            <div class="analysis-label">現在の身長</div>
+                            <div class="analysis-value">
+                                <span id="current-height-display">---</span> cm
+                            </div>
+                        </div>
+                        <div class="analysis-item">
+                            <div class="analysis-label">予想成長幅</div>
+                            <div class="analysis-value">
+                                <span id="growth-potential">---</span> cm
+                            </div>
+                        </div>
+                        <div class="analysis-item">
+                            <div class="analysis-label">両親平均身長</div>
+                            <div class="analysis-value">
+                                <span id="parents-average">---</span> cm
+                            </div>
+                        </div>
+                        <div class="analysis-item">
+                            <div class="analysis-label">身長の位置づけ</div>
+                            <div class="analysis-value">
+                                <span id="height-percentile">---</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chart-section">
+                    <h3>成長曲線</h3>
+                    <div class="chart-container">
+                        <canvas id="growth-chart"></canvas>
+                        <div class="chart-legend">
+                            <div class="legend-item">
+                                <span class="legend-color personal"></span>
+                                <span>あなたの成長予測</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color average"></span>
+                                <span>平均的な成長</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-section">
+                    <h3>身長予測について</h3>
+                    <div class="info-content">
+                        <h4>予測の仕組み</h4>
+                        <p>この計算機では複数の科学的手法を組み合わせて身長を予測しています。遺伝的要因（両親の身長）と現在の成長状況を総合的に分析し、最も可能性の高い成人身長を算出します。</p>
+                        
+                        <h4>予測方法</h4>
+                        <div class="methods-grid">
+                            <div class="method-item">
+                                <h5>遺伝的予測法</h5>
+                                <p>両親の身長から遺伝的に予想される身長を計算します</p>
+                            </div>
+                            <div class="method-item">
+                                <h5>成長曲線法</h5>
+                                <p>現在の身長と年齢から標準的な成長パターンを適用します</p>
+                            </div>
+                            <div class="method-item">
+                                <h5>統合的分析</h5>
+                                <p>複数の予測結果を統合してより正確な予測値を算出します</p>
+                            </div>
+                        </div>
+
+                        <h4>身長に影響する要因</h4>
+                        <ul class="growth-factors">
+                            <li><i class="fas fa-dna"></i> 遺伝（約70-80%）</li>
+                            <li><i class="fas fa-utensils"></i> 栄養状態</li>
+                            <li><i class="fas fa-running"></i> 運動習慣</li>
+                            <li><i class="fas fa-bed"></i> 睡眠の質と量</li>
+                            <li><i class="fas fa-heart"></i> 健康状態</li>
+                            <li><i class="fas fa-seedling"></i> 思春期の時期</li>
+                        </ul>
+
+                        <h4>身長を伸ばすためのポイント</h4>
+                        <ul class="health-tips">
+                            <li><i class="fas fa-circle"></i> バランスの良い食事（特にカルシウム、タンパク質、ビタミンD）</li>
+                            <li><i class="fas fa-circle"></i> 適度な運動（縦方向の刺激が効果的）</li>
+                            <li><i class="fas fa-circle"></i> 十分な睡眠（成長ホルモンの分泌促進）</li>
+                            <li><i class="fas fa-circle"></i> ストレスを避ける（成長に悪影響）</li>
+                            <li><i class="fas fa-circle"></i> 正しい姿勢を心がける</li>
+                        </ul>
+
+                        <h4>注意事項</h4>
+                        <p>この予測は統計的な計算に基づく推定値です。個人差や成長期の変動により、実際の身長は予測値と異なる場合があります。あくまで参考値として活用してください。</p>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button type="button" id="recalculate" class="secondary-button">再計算</button>
+                    <button type="button" id="share-twitter" class="share-button">
+                        <i class="fab fa-twitter"></i> 結果をシェア
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 健康計算ポータル All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../../search.js"></script>
+    <script src="../../assets/js/height-prediction.js"></script>
+</body>
+</html> 
+
+

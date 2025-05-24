@@ -1,0 +1,426 @@
+/* 1RM計算機専用スタイル */
+
+.calculator-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.description {
+    color: #86868B;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+/* フォームスタイル */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #1D1D1F;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #D2D2D7;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #FFFFFF;
+    transition: border-color 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #007AFF;
+    box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.1);
+}
+
+.form-group select {
+    cursor: pointer;
+}
+
+/* ボタンスタイル */
+.primary-button {
+    width: 100%;
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, #007AFF, #005AE6);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+}
+
+.primary-button:hover {
+    background: linear-gradient(135deg, #005AE6, #004CC7);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 122, 255, 0.3);
+}
+
+/* 結果セクション */
+.result-box {
+    background-color: #F5F5F7;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.result-box h3 {
+    color: #1D1D1F;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.result-value {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #86868B;
+    margin-bottom: 0.5rem;
+}
+
+.result-value.primary {
+    color: #007AFF;
+}
+
+.result-value .unit {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #86868B;
+    margin-left: 0.3rem;
+    vertical-align: baseline;
+}
+
+.result-description {
+    color: #86868B;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* トレーニング強度表 */
+.training-intensity {
+    margin: 2rem 0;
+}
+
+.training-intensity h3 {
+    color: #1D1D1F;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.intensity-table {
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border: 1px solid #E5E5EA;
+}
+
+.table-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    background-color: #007AFF;
+    color: white;
+    padding: 1rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.table-body {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.table-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid #E5E5EA;
+    transition: background-color 0.2s ease;
+    text-align: center;
+}
+
+.table-row:hover {
+    background-color: #F5F5F7;
+}
+
+.table-row:last-child {
+    border-bottom: none;
+}
+
+/* プレート計算機 */
+.plate-calculator {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background-color: #F5F5F7;
+    border-radius: 12px;
+}
+
+.plate-calculator h3 {
+    color: #1D1D1F;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.plate-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.plate-result h4 {
+    color: #1D1D1F;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.plate-visualization {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+    padding: 1rem;
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    border: 1px solid #E5E5EA;
+    min-height: 60px;
+    margin-bottom: 1rem;
+}
+
+.plate {
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    font-size: 0.8rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* プレート別のスタイル */
+.plate-25 { background-color: #FF3B30; width: 50px; height: 50px; }
+.plate-20 { background-color: #007AFF; width: 45px; height: 45px; }
+.plate-15 { background-color: #FFCC00; width: 40px; height: 40px; color: #1D1D1F; }
+.plate-10 { background-color: #34C759; width: 35px; height: 35px; }
+.plate-5 { background-color: #FF9500; width: 30px; height: 30px; }
+.plate-2-5 { background-color: #5856D6; width: 25px; height: 25px; }
+.plate-1-25 { background-color: #AF52DE; width: 20px; height: 20px; }
+
+.plate-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    border: 1px solid #E5E5EA;
+}
+
+.plate-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.8rem;
+    background-color: #F5F5F7;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    color: #1D1D1F;
+}
+
+.error-message {
+    color: #FF3B30;
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 1rem;
+    margin: 0;
+}
+
+/* 情報セクション */
+.info-section {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background-color: #F5F5F7;
+    border-radius: 12px;
+}
+
+.info-section h3 {
+    color: #1D1D1F;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.info-content h4 {
+    color: #1D1D1F;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.info-content h4:first-child {
+    margin-top: 0;
+}
+
+.info-content p {
+    color: #86868B;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.formula-explanations {
+    display: grid;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.formula-item {
+    background-color: #FFFFFF;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid #E5E5EA;
+}
+
+.formula-item h5 {
+    color: #1D1D1F;
+    margin: 0 0 0.5rem 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.formula-item p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #86868B;
+    line-height: 1.4;
+}
+
+.warnings {
+    display: grid;
+    gap: 0.8rem;
+}
+
+.warning-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    padding: 1rem;
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    border: 1px solid #E5E5EA;
+}
+
+.warning-item i {
+    color: #FF9500;
+    font-size: 1rem;
+    margin-top: 0.1rem;
+}
+
+.warning-item p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #86868B;
+    line-height: 1.4;
+}
+
+/* アクションボタン */
+.action-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.secondary-button {
+    flex: 1;
+    padding: 0.8rem 1.5rem;
+    background-color: #F5F5F7;
+    color: #1D1D1F;
+    border: 1px solid #D2D2D7;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.secondary-button:hover {
+    background-color: #E5E5EA;
+    transform: translateY(-1px);
+}
+
+.share-button {
+    flex: 1;
+    padding: 0.8rem 1.5rem;
+    background-color: #1DA1F2;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.share-button:hover {
+    background-color: #1A91DA;
+    transform: translateY(-1px);
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .calculator-container {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+
+    .plate-form {
+        grid-template-columns: 1fr;
+    }
+
+    .table-header,
+    .table-row {
+        font-size: 0.85rem;
+        padding: 0.6rem 0.8rem;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+    }
+
+    .result-value {
+        font-size: 2rem;
+    }
+
+    .plate-visualization {
+        min-height: 50px;
+    }
+
+    .plate {
+        font-size: 0.7rem;
+    }
+
+    .plate-25 { width: 40px; height: 40px; }
+    .plate-20 { width: 35px; height: 35px; }
+    .plate-15 { width: 30px; height: 30px; }
+    .plate-10 { width: 25px; height: 25px; }
+    .plate-5 { width: 20px; height: 20px; }
+    .plate-2-5 { width: 18px; height: 18px; }
+    .plate-1-25 { width: 15px; height: 15px; }
+} 

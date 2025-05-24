@@ -1,0 +1,220 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="蛛･蠎ｷ險育ｮ励・繝ｼ繧ｿ繝ｫ縺ｮ險育ｮ玲ｩ溘〒蛛･蠎ｷ邂｡逅・ｒ繧ｵ繝昴・繝医・MI縲∽ｽ楢р閧ｪ邇・√き繝ｭ繝ｪ繝ｼ險育ｮ励↑縺ｩ20遞ｮ鬘樔ｻ･荳翫・蛛･蠎ｷ繝・・繝ｫ繧堤┌譁吶〒謠蝉ｾ帙・>
+    <meta name="keywords" content="蛛･蠎ｷ險育ｮ玲ｩ・BMI,菴楢р閧ｪ邇・繧ｫ繝ｭ繝ｪ繝ｼ險育ｮ・蛛･蠎ｷ邂｡逅・繝繧､繧ｨ繝・ヨ,繝輔ぅ繝・ヨ繝阪せ">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <title>ペース計算機 - 健康計算ポータル</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../../assets/css/pace.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1><a href="../../index.html" class="home-link">健康計算ポータル</a></h1>
+            <div class="search-container">
+                <input type="search" placeholder="計算機能を検索..." aria-label="計算機能を検索">
+                <button type="button" aria-label="検索"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="calculator-container">
+            <h2>ペース計算機</h2>
+            <p class="description">
+                ランニングやウォーキングのペースを簡単に計算できます。<br>
+                距離と時間からペースを計算したり、目標タイムに必要なペースを算出したり、<br>
+                目標ペースでの予想完走時間なども計算できます。
+            </p>
+
+            <form id="pace-form">
+                <div class="form-group">
+                    <label>計算方法</label>
+                    <div class="method-select">
+                        <button type="button" class="method-btn active" data-method="pace">ペースを計算</button>
+                        <button type="button" class="method-btn" data-method="time">時間を計算</button>
+                        <button type="button" class="method-btn" data-method="distance">距離を計算</button>
+                    </div>
+                </div>
+
+                <!-- ペース計算フォーム -->
+                <div class="method-inputs active" id="paceCalculator">
+                    <div class="form-group">
+                        <label for="distance">距離</label>
+                        <div class="distance-input-group">
+                            <input type="number" id="distance" step="0.00001" min="0" placeholder="例: 10" required>
+                            <select id="distanceUnit">
+                                <option value="km">km</option>
+                                <option value="mi">マイル</option>
+                            </select>
+                        </div>
+                        <div class="preset-distances">
+                            <button type="button" data-distance="5">5km</button>
+                            <button type="button" data-distance="10">10km</button>
+                            <button type="button" data-distance="21.0975">ハーフ</button>
+                            <button type="button" data-distance="42.195">フル</button>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>時間</label>
+                        <div class="time-inputs">
+                            <input type="number" id="hours" min="0" placeholder="時">
+                            <span>:</span>
+                            <input type="number" id="minutes" min="0" max="59" placeholder="分">
+                            <span>:</span>
+                            <input type="number" id="seconds" min="0" max="59" placeholder="秒">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 時間計算フォーム -->
+                <div class="method-inputs" id="timeCalculator">
+                    <div class="form-group">
+                        <label for="distanceTime">距離</label>
+                        <div class="distance-input-group">
+                            <input type="number" id="distanceTime" step="0.00001" min="0" placeholder="例: 10" required>
+                            <select id="distanceUnitTime">
+                                <option value="km">km</option>
+                                <option value="mi">マイル</option>
+                            </select>
+                        </div>
+                        <div class="preset-distances">
+                            <button type="button" data-distance="5" data-target-input="distanceTime">5km</button>
+                            <button type="button" data-distance="10" data-target-input="distanceTime">10km</button>
+                            <button type="button" data-distance="21.0975" data-target-input="distanceTime">ハーフ</button>
+                            <button type="button" data-distance="42.195" data-target-input="distanceTime">フル</button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>ペース (/km)</label>
+                        <div class="time-inputs">
+                            <input type="number" id="paceMinutesTime" min="0" placeholder="分">
+                            <span>:</span>
+                            <input type="number" id="paceSecondsTime" min="0" max="59" placeholder="秒">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 距離計算フォーム -->
+                <div class="method-inputs" id="distanceCalculator">
+                    <div class="form-group">
+                        <label>時間</label>
+                        <div class="time-inputs">
+                            <input type="number" id="hoursDist" min="0" placeholder="時">
+                            <span>:</span>
+                            <input type="number" id="minutesDist" min="0" max="59" placeholder="分">
+                            <span>:</span>
+                            <input type="number" id="secondsDist" min="0" max="59" placeholder="秒">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>ペース (/km)</label>
+                        <div class="time-inputs">
+                            <input type="number" id="paceMinutesDist" min="0" placeholder="分">
+                            <span>:</span>
+                            <input type="number" id="paceSecondsDist" min="0" max="59" placeholder="秒">
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="primary-button">計算する</button>
+            </form>
+
+            <div id="result-section" style="display: none;">
+                <div class="result-box">
+                    <h3 id="resultTitle">ペース</h3>
+                    <div class="result-value primary">
+                        <span id="resultValue">-</span>
+                        <span class="unit" id="resultUnit">/km</span>
+                    </div>
+                    <p class="result-description" id="resultDescription">計算結果が表示されます。</p>
+                </div>
+
+                <!-- スプリットタイム表示セクション -->
+                <div class="splits-section" style="display: none;">
+                    <h3>スプリットタイム</h3>
+                    <div class="splits-table">
+                        <div class="table-header">
+                            <span>距離</span>
+                            <span>通過予想時間</span>
+                            <span>ラップ</span>
+                        </div>
+                        <div class="table-body" id="splitsTableBody">
+                            <!-- JavaScriptで動的に生成 -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-section">
+                    <h3>ペース計算について</h3>
+                    <div class="info-content">
+                        <h4>ペースとは？</h4>
+                        <p>ペースとは、1キロメートルまたは1マイルあたりの所要時間を表します。例えば、5分/kmのペースは、1キロメートルを5分で走ることを意味します。</p>
+                        
+                        <h4>運動レベル別ペース目安</h4>
+                        <div class="pace-explanations">
+                            <div class="pace-item">
+                                <h5>ウォーキング</h5>
+                                <p>8-12分/km（12-19分/マイル）</p>
+                            </div>
+                            <div class="pace-item">
+                                <h5>ジョギング</h5>
+                                <p>6-8分/km（9-13分/マイル）</p>
+                            </div>
+                            <div class="pace-item">
+                                <h5>ランニング</h5>
+                                <p>4-6分/km（6-9分/マイル）</p>
+                            </div>
+                            <div class="pace-item">
+                                <h5>競技レベル</h5>
+                                <p>3-4分/km（5-6分/マイル）</p>
+                            </div>
+                        </div>
+
+                        <h4>効果的なトレーニングのために</h4>
+                        <div class="warnings">
+                            <div class="warning-item">
+                                <i class="fas fa-lightbulb"></i>
+                                <p>初心者の方は無理のないペースから始めましょう</p>
+                            </div>
+                            <div class="warning-item">
+                                <i class="fas fa-lightbulb"></i>
+                                <p>徐々にペースを上げていくことで怪我を防げます</p>
+                            </div>
+                            <div class="warning-item">
+                                <i class="fas fa-lightbulb"></i>
+                                <p>長距離走は会話ができるペースが目安です</p>
+                            </div>
+                            <div class="warning-item">
+                                <i class="fas fa-lightbulb"></i>
+                                <p>定期的にペースを計測して進捗を確認しましょう</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button id="recalculate" class="secondary-button">再計算</button>
+                    <button id="share-twitter" class="share-button">
+                        <i class="fab fa-twitter"></i> 結果をシェア
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 健康計算ポータル All Rights Reserved.</p>
+    </footer>
+
+    <script src="../../search.js"></script>
+    <script src="../../assets/js/pace.js"></script>
+</body>
+</html> 
+
+
