@@ -1,0 +1,88 @@
+{
+    "name": "健康計算ポータル - BMI・基礎代謝・カロリー計算機など20種類以上の無料健康ツール",
+    "short_name": "健康計算ポータル",
+    "description": "BMI計算機、基礎代謝量、体脂肪率、カロリー計算など20種類以上の健康計算機を無料で提供。妊娠・出産、ダイエット、フィットネスに役立つ正確な健康管理ツール。",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#007AFF",
+    "orientation": "portrait-primary",
+    "scope": "/",
+    "lang": "ja",
+    "dir": "ltr",
+    "categories": ["health", "fitness", "medical", "lifestyle", "productivity"],
+    "icons": [
+        {
+            "src": "assets/images/favicon.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "assets/images/favicon.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "assets/images/screenshot-mobile.png",
+            "sizes": "320x640",
+            "type": "image/png",
+            "form_factor": "narrow"
+        },
+        {
+            "src": "assets/images/screenshot-desktop.png",
+            "sizes": "1280x720",
+            "type": "image/png",
+            "form_factor": "wide"
+        }
+    ],
+    "shortcuts": [
+        {
+            "name": "BMI計算機",
+            "short_name": "BMI",
+            "description": "身長と体重からBMIを計算",
+            "url": "/calculators/pages/bmi.html",
+            "icons": [
+                {
+                    "src": "assets/images/favicon.png",
+                    "sizes": "96x96"
+                }
+            ]
+        },
+        {
+            "name": "基礎代謝量計算機",
+            "short_name": "基礎代謝",
+            "description": "基礎代謝量を計算",
+            "url": "/calculators/pages/bmr.html",
+            "icons": [
+                {
+                    "src": "assets/images/favicon.png",
+                    "sizes": "96x96"
+                }
+            ]
+        },
+        {
+            "name": "出産予定日計算機",
+            "short_name": "出産予定日",
+            "description": "出産予定日を計算",
+            "url": "/calculators/pages/pregnancy-due-date.html",
+            "icons": [
+                {
+                    "src": "assets/images/favicon.png",
+                    "sizes": "96x96"
+                }
+            ]
+        }
+    ],
+    "related_applications": [],
+    "prefer_related_applications": false,
+    "edge_side_panel": {
+        "preferred_width": 400
+    },
+    "launch_handler": {
+        "client_mode": "navigate-existing"
+    }
+} 

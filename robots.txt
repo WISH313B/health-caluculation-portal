@@ -1,28 +1,89 @@
 User-agent: *
 Allow: /
 
-# Sitemap
+# 検索エンジン別の最適化設定
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 1
+
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 2
+
+User-agent: YandexBot
+Allow: /
+Crawl-delay: 1
+
+# サイトマップの場所
 Sitemap: https://your-domain.com/sitemap.xml
 
-# Block access to development files
-Disallow: /.git/
-Disallow: /README.md
-Disallow: /assets/js/
-Disallow: /assets/css/
-Disallow: *.js$
-Disallow: *.css$
-
-# 検索エンジンに優先的にクロールしてもらいたいページ
+# 優先的にクロールしてもらいたいページ（最重要）
 Allow: /
 Allow: /calculators/pages/bmi.html
 Allow: /calculators/pages/bmr.html
 Allow: /calculators/pages/tdee.html
 Allow: /calculators/pages/body-fat.html
 Allow: /calculators/pages/ideal-weight.html
-Allow: /calculators/pages/calories-burned.html
-Allow: /calculators/pages/meal-calories.html
+
+# 妊娠・女性健康関連（高優先度）
 Allow: /calculators/pages/pregnancy-due-date.html
 Allow: /calculators/pages/pregnancy-weight.html
+Allow: /calculators/pages/ovulation.html
+Allow: /calculators/pages/menstrual.html
 
-# Crawl-delay
-Crawl-delay: 1 
+# カロリー・栄養関連
+Allow: /calculators/pages/calories-burned.html
+Allow: /calculators/pages/meal-calories.html
+
+# フィットネス関連
+Allow: /calculators/pages/one-rep-max.html
+Allow: /calculators/pages/target-heart-rate.html
+Allow: /calculators/pages/pace.html
+Allow: /calculators/pages/exercise-intensity.html
+
+# その他の健康関連
+Allow: /calculators/pages/water-intake.html
+Allow: /calculators/pages/sleep-time.html
+Allow: /calculators/pages/stress-index.html
+Allow: /calculators/pages/health-age.html
+Allow: /calculators/pages/height-prediction.html
+
+# 開発ファイルやプライベートファイルをブロック
+Disallow: /.git/
+Disallow: /README.md
+Disallow: /package.json
+Disallow: /node_modules/
+Disallow: /.env
+Disallow: /.htaccess
+Disallow: /admin/
+Disallow: /private/
+Disallow: /temp/
+Disallow: /backup/
+
+# 重複コンテンツを避けるため
+Disallow: /*?print=
+Disallow: /*?utm_
+Disallow: /*?ref=
+Disallow: /*?source=
+Disallow: /*&print=
+Disallow: /*&utm_
+Disallow: /*&ref=
+Disallow: /*&source=
+
+# クロール頻度の調整
+Crawl-delay: 1
+
+# ホスト指定（正規化）
+Host: your-domain.com 

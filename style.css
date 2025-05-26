@@ -557,4 +557,347 @@ footer {
     .faq-item.active .faq-answer {
         padding: 1rem;
     }
+}
+
+/* 健康情報・コンテンツマーケティングセクション */
+.health-content-section {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 60px 0;
+    margin: 40px 0;
+}
+
+.health-content-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.health-content-section h2 {
+    text-align: center;
+    color: #2c3e50;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    font-weight: 700;
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.content-item {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border-left: 5px solid var(--primary-color);
+}
+
+.content-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.content-item h3 {
+    color: #2c3e50;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.content-item p {
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+}
+
+.content-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.content-tags span {
+    background: linear-gradient(135deg, var(--primary-color), #0056b3);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+/* 使い方ガイドセクション */
+.usage-guide-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 60px 0;
+}
+
+.usage-guide-section h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+}
+
+.guide-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.step-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.step-number {
+    width: 50px;
+    height: 50px;
+    background: #007AFF;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0 auto 20px;
+}
+
+.step-item h3 {
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.step-item p {
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+/* 健康トレンドセクション */
+.health-trends-section {
+    background: #f8f9fa;
+    padding: 60px 0;
+}
+
+.health-trends-section h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+    color: #333;
+}
+
+.trends-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.trend-item {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.trend-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.trend-item h3 {
+    color: #007AFF;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+}
+
+.trend-item p {
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.trend-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.trend-tags span {
+    background: linear-gradient(45deg, #007AFF, #0056b3);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+/* 健康用語解説セクション */
+.health-glossary-section {
+    background: white;
+    padding: 60px 0;
+}
+
+.health-glossary-section h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+    color: #333;
+}
+
+.glossary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.glossary-item {
+    background: #f8f9fa;
+    padding: 25px;
+    border-radius: 12px;
+    border-left: 4px solid #007AFF;
+    transition: transform 0.3s ease;
+}
+
+.glossary-item:hover {
+    transform: translateX(5px);
+    background: #e9ecef;
+}
+
+.glossary-item h3 {
+    color: #007AFF;
+    margin-bottom: 12px;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.glossary-item p {
+    line-height: 1.6;
+    color: #555;
+    margin: 0;
+}
+
+/* リソースセクション */
+.resources-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 60px 0;
+}
+
+.resources-section h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+}
+
+.resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.resource-category {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.resource-category h3 {
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+    color: #fff;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 10px;
+}
+
+.resource-category ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.resource-category li {
+    margin-bottom: 12px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.resource-category li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: #007AFF;
+    font-weight: bold;
+}
+
+.resource-category a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.resource-category a:hover {
+    color: #007AFF;
+    text-decoration: underline;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .health-content-section {
+        padding: 40px 0;
+    }
+    
+    .health-content-section h2,
+    .usage-guide-section h2 {
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+    
+    .content-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .content-item {
+        padding: 20px;
+    }
+    
+    .content-item h3 {
+        font-size: 1.2rem;
+    }
+    
+    .guide-steps {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .step-item {
+        padding: 25px 15px;
+    }
+    
+    .step-number {
+        width: 50px;
+        height: 50px;
+        font-size: 1.3rem;
+    }
 } 

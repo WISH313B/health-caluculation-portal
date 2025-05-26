@@ -1,0 +1,295 @@
+{
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "WebSite",
+            "@id": "https://your-domain.com/#website",
+            "name": "健康計算ポータル",
+            "alternateName": "Health Calculator Portal",
+            "description": "BMI計算機、基礎代謝量、体脂肪率、カロリー計算など20種類以上の健康計算機を無料で提供する日本最大級の健康管理ツールサイト",
+            "url": "https://your-domain.com/",
+            "inLanguage": "ja-JP",
+            "copyrightYear": 2024,
+            "dateCreated": "2024-01-01T00:00:00+09:00",
+            "dateModified": "2024-12-19T00:00:00+09:00",
+            "keywords": "健康計算機,BMI計算,基礎代謝,カロリー計算,体脂肪率,妊娠計算,ダイエット,フィットネス,健康管理,無料ツール",
+            "potentialAction": [
+                {
+                    "@type": "SearchAction",
+                    "target": "https://your-domain.com/?q={search_term_string}",
+                    "query-input": "required name=search_term_string"
+                },
+                {
+                    "@type": "UseAction",
+                    "object": {
+                        "@type": "WebApplication",
+                        "name": "健康計算機",
+                        "applicationCategory": "HealthApplication"
+                    }
+                }
+            ],
+            "publisher": {
+                "@id": "https://your-domain.com/#organization"
+            },
+            "mainEntity": {
+                "@id": "https://your-domain.com/#itemlist"
+            }
+        },
+        {
+            "@type": "Organization",
+            "@id": "https://your-domain.com/#organization",
+            "name": "健康計算ポータル",
+            "legalName": "健康計算ポータル運営事務局",
+            "url": "https://your-domain.com/",
+            "foundingDate": "2024-01-01",
+            "description": "健康管理に役立つ計算機を無料で提供し、日本の健康増進に貢献する組織",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://your-domain.com/assets/images/favicon.png",
+                "width": 512,
+                "height": 512,
+                "caption": "健康計算ポータルロゴ"
+            },
+            "image": {
+                "@type": "ImageObject",
+                "url": "https://your-domain.com/assets/images/og-image.jpg",
+                "width": 1200,
+                "height": 630
+            },
+            "sameAs": [
+                "https://twitter.com/health-calculator",
+                "https://facebook.com/health-calculator",
+                "https://instagram.com/health-calculator",
+                "https://youtube.com/health-calculator"
+            ],
+            "contactPoint": [
+                {
+                    "@type": "ContactPoint",
+                    "contactType": "customer service",
+                    "availableLanguage": ["Japanese"],
+                    "areaServed": "JP",
+                    "serviceType": "健康計算機サポート"
+                },
+                {
+                    "@type": "ContactPoint",
+                    "contactType": "technical support",
+                    "availableLanguage": ["Japanese"],
+                    "areaServed": "JP",
+                    "serviceType": "技術サポート"
+                }
+            ],
+            "knowsAbout": [
+                "BMI計算",
+                "基礎代謝量計算",
+                "体脂肪率測定",
+                "カロリー計算",
+                "妊娠・出産計算",
+                "フィットネス計算",
+                "健康管理",
+                "栄養学",
+                "運動生理学"
+            ],
+            "areaServed": {
+                "@type": "Country",
+                "name": "Japan"
+            }
+        },
+        {
+            "@type": "WebPage",
+            "@id": "https://your-domain.com/#webpage",
+            "url": "https://your-domain.com/",
+            "name": "健康計算ポータル | BMI・基礎代謝・カロリー計算機など20種類以上の無料健康ツール【2024年最新版】",
+            "description": "【完全無料】BMI計算機、基礎代謝量、体脂肪率、カロリー計算など20種類以上の健康計算機を提供。妊娠・出産、ダイエット、フィットネスに役立つ正確な健康管理ツールで理想の体づくりを完全サポート。医学的根拠に基づいた信頼性の高い計算結果。",
+            "inLanguage": "ja-JP",
+            "isPartOf": {
+                "@id": "https://your-domain.com/#website"
+            },
+            "about": [
+                {
+                    "@type": "Thing",
+                    "name": "健康管理",
+                    "description": "日常的な健康状態の管理と改善"
+                },
+                {
+                    "@type": "Thing",
+                    "name": "BMI計算",
+                    "description": "身長と体重から肥満度を判定"
+                },
+                {
+                    "@type": "Thing",
+                    "name": "妊娠・出産",
+                    "description": "妊娠期間中の健康管理と出産準備"
+                }
+            ],
+            "primaryImageOfPage": {
+                "@type": "ImageObject",
+                "url": "https://your-domain.com/assets/images/og-image.jpg",
+                "width": 1200,
+                "height": 630
+            },
+            "datePublished": "2024-01-01T00:00:00+09:00",
+            "dateModified": "2024-12-19T00:00:00+09:00",
+            "author": {
+                "@id": "https://your-domain.com/#organization"
+            },
+            "publisher": {
+                "@id": "https://your-domain.com/#organization"
+            },
+            "mainContentOfPage": {
+                "@type": "WebPageElement",
+                "cssSelector": ".grid-container"
+            },
+            "significantLink": [
+                "https://your-domain.com/calculators/pages/bmi.html",
+                "https://your-domain.com/calculators/pages/bmr.html",
+                "https://your-domain.com/calculators/pages/pregnancy-due-date.html"
+            ],
+            "speakable": {
+                "@type": "SpeakableSpecification",
+                "cssSelector": ["h1", ".category-header h2", ".faq-question"]
+            }
+        },
+        {
+            "@type": "ItemList",
+            "@id": "https://your-domain.com/#itemlist",
+            "name": "健康計算機一覧",
+            "description": "無料で使える健康計算機の完全リスト - 医学的根拠に基づく正確な計算",
+            "numberOfItems": 20,
+            "itemListOrder": "https://schema.org/ItemListOrderDescending",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "item": {
+                        "@type": "WebApplication",
+                        "@id": "https://your-domain.com/calculators/pages/bmi.html",
+                        "name": "BMI計算機",
+                        "alternateName": "ボディマスインデックス計算機",
+                        "description": "身長と体重からBMI（ボディマスインデックス）を計算し、WHO基準に基づいて肥満度を判定。理想体重の算出も可能。",
+                        "url": "https://your-domain.com/calculators/pages/bmi.html",
+                        "applicationCategory": "HealthApplication",
+                        "operatingSystem": "Any",
+                        "browserRequirements": "HTML5対応ブラウザ",
+                        "softwareVersion": "2024.12",
+                        "dateCreated": "2024-01-01",
+                        "dateModified": "2024-12-19",
+                        "offers": {
+                            "@type": "Offer",
+                            "price": "0",
+                            "priceCurrency": "JPY",
+                            "availability": "https://schema.org/InStock",
+                            "validFrom": "2024-01-01"
+                        },
+                        "featureList": [
+                            "BMI値計算",
+                            "肥満度判定",
+                            "理想体重算出",
+                            "健康アドバイス"
+                        ],
+                        "screenshot": "https://your-domain.com/assets/images/bmi-calculator-screenshot.png"
+                    }
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "item": {
+                        "@type": "WebApplication",
+                        "@id": "https://your-domain.com/calculators/pages/bmr.html",
+                        "name": "基礎代謝量計算機",
+                        "alternateName": "BMR計算機",
+                        "description": "年齢、性別、身長、体重から基礎代謝量（BMR）を計算。ハリス・ベネディクト式とミフリン・セントジョー式に対応。",
+                        "url": "https://your-domain.com/calculators/pages/bmr.html",
+                        "applicationCategory": "HealthApplication",
+                        "operatingSystem": "Any",
+                        "offers": {
+                            "@type": "Offer",
+                            "price": "0",
+                            "priceCurrency": "JPY",
+                            "availability": "https://schema.org/InStock"
+                        },
+                        "featureList": [
+                            "基礎代謝量計算",
+                            "複数計算式対応",
+                            "年齢・性別考慮",
+                            "ダイエット指導"
+                        ]
+                    }
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "item": {
+                        "@type": "WebApplication",
+                        "@id": "https://your-domain.com/calculators/pages/pregnancy-due-date.html",
+                        "name": "出産予定日計算機",
+                        "alternateName": "妊娠週数計算機",
+                        "description": "最終月経日から出産予定日と現在の妊娠週数を算出。妊娠期間中の重要な検査日程も表示。",
+                        "url": "https://your-domain.com/calculators/pages/pregnancy-due-date.html",
+                        "applicationCategory": "HealthApplication",
+                        "operatingSystem": "Any",
+                        "offers": {
+                            "@type": "Offer",
+                            "price": "0",
+                            "priceCurrency": "JPY",
+                            "availability": "https://schema.org/InStock"
+                        },
+                        "featureList": [
+                            "出産予定日計算",
+                            "妊娠週数表示",
+                            "検査スケジュール",
+                            "妊娠カレンダー"
+                        ],
+                        "audience": {
+                            "@type": "PeopleAudience",
+                            "suggestedGender": "female",
+                            "suggestedMinAge": 18,
+                            "suggestedMaxAge": 45
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "@type": "FAQPage",
+            "@id": "https://your-domain.com/#faqpage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "健康計算機の結果はどの程度正確ですか？",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "当サイトの計算機は、WHO（世界保健機関）や日本肥満学会などの医学的に認められた計算式や基準に基づいて作成されています。ただし、結果はあくまで目安であり、個人の体質や健康状態により実際の値と異なる場合があります。正確な健康状態の把握には、医師による診断をお勧めします。",
+                        "dateCreated": "2024-01-01",
+                        "author": {
+                            "@id": "https://your-domain.com/#organization"
+                        }
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "BMI計算機で「肥満」と判定されました。どうすればよいですか？",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "BMIが25以上の場合は肥満と判定されますが、筋肉量が多い方（アスリートなど）は実際には健康的な場合もあります。まずは体脂肪率計算機も併用して総合的に判断し、必要に応じて医師や管理栄養士に相談することをお勧めします。適度な運動とバランスの良い食事を心がけましょう。",
+                        "dateCreated": "2024-01-01",
+                        "author": {
+                            "@id": "https://your-domain.com/#organization"
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "@type": "BreadcrumbList",
+            "@id": "https://your-domain.com/#breadcrumb",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "ホーム",
+                    "item": "https://your-domain.com/"
+                }
+            ]
+        }
+    ]
+} 
