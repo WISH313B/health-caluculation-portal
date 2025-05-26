@@ -43,6 +43,60 @@
             "@type": "SearchAction",
             "target": "https://your-domain.com/?q={search_term_string}",
             "query-input": "required name=search_term_string"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "健康計算ポータル",
+            "url": "https://your-domain.com/",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://your-domain.com/assets/images/favicon.png"
+            }
+        },
+        "mainEntity": [
+            {
+                "@type": "WebApplication",
+                "name": "BMI計算機",
+                "description": "身長と体重からBMI（ボディマスインデックス）を計算し、肥満度を判定",
+                "url": "https://your-domain.com/calculators/pages/bmi.html",
+                "applicationCategory": "HealthApplication",
+                "operatingSystem": "Any"
+            },
+            {
+                "@type": "WebApplication",
+                "name": "基礎代謝量計算機",
+                "description": "年齢、性別、身長、体重から基礎代謝量（BMR）を計算",
+                "url": "https://your-domain.com/calculators/pages/bmr.html",
+                "applicationCategory": "HealthApplication",
+                "operatingSystem": "Any"
+            },
+            {
+                "@type": "WebApplication",
+                "name": "1日の消費カロリー計算機",
+                "description": "基礎代謝と活動レベルから1日の総消費カロリー（TDEE）を計算",
+                "url": "https://your-domain.com/calculators/pages/tdee.html",
+                "applicationCategory": "HealthApplication",
+                "operatingSystem": "Any"
+            },
+            {
+                "@type": "WebApplication",
+                "name": "体脂肪率計算機",
+                "description": "身体測定値から体脂肪率を推定計算",
+                "url": "https://your-domain.com/calculators/pages/body-fat.html",
+                "applicationCategory": "HealthApplication",
+                "operatingSystem": "Any"
+            }
+        ],
+        "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "ホーム",
+                    "item": "https://your-domain.com/"
+                }
+            ]
         }
     }
     </script>
@@ -142,10 +196,123 @@
         </div>
     </main>
 
+    <!-- 関連計算機セクション -->
+    <section class="related-calculators">
+        <div class="container">
+            <h2>人気の健康計算機</h2>
+            <div class="related-grid">
+                <div class="related-item">
+                    <h3><a href="calculators/pages/bmi.html">BMI計算機</a></h3>
+                    <p>身長と体重からBMI値を計算し、適正体重を判定</p>
+                    <div class="related-tags">
+                        <span>肥満度</span>
+                        <span>適正体重</span>
+                        <span>健康管理</span>
+                    </div>
+                </div>
+                <div class="related-item">
+                    <h3><a href="calculators/pages/bmr.html">基礎代謝量計算機</a></h3>
+                    <p>年齢・性別・体格から基礎代謝量を算出</p>
+                    <div class="related-tags">
+                        <span>代謝</span>
+                        <span>カロリー</span>
+                        <span>ダイエット</span>
+                    </div>
+                </div>
+                <div class="related-item">
+                    <h3><a href="calculators/pages/tdee.html">消費カロリー計算機</a></h3>
+                    <p>活動レベルから1日の総消費カロリーを計算</p>
+                    <div class="related-tags">
+                        <span>TDEE</span>
+                        <span>活動量</span>
+                        <span>体重管理</span>
+                    </div>
+                </div>
+                <div class="related-item">
+                    <h3><a href="calculators/pages/body-fat.html">体脂肪率計算機</a></h3>
+                    <p>身体測定値から体脂肪率を推定</p>
+                    <div class="related-tags">
+                        <span>体脂肪</span>
+                        <span>体組成</span>
+                        <span>フィットネス</span>
+                    </div>
+                </div>
+                <div class="related-item">
+                    <h3><a href="calculators/pages/pregnancy-due-date.html">出産予定日計算機</a></h3>
+                    <p>最終月経日から出産予定日を算出</p>
+                    <div class="related-tags">
+                        <span>妊娠</span>
+                        <span>出産</span>
+                        <span>女性の健康</span>
+                    </div>
+                </div>
+                <div class="related-item">
+                    <h3><a href="calculators/pages/water-intake.html">水分摂取量計算機</a></h3>
+                    <p>体重・活動量から必要な水分量を計算</p>
+                    <div class="related-tags">
+                        <span>水分補給</span>
+                        <span>健康維持</span>
+                        <span>脱水予防</span>
+                    </div>
+                </div>
+            </div>
+            <div class="view-all-link">
+                <a href="#calculators" class="primary-button">すべての計算機を見る</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ セクション -->
+    <section class="faq-section">
+        <div class="container">
+            <h2>よくある質問</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <h3 class="faq-question">健康計算機の結果はどの程度正確ですか？</h3>
+                    <div class="faq-answer">
+                        <p>当サイトの計算機は、医学的に認められた計算式や基準に基づいて作成されています。ただし、結果はあくまで目安であり、個人の体質や健康状態により実際の値と異なる場合があります。正確な健康状態の把握には、医師による診断をお勧めします。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">BMI計算機で「肥満」と判定されました。どうすればよいですか？</h3>
+                    <div class="faq-answer">
+                        <p>BMIが25以上の場合は肥満と判定されますが、筋肉量が多い方は実際には健康的な場合もあります。まずは体脂肪率も確認し、必要に応じて医師や栄養士に相談することをお勧めします。適度な運動とバランスの良い食事を心がけましょう。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">基礎代謝量を上げるにはどうすればよいですか？</h3>
+                    <div class="faq-answer">
+                        <p>基礎代謝量を上げるには、筋肉量を増やすことが最も効果的です。筋力トレーニングを定期的に行い、タンパク質を十分に摂取しましょう。また、十分な睡眠と規則正しい生活リズムも基礎代謝の向上に役立ちます。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">妊娠中の体重管理で注意すべきことはありますか？</h3>
+                    <div class="faq-answer">
+                        <p>妊娠中の体重増加は、妊娠前のBMIによって推奨範囲が異なります。急激な体重増加や減少は避け、バランスの良い食事を心がけてください。必ず医師の指導のもとで体重管理を行い、定期的な健診を受けることが重要です。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">計算結果を保存することはできますか？</h3>
+                    <div class="faq-answer">
+                        <p>現在、計算結果の保存機能は提供していませんが、結果画面のスクリーンショットを撮影したり、シェア機能を使ってSNSに投稿することで記録を残すことができます。継続的な健康管理には、定期的に計算を行うことをお勧めします。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">すべての計算機は無料で使えますか？</h3>
+                    <div class="faq-answer">
+                        <p>はい、当サイトのすべての健康計算機は完全無料でご利用いただけます。会員登録も不要で、いつでもお気軽にお使いください。今後も新しい計算機を追加予定ですので、ぜひブックマークしてご活用ください。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer>
         <p>&copy; 2024 健康計算ポータル All Rights Reserved.</p>
     </footer>
 
     <script src="script.js"></script>
+    <script src="search.js"></script>
+    <script src="assets/js/faq.js"></script>
 </body>
 </html> 
