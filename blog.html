@@ -361,9 +361,10 @@
         .blog-post {
             background-color: var(--tile-background);
             border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--border-color);
             display: flex;
             flex-direction: column;
             height: 100%;
@@ -608,6 +609,9 @@
             const filterBtns = document.querySelectorAll('.filter-btn');
             const blogPosts = document.querySelectorAll('.blog-post');
 
+            console.log('Found', blogPosts.length, 'blog posts');
+            console.log('Found', filterBtns.length, 'filter buttons');
+
             filterBtns.forEach(btn => {
                 btn.addEventListener('click', () => {
                     // アクティブボタンの切り替え
@@ -615,13 +619,27 @@
                     btn.classList.add('active');
 
                     const category = btn.dataset.category;
+                    console.log('Filtering by category:', category);
 
                     // 記事のフィルタリング
-                    blogPosts.forEach(post => {
-                        if (category === 'all' || post.dataset.category === category) {
-                            post.style.display = 'block';
+                    blogPosts.forEach((post, index) => {
+                        const postCategory = post.dataset.category;
+                        const shouldShow = category === 'all' || postCategory === category;
+                        
+                        console.log(`Post ${index + 1}: category=${postCategory}, shouldShow=${shouldShow}`);
+                        
+                        if (shouldShow) {
+                            // 記事を表示
+                            post.style.display = 'flex';
+                            post.style.visibility = 'visible';
+                            post.style.opacity = '1';
+                            post.style.pointerEvents = 'auto';
                         } else {
+                            // 記事を非表示
                             post.style.display = 'none';
+                            post.style.visibility = 'hidden';
+                            post.style.opacity = '0';
+                            post.style.pointerEvents = 'none';
                         }
                     });
                 });
@@ -639,7 +657,10 @@
             });
 
             // 現在の年を表示
-            document.getElementById('current-year').textContent = new Date().getFullYear();
+            const currentYearElement = document.getElementById('current-year');
+            if (currentYearElement) {
+                currentYearElement.textContent = new Date().getFullYear();
+            }
 
             // 画像の遅延読み込み
             const images = document.querySelectorAll('img[loading="lazy"]');
