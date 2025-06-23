@@ -3,130 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>栄養バランスガイド：健康的な食事で理想の体と美容を手に入れる | 健康計算ポータル</title>
-    <meta name="description" content="科学的根拠に基づいた栄養バランスの整え方を詳しく解説。PFCバランス、必須栄養素、食事タイミングなど、健康と美容を最大化する食事法の完全ガイド。">
-    <meta name="keywords" content="栄養バランス,PFCバランス,タンパク質,炭水化物,脂質,ビタミン,ミネラル,食事法">
+    <title>栄養バランスの黄金比：健康的な食事の組み立て方 | 健康計算ポータル</title>
+    <meta name="description" content="PFCバランスを理解し、健康的な食事を実践する方法を解説。タンパク質・脂質・炭水化物の理想的な比率、目的別の調整方法、実践的なメニュー作りまで、管理栄養士監修の完全ガイド。">
+    <meta name="keywords" content="栄養バランス,PFCバランス,タンパク質,脂質,炭水化物,健康的な食事,ダイエット,筋肉増量">
     
     <!-- Open Graph -->
-    <meta property="og:title" content="栄養バランスガイド：健康的な食事で理想の体と美容を手に入れる">
-    <meta property="og:description" content="科学的根拠に基づいた栄養バランスの整え方を詳しく解説。PFCバランス、必須栄養素、食事タイミングなど、健康と美容を最大化する食事法の完全ガイド。">
+    <meta property="og:title" content="栄養バランスの黄金比：健康的な食事の組み立て方 | 健康計算ポータル">
+    <meta property="og:description" content="PFCバランスを理解し、健康的な食事を実践する方法を解説。タンパク質・脂質・炭水化物の理想的な比率、目的別の調整方法、実践的なメニュー作りまで。">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://health-calculator.com/blog/nutrition-balance-guide.html">
+    <meta property="og:url" content="https://your-domain.com/blog/nutrition-balance-guide">
+    <meta property="og:image" content="https://your-domain.com/assets/images/nutrition-guide-og.jpg">
     
     <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="栄養バランスガイド：健康的な食事で理想の体と美容を手に入れる">
-    <meta name="twitter:description" content="科学的根拠に基づいた栄養バランスの整え方を詳しく解説。PFCバランス、必須栄養素、食事タイミングなど、健康と美容を最大化する食事法の完全ガイド。">
-    <link rel="canonical" href="https://your-domain.com/blog/nutrition-balance-guide.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="栄養バランスの黄金比：健康的な食事の組み立て方">
+    <meta name="twitter:description" content="PFCバランスを理解し、健康的な食事を実践する方法を解説">
+    <meta name="twitter:image" content="https://your-domain.com/assets/images/nutrition-guide-og.jpg">
+    
+    <link rel="canonical" href="https://your-domain.com/blog/nutrition-balance-guide">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="blog-article.css">
     
     <style>
         .article-image {
-            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
-        }
-        
-        .nutrition-card {
-            background: white;
-            border: 2px solid #27ae60;
-            border-radius: 15px;
-            padding: 25px;
-            margin: 20px 0;
-            box-shadow: 0 5px 15px rgba(39, 174, 96, 0.1);
-        }
-        
-        .nutrition-card h3 {
-            color: #27ae60;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .pfc-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-        }
-        
-        .pfc-table th {
-            background: #27ae60;
-            color: white;
-            padding: 15px;
-            text-align: center;
-        }
-        
-        .pfc-table td {
-            padding: 12px 15px;
-            text-align: center;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .pfc-table tr:nth-child(even) {
-            background: #f8f9fa;
-        }
-        
-        .protein-row { background: #e74c3c !important; color: white; }
-        .fat-row { background: #f39c12 !important; color: white; }
-        .carb-row { background: #3498db !important; color: white; }
-        
-        .food-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin: 20px 0;
-        }
-        
-        .food-category {
-            background: #f8f9fa;
-            border-left: 4px solid #27ae60;
-            padding: 15px;
-            border-radius: 8px;
-        }
-        
-        .food-category h4 {
-            color: #27ae60;
-            margin-bottom: 10px;
-        }
-        
-        .meal-timing {
-            background: #e8f5e8;
-            border: 2px solid #27ae60;
-            border-radius: 10px;
-            padding: 20px;
-            margin: 20px 0;
-        }
-        
-        .vitamin-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin: 20px 0;
-        }
-        
-        .vitamin-item {
-            background: white;
-            border: 1px solid #27ae60;
-            border-radius: 8px;
-            padding: 15px;
-            text-align: center;
-        }
-        
-        .vitamin-item h5 {
-            color: #27ae60;
-            margin-bottom: 8px;
+            background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
         }
     </style>
 </head>
 <body>
     <header>
         <div class="header-content">
-            <h1><a href="../index.html" class="home-link">健康計算ポータル</a></h1>
+            <h1><a href="/" class="home-link">健康計算ポータル</a></h1>
             <div class="search-container">
                 <input type="search" id="search-input" placeholder="計算機能を検索...">
                 <button type="button" id="search-button"><i class="fas fa-search"></i></button>
@@ -137,9 +45,9 @@
     <nav class="main-nav">
         <div class="nav-container">
             <ul class="nav-menu">
-                <li><a href="../index.html" class="nav-link">ホーム</a></li>
-                <li><a href="../blog.html" class="nav-link active">健康ブログ</a></li>
-                <li><a href="../faq.html" class="nav-link">よくある質問</a></li>
+                <li><a href="/" class="nav-link">ホーム</a></li>
+                <li><a href="/blog" class="nav-link active">健康ブログ</a></li>
+                <li><a href="/faq" class="nav-link">よくある質問</a></li>
             </ul>
         </div>
     </nav>
@@ -147,9 +55,9 @@
     <div class="breadcrumb">
         <div class="container">
             <ol>
-                <li><a href="../index.html">ホーム</a></li>
-                <li><a href="../blog.html">健康ブログ</a></li>
-                <li><span>栄養バランスガイド</span></li>
+                <li><a href="/">ホーム</a></li>
+                <li><a href="/blog">健康ブログ</a></li>
+                <li><span>栄養バランスの黄金比：健康的な食事の組み立て方</span></li>
             </ol>
         </div>
     </div>
@@ -158,12 +66,12 @@
         <div class="article-header">
             <div class="container">
                 <div class="article-meta">
-                    <span><i class="fas fa-calendar"></i> 2024年12月19日</span>
-                    <span><i class="fas fa-tag"></i> 栄養</span>
-                    <span><i class="fas fa-clock"></i> 読了時間: 約10分</span>
+                    <span><i class="fas fa-calendar"></i> 2024年12月20日</span>
+                    <span><i class="fas fa-tag"></i> 栄養・食事</span>
+                    <span><i class="fas fa-clock"></i> 読了時間: 約7分</span>
                 </div>
-                <h1>栄養バランスガイド</h1>
-                <p>健康的な食事で理想の体と美容を手に入れる</p>
+                <h1>栄養バランスの黄金比：健康的な食事の組み立て方</h1>
+                <p>管理栄養士が教えるPFCバランスの基本と実践的な食事管理術</p>
             </div>
         </div>
 
@@ -172,383 +80,237 @@
                 <i class="fas fa-utensils" style="font-size: 3rem; margin-right: 1rem;"></i>
                 栄養バランスのイメージ
             </div>
-        
-        <div class="highlight-box">
-            <h3><i class="fas fa-lightbulb"></i> この記事のポイント</h3>
-            <ul>
-                <li>PFCバランスを理解することで効率的な体作りが可能</li>
-                <li>必須栄養素をバランスよく摂取することが健康の基本</li>
-                <li>食事のタイミングと組み合わせで効果を最大化</li>
-                <li>個人の目標に応じた栄養戦略の調整が重要</li>
-            </ul>
-        </div>
-        
-        <h2><i class="fas fa-question-circle"></i> 栄養バランスとは</h2>
-        <p>栄養バランスとは、体が必要とする栄養素を適切な比率で摂取することです。三大栄養素（PFC）のバランスを基本として、ビタミン、ミネラル、食物繊維などの微量栄養素も含めた総合的な栄養管理により、健康維持、美容効果、パフォーマンス向上を実現できます。</p>
-        
-        <h2><i class="fas fa-chart-pie"></i> PFCバランスの基本</h2>
-        
-        <div class="nutrition-card">
-            <h3><i class="fas fa-balance-scale"></i> 三大栄養素の理想的な比率</h3>
-            
-            <table class="pfc-table">
-                <thead>
-                    <tr>
-                        <th>栄養素</th>
-                        <th>一般的な比率</th>
-                        <th>ダイエット時</th>
-                        <th>筋肉増量時</th>
-                        <th>主な機能</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="protein-row">
-                        <td><strong>タンパク質<br>(Protein)</strong></td>
-                        <td>15-20%</td>
-                        <td>25-30%</td>
-                        <td>20-25%</td>
-                        <td>筋肉合成<br>免疫機能</td>
-                    </tr>
-                    <tr class="fat-row">
-                        <td><strong>脂質<br>(Fat)</strong></td>
-                        <td>20-30%</td>
-                        <td>20-25%</td>
-                        <td>25-30%</td>
-                        <td>ホルモン合成<br>エネルギー貯蔵</td>
-                    </tr>
-                    <tr class="carb-row">
-                        <td><strong>炭水化物<br>(Carbohydrate)</strong></td>
-                        <td>50-65%</td>
-                        <td>45-55%</td>
-                        <td>45-55%</td>
-                        <td>即効性エネルギー<br>脳の栄養</td>
-                    </tr>
-                </tbody>
-            </table>
-            
-            <div class="tip-box">
-                <h4><i class="fas fa-calculator"></i> PFC計算の基本</h4>
-                <ul>
-                    <li><strong>タンパク質</strong>：1g = 4kcal</li>
-                    <li><strong>脂質</strong>：1g = 9kcal</li>
-                    <li><strong>炭水化物</strong>：1g = 4kcal</li>
-                    <li><strong>計算例</strong>：1日2000kcalの場合、タンパク質20% = 400kcal = 100g</li>
-                </ul>
-            </div>
-        </div>
-        
-        <h2><i class="fas fa-drumstick-bite"></i> タンパク質の最適化</h2>
-        
-        <div class="nutrition-card">
-            <h3><i class="fas fa-muscle"></i> タンパク質の重要性</h3>
-            
-            <h4>推奨摂取量</h4>
-            <ul>
-                <li><strong>一般成人</strong>：体重1kgあたり0.8-1.0g</li>
-                <li><strong>運動習慣者</strong>：体重1kgあたり1.2-1.6g</li>
-                <li><strong>筋肉増量期</strong>：体重1kgあたり1.6-2.2g</li>
-                <li><strong>ダイエット期</strong>：体重1kgあたり1.8-2.5g</li>
-            </ul>
-            
-            <div class="food-grid">
-                <div class="food-category">
-                    <h4><i class="fas fa-fish"></i> 動物性タンパク質</h4>
-                    <ul>
-                        <li>鶏胸肉（皮なし）</li>
-                        <li>魚類（サーモン、マグロ）</li>
-                        <li>卵（全卵・卵白）</li>
-                        <li>低脂肪乳製品</li>
-                        <li>赤身肉（牛・豚）</li>
-                    </ul>
-                </div>
-                
-                <div class="food-category">
-                    <h4><i class="fas fa-seedling"></i> 植物性タンパク質</h4>
-                    <ul>
-                        <li>大豆製品（豆腐、納豆）</li>
-                        <li>豆類（レンズ豆、ひよこ豆）</li>
-                        <li>ナッツ・種子類</li>
-                        <li>キヌア</li>
-                        <li>プロテインパウダー</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        
-        <h2><i class="fas fa-bread-slice"></i> 炭水化物の選択</h2>
-        
-        <div class="nutrition-card">
-            <h3><i class="fas fa-battery-full"></i> 質の高い炭水化物</h3>
-            
-            <h4>複合炭水化物（推奨）</h4>
-            <ul>
-                <li><strong>全粒穀物</strong>：玄米、全粒粉パン、オートミール</li>
-                <li><strong>根菜類</strong>：さつまいも、じゃがいも</li>
-                <li><strong>豆類</strong>：レンズ豆、黒豆、ひよこ豆</li>
-                <li><strong>野菜</strong>：ブロッコリー、ほうれん草</li>
-            </ul>
-            
-            <h4>単純炭水化物（制限）</h4>
-            <ul>
-                <li><strong>精製糖</strong>：白砂糖、果糖ブドウ糖液糖</li>
-                <li><strong>精製穀物</strong>：白米、白パン</li>
-                <li><strong>加工食品</strong>：お菓子、清涼飲料水</li>
-            </ul>
-            
-            <div class="meal-timing">
-                <h4><i class="fas fa-clock"></i> 炭水化物摂取のタイミング</h4>
-                <ul>
-                    <li><strong>朝食</strong>：1日のエネルギー源として重要</li>
-                    <li><strong>運動前</strong>：パフォーマンス向上のため</li>
-                    <li><strong>運動後</strong>：グリコーゲン回復のため</li>
-                    <li><strong>夕食</strong>：量を控えめに、質を重視</li>
-                </ul>
-            </div>
-        </div>
-        
-        <h2><i class="fas fa-tint"></i> 脂質の重要性</h2>
-        
-        <div class="nutrition-card">
-            <h3><i class="fas fa-heart"></i> 良質な脂質の選択</h3>
-            
-            <div class="food-grid">
-                <div class="food-category">
-                    <h4><i class="fas fa-check-circle"></i> 推奨脂質</h4>
-                    <ul>
-                        <li><strong>オメガ3脂肪酸</strong>：魚油、亜麻仁油</li>
-                        <li><strong>一価不飽和脂肪酸</strong>：オリーブオイル、アボカド</li>
-                        <li><strong>ナッツ類</strong>：アーモンド、くるみ</li>
-                        <li><strong>種子類</strong>：チアシード、亜麻仁</li>
-                    </ul>
-                </div>
-                
-                <div class="food-category">
-                    <h4><i class="fas fa-times-circle"></i> 制限すべき脂質</h4>
-                    <ul>
-                        <li><strong>トランス脂肪酸</strong>：マーガリン、加工食品</li>
-                        <li><strong>過剰な飽和脂肪酸</strong>：揚げ物、脂身</li>
-                        <li><strong>酸化した油</strong>：古い油、再利用油</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        
-        <h2><i class="fas fa-pills"></i> ビタミン・ミネラル</h2>
-        
-        <div class="nutrition-card">
-            <h3><i class="fas fa-gem"></i> 必須微量栄養素</h3>
-            
-            <div class="vitamin-grid">
-                <div class="vitamin-item">
-                    <h5>ビタミンA</h5>
-                    <p>視力、免疫機能</p>
-                    <small>人参、ほうれん草</small>
-                </div>
-                
-                <div class="vitamin-item">
-                    <h5>ビタミンC</h5>
-                    <p>抗酸化、コラーゲン合成</p>
-                    <small>柑橘類、ブロッコリー</small>
-                </div>
-                
-                <div class="vitamin-item">
-                    <h5>ビタミンD</h5>
-                    <p>骨の健康、免疫調節</p>
-                    <small>魚類、日光浴</small>
-                </div>
-                
-                <div class="vitamin-item">
-                    <h5>ビタミンE</h5>
-                    <p>抗酸化、細胞保護</p>
-                    <small>ナッツ、植物油</small>
-                </div>
-                
-                <div class="vitamin-item">
-                    <h5>鉄分</h5>
-                    <p>酸素運搬、エネルギー代謝</p>
-                    <small>赤身肉、ほうれん草</small>
-                </div>
-                
-                <div class="vitamin-item">
-                    <h5>カルシウム</h5>
-                    <p>骨・歯の健康</p>
-                    <small>乳製品、小魚</small>
-                </div>
-                
-                <div class="vitamin-item">
-                    <h5>マグネシウム</h5>
-                    <p>筋肉機能、神経伝達</p>
-                    <small>ナッツ、緑黄色野菜</small>
-                </div>
-                
-                <div class="vitamin-item">
-                    <h5>亜鉛</h5>
-                    <p>免疫機能、創傷治癒</p>
-                    <small>牡蠣、赤身肉</small>
-                </div>
-            </div>
-        </div>
-        
-        <h2><i class="fas fa-clock"></i> 食事タイミングの最適化</h2>
-        
-        <div class="nutrition-card">
-            <h3><i class="fas fa-calendar-day"></i> 1日の食事スケジュール</h3>
-            
-            <div class="meal-timing">
-                <h4><i class="fas fa-sun"></i> 朝食（7:00-9:00）</h4>
-                <ul>
-                    <li><strong>重要性</strong>：代謝を活性化、1日のエネルギー源</li>
-                    <li><strong>推奨内容</strong>：タンパク質 + 複合炭水化物 + 良質な脂質</li>
-                    <li><strong>例</strong>：オートミール + ベリー + ナッツ + ヨーグルト</li>
-                </ul>
-            </div>
-            
-            <div class="meal-timing">
-                <h4><i class="fas fa-apple-alt"></i> 間食（10:00-11:00, 15:00-16:00）</h4>
-                <ul>
-                    <li><strong>目的</strong>：血糖値の安定、筋肉分解の防止</li>
-                    <li><strong>推奨内容</strong>：タンパク質中心の軽食</li>
-                    <li><strong>例</strong>：ナッツ、ゆで卵、プロテインシェイク</li>
-                </ul>
-            </div>
-            
-            <div class="meal-timing">
-                <h4><i class="fas fa-utensils"></i> 昼食（12:00-13:00）</h4>
-                <ul>
-                    <li><strong>重要性</strong>：午後の活動エネルギー、栄養補給</li>
-                    <li><strong>推奨内容</strong>：バランスの取れた食事</li>
-                    <li><strong>例</strong>：鶏胸肉 + 玄米 + 野菜サラダ + アボカド</li>
-                </ul>
-            </div>
-            
-            <div class="meal-timing">
-                <h4><i class="fas fa-moon"></i> 夕食（18:00-20:00）</h4>
-                <ul>
-                    <li><strong>重要性</strong>：回復と修復、翌日への準備</li>
-                    <li><strong>推奨内容</strong>：タンパク質重視、炭水化物控えめ</li>
-                    <li><strong>例</strong>：魚 + 蒸し野菜 + 少量の炭水化物</li>
-                </ul>
-            </div>
-        </div>
-        
-        <h2><i class="fas fa-dumbbell"></i> 運動と栄養の組み合わせ</h2>
-        
-        <div class="nutrition-card">
-            <h3><i class="fas fa-running"></i> 運動前後の栄養戦略</h3>
-            
-            <h4>運動前（1-2時間前）</h4>
-            <ul>
-                <li><strong>炭水化物</strong>：エネルギー源として重要</li>
-                <li><strong>少量のタンパク質</strong>：筋肉分解の防止</li>
-                <li><strong>水分</strong>：十分な水分補給</li>
-                <li><strong>例</strong>：バナナ + 少量のナッツ</li>
-            </ul>
-            
-            <h4>運動後（30分以内）</h4>
-            <ul>
-                <li><strong>タンパク質</strong>：筋肉合成の促進</li>
-                <li><strong>炭水化物</strong>：グリコーゲンの回復</li>
-                <li><strong>比率</strong>：タンパク質:炭水化物 = 1:3-4</li>
-                <li><strong>例</strong>：プロテインシェイク + バナナ</li>
-            </ul>
-        </div>
-        
-        <h2><i class="fas fa-tint"></i> 水分補給の重要性</h2>
-        
-        <div class="highlight-box">
-            <h3><i class="fas fa-droplet"></i> 適切な水分摂取</h3>
-            <ul>
-                <li><strong>基本量</strong>：体重1kgあたり30-35ml</li>
-                <li><strong>運動時</strong>：追加で500-1000ml</li>
-                <li><strong>タイミング</strong>：食事前30分、食後2時間</li>
-                <li><strong>質</strong>：純水、ハーブティー、無糖の飲み物</li>
-            </ul>
-        </div>
-        
-        <h2><i class="fas fa-exclamation-triangle"></i> よくある栄養の間違い</h2>
-        
-        <div class="warning-box">
-            <h3><i class="fas fa-warning"></i> 避けるべき栄養習慣</h3>
-            <ul>
-                <li><strong>極端な制限</strong>：特定の栄養素を完全に排除</li>
-                <li><strong>カロリーのみに注目</strong>：栄養の質を無視</li>
-                <li><strong>不規則な食事</strong>：食事を抜く、まとめ食い</li>
-                <li><strong>加工食品依存</strong>：自然食品の軽視</li>
-                <li><strong>水分不足</strong>：慢性的な脱水状態</li>
-            </ul>
-        </div>
-        
-        <h2><i class="fas fa-chart-line"></i> 栄養管理ツール</h2>
-        <ul>
-            <li><strong>食事記録アプリ</strong>：カロリーと栄養素の追跡</li>
-            <li><strong>体重・体組成計</strong>：進捗の客観的評価</li>
-            <li><strong>血液検査</strong>：栄養状態の詳細把握</li>
-            <li><strong>栄養士相談</strong>：個別の栄養指導</li>
-        </ul>
-        
-        <a href="../nutrition-calculator.html" class="calculator-link">
-            <h3><i class="fas fa-calculator"></i> 栄養計算機を使ってみる</h3>
-            <p>あなたの目標に応じた最適なPFCバランスを計算します</p>
-        </a>
-        
-        <h2><i class="fas fa-target"></i> 目標別栄養戦略</h2>
-        
-        <div class="nutrition-card">
-            <h3><i class="fas fa-weight-hanging"></i> ダイエット</h3>
-            <ul>
-                <li><strong>カロリー</strong>：消費カロリー < 摂取カロリー（500kcal程度の赤字）</li>
-                <li><strong>タンパク質</strong>：高め（25-30%）で筋肉維持</li>
-                <li><strong>炭水化物</strong>：中程度（45-50%）、質を重視</li>
-                <li><strong>脂質</strong>：適度（20-25%）、必須脂肪酸確保</li>
-            </ul>
-        </div>
-        
-        <div class="nutrition-card">
-            <h3><i class="fas fa-muscle"></i> 筋肉増量</h3>
-            <ul>
-                <li><strong>カロリー</strong>：消費カロリー > 摂取カロリー（300-500kcal程度の黒字）</li>
-                <li><strong>タンパク質</strong>：高め（20-25%）で筋肉合成促進</li>
-                <li><strong>炭水化物</strong>：十分（50-55%）でエネルギー確保</li>
-                <li><strong>脂質</strong>：適度（25-30%）でホルモン合成</li>
-            </ul>
-        </div>
-        
+
             <div class="highlight-box">
-                <h3><i class="fas fa-star"></i> まとめ</h3>
-                <p>栄養バランスは健康と美容の基盤となる重要な要素です。PFCバランスを基本として、必須栄養素をバランスよく摂取し、適切なタイミングで食事を取ることで、理想的な体作りと健康維持が可能になります。個人の目標と体質に応じて栄養戦略を調整し、継続的に実践することが成功の鍵となります。</p>
+                <h3><i class="fas fa-lightbulb"></i> この記事のポイント</h3>
+                <ul>
+                    <li>PFCバランスの基本と重要性</li>
+                    <li>目的別の理想的な栄養比率</li>
+                    <li>実践的な食事メニューの作り方</li>
+                    <li>よくある間違いと改善方法</li>
+                    <li>継続可能な食事管理のコツ</li>
+                </ul>
+            </div>
+
+            <h2>PFCバランスとは</h2>
+            <p>PFCバランスは、健康的な食生活の基本となる考え方です。P（Protein：タンパク質）、F（Fat：脂質）、C（Carbohydrate：炭水化物）の三大栄養素が、総摂取カロリーに占める割合を示します。</p>
+            
+            <p>厚生労働省の「日本人の食事摂取基準」では、生活習慣病の予防を目的として、以下の比率を推奨しています：</p>
+            <ul>
+                <li><strong>タンパク質（P）</strong>：13-20%</li>
+                <li><strong>脂質（F）</strong>：20-30%</li>
+                <li><strong>炭水化物（C）</strong>：50-65%</li>
+            </ul>
+
+            <h2>三大栄養素の役割</h2>
+            
+            <h3>タンパク質（Protein）</h3>
+            <p>タンパク質は、体を構成する最も重要な栄養素です：</p>
+            <ul>
+                <li><strong>筋肉・臓器の構成</strong>：体組織の維持と修復</li>
+                <li><strong>酵素・ホルモンの材料</strong>：代謝機能の調節</li>
+                <li><strong>免疫機能</strong>：抗体の生成</li>
+                <li><strong>エネルギー源</strong>：1gあたり4kcal</li>
+            </ul>
+
+            <h3>脂質（Fat）</h3>
+            <p>脂質は効率的なエネルギー源であり、体内で重要な機能を持ちます：</p>
+            <ul>
+                <li><strong>エネルギー貯蔵</strong>：1gあたり9kcal（最も効率的）</li>
+                <li><strong>細胞膜の構成</strong>：全身の細胞機能を支える</li>
+                <li><strong>ホルモン合成</strong>：性ホルモンなどの材料</li>
+                <li><strong>脂溶性ビタミンの吸収</strong>：ビタミンA、D、E、Kの吸収を助ける</li>
+            </ul>
+
+            <h3>炭水化物（Carbohydrate）</h3>
+            <p>炭水化物は、即効性のあるエネルギー源として重要です：</p>
+            <ul>
+                <li><strong>脳のエネルギー源</strong>：ブドウ糖は脳の唯一のエネルギー</li>
+                <li><strong>筋肉の活動</strong>：運動時の主要エネルギー</li>
+                <li><strong>体タンパク質の節約</strong>：糖質不足時の筋肉分解を防ぐ</li>
+                <li><strong>腸内環境の改善</strong>：食物繊維による整腸作用</li>
+            </ul>
+
+            <h2>目的別PFCバランスの設定</h2>
+            
+            <h3>1. 健康維持・一般的な食事</h3>
+            <p>特別な目的がない場合の標準的なバランス：</p>
+            <ul>
+                <li>タンパク質：15-17%</li>
+                <li>脂質：25%</li>
+                <li>炭水化物：58-60%</li>
+            </ul>
+
+            <h3>2. ダイエット（減量）</h3>
+            <p>体脂肪を効率的に減らすためのバランス：</p>
+            <ul>
+                <li>タンパク質：25-30%（筋肉量の維持）</li>
+                <li>脂質：20-25%（ホルモンバランスの維持）</li>
+                <li>炭水化物：45-55%（適度なエネルギー確保）</li>
+            </ul>
+
+            <h3>3. 筋肉増量（バルクアップ）</h3>
+            <p>効率的な筋肥大を目指すバランス：</p>
+            <ul>
+                <li>タンパク質：20-25%（筋合成の促進）</li>
+                <li>脂質：25-30%（テストステロンの分泌）</li>
+                <li>炭水化物：45-55%（トレーニングエネルギー）</li>
+            </ul>
+
+            <h3>4. 持久力向上</h3>
+            <p>マラソンなど持久系スポーツのバランス：</p>
+            <ul>
+                <li>タンパク質：12-15%</li>
+                <li>脂質：20-25%</li>
+                <li>炭水化物：60-68%（グリコーゲン貯蔵）</li>
+            </ul>
+
+            <h2>PFCバランスの計算方法</h2>
+            <p>自分の食事のPFCバランスを計算する手順：</p>
+            
+            <div class="highlight-box">
+                <h3>計算式</h3>
+                <ol>
+                    <li><strong>各栄養素のカロリーを計算</strong>
+                        <ul>
+                            <li>タンパク質（g）× 4kcal</li>
+                            <li>脂質（g）× 9kcal</li>
+                            <li>炭水化物（g）× 4kcal</li>
+                        </ul>
+                    </li>
+                    <li><strong>総カロリーに対する割合を算出</strong>
+                        <ul>
+                            <li>各栄養素のカロリー ÷ 総カロリー × 100</li>
+                        </ul>
+                    </li>
+                </ol>
+                
+                <h4>計算例</h4>
+                <p>1日の摂取量：タンパク質100g、脂質60g、炭水化物300g</p>
+                <ul>
+                    <li>タンパク質：100g × 4kcal = 400kcal（19.2%）</li>
+                    <li>脂質：60g × 9kcal = 540kcal（26.0%）</li>
+                    <li>炭水化物：300g × 4kcal = 1200kcal（57.7%）</li>
+                    <li>総カロリー：2,080kcal</li>
+                </ul>
+            </div>
+
+            <h2>実践的な食事メニューの例</h2>
+            
+            <h3>健康維持のための1日メニュー（2,000kcal）</h3>
+            
+            <h4>朝食（500kcal）</h4>
+            <ul>
+                <li>ご飯150g（252kcal）</li>
+                <li>納豆1パック（90kcal）</li>
+                <li>卵焼き（卵1個）（80kcal）</li>
+                <li>味噌汁（わかめ・豆腐）（40kcal）</li>
+                <li>ほうれん草のお浸し（38kcal）</li>
+            </ul>
+
+            <h4>昼食（700kcal）</h4>
+            <ul>
+                <li>鶏胸肉のソテー150g（270kcal）</li>
+                <li>玄米ご飯180g（300kcal）</li>
+                <li>野菜サラダ（オリーブオイル）（80kcal）</li>
+                <li>きのこのスープ（50kcal）</li>
+            </ul>
+
+            <h4>間食（200kcal）</h4>
+            <ul>
+                <li>ヨーグルト（無糖）100g（60kcal）</li>
+                <li>ミックスナッツ20g（140kcal）</li>
+            </ul>
+
+            <h4>夕食（600kcal）</h4>
+            <ul>
+                <li>サーモンの塩焼き100g（200kcal）</li>
+                <li>ご飯120g（200kcal）</li>
+                <li>豆腐と野菜の煮物（150kcal）</li>
+                <li>きゅうりの酢の物（50kcal）</li>
+            </ul>
+
+            <h2>よくある間違いと改善方法</h2>
+            
+            <h3>1. 極端な糖質制限</h3>
+            <p><strong>問題点：</strong>エネルギー不足、筋肉の分解、リバウンドのリスク<br>
+            <strong>改善方法：</strong>最低でも総カロリーの40%は炭水化物から摂取</p>
+
+            <h3>2. タンパク質の過剰摂取</h3>
+            <p><strong>問題点：</strong>腎臓への負担、カルシウム排泄の増加<br>
+            <strong>改善方法：</strong>体重1kgあたり2g以下に抑える</p>
+
+            <h3>3. 脂質の極端な制限</h3>
+            <p><strong>問題点：</strong>ホルモンバランスの乱れ、肌や髪の乾燥<br>
+            <strong>改善方法：</strong>良質な脂質を総カロリーの20%以上確保</p>
+
+            <h3>4. 食事回数の減少</h3>
+            <p><strong>問題点：</strong>血糖値の乱高下、筋肉の分解<br>
+            <strong>改善方法：</strong>1日3-5回に分けて食事</p>
+
+            <h2>継続可能な食事管理のコツ</h2>
+            
+            <h3>1. 80/20ルール</h3>
+            <p>週の80%は計画通りの食事、20%は柔軟に対応。完璧を求めすぎないことが継続の鍵です。</p>
+
+            <h3>2. 食事の記録</h3>
+            <p>最初の2週間は食事内容を記録し、自分の食習慣を把握しましょう。</p>
+
+            <h3>3. 段階的な変更</h3>
+            <p>急激な変更は続きません。週に1-2つずつ習慣を変えていきます。</p>
+
+            <h3>4. 準備の習慣化</h3>
+            <p>週末に下準備をすることで、平日の食事管理が楽になります。</p>
+
+            <h3>5. 外食時の工夫</h3>
+            <ul>
+                <li>定食スタイルを選ぶ</li>
+                <li>単品料理は避ける</li>
+                <li>野菜を追加注文</li>
+                <li>揚げ物は控えめに</li>
+            </ul>
+
+            <div class="tip-box">
+                <h3><i class="fas fa-lightbulb"></i> 実践のポイント</h3>
+                <p>PFCバランスは「目安」です。体調や活動量、個人差を考慮して調整することが大切です。また、ビタミンやミネラル、食物繊維なども忘れずに摂取しましょう。</p>
             </div>
 
             <div class="related-calculators-box">
                 <h3><i class="fas fa-calculator"></i> 関連する計算機</h3>
-                <p>栄養管理に役立つ計算機をご活用ください：</p>
+                <p>栄養バランスの管理に役立つ計算機をご活用ください：</p>
                 <div class="calculator-links">
-                    <a href="../calculators/pages/bmi.html" class="calculator-link">
-                        <i class="fas fa-weight"></i>
-                        <strong>BMI計算機</strong><br>
-                        適正体重を確認
-                    </a>
-                    <a href="../calculators/pages/bmr.html" class="calculator-link">
-                        <i class="fas fa-fire"></i>
-                        <strong>基礎代謝量計算機</strong><br>
-                        必要カロリーを算出
-                    </a>
-                    <a href="../calculators/pages/body-fat.html" class="calculator-link">
-                        <i class="fas fa-chart-pie"></i>
-                        <strong>体脂肪率計算機</strong><br>
-                        体組成を分析
-                    </a>
-                    <a href="../calculators/pages/meal-calories.html" class="calculator-link">
+                    <a href="/calculators/pages/meal-calories" class="calculator-link">
                         <i class="fas fa-utensils"></i>
                         <strong>食事カロリー計算機</strong><br>
-                        料理のカロリーを計算
+                        食事のカロリーとPFCバランスを計算
+                    </a>
+                    <a href="/calculators/pages/bmr" class="calculator-link">
+                        <i class="fas fa-fire"></i>
+                        <strong>基礎代謝量計算機</strong><br>
+                        必要カロリーの基準を計算
+                    </a>
+                    <a href="/calculators/pages/tdee" class="calculator-link">
+                        <i class="fas fa-chart-line"></i>
+                        <strong>TDEE計算機</strong><br>
+                        活動量を考慮した必要カロリー
+                    </a>
+                    <a href="/calculators/pages/ideal-weight" class="calculator-link">
+                        <i class="fas fa-balance-scale"></i>
+                        <strong>理想体重計算機</strong><br>
+                        目標体重の設定
                     </a>
                 </div>
             </div>
+
+            <h2>まとめ</h2>
+            <p>PFCバランスは、健康的な食生活の基盤となる重要な概念です。三大栄養素それぞれの役割を理解し、自分の目的に合わせて適切なバランスを設定することで、効率的に健康管理やボディメイクを行うことができます。</p>
+            
+            <p>完璧を求めすぎず、継続可能な範囲で実践することが成功の鍵です。食事は人生の楽しみの一つでもあるので、ストレスにならない程度に管理し、健康的で充実した生活を送りましょう。</p>
         </div>
     </article>
 
     <footer>
-        <p>&copy; 2024 健康計算ポータル All Rights Reserved. | <a href="../privacy-policy.html">プライバシーポリシー</a> | <a href="../terms-of-service.html">利用規約</a></p>
+        <p>&copy; 2024 健康計算ポータル All Rights Reserved. | <a href="/privacy-policy">プライバシーポリシー</a> | <a href="/terms-of-service">利用規約</a></p>
     </footer>
 
     <script src="../script.js"></script>

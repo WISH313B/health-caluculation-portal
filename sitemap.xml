@@ -24,28 +24,28 @@
     
     <!-- 最重要計算機 - 超高優先度 -->
     <url>
-        <loc>https://your-domain.com/calculators/pages/bmi.html</loc>
+        <loc>https://your-domain.com/calculators/pages/bmi</loc>
         <lastmod>2024-12-19T12:00:00+09:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.95</priority>
         <mobile:mobile/>
     </url>
     <url>
-        <loc>https://your-domain.com/calculators/pages/bmr.html</loc>
+        <loc>https://your-domain.com/calculators/pages/bmr</loc>
         <lastmod>2024-12-19T12:00:00+09:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.95</priority>
         <mobile:mobile/>
     </url>
     <url>
-        <loc>https://your-domain.com/calculators/pages/tdee.html</loc>
+        <loc>https://your-domain.com/calculators/pages/tdee</loc>
         <lastmod>2024-12-19T12:00:00+09:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.95</priority>
         <mobile:mobile/>
     </url>
     <url>
-        <loc>https://your-domain.com/calculators/pages/body-fat.html</loc>
+        <loc>https://your-domain.com/calculators/pages/body-fat</loc>
         <lastmod>2024-12-19T12:00:00+09:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
@@ -54,28 +54,28 @@
     
     <!-- 妊娠・女性健康カテゴリ - 高優先度 -->
     <url>
-        <loc>https://your-domain.com/calculators/pages/pregnancy-due-date.html</loc>
+        <loc>https://your-domain.com/calculators/pages/pregnancy-due-date</loc>
         <lastmod>2024-12-19T12:00:00+09:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
         <mobile:mobile/>
     </url>
     <url>
-        <loc>https://your-domain.com/calculators/pages/pregnancy-weight.html</loc>
+        <loc>https://your-domain.com/calculators/pages/pregnancy-weight</loc>
         <lastmod>2024-12-19T12:00:00+09:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.85</priority>
         <mobile:mobile/>
     </url>
     <url>
-        <loc>https://your-domain.com/calculators/pages/ovulation.html</loc>
+        <loc>https://your-domain.com/calculators/pages/ovulation</loc>
         <lastmod>2024-12-19T12:00:00+09:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.85</priority>
         <mobile:mobile/>
     </url>
     <url>
-        <loc>https://your-domain.com/calculators/pages/menstrual.html</loc>
+        <loc>https://your-domain.com/calculators/pages/menstrual</loc>
         <lastmod>2024-12-19T12:00:00+09:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.85</priority>
@@ -84,14 +84,14 @@
     
     <!-- カロリー・栄養カテゴリ -->
     <url>
-        <loc>https://your-domain.com/calculators/pages/meal-calories.html</loc>
+        <loc>https://your-domain.com/calculators/pages/meal-calories</loc>
         <lastmod>2024-12-19T12:00:00+09:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
         <mobile:mobile/>
     </url>
     <url>
-        <loc>https://your-domain.com/calculators/pages/calories-burned.html</loc>
+        <loc>https://your-domain.com/calculators/pages/calories-burned</loc>
         <lastmod>2024-12-19T12:00:00+09:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -100,28 +100,28 @@
     
     <!-- フィットネス・運動カテゴリ -->
     <url>
-        <loc>https://your-domain.com/calculators/pages/one-rep-max.html</loc>
+        <loc>https://your-domain.com/calculators/pages/one-rep-max</loc>
         <lastmod>2024-12-19T12:00:00+09:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.75</priority>
         <mobile:mobile/>
     </url>
     <url>
-        <loc>https://your-domain.com/calculators/pages/target-heart-rate.html</loc>
+        <loc>https://your-domain.com/calculators/pages/target-heart-rate</loc>
         <lastmod>2024-12-19T12:00:00+09:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.75</priority>
         <mobile:mobile/>
     </url>
     <url>
-        <loc>https://your-domain.com/calculators/pages/pace.html</loc>
+        <loc>https://your-domain.com/calculators/pages/pace</loc>
         <lastmod>2024-12-19T12:00:00+09:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.75</priority>
         <mobile:mobile/>
     </url>
     <url>
-        <loc>https://your-domain.com/calculators/pages/exercise-intensity.html</loc>
+        <loc>https://your-domain.com/calculators/pages/exercise-intensity</loc>
         <lastmod>2024-12-19T12:00:00+09:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.75</priority>
@@ -130,14 +130,14 @@
     
     <!-- 体重・体型カテゴリ -->
     <url>
-        <loc>https://your-domain.com/calculators/pages/ideal-weight.html</loc>
+        <loc>https://your-domain.com/calculators/pages/ideal-weight</loc>
         <lastmod>2024-12-19T12:00:00+09:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
         <mobile:mobile/>
     </url>
     <url>
-        <loc>https://your-domain.com/calculators/pages/height-prediction.html</loc>
+        <loc>https://your-domain.com/calculators/pages/height-prediction</loc>
         <lastmod>2024-12-19T12:00:00+09:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
@@ -146,28 +146,28 @@
     
     <!-- その他の健康カテゴリ -->
     <url>
-        <loc>https://your-domain.com/calculators/pages/sleep-time.html</loc>
+        <loc>https://your-domain.com/calculators/pages/sleep-time</loc>
         <lastmod>2024-12-19T12:00:00+09:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
         <mobile:mobile/>
     </url>
     <url>
-        <loc>https://your-domain.com/calculators/pages/water-intake.html</loc>
+        <loc>https://your-domain.com/calculators/pages/water-intake</loc>
         <lastmod>2024-12-19T12:00:00+09:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.75</priority>
         <mobile:mobile/>
     </url>
     <url>
-        <loc>https://your-domain.com/calculators/pages/stress-index.html</loc>
+        <loc>https://your-domain.com/calculators/pages/stress-index</loc>
         <lastmod>2024-12-19T12:00:00+09:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
         <mobile:mobile/>
     </url>
     <url>
-        <loc>https://your-domain.com/calculators/pages/health-age.html</loc>
+        <loc>https://your-domain.com/calculators/pages/health-age</loc>
         <lastmod>2024-12-19T12:00:00+09:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
