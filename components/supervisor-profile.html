@@ -1,0 +1,221 @@
+<!-- 監修者プロフィールコンポーネント -->
+<section class="supervisor-profile-component" id="supervisor-profile-component" style="display: none;">
+    <h3><i class="fas fa-user-md"></i> この記事の監修者</h3>
+    <div class="profile-card">
+        <div class="profile-image">
+            <img src="" alt="監修者写真" id="supervisor-image" class="supervisor-image">
+        </div>
+        <div class="profile-content">
+            <h4 id="supervisor-name" class="supervisor-name">【監修者名を入力】</h4>
+            <p class="supervisor-title" id="supervisor-title">【資格・肩書きを入力】</p>
+            <p class="supervisor-affiliation" id="supervisor-affiliation">【所属機関・クリニック名を入力】</p>
+            <div class="supervisor-bio" id="supervisor-bio">
+                <p>【監修者の経歴、専門分野、実績などを詳しく記載】</p>
+            </div>
+            
+            <!-- 資格・認定リスト -->
+            <div class="supervisor-credentials" id="supervisor-credentials">
+                <h5><i class="fas fa-certificate"></i> 主な資格・認定</h5>
+                <ul id="supervisor-credentials-list">
+                    <li>【資格名1】 - 【取得年】</li>
+                    <li>【資格名2】 - 【認定機関】</li>
+                </ul>
+            </div>
+            
+            <!-- 外部リンク -->
+            <div class="supervisor-links" id="supervisor-links">
+                <a href="" target="_blank" rel="noopener" class="link-button clinic-link" id="supervisor-clinic">
+                    <i class="fas fa-hospital"></i> 公式サイト
+                </a>
+                <a href="" target="_blank" rel="noopener" class="link-button appointment-link" id="supervisor-appointment">
+                    <i class="fas fa-calendar-check"></i> 診療予約
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+.supervisor-profile-component {
+    background: linear-gradient(135deg, #f8f9fa, #ffffff);
+    padding: 3rem 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.12);
+    margin: 3rem 0;
+    border: 2px solid #e3f2fd;
+}
+
+.supervisor-profile-component h3 {
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-weight: bold;
+}
+
+.supervisor-profile-component .profile-card {
+    display: flex;
+    gap: 2.5rem;
+    align-items: flex-start;
+}
+
+.supervisor-profile-component .profile-image {
+    flex-shrink: 0;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    background: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.supervisor-profile-component .profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.supervisor-profile-component .supervisor-name {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.supervisor-profile-component .supervisor-title {
+    color: var(--secondary-color);
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.supervisor-profile-component .supervisor-affiliation {
+    color: var(--text-color);
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    padding: 0.5rem 1rem;
+    background: #e3f2fd;
+    border-radius: 6px;
+    display: inline-block;
+}
+
+.supervisor-profile-component .supervisor-credentials {
+    margin: 1.5rem 0;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.supervisor-profile-component .supervisor-credentials h5 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.supervisor-profile-component .supervisor-credentials ul {
+    list-style: none;
+    padding: 0;
+}
+
+.supervisor-profile-component .supervisor-credentials li {
+    padding: 0.5rem 0;
+    color: var(--text-secondary);
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.supervisor-profile-component .supervisor-credentials li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.supervisor-profile-component .supervisor-links {
+    margin: 2rem 0;
+    display: flex;
+    gap: 1rem;
+}
+
+.supervisor-profile-component .link-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--primary-color);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.supervisor-profile-component .appointment-link {
+    background: #28a745;
+}
+
+.supervisor-profile-component .link-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+}
+
+@media (max-width: 768px) {
+    .supervisor-profile-component .profile-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .supervisor-profile-component .supervisor-links {
+        justify-content: center;
+    }
+}
+</style>
+
+<script>
+// 監修者プロフィールコンポーネントの制御
+class SupervisorProfileComponent {
+    constructor(containerId) {
+        this.container = document.getElementById(containerId);
+        this.checkVisibility();
+    }
+    
+    // 監修者情報が設定されているかチェック
+    checkVisibility() {
+        const name = this.container.querySelector('#supervisor-name').textContent.trim();
+        
+        if (name === '【監修者名を入力】' || name === '') {
+            this.container.style.display = 'none';
+        } else {
+            this.container.style.display = 'block';
+        }
+    }
+    
+    // 監修者情報を設定
+    setSupervisorInfo(supervisorData) {
+        if (supervisorData.name) {
+            this.container.querySelector('#supervisor-name').textContent = supervisorData.name;
+        }
+        if (supervisorData.title) {
+            this.container.querySelector('#supervisor-title').textContent = supervisorData.title;
+        }
+        if (supervisorData.affiliation) {
+            this.container.querySelector('#supervisor-affiliation').textContent = supervisorData.affiliation;
+        }
+        if (supervisorData.bio) {
+            this.container.querySelector('#supervisor-bio').innerHTML = supervisorData.bio;
+        }
+        if (supervisorData.image) {
+            this.container.querySelector('#supervisor-image').src = supervisorData.image;
+        }
+        
+        this.checkVisibility();
+    }
+}
+</script> 

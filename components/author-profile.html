@@ -1,0 +1,224 @@
+<!-- 記事執筆者プロフィールコンポーネント -->
+<section class="author-profile-component" id="author-profile-component">
+    <h3><i class="fas fa-user-edit"></i> この記事の執筆者</h3>
+    <div class="profile-card">
+        <div class="profile-image">
+            <img src="" alt="執筆者写真" id="author-image" class="author-image">
+        </div>
+        <div class="profile-content">
+            <h4 id="author-name" class="author-name">【執筆者名を入力】</h4>
+            <p class="author-title" id="author-title">【肩書き・資格を入力】</p>
+            <div class="author-bio" id="author-bio">
+                <p>【執筆者の経歴、専門分野、サイト運営の動機などを詳しく記載】</p>
+                <p>【保有資格、実務経験、専門性を示す情報を記載】</p>
+            </div>
+            <div class="author-social" id="author-social">
+                <a href="" target="_blank" rel="noopener" class="social-link twitter-link" id="author-twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="" target="_blank" rel="noopener" class="social-link linkedin-link" id="author-linkedin">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="" target="_blank" rel="noopener" class="social-link website-link" id="author-website">
+                    <i class="fas fa-globe"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+.author-profile-component {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    margin: 2rem 0;
+    border-left: 4px solid var(--primary-color);
+}
+
+.author-profile-component h3 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.author-profile-component .profile-card {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+.author-profile-component .profile-image {
+    flex-shrink: 0;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    background: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.author-profile-component .profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.author-profile-component .profile-image:empty::before {
+    content: "👤";
+    font-size: 2rem;
+    color: #ccc;
+}
+
+.author-profile-component .author-name {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.author-profile-component .author-title {
+    color: var(--secondary-color);
+    font-weight: bold;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+.author-profile-component .author-bio p {
+    margin-bottom: 0.8rem;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.author-profile-component .author-social {
+    margin-top: 1rem;
+    display: flex;
+    gap: 0.8rem;
+}
+
+.author-profile-component .social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    color: white;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.author-profile-component .twitter-link {
+    background: #1da1f2;
+}
+
+.author-profile-component .linkedin-link {
+    background: #0077b5;
+}
+
+.author-profile-component .website-link {
+    background: var(--primary-color);
+}
+
+.author-profile-component .social-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .author-profile-component .profile-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .author-profile-component .author-social {
+        justify-content: center;
+    }
+}
+</style>
+
+<script>
+// 執筆者プロフィールコンポーネントの制御
+class AuthorProfileComponent {
+    constructor(containerId) {
+        this.container = document.getElementById(containerId);
+        this.init();
+    }
+    
+    init() {
+        this.hideEmptySocialLinks();
+        this.validateImageSrc();
+    }
+    
+    // 空のソーシャルリンクを非表示
+    hideEmptySocialLinks() {
+        const socialLinks = this.container.querySelectorAll('.social-link');
+        socialLinks.forEach(link => {
+            if (!link.href || link.href === '' || link.href === window.location.href) {
+                link.style.display = 'none';
+            }
+        });
+    }
+    
+    // 画像の有効性を確認
+    validateImageSrc() {
+        const image = this.container.querySelector('.author-image');
+        if (image) {
+            image.onerror = function() {
+                this.style.display = 'none';
+            };
+        }
+    }
+    
+    // 執筆者情報を設定
+    setAuthorInfo(authorData) {
+        if (authorData.name) {
+            this.container.querySelector('#author-name').textContent = authorData.name;
+        }
+        if (authorData.title) {
+            this.container.querySelector('#author-title').textContent = authorData.title;
+        }
+        if (authorData.bio) {
+            this.container.querySelector('#author-bio').innerHTML = authorData.bio;
+        }
+        if (authorData.image) {
+            this.container.querySelector('#author-image').src = authorData.image;
+        }
+        if (authorData.social) {
+            if (authorData.social.twitter) {
+                this.container.querySelector('#author-twitter').href = authorData.social.twitter;
+            }
+            if (authorData.social.linkedin) {
+                this.container.querySelector('#author-linkedin').href = authorData.social.linkedin;
+            }
+            if (authorData.social.website) {
+                this.container.querySelector('#author-website').href = authorData.social.website;
+            }
+        }
+        
+        this.init(); // 再初期化
+    }
+}
+
+// 使用例:
+// const authorProfile = new AuthorProfileComponent('author-profile-component');
+// authorProfile.setAuthorInfo({
+//     name: "田中健太郎",
+//     title: "健康管理士・栄養指導員",
+//     bio: "<p>10年以上の健康管理指導経験を持つ専門家。</p>",
+//     image: "path/to/author-image.jpg",
+//     social: {
+//         twitter: "https://twitter.com/example",
+//         linkedin: "https://linkedin.com/in/example"
+//     }
+// });
+</script> 

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お問い合わせ | 健康計算ポータル</title>
+    <meta name="description" content="健康計算ポータルへのお問い合わせページ。サイトに関するご質問、ご要望、技術的なお問い合わせを承っております。">
+    <meta name="robots" content="index, follow">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <link rel="canonical" href="https://minna-no-kenko.com/contact">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1><a href="/" class="home-link">健康計算ポータル</a></h1>
+            <div class="search-container">
+                <input type="search" placeholder="計算機能を検索...">
+                <button type="button"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <nav class="breadcrumb">
+        <ol>
+            <li><a href="/">ホーム</a></li>
+            <li><span>お問い合わせ</span></li>
+        </ol>
+    </nav>
+
+    <main class="contact-page">
+        <div class="container">
+            <h1>お問い合わせ</h1>
+            <p class="page-intro">サイトに関するご質問、ご要望、技術的なお問い合わせなど、お気軽にご連絡ください。</p>
+
+            <!-- 重要な注意事項 -->
+            <section class="important-notice">
+                <div class="notice-box">
+                    <h2><i class="fas fa-exclamation-triangle"></i> 重要なお知らせ</h2>
+                    <ul>
+                        <li><strong>医療相談はお受けできません</strong> - 個別の健康状態や症状に関するご相談は、必ず医師にご相談ください</li>
+                        <li><strong>緊急時は医療機関へ</strong> - 緊急を要する症状の場合は、直ちに医療機関を受診してください</li>
+                        <li><strong>計算結果に関する保証</strong> - 計算結果は参考値であり、医学的判断の代替にはなりません</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- お問い合わせフォーム -->
+            <section class="contact-form-section">
+                <h2>お問い合わせフォーム</h2>
+                <form id="contact-form" class="contact-form" action="#" method="POST">
+                    <!-- 運営者様がフォーム処理のaction URLを設定 -->
+                    
+                    <div class="form-group">
+                        <label for="inquiry-type">お問い合わせ種別 <span class="required">*</span></label>
+                        <select id="inquiry-type" name="inquiry_type" required>
+                            <option value="">選択してください</option>
+                            <option value="technical">技術的な問題</option>
+                            <option value="feature">機能のご要望</option>
+                            <option value="general">サイトについて</option>
+                            <option value="collaboration">コラボレーション</option>
+                            <option value="other">その他</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">お名前 <span class="required">*</span></label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">メールアドレス <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">件名 <span class="required">*</span></label>
+                        <input type="text" id="subject" name="subject" required placeholder="お問い合わせの件名をご入力ください">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">お問い合わせ内容 <span class="required">*</span></label>
+                        <textarea id="message" name="message" rows="8" required placeholder="お問い合わせ内容を詳しくご記入ください。"></textarea>
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="privacy-agree" name="privacy_agree" required>
+                            <span class="checkmark"></span>
+                            <a href="privacy-policy" target="_blank">プライバシーポリシー</a>に同意する <span class="required">*</span>
+                        </label>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="submit-button">
+                            <i class="fas fa-paper-plane"></i>
+                            送信する
+                        </button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- 直接連絡先（運営者様が設定） -->
+            <section class="direct-contact">
+                <h2>直接のご連絡</h2>
+                <div class="contact-info-grid">
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>メール</h3>
+                        <p id="direct-email">【運営者様がメールアドレスを設定】</p>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3>対応時間</h3>
+                        <p id="response-hours">【運営者様が対応時間を設定】</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 健康計算ポータル All Rights Reserved.</p>
+            <div class="footer-links">
+                <a href="privacy-policy">プライバシーポリシー</a>
+                <a href="terms-of-service">利用規約</a>
+                <a href="about">運営者情報</a>
+                <a href="contact">お問い合わせ</a>
+            </div>
+        </div>
+    </footer>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="search.js"></script>
+
+    <style>
+        .contact-page {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+            line-height: 1.7;
+        }
+
+        .contact-page h1 {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .page-intro {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-page section {
+            margin-bottom: 3rem;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-page h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            border-left: 5px solid var(--primary-color);
+            padding-left: 1rem;
+        }
+
+        /* 重要なお知らせ */
+        .notice-box {
+            background: #fff3e0;
+            border: 2px solid #ff9800;
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+
+        .notice-box h2 {
+            color: #e65100;
+            margin-bottom: 1rem;
+            border: none;
+            padding: 0;
+        }
+
+        .notice-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .notice-box li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #e65100;
+        }
+
+        .notice-box li::before {
+            content: "⚠️";
+            position: absolute;
+            left: 0;
+        }
+
+        /* フォームスタイル */
+        .contact-form {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+            font-weight: bold;
+        }
+
+        .required {
+            color: #e74c3c;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+        }
+
+        /* チェックボックス */
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            font-weight: normal;
+        }
+
+        .checkbox-label input[type="checkbox"] {
+            width: auto;
+            margin-right: 0.5rem;
+        }
+
+        /* ボタン */
+        .form-actions {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .submit-button {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .submit-button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* 直接連絡先 */
+        .contact-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .contact-method {
+            text-align: center;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .contact-method h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        /* レスポンシブ対応 */
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</body>
+</html> 

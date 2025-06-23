@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="妊娠超初期症状チェッカー。15項目の症状をチェックして妊娠の可能性を確認。科学的根拠に基づいた症状リストで、妊娠検査や医師相談の目安に。">
+    <meta name="keywords" content="妊娠超初期症状,症状チェッカー,妊娠可能性,初期症状,妊娠検査,着床出血,基礎体温">
+    <link rel="icon" type="image/png" href="../../assets/images/favicon.png">
+    <title>【無料】妊娠超初期症状チェッカー｜15項目で妊娠可能性を確認 - 健康計算ポータル</title>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1741576930615169"
+     crossorigin="anonymous"></script>
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="【無料】妊娠超初期症状チェッカー｜15項目で妊娠可能性を確認">
+    <meta property="og:description" content="科学的根拠に基づいた15項目の症状をチェックして妊娠の可能性を確認。妊娠検査や医師相談の目安に。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://minna-no-kenko.com/calculators/pages/pregnancy-symptoms-checker">
+    <meta property="og:image" content="https://minna-no-kenko.com/assets/images/pregnancy-symptoms-og.jpg">
+    
+    <!-- 構造化データ -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "妊娠超初期症状チェッカー",
+        "description": "15項目の症状をチェックして妊娠の可能性を確認できるツール",
+        "url": "https://minna-no-kenko.com/calculators/pages/pregnancy-symptoms-checker",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "JPY"
+        },
+        "author": {
+            "@type": "Organization",
+            "name": "健康計算ポータル"
+        }
+    }
+    </script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../../assets/css/pregnancy-symptoms.css">
+    <link rel="canonical" href="https://minna-no-kenko.com/calculators/pages/pregnancy-symptoms-checker">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1><a href="/" class="home-link">健康計算ポータル</a></h1>
+            <div class="search-container">
+                <input type="search" placeholder="計算機能を検索...">
+                <button type="button"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="calculator-container">
+            <h2>妊娠超初期症状チェッカー</h2>
+            <p class="description">
+                <strong>【医学的根拠に基づく15項目】</strong>妊娠超初期に現れやすい症状をチェックして、妊娠の可能性を確認しましょう。<br>
+                このチェッカーは診断ツールではありません。結果に関わらず、妊娠の可能性がある場合は適切な検査を受けることをお勧めします。
+            </p>
+
+            <!-- 医療免責事項 -->
+            <div class="medical-notice">
+                <h3>⚠️ 重要な注意事項</h3>
+                <p>このチェッカーは医学的診断ではありません。結果は参考程度にとどめ、妊娠の可能性がある場合は妊娠検査薬の使用や医師にご相談ください。</p>
+            </div>
+
+            <div class="checker-section">
+                <div class="symptoms-checklist">
+                    <h3>あてはまる症状にチェックを入れてください</h3>
+                    <p class="sub-description">過去1〜2週間に感じた症状について確認してください</p>
+                    
+                    <div class="symptoms-grid">
+                        <!-- 1. 生理の遅れ -->
+                        <div class="symptom-item high-indicator">
+                            <input type="checkbox" id="symptom1" value="3">
+                            <label for="symptom1">
+                                <span class="symptom-name">生理が予定日より遅れている</span>
+                                <span class="symptom-description">通常の周期より7日以上遅れている</span>
+                                <span class="reliability">信頼度：高</span>
+                            </label>
+                        </div>
+
+                        <!-- 2. 基礎体温の高温継続 -->
+                        <div class="symptom-item high-indicator">
+                            <input type="checkbox" id="symptom2" value="3">
+                            <label for="symptom2">
+                                <span class="symptom-name">基礎体温が高温のまま続いている</span>
+                                <span class="symptom-description">通常は生理前に下がる体温が18日以上高温</span>
+                                <span class="reliability">信頼度：高</span>
+                            </label>
+                        </div>
+
+                        <!-- 3. 着床出血 -->
+                        <div class="symptom-item medium-indicator">
+                            <input type="checkbox" id="symptom3" value="2">
+                            <label for="symptom3">
+                                <span class="symptom-name">少量の出血があった</span>
+                                <span class="symptom-description">生理予定日頃に少量の薄い出血（着床出血の可能性）</span>
+                                <span class="reliability">信頼度：中</span>
+                            </label>
+                        </div>
+
+                        <!-- 4. 乳房の変化 -->
+                        <div class="symptom-item medium-indicator">
+                            <input type="checkbox" id="symptom4" value="2">
+                            <label for="symptom4">
+                                <span class="symptom-name">乳房の張りや痛み</span>
+                                <span class="symptom-description">普段より強い張りや痛み、触ると敏感</span>
+                                <span class="reliability">信頼度：中</span>
+                            </label>
+                        </div>
+
+                        <!-- 5. 乳首の変化 -->
+                        <div class="symptom-item medium-indicator">
+                            <input type="checkbox" id="symptom5" value="2">
+                            <label for="symptom5">
+                                <span class="symptom-name">乳首の色が濃くなった</span>
+                                <span class="symptom-description">乳首やその周りの色が濃くなった</span>
+                                <span class="reliability">信頼度：中</span>
+                            </label>
+                        </div>
+
+                        <!-- 6. 強い眠気・疲労感 -->
+                        <div class="symptom-item low-indicator">
+                            <input type="checkbox" id="symptom6" value="1">
+                            <label for="symptom6">
+                                <span class="symptom-name">強い眠気や疲労感</span>
+                                <span class="symptom-description">普段より強い眠気、日中でも眠くなる</span>
+                                <span class="reliability">信頼度：低</span>
+                            </label>
+                        </div>
+
+                        <!-- 7. 吐き気 -->
+                        <div class="symptom-item medium-indicator">
+                            <input type="checkbox" id="symptom7" value="2">
+                            <label for="symptom7">
+                                <span class="symptom-name">吐き気がある</span>
+                                <span class="symptom-description">特に朝や空腹時に感じる吐き気</span>
+                                <span class="reliability">信頼度：中</span>
+                            </label>
+                        </div>
+
+                        <!-- 8. 匂いに敏感 -->
+                        <div class="symptom-item low-indicator">
+                            <input type="checkbox" id="symptom8" value="1">
+                            <label for="symptom8">
+                                <span class="symptom-name">匂いに敏感になった</span>
+                                <span class="symptom-description">普段気にならない匂いで吐き気を感じる</span>
+                                <span class="reliability">信頼度：低</span>
+                            </label>
+                        </div>
+
+                        <!-- 9. 頻尿 -->
+                        <div class="symptom-item low-indicator">
+                            <input type="checkbox" id="symptom9" value="1">
+                            <label for="symptom9">
+                                <span class="symptom-name">トイレが近くなった</span>
+                                <span class="symptom-description">普段より尿意を頻繁に感じる</span>
+                                <span class="reliability">信頼度：低</span>
+                            </label>
+                        </div>
+
+                        <!-- 10. 下腹部の痛み -->
+                        <div class="symptom-item low-indicator">
+                            <input type="checkbox" id="symptom10" value="1">
+                            <label for="symptom10">
+                                <span class="symptom-name">軽い下腹部痛</span>
+                                <span class="symptom-description">生理痛に似た軽い痛みやチクチクした感覚</span>
+                                <span class="reliability">信頼度：低</span>
+                            </label>
+                        </div>
+
+                        <!-- 11. 腰痛 -->
+                        <div class="symptom-item low-indicator">
+                            <input type="checkbox" id="symptom11" value="1">
+                            <label for="symptom11">
+                                <span class="symptom-name">腰が重い・痛い</span>
+                                <span class="symptom-description">普段より腰の重さや痛みを感じる</span>
+                                <span class="reliability">信頼度：低</span>
+                            </label>
+                        </div>
+
+                        <!-- 12. 便秘 -->
+                        <div class="symptom-item low-indicator">
+                            <input type="checkbox" id="symptom12" value="1">
+                            <label for="symptom12">
+                                <span class="symptom-name">便秘気味になった</span>
+                                <span class="symptom-description">普段より便通が悪くなった</span>
+                                <span class="reliability">信頼度：低</span>
+                            </label>
+                        </div>
+
+                        <!-- 13. 食べ物の好み変化 -->
+                        <div class="symptom-item low-indicator">
+                            <input type="checkbox" id="symptom13" value="1">
+                            <label for="symptom13">
+                                <span class="symptom-name">食べ物の好みが変わった</span>
+                                <span class="symptom-description">今まで好きだった食べ物を受け付けない</span>
+                                <span class="reliability">信頼度：低</span>
+                            </label>
+                        </div>
+
+                        <!-- 14. 情緒の変化 -->
+                        <div class="symptom-item low-indicator">
+                            <input type="checkbox" id="symptom14" value="1">
+                            <label for="symptom14">
+                                <span class="symptom-name">感情の起伏が激しい</span>
+                                <span class="symptom-description">普段より感情的になりやすい、イライラする</span>
+                                <span class="reliability">信頼度：低</span>
+                            </label>
+                        </div>
+
+                        <!-- 15. 熱っぽさ -->
+                        <div class="symptom-item low-indicator">
+                            <input type="checkbox" id="symptom15" value="1">
+                            <label for="symptom15">
+                                <span class="symptom-name">微熱っぽい感じ</span>
+                                <span class="symptom-description">風邪ではないが熱っぽさを感じる</span>
+                                <span class="reliability">信頼度：低</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="check-button-container">
+                        <button type="button" id="checkSymptomsBtn" class="check-button">症状をチェックする</button>
+                        <button type="button" id="resetBtn" class="reset-button">リセット</button>
+                    </div>
+                </div>
+
+                <div class="result-section" id="resultSection" style="display: none;">
+                    <div class="result-card">
+                        <h3 id="resultTitle">チェック結果</h3>
+                        <div class="result-score">
+                            <span class="score-label">該当症状数：</span>
+                            <span id="symptomCount">0</span>
+                            <span class="score-total">/15項目</span>
+                        </div>
+                        <div class="result-level" id="resultLevel"></div>
+                        <div class="result-message" id="resultMessage"></div>
+                        <div class="result-advice" id="resultAdvice"></div>
+                    </div>
+
+                    <div class="next-steps">
+                        <h4>推奨される次のステップ</h4>
+                        <div class="steps-grid" id="nextStepsGrid">
+                            <!-- JavaScriptで動的に生成 -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 症状の詳細情報 -->
+            <div class="info-section">
+                <h3>妊娠超初期症状について</h3>
+                <div class="info-content">
+                    <h4>妊娠超初期とは</h4>
+                    <p>妊娠超初期とは、妊娠0〜3週頃を指します。この時期は受精・着床が起こる時期で、妊娠検査薬でも反応が出にくい期間です。症状には個人差が大きく、全く感じない方も多くいらっしゃいます。</p>
+
+                    <h4>症状の信頼度について</h4>
+                    <div class="reliability-explanation">
+                        <div class="reliability-item high">
+                            <h5><span class="reliability-badge high">信頼度：高</span></h5>
+                            <p>医学的に妊娠の可能性が高いとされる症状。ただし、他の原因でも起こりうるため、確定診断には検査が必要です。</p>
+                        </div>
+                        <div class="reliability-item medium">
+                            <h5><span class="reliability-badge medium">信頼度：中</span></h5>
+                            <p>妊娠初期によく見られる症状ですが、生理前症候群(PMS)などでも起こりうる症状です。</p>
+                        </div>
+                        <div class="reliability-item low">
+                            <h5><span class="reliability-badge low">信頼度：低</span></h5>
+                            <p>妊娠に関連して起こることがある症状ですが、他の原因による可能性も高い症状です。</p>
+                        </div>
+                    </div>
+
+                    <h4>症状の医学的根拠</h4>
+                    <div class="evidence-list">
+                        <div class="evidence-item">
+                            <h5>生理の遅れ</h5>
+                            <p>妊娠により黄体ホルモン（プロゲステロン）の分泌が継続し、子宮内膜が維持されるため、生理が来ません<sup>[1]</sup>。</p>
+                        </div>
+                        <div class="evidence-item">
+                            <h5>基礎体温の高温継続</h5>
+                            <p>妊娠が成立すると、黄体ホルモンの作用により基礎体温が高温を維持します<sup>[2]</sup>。</p>
+                        </div>
+                        <div class="evidence-item">
+                            <h5>乳房の変化</h5>
+                            <p>妊娠ホルモン（hCG、エストロゲン、プロゲステロン）の影響で乳腺組織に変化が起こります<sup>[3]</sup>。</p>
+                        </div>
+                        <div class="evidence-item">
+                            <h5>吐き気・つわり症状</h5>
+                            <p>hCG（ヒト絨毛性ゴナドトロピン）の急激な増加が関与していると考えられています<sup>[4]</sup>。</p>
+                        </div>
+                    </div>
+
+                    <h4>注意事項</h4>
+                    <ul class="caution-list">
+                        <li>症状の有無だけでは妊娠の確定診断はできません</li>
+                        <li>症状がなくても妊娠している可能性があります</li>
+                        <li>他の体調不良や疾患でも同様の症状が現れることがあります</li>
+                        <li>妊娠の可能性がある場合は、適切な時期に妊娠検査を行ってください</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 妊娠検査について -->
+            <div class="pregnancy-test-info">
+                <h3>妊娠検査について</h3>
+                <div class="test-timing">
+                    <h4>検査のタイミング</h4>
+                    <div class="timing-grid">
+                        <div class="timing-item">
+                            <h5>市販の妊娠検査薬</h5>
+                            <p><strong>生理予定日の1週間後から</strong><br>
+                            最も正確な結果が得られる時期です。フライング検査は偽陰性の可能性があります。</p>
+                        </div>
+                        <div class="timing-item">
+                            <h5>早期妊娠検査薬</h5>
+                            <p><strong>生理予定日から</strong><br>
+                            通常の検査薬より早く検査できますが、やや精度が劣る場合があります。</p>
+                        </div>
+                        <div class="timing-item">
+                            <h5>血液検査（医療機関）</h5>
+                            <p><strong>着床後1〜2週間から</strong><br>
+                            最も早く正確に判定できますが、医療機関での検査が必要です。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 関連ツール -->
+            <div class="related-tools">
+                <h3>関連する計算ツール</h3>
+                <div class="tools-grid">
+                    <a href="ovulation.html" class="tool-card">
+                        <h4>排卵日計算機</h4>
+                        <p>妊娠しやすい時期を計算</p>
+                    </a>
+                    <a href="pregnancy-due-date.html" class="tool-card">
+                        <h4>出産予定日計算機</h4>
+                        <p>出産予定日と妊娠週数を計算</p>
+                    </a>
+                    <a href="menstrual.html" class="tool-card">
+                        <h4>生理周期計算機</h4>
+                        <p>次回の生理日を予測</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 参考文献 -->
+            <div class="references">
+                <h3>参考文献</h3>
+                <ol>
+                    <li>日本産科婦人科学会「産婦人科診療ガイドライン産科編2020」</li>
+                    <li>杉山陽一編「NEW エッセンシャル産科学・婦人科学 第3版」(2018)</li>
+                    <li>荒木勤編「標準産科婦人科学 第4版」(2017)</li>
+                    <li>Lacroix R, et al. Nausea and vomiting during pregnancy: A prospective study of its frequency, intensity, and patterns of change. Am J Obstet Gynecol. 2000;182(4):931-7.</li>
+                </ol>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 健康計算ポータル All Rights Reserved.</p>
+            <div class="footer-links">
+                <a href="../../privacy-policy.html">プライバシーポリシー</a>
+                <a href="../../terms-of-service.html">利用規約</a>
+                <a href="../../about.html">運営者情報</a>
+                <a href="../../contact.html">お問い合わせ</a>
+            </div>
+            <!-- 免責事項 -->
+            <div class="footer-disclaimer">
+                <p>⚠️ 当サイトの情報は教育・参考目的のものです。医学的診断・治療の代替ではありません。健康に関する判断は医師にご相談ください。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../search.js"></script>
+    <script src="../../assets/js/pregnancy-symptoms.js"></script>
+</body>
+</html> 

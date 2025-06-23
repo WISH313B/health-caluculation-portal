@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【計算ツール名】 | 健康計算ポータル</title>
+    <meta name="description" content="【計算ツールの説明・メタディスクリプション】">
+    <meta name="robots" content="index, follow">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" type="image/png" href="../assets/images/favicon.png">
+    <link rel="canonical" href="https://minna-no-kenko.com/calculators/pages/【URL】">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1><a href="/" class="home-link">健康計算ポータル</a></h1>
+            <div class="search-container">
+                <input type="search" placeholder="計算機能を検索...">
+                <button type="button"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <nav class="breadcrumb">
+        <ol>
+            <li><a href="/">ホーム</a></li>
+            <li><a href="../">計算機一覧</a></li>
+            <li><span>【計算ツール名】</span></li>
+        </ol>
+    </nav>
+
+    <main class="calculator-page">
+        <div class="container">
+            <!-- ページヘッダー -->
+            <header class="page-header">
+                <h1 id="calculator-title">【計算ツール名】</h1>
+                <p class="page-description" id="calculator-description">
+                    【計算ツールの詳しい説明文】
+                </p>
+            </header>
+
+            <!-- 計算機能セクション -->
+            <section class="calculator-section">
+                <div class="calculator-container">
+                    <h2><i class="fas fa-calculator"></i> 計算する</h2>
+                    
+                    <!-- 入力フォーム -->
+                    <form id="calculator-form" class="calculator-form">
+                        <!-- 基本入力項目 -->
+                        <div class="input-group">
+                            <label for="input1">【入力項目1の名前】</label>
+                            <div class="input-wrapper">
+                                <input type="number" id="input1" name="input1" step="0.1" required>
+                                <span class="unit">【単位】</span>
+                            </div>
+                            <small class="input-help">【入力のヒント・説明】</small>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="input2">【入力項目2の名前】</label>
+                            <div class="input-wrapper">
+                                <input type="number" id="input2" name="input2" step="0.1" required>
+                                <span class="unit">【単位】</span>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="select1">【選択項目の名前】</label>
+                            <select id="select1" name="select1" required>
+                                <option value="">選択してください</option>
+                                <option value="option1">【選択肢1】</option>
+                                <option value="option2">【選択肢2】</option>
+                            </select>
+                        </div>
+
+                        <!-- 計算ボタン -->
+                        <button type="submit" class="calculate-button">
+                            <i class="fas fa-calculator"></i>
+                            計算する
+                        </button>
+                    </form>
+
+                    <!-- 計算結果表示エリア -->
+                    <div id="result-section" class="result-section" style="display: none;">
+                        <h3><i class="fas fa-chart-line"></i> 計算結果</h3>
+                        
+                        <div class="result-main">
+                            <div class="result-value">
+                                <span id="result-number">--</span>
+                                <span class="result-unit">【結果の単位】</span>
+                            </div>
+                            <div class="result-status" id="result-status">
+                                【結果の判定・ステータス】
+                            </div>
+                        </div>
+
+                        <div class="result-details" id="result-details">
+                            <!-- 詳細な計算結果や解説 -->
+                            <div class="detail-item">
+                                <span class="detail-label">【詳細項目1】</span>
+                                <span class="detail-value" id="detail1">--</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">【詳細項目2】</span>
+                                <span class="detail-value" id="detail2">--</span>
+                            </div>
+                        </div>
+
+                        <!-- 結果の共有ボタン -->
+                        <div class="result-actions">
+                            <button type="button" id="share-button" class="share-button">
+                                <i class="fas fa-share-alt"></i>
+                                結果を共有
+                            </button>
+                            <button type="button" id="reset-button" class="reset-button">
+                                <i class="fas fa-redo"></i>
+                                再計算
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 使い方解説セクション -->
+            <section class="usage-guide">
+                <h2>使い方・解説</h2>
+                <div class="guide-content">
+                    <div class="guide-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>【ステップ1のタイトル】</h3>
+                            <p>【ステップ1の説明】</p>
+                        </div>
+                    </div>
+                    
+                    <div class="guide-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>【ステップ2のタイトル】</h3>
+                            <p>【ステップ2の説明】</p>
+                        </div>
+                    </div>
+                    
+                    <div class="guide-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>【ステップ3のタイトル】</h3>
+                            <p>【ステップ3の説明】</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 計算式・根拠セクション -->
+            <section class="formula-section">
+                <h2>計算式・医学的根拠</h2>
+                <div class="formula-content">
+                    <div class="formula-box">
+                        <h3>使用している計算式</h3>
+                        <div class="formula">
+                            【計算式をここに記載】
+                        </div>
+                        <p class="formula-description">
+                            【計算式の説明・由来】
+                        </p>
+                    </div>
+                    
+                    <div class="evidence-box">
+                        <h3>医学的根拠・参考文献</h3>
+                        <ul>
+                            <li>【参考文献1】</li>
+                            <li>【参考文献2】</li>
+                            <li>【参考文献3】</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 注意事項 -->
+            <section class="disclaimer-section">
+                <h2><i class="fas fa-exclamation-triangle"></i> 重要な注意事項</h2>
+                <div class="disclaimer-content">
+                    <ul>
+                        <li><strong>参考値としてご利用ください：</strong> 計算結果は目安であり、個人差があります。</li>
+                        <li><strong>医師への相談を推奨：</strong> 健康に関する判断は医師にご相談ください。</li>
+                        <li><strong>緊急時の対応：</strong> 異常な数値が出た場合は、直ちに医療機関を受診してください。</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 監修者プロフィール表示エリア -->
+            <div id="supervisor-profile-area">
+                <!-- components/supervisor-profile.htmlをここに読み込み -->
+            </div>
+            
+            <!-- 関連計算機 -->
+            <section class="related-calculators">
+                <h2>関連する計算機</h2>
+                <div class="calculator-grid">
+                    <a href="【関連計算機URL1】" class="calculator-card">
+                        <div class="calculator-icon">
+                            <i class="fas fa-【アイコン】"></i>
+                        </div>
+                        <h3>【関連計算機名1】</h3>
+                        <p>【説明】</p>
+                    </a>
+                    
+                    <a href="【関連計算機URL2】" class="calculator-card">
+                        <div class="calculator-icon">
+                            <i class="fas fa-【アイコン】"></i>
+                        </div>
+                        <h3>【関連計算機名2】</h3>
+                        <p>【説明】</p>
+                    </a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 健康計算ポータル All Rights Reserved.</p>
+            <div class="footer-links">
+                <a href="../../privacy-policy">プライバシーポリシー</a>
+                <a href="../../terms-of-service">利用規約</a>
+                <a href="../../about">運営者情報</a>
+                <a href="../../contact">お問い合わせ</a>
+            </div>
+        </div>
+    </footer>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="../../search.js"></script>
+
+    <style>
+        .calculator-page {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2.5rem 0;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 12px;
+        }
+
+        .page-header h1 {
+            color: var(--primary-color);
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .page-description {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .calculator-section {
+            background: white;
+            padding: 3rem 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 3rem;
+        }
+
+        .calculator-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .calculator-form {
+            display: grid;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .input-group label {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+        }
+
+        .input-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .input-wrapper input,
+        .input-group select {
+            flex: 1;
+            padding: 0.8rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .input-wrapper input:focus,
+        .input-group select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .unit {
+            color: var(--text-secondary);
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .input-help {
+            margin-top: 0.3rem;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        .calculate-button {
+            background: var(--primary-color);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .calculate-button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .result-section {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+
+        .result-main {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .result-value {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .result-status {
+            font-size: 1.2rem;
+            color: var(--text-color);
+            padding: 0.5rem 1rem;
+            background: white;
+            border-radius: 6px;
+            display: inline-block;
+        }
+
+        .result-details {
+            display: grid;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .detail-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.8rem;
+            background: white;
+            border-radius: 6px;
+        }
+
+        .detail-label {
+            font-weight: bold;
+            color: var(--text-color);
+        }
+
+        .detail-value {
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .result-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .share-button,
+        .reset-button {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .share-button {
+            background: var(--secondary-color);
+            color: white;
+        }
+
+        .reset-button {
+            background: #6c757d;
+            color: white;
+        }
+
+        .usage-guide,
+        .formula-section,
+        .disclaimer-section,
+        .related-calculators {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .usage-guide h2,
+        .formula-section h2,
+        .disclaimer-section h2,
+        .related-calculators h2 {
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .guide-step {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            align-items: flex-start;
+        }
+
+        .step-number {
+            background: var(--primary-color);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .step-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .formula-box,
+        .evidence-box {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        .formula {
+            background: white;
+            padding: 1rem;
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 1.1rem;
+            margin: 1rem 0;
+            text-align: center;
+        }
+
+        .disclaimer-content {
+            background: #fff3e0;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #ff9800;
+        }
+
+        .disclaimer-content ul {
+            margin: 0;
+        }
+
+        .disclaimer-content li {
+            margin-bottom: 0.8rem;
+            color: #e65100;
+        }
+
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .calculator-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--text-color);
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+
+        .calculator-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .calculator-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .calculator-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .result-actions {
+                flex-direction: column;
+            }
+            
+            .guide-step {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+
+    <script>
+        // 計算機能のJavaScript
+        document.getElementById('calculator-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // 入力値の取得
+            const input1 = parseFloat(document.getElementById('input1').value);
+            const input2 = parseFloat(document.getElementById('input2').value);
+            const select1 = document.getElementById('select1').value;
+            
+            // 計算ロジック（運営者様が実装）
+            const result = calculateResult(input1, input2, select1);
+            
+            // 結果の表示
+            displayResult(result);
+        });
+
+        function calculateResult(input1, input2, select1) {
+            // ここに実際の計算ロジックを実装
+            // 例：
+            const result = input1 * input2; // 簡単な例
+            
+            return {
+                main: result,
+                status: '正常範囲',
+                details: {
+                    detail1: result * 0.8,
+                    detail2: result * 1.2
+                }
+            };
+        }
+
+        function displayResult(result) {
+            document.getElementById('result-number').textContent = result.main.toFixed(1);
+            document.getElementById('result-status').textContent = result.status;
+            document.getElementById('detail1').textContent = result.details.detail1.toFixed(1);
+            document.getElementById('detail2').textContent = result.details.detail2.toFixed(1);
+            
+            document.getElementById('result-section').style.display = 'block';
+            document.getElementById('result-section').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // 結果のリセット
+        document.getElementById('reset-button').addEventListener('click', function() {
+            document.getElementById('calculator-form').reset();
+            document.getElementById('result-section').style.display = 'none';
+        });
+
+        // 結果の共有
+        document.getElementById('share-button').addEventListener('click', function() {
+            const resultText = `【計算ツール名】の結果: ${document.getElementById('result-number').textContent}`;
+            if (navigator.share) {
+                navigator.share({
+                    title: '【計算ツール名】の結果',
+                    text: resultText,
+                    url: window.location.href
+                });
+            } else {
+                // Fallback: copy to clipboard
+                navigator.clipboard.writeText(resultText + ' - ' + window.location.href);
+                alert('結果をクリップボードにコピーしました');
+            }
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【症状チェッカー名】 | 健康計算ポータル</title>
+    <meta name="description" content="【症状チェッカーの説明】">
+    <meta name="robots" content="index, follow">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" type="image/png" href="../assets/images/favicon.png">
+    <link rel="canonical" href="https://minna-no-kenko.com/【URL】">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1><a href="/" class="home-link">健康計算ポータル</a></h1>
+            <div class="search-container">
+                <input type="search" placeholder="計算機能を検索...">
+                <button type="button"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <nav class="breadcrumb">
+        <ol>
+            <li><a href="/">ホーム</a></li>
+            <li><a href="../">健康チェック</a></li>
+            <li><span>【症状チェッカー名】</span></li>
+        </ol>
+    </nav>
+
+    <main class="symptom-checker-page">
+        <div class="container">
+            <!-- ページヘッダー -->
+            <header class="page-header">
+                <h1 id="checker-title">【症状チェッカー名】</h1>
+                <p class="page-description" id="checker-description">
+                    【症状チェッカーの詳しい説明文】
+                </p>
+                
+                <!-- 重要な注意事項 -->
+                <div class="important-notice">
+                    <div class="notice-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <div class="notice-content">
+                        <h3>重要：このチェッカーについて</h3>
+                        <ul>
+                            <li><strong>医療診断ではありません</strong> - あくまで参考情報です</li>
+                            <li><strong>緊急時は直ちに医療機関へ</strong> - 症状が重い場合は迷わず受診</li>
+                            <li><strong>専門医への相談を推奨</strong> - 結果に関わらず気になる症状は医師に相談</li>
+                        </ul>
+                    </div>
+                </div>
+            </header>
+
+            <!-- 症状チェック開始前の説明 -->
+            <section class="pre-check-section">
+                <h2><i class="fas fa-info-circle"></i> チェックを始める前に</h2>
+                <div class="pre-check-content">
+                    <div class="check-points">
+                        <div class="point-item">
+                            <div class="point-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="point-content">
+                                <h3>所要時間</h3>
+                                <p>約【X】分で完了します</p>
+                            </div>
+                        </div>
+                        
+                        <div class="point-item">
+                            <div class="point-icon">
+                                <i class="fas fa-list-check"></i>
+                            </div>
+                            <div class="point-content">
+                                <h3>質問数</h3>
+                                <p>全【X】問の質問にお答えください</p>
+                            </div>
+                        </div>
+                        
+                        <div class="point-item">
+                            <div class="point-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <div class="point-content">
+                                <h3>現在の状態</h3>
+                                <p>最近の体調について正直にお答えください</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button id="start-check-button" class="start-button">
+                        <i class="fas fa-play"></i>
+                        チェックを開始する
+                    </button>
+                </div>
+            </section>
+
+            <!-- 症状チェックフォーム -->
+            <section class="symptom-check-section" id="symptom-check-section" style="display: none;">
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill"></div>
+                    </div>
+                    <span class="progress-text">
+                        <span id="current-question">1</span> / <span id="total-questions">10</span>
+                    </span>
+                </div>
+
+                <form id="symptom-form" class="symptom-form">
+                    <!-- 質問1 -->
+                    <div class="question-group" id="question-1" style="display: block;">
+                        <h3 class="question-title">【質問1のタイトル】</h3>
+                        <p class="question-description">【質問1の詳細説明】</p>
+                        
+                        <div class="answer-options">
+                            <label class="option-card">
+                                <input type="radio" name="q1" value="option1">
+                                <div class="option-content">
+                                    <div class="option-icon">
+                                        <i class="fas fa-circle"></i>
+                                    </div>
+                                    <div class="option-text">
+                                        <h4>【選択肢1】</h4>
+                                        <p>【選択肢1の説明】</p>
+                                    </div>
+                                </div>
+                            </label>
+                            
+                            <label class="option-card">
+                                <input type="radio" name="q1" value="option2">
+                                <div class="option-content">
+                                    <div class="option-icon">
+                                        <i class="fas fa-circle"></i>
+                                    </div>
+                                    <div class="option-text">
+                                        <h4>【選択肢2】</h4>
+                                        <p>【選択肢2の説明】</p>
+                                    </div>
+                                </div>
+                            </label>
+                            
+                            <label class="option-card">
+                                <input type="radio" name="q1" value="option3">
+                                <div class="option-content">
+                                    <div class="option-icon">
+                                        <i class="fas fa-circle"></i>
+                                    </div>
+                                    <div class="option-text">
+                                        <h4>【選択肢3】</h4>
+                                        <p>【選択肢3の説明】</p>
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- 質問2（追加の質問は同じ構造で作成） -->
+                    <div class="question-group" id="question-2" style="display: none;">
+                        <h3 class="question-title">【質問2のタイトル】</h3>
+                        <p class="question-description">【質問2の詳細説明】</p>
+                        
+                        <div class="answer-options">
+                            <!-- 複数選択形式の例 -->
+                            <div class="checkbox-group">
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="q2" value="symptom1">
+                                    <span class="checkmark"></span>
+                                    <span class="checkbox-text">【症状1】</span>
+                                </label>
+                                
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="q2" value="symptom2">
+                                    <span class="checkmark"></span>
+                                    <span class="checkbox-text">【症状2】</span>
+                                </label>
+                                
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="q2" value="symptom3">
+                                    <span class="checkmark"></span>
+                                    <span class="checkbox-text">【症状3】</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ナビゲーションボタン -->
+                    <div class="form-navigation">
+                        <button type="button" id="prev-button" class="nav-button prev-button" style="display: none;">
+                            <i class="fas fa-arrow-left"></i>
+                            前の質問
+                        </button>
+                        
+                        <button type="button" id="next-button" class="nav-button next-button">
+                            次の質問
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                        
+                        <button type="submit" id="submit-button" class="nav-button submit-button" style="display: none;">
+                            <i class="fas fa-check"></i>
+                            診断結果を見る
+                        </button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- 診断結果表示 -->
+            <section class="result-section" id="result-section" style="display: none;">
+                <h2><i class="fas fa-clipboard-list"></i> 診断結果</h2>
+                
+                <div class="result-container">
+                    <div class="result-header">
+                        <div class="result-icon" id="result-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3 id="result-title">【診断結果のタイトル】</h3>
+                        <p id="result-summary">【診断結果の概要】</p>
+                    </div>
+                    
+                    <div class="result-details">
+                        <div class="detail-section">
+                            <h4>総合評価</h4>
+                            <div class="score-display">
+                                <div class="score-circle">
+                                    <span id="result-score">--</span>
+                                    <small>/ 100</small>
+                                </div>
+                                <div class="score-label" id="score-label">【評価レベル】</div>
+                            </div>
+                        </div>
+                        
+                        <div class="detail-section">
+                            <h4>症状の分析</h4>
+                            <div id="symptom-analysis">
+                                <p>【症状の詳細分析】</p>
+                            </div>
+                        </div>
+                        
+                        <div class="detail-section">
+                            <h4>推奨される対応</h4>
+                            <div id="recommendations">
+                                <ul>
+                                    <li>【推奨事項1】</li>
+                                    <li>【推奨事項2】</li>
+                                    <li>【推奨事項3】</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 医療機関への相談促進 -->
+                    <div class="medical-consultation">
+                        <div class="consultation-icon">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <div class="consultation-content">
+                            <h4>専門医への相談をお勧めします</h4>
+                            <p>【相談すべき科や症状に応じた具体的なアドバイス】</p>
+                            <a href="#" class="consultation-button">
+                                <i class="fas fa-search"></i>
+                                近くの医療機関を探す
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- 結果の共有・リセット -->
+                    <div class="result-actions">
+                        <button type="button" id="share-result-button" class="action-button share-button">
+                            <i class="fas fa-share-alt"></i>
+                            結果を共有
+                        </button>
+                        
+                        <button type="button" id="restart-button" class="action-button restart-button">
+                            <i class="fas fa-redo"></i>
+                            もう一度チェック
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 監修者プロフィール表示エリア -->
+            <div id="supervisor-profile-area">
+                <!-- components/supervisor-profile.htmlをここに読み込み -->
+            </div>
+
+            <!-- 関連する健康情報 -->
+            <section class="related-info">
+                <h2>関連する健康情報</h2>
+                <div class="info-grid">
+                    <a href="【関連記事URL1】" class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-【アイコン】"></i>
+                        </div>
+                        <h3>【関連記事タイトル1】</h3>
+                        <p>【記事の概要】</p>
+                    </a>
+                    
+                    <a href="【関連記事URL2】" class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-【アイコン】"></i>
+                        </div>
+                        <h3>【関連記事タイトル2】</h3>
+                        <p>【記事の概要】</p>
+                    </a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 健康計算ポータル All Rights Reserved.</p>
+            <div class="footer-links">
+                <a href="../privacy-policy">プライバシーポリシー</a>
+                <a href="../terms-of-service">利用規約</a>
+                <a href="../about">運営者情報</a>
+                <a href="../contact">お問い合わせ</a>
+            </div>
+        </div>
+    </footer>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="../search.js"></script>
+
+    <style>
+        .symptom-checker-page {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 12px;
+        }
+
+        .page-header h1 {
+            color: var(--primary-color);
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .page-description {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .important-notice {
+            background: #fff3e0;
+            border: 2px solid #ff9800;
+            border-radius: 8px;
+            padding: 1.5rem;
+            display: flex;
+            gap: 1rem;
+            text-align: left;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .notice-icon {
+            color: #e65100;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .notice-content h3 {
+            color: #e65100;
+            margin-bottom: 0.5rem;
+        }
+
+        .notice-content ul {
+            margin: 0;
+            color: #e65100;
+        }
+
+        .pre-check-section,
+        .symptom-check-section,
+        .result-section,
+        .related-info {
+            background: white;
+            padding: 3rem 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 3rem;
+        }
+
+        .check-points {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .point-item {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            text-align: left;
+        }
+
+        .point-icon {
+            background: var(--primary-color);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .point-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.3rem;
+            font-size: 1rem;
+        }
+
+        .point-content p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .start-button {
+            background: var(--primary-color);
+            color: white;
+            padding: 1.2rem 2.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 2rem auto 0;
+        }
+
+        .start-button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .progress-container {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .progress-bar {
+            background: #e0e0e0;
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 0.5rem;
+        }
+
+        .progress-fill {
+            background: var(--primary-color);
+            height: 100%;
+            width: 10%;
+            transition: width 0.3s ease;
+        }
+
+        .progress-text {
+            color: var(--text-secondary);
+            font-weight: bold;
+        }
+
+        .question-group {
+            margin-bottom: 2rem;
+        }
+
+        .question-title {
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .question-description {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .answer-options {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .option-card {
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: block;
+        }
+
+        .option-card:hover {
+            border-color: var(--primary-color);
+            background: #f8f9fa;
+        }
+
+        .option-card input[type="radio"] {
+            display: none;
+        }
+
+        .option-card input[type="radio"]:checked + .option-content {
+            color: var(--primary-color);
+        }
+
+        .option-card input[type="radio"]:checked + .option-content .option-icon i {
+            color: var(--primary-color);
+        }
+
+        .option-content {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .option-icon {
+            flex-shrink: 0;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .option-text h4 {
+            margin: 0 0 0.3rem 0;
+            color: var(--text-color);
+        }
+
+        .option-text p {
+            margin: 0;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .checkbox-group {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .checkbox-option {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .checkbox-option:hover {
+            border-color: var(--primary-color);
+            background: #f8f9fa;
+        }
+
+        .checkbox-option input[type="checkbox"] {
+            display: none;
+        }
+
+        .checkmark {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .checkbox-option input[type="checkbox"]:checked + .checkmark {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .checkbox-option input[type="checkbox"]:checked + .checkmark::after {
+            content: "✓";
+            color: white;
+            font-weight: bold;
+        }
+
+        .form-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 3rem;
+            gap: 1rem;
+        }
+
+        .nav-button {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .prev-button {
+            background: #6c757d;
+            color: white;
+        }
+
+        .next-button,
+        .submit-button {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .nav-button:hover {
+            transform: translateY(-2px);
+        }
+
+        .result-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .result-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .result-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 1rem;
+        }
+
+        .score-display {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .score-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .medical-consultation {
+            background: #e3f2fd;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .consultation-icon {
+            color: var(--primary-color);
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+
+        .consultation-button {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .consultation-button:hover {
+            background: var(--primary-dark);
+        }
+
+        .result-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .action-button {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .share-button {
+            background: var(--secondary-color);
+            color: white;
+        }
+
+        .restart-button {
+            background: #6c757d;
+            color: white;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .info-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--text-color);
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .info-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .info-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .check-points {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-navigation {
+                flex-direction: column;
+            }
+            
+            .result-actions {
+                flex-direction: column;
+            }
+            
+            .score-display {
+                flex-direction: column;
+            }
+        }
+    </style>
+
+    <script>
+        // 症状チェッカーのJavaScript制御
+        class SymptomChecker {
+            constructor() {
+                this.currentQuestion = 1;
+                this.totalQuestions = 10; // 運営者様が設定
+                this.answers = {};
+                this.init();
+            }
+            
+            init() {
+                this.bindEvents();
+                this.updateProgress();
+            }
+            
+            bindEvents() {
+                // チェック開始
+                document.getElementById('start-check-button').addEventListener('click', () => {
+                    this.startCheck();
+                });
+                
+                // ナビゲーション
+                document.getElementById('next-button').addEventListener('click', () => {
+                    this.nextQuestion();
+                });
+                
+                document.getElementById('prev-button').addEventListener('click', () => {
+                    this.prevQuestion();
+                });
+                
+                // フォーム送信
+                document.getElementById('symptom-form').addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    this.showResult();
+                });
+                
+                // 結果のアクション
+                document.getElementById('restart-button').addEventListener('click', () => {
+                    this.restart();
+                });
+            }
+            
+            startCheck() {
+                document.querySelector('.pre-check-section').style.display = 'none';
+                document.getElementById('symptom-check-section').style.display = 'block';
+            }
+            
+            nextQuestion() {
+                if (this.validateCurrentQuestion()) {
+                    this.saveCurrentAnswer();
+                    
+                    if (this.currentQuestion < this.totalQuestions) {
+                        this.hideQuestion(this.currentQuestion);
+                        this.currentQuestion++;
+                        this.showQuestion(this.currentQuestion);
+                        this.updateProgress();
+                        this.updateNavigation();
+                    }
+                }
+            }
+            
+            prevQuestion() {
+                if (this.currentQuestion > 1) {
+                    this.hideQuestion(this.currentQuestion);
+                    this.currentQuestion--;
+                    this.showQuestion(this.currentQuestion);
+                    this.updateProgress();
+                    this.updateNavigation();
+                }
+            }
+            
+            validateCurrentQuestion() {
+                const questionElement = document.getElementById(`question-${this.currentQuestion}`);
+                const inputs = questionElement.querySelectorAll('input[type="radio"], input[type="checkbox"]');
+                
+                let hasAnswer = false;
+                inputs.forEach(input => {
+                    if (input.checked) {
+                        hasAnswer = true;
+                    }
+                });
+                
+                if (!hasAnswer) {
+                    alert('質問にお答えください。');
+                    return false;
+                }
+                
+                return true;
+            }
+            
+            saveCurrentAnswer() {
+                const questionElement = document.getElementById(`question-${this.currentQuestion}`);
+                const checkedInputs = questionElement.querySelectorAll('input:checked');
+                
+                this.answers[`q${this.currentQuestion}`] = Array.from(checkedInputs).map(input => input.value);
+            }
+            
+            hideQuestion(num) {
+                document.getElementById(`question-${num}`).style.display = 'none';
+            }
+            
+            showQuestion(num) {
+                document.getElementById(`question-${num}`).style.display = 'block';
+            }
+            
+            updateProgress() {
+                const progress = (this.currentQuestion / this.totalQuestions) * 100;
+                document.getElementById('progress-fill').style.width = `${progress}%`;
+                document.getElementById('current-question').textContent = this.currentQuestion;
+                document.getElementById('total-questions').textContent = this.totalQuestions;
+            }
+            
+            updateNavigation() {
+                const prevButton = document.getElementById('prev-button');
+                const nextButton = document.getElementById('next-button');
+                const submitButton = document.getElementById('submit-button');
+                
+                if (this.currentQuestion === 1) {
+                    prevButton.style.display = 'none';
+                } else {
+                    prevButton.style.display = 'flex';
+                }
+                
+                if (this.currentQuestion === this.totalQuestions) {
+                    nextButton.style.display = 'none';
+                    submitButton.style.display = 'flex';
+                } else {
+                    nextButton.style.display = 'flex';
+                    submitButton.style.display = 'none';
+                }
+            }
+            
+            showResult() {
+                this.saveCurrentAnswer();
+                
+                // 結果の計算（運営者様が実装）
+                const result = this.calculateResult();
+                
+                // 結果の表示
+                this.displayResult(result);
+                
+                // セクションの切り替え
+                document.getElementById('symptom-check-section').style.display = 'none';
+                document.getElementById('result-section').style.display = 'block';
+                document.getElementById('result-section').scrollIntoView({ behavior: 'smooth' });
+            }
+            
+            calculateResult() {
+                // 運営者様が診断ロジックを実装
+                // この例では簡単なスコア計算
+                let score = 0;
+                let riskLevel = 'low';
+                
+                // 答えに基づくスコア計算
+                Object.values(this.answers).forEach(answerArray => {
+                    answerArray.forEach(answer => {
+                        // 答えに応じてスコアを加算
+                        if (answer.includes('high')) score += 20;
+                        else if (answer.includes('medium')) score += 10;
+                        else if (answer.includes('low')) score += 5;
+                    });
+                });
+                
+                // リスクレベルの判定
+                if (score >= 80) riskLevel = 'high';
+                else if (score >= 50) riskLevel = 'medium';
+                else riskLevel = 'low';
+                
+                return {
+                    score: score,
+                    level: riskLevel,
+                    title: this.getResultTitle(riskLevel),
+                    summary: this.getResultSummary(riskLevel),
+                    analysis: this.getAnalysis(score),
+                    recommendations: this.getRecommendations(riskLevel)
+                };
+            }
+            
+            getResultTitle(level) {
+                const titles = {
+                    'low': '現在の症状は軽度です',
+                    'medium': '注意が必要な症状があります',
+                    'high': '専門医への相談をお勧めします'
+                };
+                return titles[level];
+            }
+            
+            getResultSummary(level) {
+                const summaries = {
+                    'low': 'チェックした症状は比較的軽微なものが多いようです。',
+                    'medium': 'いくつかの気になる症状が見つかりました。',
+                    'high': '複数の症状が重なっており、専門的な診察をお勧めします。'
+                };
+                return summaries[level];
+            }
+            
+            getAnalysis(score) {
+                return `総合スコア${score}点に基づく分析結果です。【詳細な分析内容】`;
+            }
+            
+            getRecommendations(level) {
+                const recommendations = {
+                    'low': [
+                        '規則正しい生活習慣を心がける',
+                        '適度な運動を継続する',
+                        '症状が悪化した場合は医師に相談'
+                    ],
+                    'medium': [
+                        '数日間症状を観察する',
+                        '十分な休息を取る',
+                        '改善しない場合は医療機関を受診'
+                    ],
+                    'high': [
+                        'できるだけ早期に専門医を受診',
+                        '症状の記録を取る',
+                        '緊急時は迷わず救急外来へ'
+                    ]
+                };
+                return recommendations[level];
+            }
+            
+            displayResult(result) {
+                document.getElementById('result-score').textContent = result.score;
+                document.getElementById('score-label').textContent = result.level;
+                document.getElementById('result-title').textContent = result.title;
+                document.getElementById('result-summary').textContent = result.summary;
+                document.getElementById('symptom-analysis').innerHTML = `<p>${result.analysis}</p>`;
+                
+                const recommendationsList = document.querySelector('#recommendations ul');
+                recommendationsList.innerHTML = '';
+                result.recommendations.forEach(rec => {
+                    const li = document.createElement('li');
+                    li.textContent = rec;
+                    recommendationsList.appendChild(li);
+                });
+                
+                // アイコンの色を結果に応じて変更
+                const resultIcon = document.getElementById('result-icon');
+                if (result.level === 'high') {
+                    resultIcon.style.background = '#dc3545';
+                } else if (result.level === 'medium') {
+                    resultIcon.style.background = '#ffc107';
+                } else {
+                    resultIcon.style.background = '#28a745';
+                }
+            }
+            
+            restart() {
+                this.currentQuestion = 1;
+                this.answers = {};
+                
+                // フォームのリセット
+                document.getElementById('symptom-form').reset();
+                
+                // 質問の表示リセット
+                for (let i = 1; i <= this.totalQuestions; i++) {
+                    this.hideQuestion(i);
+                }
+                this.showQuestion(1);
+                
+                // セクションの切り替え
+                document.getElementById('result-section').style.display = 'none';
+                document.querySelector('.pre-check-section').style.display = 'block';
+                
+                // プログレスバーのリセット
+                this.updateProgress();
+                this.updateNavigation();
+            }
+        }
+        
+        // 初期化
+        document.addEventListener('DOMContentLoaded', function() {
+            new SymptomChecker();
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,534 @@
+/* 妊娠超初期症状チェッカー用CSS */
+
+.calculator-container {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    line-height: 1.6;
+}
+
+/* 医療免責事項 */
+.medical-notice {
+    background: linear-gradient(135deg, #ff6b6b, #ee5a5a);
+    color: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+    border-left: 5px solid #d63031;
+}
+
+.medical-notice h3 {
+    margin: 0 0 0.5rem 0;
+    color: white;
+    font-size: 1.1rem;
+}
+
+.medical-notice p {
+    margin: 0;
+    font-weight: 500;
+}
+
+/* チェッカーセクション */
+.checker-section {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    margin: 2rem 0;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+.symptoms-checklist h3 {
+    color: var(--primary-color);
+    margin: 0 0 1.5rem 0;
+    text-align: center;
+}
+
+/* 症状グリッド */
+.symptoms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.symptom-item {
+    background: #f8f9fa;
+    border: 2px solid #e9ecef;
+    border-radius: 10px;
+    padding: 1rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.symptom-item:hover {
+    border-color: var(--primary-color);
+    background: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.symptom-item input[type="checkbox"] {
+    margin-right: 0.75rem;
+    transform: scale(1.2);
+    accent-color: var(--primary-color);
+}
+
+.symptom-item label {
+    display: flex;
+    align-items: flex-start;
+    cursor: pointer;
+    font-weight: 500;
+    color: #2d3436;
+}
+
+.symptom-item input[type="checkbox"]:checked + label {
+    color: var(--primary-color);
+}
+
+/* 信頼度別のスタイリング */
+.symptom-item.high-indicator {
+    border-left: 4px solid #e17055;
+}
+
+.symptom-item.medium-indicator {
+    border-left: 4px solid #fdcb6e;
+}
+
+.symptom-item.low-indicator {
+    border-left: 4px solid #a8e6cf;
+}
+
+.symptom-name {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.symptom-description {
+    font-size: 0.9rem;
+    color: #636e72;
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.reliability {
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: block;
+}
+
+.reliability-badge {
+    padding: 0.2rem 0.5rem;
+    border-radius: 15px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.reliability-badge.high {
+    background: #ff7675;
+    color: white;
+}
+
+.reliability-badge.medium {
+    background: #fdcb6e;
+    color: #2d3436;
+}
+
+.reliability-badge.low {
+    background: #55a3ff;
+    color: white;
+}
+
+/* ボタンコンテナ */
+.check-button-container {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.check-button {
+    background: linear-gradient(135deg, var(--primary-color), #0984e3);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-right: 1rem;
+}
+
+.check-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 123, 255, 0.3);
+}
+
+.reset-button {
+    background: #6c757d;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.reset-button:hover {
+    background: #5a6268;
+    transform: translateY(-2px);
+}
+
+/* 結果セクション */
+.result-section {
+    margin-top: 3rem;
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+.result-card {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.result-score {
+    font-size: 1.5rem;
+    margin: 1rem 0;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.result-level {
+    margin: 1.5rem 0;
+    padding: 1.5rem;
+    border-radius: 12px;
+}
+
+.result-level.high {
+    background: linear-gradient(135deg, #ff7675, #fd79a8);
+    color: white;
+}
+
+.result-level.medium {
+    background: linear-gradient(135deg, #fdcb6e, #e17055);
+    color: white;
+}
+
+.result-level.low {
+    background: linear-gradient(135deg, #55a3ff, #74b9ff);
+    color: white;
+}
+
+.result-level.minimal {
+    background: linear-gradient(135deg, #00b894, #00cec9);
+    color: white;
+}
+
+.result-level h4 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.3rem;
+}
+
+.result-message, .result-advice {
+    text-align: left;
+    margin: 1.5rem 0;
+}
+
+.advice-content {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-left: 4px solid var(--primary-color);
+}
+
+.advice-content h5 {
+    color: var(--primary-color);
+    margin: 0 0 1rem 0;
+}
+
+.advice-content ul {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+}
+
+.advice-content li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+.important-note {
+    background: #fff3cd;
+    border: 1px solid #ffeaa7;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+}
+
+.important-note p {
+    margin: 0;
+    color: #856404;
+    font-weight: 600;
+}
+
+/* 情報セクション */
+.info-section {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    margin: 2rem 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.info-section h3 {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.info-section h4 {
+    color: #2d3436;
+    margin: 1.5rem 0 0.75rem 0;
+}
+
+.info-content ul {
+    padding-left: 1.5rem;
+}
+
+.info-content li {
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+}
+
+/* 信頼度説明 */
+.reliability-explanation {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.reliability-item {
+    padding: 1rem;
+    border-radius: 10px;
+    border-left: 4px solid;
+}
+
+.reliability-item.high {
+    background: #fff5f5;
+    border-left-color: #ff7675;
+}
+
+.reliability-item.medium {
+    background: #fffdf5;
+    border-left-color: #fdcb6e;
+}
+
+.reliability-item.low {
+    background: #f5f9ff;
+    border-left-color: #55a3ff;
+}
+
+/* 証拠リスト */
+.evidence-list {
+    margin: 1.5rem 0;
+}
+
+.evidence-item {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    border-left: 3px solid var(--primary-color);
+}
+
+.evidence-item h5 {
+    color: var(--primary-color);
+    margin: 0 0 0.5rem 0;
+}
+
+.evidence-item p {
+    margin: 0;
+    color: #2d3436;
+}
+
+/* 妊娠検査情報 */
+.pregnancy-test-info {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    margin: 2rem 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.timing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.timing-item {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-left: 4px solid var(--primary-color);
+}
+
+.timing-item h5 {
+    color: var(--primary-color);
+    margin: 0 0 0.75rem 0;
+    font-size: 1.1rem;
+}
+
+.timing-item p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* 関連ツール */
+.related-tools {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    margin: 2rem 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.tool-card {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.tool-card:hover {
+    background: white;
+    border-color: var(--primary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    color: inherit;
+    text-decoration: none;
+}
+
+.tool-card h4 {
+    color: var(--primary-color);
+    margin: 0 0 0.5rem 0;
+}
+
+.tool-card p {
+    margin: 0;
+    color: #636e72;
+}
+
+/* 参考文献 */
+.references {
+    background: #f8f9fa;
+    border-radius: 15px;
+    padding: 2rem;
+    margin: 2rem 0;
+}
+
+.references h3 {
+    color: var(--primary-color);
+    margin: 0 0 1rem 0;
+}
+
+.references ol {
+    padding-left: 1.5rem;
+}
+
+.references li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+    color: #2d3436;
+}
+
+/* 注意点リスト */
+.caution-list {
+    background: #fff3cd;
+    border: 1px solid #ffeaa7;
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 1rem 0;
+}
+
+.caution-list li {
+    margin-bottom: 0.5rem;
+    color: #856404;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+    .calculator-container {
+        padding: 0 0.5rem;
+    }
+    
+    .checker-section,
+    .result-section,
+    .info-section,
+    .pregnancy-test-info,
+    .related-tools {
+        padding: 1.5rem;
+        margin: 1rem 0;
+    }
+    
+    .symptoms-grid {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+    
+    .check-button-container {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .check-button,
+    .reset-button {
+        margin: 0;
+        width: 100%;
+    }
+    
+    .timing-grid,
+    .tools-grid,
+    .reliability-explanation {
+        grid-template-columns: 1fr;
+    }
+    
+    .result-score {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .medical-notice,
+    .checker-section,
+    .result-section,
+    .info-section {
+        padding: 1rem;
+    }
+    
+    .symptom-item {
+        padding: 0.75rem;
+    }
+    
+    .check-button,
+    .reset-button {
+        padding: 0.875rem 1.5rem;
+        font-size: 1rem;
+    }
+} 
