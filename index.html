@@ -126,10 +126,9 @@
     
     <!-- サービスワーカー -->
     <script>
-        // ローカル開発環境では Service Worker を無効化
-        if ('serviceWorker' in navigator && location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
+        if ('serviceWorker' in navigator) {
             window.addEventListener('load', function() {
-                navigator.serviceWorker.register('/sw.js')
+                navigator.serviceWorker.register('sw.js')
                     .then(function(registration) {
                         console.log('ServiceWorker registration successful');
                     })
@@ -431,7 +430,7 @@
 <body>
     <header>
         <div class="header-content">
-            <h1><a href="index.html" class="home-link">健康計算ポータル</a></h1>
+            <h1><a href="/" class="home-link">健康計算ポータル</a></h1>
             <div class="search-container">
                 <input type="search" id="search-input" placeholder="計算機能を検索...">
                 <button type="button" id="search-button"><i class="fas fa-search"></i></button>
