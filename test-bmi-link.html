@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMIリンクテスト</title>
+</head>
+<body>
+    <h1>BMIリンクテストページ</h1>
+    
+    <h2>ブログページからのリンクテスト</h2>
+    <p>以下のリンクがブログページ（blog/）から計算機ページ（calculators/pages/）への正しいパスです：</p>
+    
+    <a href="calculators/pages/bmi.html" style="display: inline-block; background: #007bff; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">
+        📊 BMI計算機へ（相対パス）
+    </a>
+    
+    <h2>直接リンクテスト</h2>
+    <p>以下は直接リンクです：</p>
+    
+    <ul>
+        <li><a href="blog/bmi-guide.html">BMIブログページ</a></li>
+        <li><a href="calculators/pages/bmi.html">BMI計算機ページ</a></li>
+    </ul>
+    
+    <h2>相対パステスト</h2>
+    <p>ブログディレクトリから見た相対パス：</p>
+    <code>../calculators/pages/bmi.html</code>
+    
+    <script>
+        console.log('現在のURL:', window.location.href);
+        console.log('ベースURL:', window.location.origin);
+    </script>
+</body>
+</html> 

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ローカルアクセス方法</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; }
+        .container { max-width: 800px; margin: 0 auto; }
+        .url-box { background: #f0f0f0; padding: 15px; border-radius: 5px; margin: 10px 0; }
+        .url { font-family: monospace; font-weight: bold; color: #0066cc; }
+        .status { color: #28a745; font-weight: bold; }
+        .error { color: #dc3545; font-weight: bold; }
+        .step { margin: 20px 0; padding: 15px; border-left: 4px solid #007bff; background: #f8f9fa; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌐 健康計算ポータル - ローカルアクセス方法</h1>
+        
+        <div class="status">✅ ローカルサーバーが稼働中です</div>
+        
+        <div class="step">
+            <h2>📱 メインページ</h2>
+            <div class="url-box">
+                <div class="url">http://localhost:8000/index.html</div>
+                <p>サイトのトップページです</p>
+            </div>
+        </div>
+
+        <div class="step">
+            <h2>🤰 新規作成ページ</h2>
+            
+            <h3>妊娠超初期症状チェッカー</h3>
+            <div class="url-box">
+                <div class="url">http://localhost:8000/pregnancy-symptoms-checker.html</div>
+                <p>15項目の症状チェック機能をテストできます</p>
+            </div>
+
+            <h3>妊活から出産まで女性の健康完全ガイド</h3>
+            <div class="url-box">
+                <div class="url">http://localhost:8000/women-health-complete-guide.html</div>
+                <p>包括的なピラーページコンテンツ</p>
+            </div>
+
+            <h3>つわりの乗り切り方ガイド</h3>
+            <div class="url-box">
+                <div class="url">http://localhost:8000/blog/morning-sickness-guide.html</div>
+                <p>詳細なブログ記事（1,500語超）</p>
+            </div>
+
+            <h3>更新された運営者情報</h3>
+            <div class="url-box">
+                <div class="url">http://localhost:8000/about.html</div>
+                <p>リニューアルされた運営者ページ</p>
+            </div>
+        </div>
+
+        <div class="step">
+            <h2>📰 ブログページ</h2>
+            <div class="url-box">
+                <div class="url">http://localhost:8000/blog.html</div>
+                <p>健康ブログ一覧ページ（つわり記事も掲載）</p>
+            </div>
+        </div>
+
+        <div class="step">
+            <h2>🔧 テスト項目</h2>
+            <ul>
+                <li>✅ ナビゲーションリンクの動作</li>
+                <li>✅ 症状チェッカーの機能テスト</li>
+                <li>✅ レスポンシブデザイン</li>
+                <li>✅ 内部リンクの動作</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <h2>🛠️ 修正済み問題</h2>
+            <ul>
+                <li>❌ 404エラー → ✅ リンクに.html拡張子追加</li>
+                <li>❌ ブログページのデザイン崩れ → ✅ CSSパス修正</li>
+                <li>❌ 計算機リンクの問題 → ✅ 相対パスに変更</li>
+                <li>❌ ナビゲーションエラー → ✅ 全て修正済み</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html> 

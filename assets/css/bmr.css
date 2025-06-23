@@ -1,328 +1,436 @@
-/* 計算機コンテナ */
+/* 基礎代謝量計算機 - 新デザイン（女性向け洗練スタイル） */
+
+/* Google Fonts 読み込み */
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;400;500;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap');
+
+/* 新カラーパレット */
+:root {
+    /* 女性向け新カラーパレット */
+    --base-color: #FFFBF7;           /* オフホワイト/アイボリー */
+    --main-color: #F5EAE6;           /* ダスティピンク/くすみピンク */
+    --accent-color: #D98C7E;         /* テラコッタ/コーラルピンク */
+    --text-main: #5C5452;            /* ダークブラウン */
+    --text-sub: #8B8380;             /* グレージュ */
+    --mint-accent: #A8D8B9;          /* ミントグリーン */
+    --hover-color: #C7776A;          /* ホバー時のダーク */
+    
+    /* BMR関連カラー */
+    --bmr-low: #A8D8B9;             /* 低代謝 */
+    --bmr-normal: #7BB3A0;          /* 標準代謝 */
+    --bmr-high: #E6B87D;            /* 高代謝 */
+}
+
+/* メインコンテナ - 新デザイン */
 .calculator-container {
     max-width: 800px;
-    margin: 2rem auto;
-    padding: 2rem;
-    background-color: var(--tile-background);
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    margin: 3rem auto;
+    padding: 3rem;
+    background: linear-gradient(135deg, #FFFFFF 0%, #FEFEFE 100%);
+    border-radius: 24px;
+    box-shadow: 0 12px 48px rgba(92, 84, 82, 0.1);
+    border: 1px solid var(--main-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.calculator-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, var(--accent-color), var(--mint-accent));
+    border-radius: 24px 24px 0 0;
+}
+
+.calculator-container h2 {
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    color: var(--text-main);
+    font-size: 2.2rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.calculator-container h2::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-color), var(--mint-accent));
+    border-radius: 2px;
 }
 
 /* 説明文 */
 .description {
-    color: var(--text-secondary);
-    margin-bottom: 2rem;
+    color: var(--text-sub);
+    margin-bottom: 3rem;
     line-height: 1.8;
-}
-
-.description br {
-    display: block;
-    margin: 0.8rem 0;
-    content: "";
+    font-size: 1.1rem;
+    text-align: center;
+    font-family: 'Noto Sans JP', sans-serif;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 3rem;
 }
 
 /* フォームスタイル */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
 .form-group {
-    margin-bottom: 1.5rem;
+    position: relative;
 }
 
 .form-group label {
     display: block;
-    margin-bottom: 0.5rem;
-    color: var(--text-color);
+    margin-bottom: 0.8rem;
+    color: var(--text-main);
     font-weight: 500;
+    font-size: 1.1rem;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
 }
 
-.radio-group {
-    display: flex;
-    gap: 2rem;
-    margin-top: 0.5rem;
-}
-
-.radio-group input[type="radio"] {
-    margin-right: 0.5rem;
-}
-
-input[type="number"] {
+input[type="number"],
+select {
     width: 100%;
-    padding: 0.8rem;
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    font-size: 1rem;
-    background-color: var(--tile-background);
-    color: var(--text-color);
-    transition: all 0.2s ease;
+    padding: 1.5rem;
+    border: 2px solid var(--main-color);
+    border-radius: 16px;
+    font-size: 1.1rem;
+    color: var(--text-main);
+    background: var(--base-color);
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+    font-family: 'Noto Sans JP', sans-serif;
 }
 
-input[type="number"]:focus {
+input[type="number"]:focus,
+select:focus {
     outline: none;
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(10, 132, 255, 0.1);
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 4px rgba(217, 140, 126, 0.1);
+    transform: translateY(-2px);
+    background: white;
 }
 
-[data-theme="light"] input[type="number"]:focus {
-    box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.1);
+input[type="number"]::placeholder {
+    color: var(--text-sub);
+    font-style: italic;
 }
 
-/* 活動レベルセレクター */
-.activity-selector {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
-    margin-top: 0.5rem;
-}
-
-.activity-option {
-    background-color: var(--tile-background);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    padding: 1rem;
+select {
     cursor: pointer;
-    transition: all 0.2s ease;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
-.activity-option:hover {
-    border-color: var(--primary-color);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transform: translateY(-1px);
-}
-
-.activity-option.selected {
-    border-color: var(--primary-color);
-    background-color: rgba(0, 122, 255, 0.08);
-    box-shadow: 0 0 0 3px rgba(10, 132, 255, 0.1);
-}
-
-[data-theme="dark"] .activity-option.selected {
-    background-color: rgba(10, 132, 255, 0.15);
-}
-
-[data-theme="light"] .activity-option.selected {
-    background-color: rgba(0, 122, 255, 0.08);
-    box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.1);
-}
-
-.activity-option i {
-    font-size: 1.5rem;
-    color: var(--primary-color);
-    margin-bottom: 0.5rem;
-}
-
-.activity-option span {
-    font-weight: 500;
-    margin-bottom: 0.25rem;
-}
-
-.activity-option small {
-    color: var(--text-secondary);
-    font-size: 0.8rem;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23D98C7E" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1.2rem;
+    appearance: none;
 }
 
 /* ボタンスタイル */
 .primary-button {
-    background-color: var(--primary-color);
+    background: var(--accent-color);
     color: white;
     border: none;
-    border-radius: 8px;
-    padding: 1rem 2rem;
-    font-size: 1rem;
-    font-weight: 500;
+    border-radius: 24px;
+    padding: 1.5rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
     cursor: pointer;
     width: 100%;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
+    margin-top: 2rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(217, 140, 126, 0.3);
+}
+
+.primary-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
 }
 
 .primary-button:hover {
-    background-color: var(--hover-color);
+    background: var(--hover-color);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 32px rgba(217, 140, 126, 0.4);
 }
 
-.secondary-button {
-    background-color: var(--background-color);
-    color: var(--primary-color);
-    border: 1px solid var(--primary-color);
-    border-radius: 8px;
-    padding: 1rem 2rem;
-    font-size: 1rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.secondary-button:hover {
-    background-color: var(--primary-color);
-    color: white;
-}
-
-.share-button {
-    background-color: #1DA1F2;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    padding: 1rem 2rem;
-    font-size: 1rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.share-button:hover {
-    background-color: #1991DA;
+.primary-button:hover::before {
+    left: 100%;
 }
 
 /* 結果セクション */
 .result-box {
-    background-color: var(--tile-background);
-    border-radius: 12px;
-    padding: 1.5rem;
-    margin-bottom: 2rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    background: linear-gradient(135deg, var(--main-color) 0%, var(--base-color) 100%);
+    border-radius: 20px;
+    padding: 3rem;
+    margin-bottom: 3rem;
+    box-shadow: 0 8px 32px rgba(245, 234, 230, 0.4);
+    text-align: center;
+    border: 1px solid var(--accent-color);
+    position: relative;
+    overflow: hidden;
 }
 
-.result-value {
-    font-size: 2.5rem;
+.result-box::before {
+    content: '🔥';
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 1.5rem;
+    opacity: 0.6;
+}
+
+.result-box h3 {
+    color: var(--text-main);
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
     font-weight: 600;
-    color: var(--text-color);
-    text-align: center;
-    margin: 1rem 0;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
 }
 
 .result-value.primary {
-    color: var(--primary-color);
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    margin: 1.5rem 0;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    text-shadow: 0 2px 4px rgba(217, 140, 126, 0.2);
 }
 
-.result-description {
-    color: var(--text-secondary);
-    text-align: center;
-    font-size: 0.9rem;
-}
-
-/* カロリー目標 */
-.calorie-goals {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-    margin: 2rem 0;
-}
-
-.goal-box {
-    background-color: var(--tile-background);
-    border-radius: 12px;
-    padding: 1.5rem;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-}
-
-.goal-box h4 {
-    margin-bottom: 0.5rem;
-    color: var(--text-color);
-}
-
-.goal-value {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin: 0.5rem 0;
-}
-
-.goal-box small {
-    color: var(--text-secondary);
-    font-size: 0.8rem;
-}
-
-.weight-loss .goal-value {
-    color: #FF3B30;
-}
-
-.maintenance .goal-value {
-    color: var(--primary-color);
-}
-
-.weight-gain .goal-value {
-    color: #34C759;
-}
-
-/* 栄養バランス */
-.nutrition-tips {
-    background-color: #fff;
-    border-radius: 12px;
-    padding: 1.5rem;
-    margin: 2rem 0;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-}
-
-.macros-distribution {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-    margin-top: 1rem;
-}
-
-.macro {
-    text-align: center;
-    padding: 1rem;
-    border-radius: 8px;
-    background-color: var(--background-color);
-}
-
-.macro i {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-}
-
-.macro span {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 500;
-}
-
-.macro-value {
+.result-unit {
     font-size: 1.2rem;
+    color: var(--text-sub);
+    font-weight: 400;
+}
+
+/* 詳細グリッド */
+.details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.detail-card {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 8px 32px rgba(92, 84, 82, 0.08);
+    border: 1px solid var(--main-color);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.detail-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--accent-color);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.detail-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(92, 84, 82, 0.12);
+}
+
+.detail-card:hover::before {
+    opacity: 1;
+}
+
+.detail-card h4 {
+    color: var(--text-main);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
     font-weight: 600;
-    color: var(--primary-color);
+    font-family: 'M PLUS Rounded 1c', sans-serif;
 }
 
-/* アクションボタン */
-.action-buttons {
-    display: flex;
-    gap: 1rem;
-    margin-top: 2rem;
+.detail-card .value {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
 }
 
-.action-buttons button {
-    flex: 1;
+.detail-card .description {
+    color: var(--text-sub);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 0;
+    text-align: left;
 }
 
-/* レスポンシブデザイン */
 @media (max-width: 768px) {
     .calculator-container {
-        padding: 1rem;
-        margin: 1rem;
+        padding: 2rem;
+        margin: 2rem auto;
     }
 
-    .activity-selector {
+    .calculator-container h2 {
+        font-size: 1.8rem;
+    }
+
+    .form-row {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 
-    .calorie-goals {
+    .details-grid {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 
-    .macros-distribution {
-        grid-template-columns: 1fr;
+    .result-value.primary {
+        font-size: 2.5rem;
     }
 
-    .action-buttons {
-        flex-direction: column;
+    .detail-card .value {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .calculator-container {
+        padding: 1.5rem;
+        margin: 1rem auto;
     }
 
-    .result-value {
+    .calculator-container h2 {
+        font-size: 1.6rem;
+    }
+
+    .result-value.primary {
         font-size: 2rem;
     }
 
-    .goal-value {
+    .detail-card {
+        padding: 1.5rem;
+    }
+
+    .detail-card .value {
+        font-size: 1.3rem;
+    }
+}
+
+/* ブログリンクセクション - 新デザイン */
+.blog-links {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--main-color);
+}
+
+.blog-links h4 {
+    color: var(--text-main);
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    text-align: center;
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.blog-card {
+    background: var(--main-color);
+    border-radius: 16px;
+    padding: 1.5rem;
+    text-decoration: none;
+    color: var(--text-main);
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.blog-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--accent-color);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.blog-card:hover {
+    background: white;
+    border-color: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(217, 140, 126, 0.15);
+}
+
+.blog-card:hover::before {
+    opacity: 1;
+}
+
+.blog-card i {
+    font-size: 1.5rem;
+    color: var(--accent-color);
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+.blog-card:hover i {
+    transform: scale(1.1);
+}
+
+.blog-card span {
+    color: var(--text-main);
+    font-weight: 500;
+    line-height: 1.4;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+@media (max-width: 768px) {
+    .blog-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .blog-card {
+        padding: 1rem;
+        flex-direction: column;
+        text-align: center;
+        gap: 0.8rem;
+    }
+
+    .blog-card i {
         font-size: 1.3rem;
     }
 } 

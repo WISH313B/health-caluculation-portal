@@ -1,482 +1,757 @@
+/* TDEE計算機 - 新デザイン（女性向け洗練スタイル） */
+
+/* Google Fonts 読み込み */
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;400;500;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap');
+
+/* 新カラーパレット */
+:root {
+    /* 女性向け新カラーパレット */
+    --base-color: #FFFBF7;           /* オフホワイト/アイボリー */
+    --main-color: #F5EAE6;           /* ダスティピンク/くすみピンク */
+    --accent-color: #D98C7E;         /* テラコッタ/コーラルピンク */
+    --text-main: #5C5452;            /* ダークブラウン */
+    --text-sub: #8B8380;             /* グレージュ */
+    --mint-accent: #A8D8B9;          /* ミントグリーン */
+    --hover-color: #C7776A;          /* ホバー時のダーク */
+    
+    /* TDEE関連カラー */
+    --loss-color: #A8D8B9;          /* 減量 */
+    --maintain-color: #D98C7E;       /* 維持 */
+    --gain-color: #E6B87D;           /* 増量 */
+}
+
+/* メインコンテナ */
 .calculator-container {
-    max-width: 800px;
-    margin: 2rem auto;
-    padding: 2rem;
-    background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    margin: 3rem auto;
+    padding: 3rem;
+    background: linear-gradient(135deg, #FFFFFF 0%, #FEFEFE 100%);
+    border-radius: 24px;
+    box-shadow: 0 12px 48px rgba(92, 84, 82, 0.1);
+    border: 1px solid var(--main-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.calculator-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, var(--accent-color), var(--mint-accent));
+    border-radius: 24px 24px 0 0;
 }
 
 .calculator-container h2 {
-    color: #333;
-    margin: 0 0 1rem;
-    font-size: 1.8rem;
-    text-align: left;
-}
-
-.calculator-title {
-    color: #333;
-    margin: 0 0 1rem;
-    font-size: 1.8rem;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    color: var(--text-main);
+    font-size: 2.2rem;
+    font-weight: 700;
     text-align: center;
-}
-
-h3 {
-    color: #333;
-    margin: 0 0 1.5rem;
-    font-size: 1.4rem;
-}
-
-.description {
-    color: #666;
-    margin-bottom: 2rem;
-    line-height: 1.8;
-}
-
-.description br {
-    display: block;
-    margin: 0.8rem 0;
-    content: "";
-}
-
-.form-group {
-    margin-bottom: 2rem;
-}
-
-.input-with-unit {
+    margin-bottom: 1rem;
     position: relative;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 0.5rem;
 }
 
-input[type="number"] {
-    width: 150px;
-    padding: 0.8rem;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    font-size: 1rem;
-    color: #333;
-    transition: all 0.3s ease;
+.calculator-container h2::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-color), var(--mint-accent));
+    border-radius: 2px;
 }
 
-input[type="number"].invalid {
-    border-color: #FF3B30;
-    background-color: #FFF5F5;
+/* 説明文 */
+.description {
+    color: var(--text-sub);
+    margin-bottom: 3rem;
+    line-height: 1.8;
+    font-size: 1.1rem;
+    text-align: center;
+    font-family: 'Noto Sans JP', sans-serif;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 3rem;
 }
 
-input[type="number"].autofilled {
-    border-color: #34C759;
-    background-color: #F2FFF5;
-    animation: highlight 1s ease-out;
-}
-
-@keyframes highlight {
-    0% {
-        background-color: #34C759;
-        color: white;
-    }
-    100% {
-        background-color: #F2FFF5;
-        color: #333;
-    }
-}
-
-.unit {
-    color: #666;
-    font-size: 0.9rem;
-}
-
-.calculate-bmr-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: #007AFF;
-    text-decoration: none;
-    font-size: 0.9rem;
-    margin-top: 0.5rem;
-}
-
-.calculate-bmr-link:hover {
-    text-decoration: underline;
-}
-
-.activity-level-grid {
+/* フォーム行 */
+.form-row {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* フォームグループ */
+.form-group {
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.8rem;
+    color: var(--text-main);
+    font-weight: 500;
+    font-size: 1.1rem;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+input[type="number"],
+select {
+    width: 100%;
+    padding: 1.5rem;
+    border: 2px solid var(--main-color);
+    border-radius: 16px;
+    font-size: 1.1rem;
+    color: var(--text-main);
+    background: var(--base-color);
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+input[type="number"]:focus,
+select:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 4px rgba(217, 140, 126, 0.1);
+    transform: translateY(-2px);
+    background: white;
+}
+
+select {
+    cursor: pointer;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23D98C7E" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1.2rem;
+    appearance: none;
+}
+
+/* 活動レベルセレクター */
+.activity-selector {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
     margin-top: 1rem;
 }
 
-.activity-level-item {
-    position: relative;
-}
-
-.activity-level-item label {
+.activity-option {
+    background: var(--base-color);
+    border: 2px solid var(--main-color);
+    border-radius: 16px;
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 1.5rem;
-    background-color: #F5F5F7;
-    border: 2px solid transparent;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    height: 100%;
-    box-sizing: border-box;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
 }
 
-.activity-level-item input[type="radio"] {
+.activity-option::before {
+    content: '';
     position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--accent-color);
     opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
-.activity-level-item input[type="radio"]:checked + label {
-    background-color: #E3F2FD;
-    border-color: #007AFF;
+.activity-option:hover {
+    border-color: var(--accent-color);
+    background: white;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(217, 140, 126, 0.15);
 }
 
-.activity-level-item i {
+.activity-option:hover::before {
+    opacity: 1;
+}
+
+.activity-option.selected {
+    border-color: var(--accent-color);
+    background: linear-gradient(135deg, var(--main-color) 0%, var(--base-color) 100%);
+    box-shadow: 0 4px 16px rgba(217, 140, 126, 0.2);
+}
+
+.activity-option.selected::before {
+    opacity: 1;
+}
+
+.activity-option i {
     font-size: 2rem;
-    color: #007AFF;
+    color: var(--accent-color);
     margin-bottom: 1rem;
-    flex-shrink: 0;
-}
-
-.level-title {
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 0.5rem;
-    flex-shrink: 0;
-}
-
-.level-description {
-    font-size: 0.85rem;
-    color: #666;
-    text-align: center;
-    line-height: 1.4;
-    min-height: 2.8em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.primary-button {
-    background-color: #007AFF;
-    color: white;
-    border: none;
-    padding: 1rem 2rem;
-    border-radius: 6px;
-    font-size: 1rem;
-    cursor: pointer;
-    width: 100%;
-    transition: background-color 0.3s;
-}
-
-.primary-button:hover {
-    background-color: #0056b3;
-}
-
-.result-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-    margin: 2rem 0;
-}
-
-.result-box {
-    background-color: #F5F5F7;
-    padding: 1.5rem;
-    border-radius: 8px;
-    text-align: center;
-}
-
-.main-result {
-    background-color: #E3F2FD;
-    border: 2px solid #007AFF;
-}
-
-.result-value {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: #007AFF;
-    margin: 1rem 0;
-}
-
-.result-note {
-    color: #666;
-    font-size: 0.9rem;
-    margin: 0.5rem 0 0;
-}
-
-.calorie-breakdown {
-    margin: 2rem 0;
-}
-
-.chart-container {
-    background-color: #fff;
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    margin-top: 1rem;
-    height: 300px;
-}
-
-.chart-legend {
-    margin-top: 1.5rem;
-    padding: 1rem;
-    background-color: #F5F5F7;
-    border-radius: 8px;
-}
-
-.legend-item {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-    margin-bottom: 0.8rem;
-    font-size: 0.9rem;
-    color: #666;
-}
-
-.legend-item:last-child {
-    margin-bottom: 0;
-}
-
-.legend-color {
-    width: 16px;
-    height: 16px;
-    border-radius: 4px;
-    flex-shrink: 0;
-}
-
-.legend-color.bmr {
-    background-color: #007AFF;
-}
-
-.legend-color.activity {
-    background-color: #4CAF50;
-}
-
-.calorie-goals {
-    margin: 2rem 0;
-}
-
-.goals-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-    margin-top: 1rem;
-}
-
-.goal-item {
-    background-color: #F5F5F7;
-    padding: 1.5rem;
-    border-radius: 8px;
-    text-align: center;
     transition: transform 0.3s ease;
 }
 
-.goal-item:hover {
-    transform: translateY(-5px);
+.activity-option:hover i {
+    transform: scale(1.1);
 }
 
-.goal-item h4 {
-    color: #333;
-    margin: 0 0 1rem 0;
+.activity-option span {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-main);
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+.activity-option small {
+    color: var(--text-sub);
+    font-size: 0.85rem;
+    line-height: 1.4;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+/* ボタンスタイル */
+.primary-button {
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 24px;
+    padding: 1.5rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s ease;
+    margin-top: 2rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(217, 140, 126, 0.3);
+}
+
+.primary-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.primary-button:hover {
+    background: var(--hover-color);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 32px rgba(217, 140, 126, 0.4);
+}
+
+.primary-button:hover::before {
+    left: 100%;
+}
+
+/* 結果セクション */
+.result-box {
+    background: linear-gradient(135deg, var(--main-color) 0%, var(--base-color) 100%);
+    border-radius: 20px;
+    padding: 3rem;
+    margin-bottom: 3rem;
+    box-shadow: 0 8px 32px rgba(245, 234, 230, 0.4);
+    text-align: center;
+    border: 1px solid var(--accent-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.result-box::before {
+    content: '⚡';
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 1.5rem;
+    opacity: 0.6;
+}
+
+.result-box h3 {
+    color: var(--text-main);
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+.result-value.primary {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    margin: 1.5rem 0;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    text-shadow: 0 2px 4px rgba(217, 140, 126, 0.2);
+}
+
+.result-unit {
+    font-size: 1.2rem;
+    color: var(--text-sub);
+    font-weight: 400;
+}
+
+/* カロリー目標グリッド */
+.calorie-goals {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.goal-box {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(92, 84, 82, 0.08);
+    border: 1px solid var(--main-color);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.goal-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.goal-box:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(92, 84, 82, 0.12);
+}
+
+.goal-box:hover::before {
+    opacity: 1;
+}
+
+.goal-box h4 {
+    margin-bottom: 1rem;
+    color: var(--text-main);
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-weight: 600;
 }
 
 .goal-value {
-    font-size: 1.5rem;
-    font-weight: bold;
+    font-size: 2rem;
+    font-weight: 700;
     margin: 1rem 0;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+.goal-box small {
+    color: var(--text-sub);
+    font-size: 0.9rem;
+    line-height: 1.4;
+    font-family: 'Noto Sans JP', sans-serif;
 }
 
 .weight-loss .goal-value {
-    color: #FF3B30;
+    color: var(--loss-color);
+}
+
+.weight-loss::before {
+    background: var(--loss-color);
 }
 
 .maintenance .goal-value {
-    color: #007AFF;
+    color: var(--maintain-color);
+}
+
+.maintenance::before {
+    background: var(--maintain-color);
 }
 
 .weight-gain .goal-value {
-    color: #4CAF50;
+    color: var(--gain-color);
 }
 
-.goal-description {
-    font-size: 0.85rem;
-    color: #666;
-    margin: 0;
+.weight-gain::before {
+    background: var(--gain-color);
 }
 
-.goal-icon {
-    width: 48px;
-    height: 48px;
-    margin: 0 auto 1rem;
-    background-color: #fff;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+/* 栄養バランス */
+.nutrition-section {
+    background: white;
+    border-radius: 20px;
+    padding: 2.5rem;
+    margin: 3rem 0;
+    box-shadow: 0 8px 32px rgba(92, 84, 82, 0.08);
+    border: 1px solid var(--main-color);
 }
 
-.goal-icon i {
+.nutrition-section h3 {
+    color: var(--text-main);
     font-size: 1.5rem;
-}
-
-.weight-loss .goal-icon i {
-    color: #FF3B30;
-}
-
-.maintenance .goal-icon i {
-    color: #007AFF;
-}
-
-.weight-gain .goal-icon i {
-    color: #4CAF50;
-}
-
-.goal-tips {
-    list-style: none;
-    padding: 0;
-    margin: 1rem 0 0;
-    text-align: left;
-}
-
-.goal-tips li {
+    margin-bottom: 2rem;
+    font-weight: 600;
+    text-align: center;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
     position: relative;
-    padding-left: 1.5rem;
-    margin-bottom: 0.5rem;
-    font-size: 0.85rem;
-    color: #666;
 }
 
-.goal-tips li:last-child {
-    margin-bottom: 0;
-}
-
-.goal-tips li::before {
-    content: '✓';
+.nutrition-section h3::after {
+    content: '';
     position: absolute;
-    left: 0;
-    color: #007AFF;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background: var(--accent-color);
+    border-radius: 1px;
 }
 
-.action-buttons {
-    display: flex;
-    gap: 1rem;
+.macros-distribution {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
     margin-top: 2rem;
 }
 
-.action-buttons button i {
-    margin-right: 0.5rem;
+.macro {
+    text-align: center;
+    padding: 1.5rem;
+    border-radius: 16px;
+    background: var(--main-color);
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.macro:hover {
+    background: white;
+    border-color: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(217, 140, 126, 0.15);
+}
+
+.macro i {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: var(--accent-color);
+}
+
+.macro span {
+    display: block;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+    color: var(--text-main);
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+.macro-value {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+/* アクションボタン */
+.action-buttons {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+.action-buttons button {
+    flex: 1;
 }
 
 .secondary-button {
-    background-color: #F5F5F7;
-    color: #007AFF;
-    border: 1px solid #007AFF;
-    padding: 0.8rem 2rem;
-    border-radius: 6px;
+    background: transparent;
+    color: var(--accent-color);
+    border: 2px solid var(--accent-color);
+    border-radius: 24px;
+    padding: 1rem 2rem;
     font-size: 1rem;
+    font-weight: 500;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
     cursor: pointer;
-    flex: 1;
-    transition: all 0.3s;
+    transition: all 0.3s ease;
 }
 
 .secondary-button:hover {
-    background-color: #007AFF;
+    background: var(--accent-color);
     color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(217, 140, 126, 0.3);
 }
 
-.share-button {
-    background-color: #1DA1F2;
-    color: white;
-    border: none;
-    padding: 0.8rem 1.5rem;
-    border-radius: 6px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    transition: background-color 0.3s;
-}
-
-.share-button:hover {
-    background-color: #1991DA;
-}
-
-.tooltip {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #333;
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    font-size: 0.85rem;
-    margin-top: 0.5rem;
-    white-space: nowrap;
-    animation: fadeIn 0.3s ease-out;
-    z-index: 100;
-}
-
-.tooltip::before {
-    content: '';
-    position: absolute;
-    bottom: 100%;
-    left: 1rem;
-    border: 6px solid transparent;
-    border-bottom-color: #333;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
+/* レスポンシブデザイン */
 @media (max-width: 768px) {
     .calculator-container {
-        margin: 1rem;
-        padding: 1rem;
+        padding: 2rem;
+        margin: 2rem auto;
     }
 
-    .activity-level-grid {
-        grid-template-columns: 1fr;
+    .calculator-container h2 {
+        font-size: 1.8rem;
     }
 
-    .goals-grid {
+    .form-row {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .activity-selector {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .calorie-goals {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .macros-distribution {
+        grid-template-columns: 1fr;
+        gap: 1rem;
     }
 
     .action-buttons {
         flex-direction: column;
+        gap: 1rem;
     }
 
-    .action-buttons button {
-        width: 100%;
+    .result-value.primary {
+        font-size: 2.5rem;
     }
 
-    .chart-container {
-        height: 250px;
+    .goal-value {
+        font-size: 1.5rem;
     }
-    
-    .goal-tips {
+}
+
+@media (max-width: 480px) {
+    .calculator-container {
+        padding: 1.5rem;
+        margin: 1rem auto;
+    }
+
+    .calculator-container h2 {
+        font-size: 1.6rem;
+    }
+
+    .result-value.primary {
+        font-size: 2rem;
+    }
+
+    .goal-value {
+        font-size: 1.3rem;
+    }
+
+    .activity-option {
+        padding: 1rem;
+    }
+
+    .activity-option i {
+        font-size: 1.5rem;
+    }
+
+    .macro {
+        padding: 1rem;
+    }
+
+    .macro i {
+        font-size: 1.5rem;
+    }
+}
+
+/* Success Tipsセクション - 新デザイン */
+.success-tips {
+    margin: 2rem 0;
+    padding: 2rem 0;
+    border-top: 1px solid var(--main-color);
+    border-bottom: 1px solid var(--main-color);
+}
+
+.success-tips h4 {
+    color: var(--text-main);
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    text-align: center;
+}
+
+.tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.tip-card {
+    background: var(--main-color);
+    border-radius: 16px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.tip-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--accent-color);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.tip-card:hover {
+    background: white;
+    border-color: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(217, 140, 126, 0.15);
+}
+
+.tip-card:hover::before {
+    opacity: 1;
+}
+
+.tip-card i {
+    font-size: 1.5rem;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.tip-card h5 {
+    color: var(--text-main);
+    font-size: 1rem;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+.tip-card p {
+    color: var(--text-sub);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 0;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+/* ブログリンクセクション - 新デザイン */
+.blog-links {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--main-color);
+}
+
+.blog-links h4 {
+    color: var(--text-main);
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    text-align: center;
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.blog-card {
+    background: var(--main-color);
+    border-radius: 16px;
+    padding: 1.5rem;
+    text-decoration: none;
+    color: var(--text-main);
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.blog-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--accent-color);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.blog-card:hover {
+    background: white;
+    border-color: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(217, 140, 126, 0.15);
+}
+
+.blog-card:hover::before {
+    opacity: 1;
+}
+
+.blog-card i {
+    font-size: 1.5rem;
+    color: var(--accent-color);
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+.blog-card:hover i {
+    transform: scale(1.1);
+}
+
+.blog-card span {
+    color: var(--text-main);
+    font-weight: 500;
+    line-height: 1.4;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+@media (max-width: 768px) {
+    .tips-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .tip-card {
+        padding: 1rem;
+    }
+
+    .blog-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .blog-card {
+        padding: 1rem;
+        flex-direction: column;
         text-align: center;
+        gap: 0.8rem;
     }
-    
-    .goal-tips li {
-        padding-left: 0;
-    }
-    
-    .goal-tips li::before {
-        display: none;
+
+    .blog-card i {
+        font-size: 1.3rem;
     }
 } 

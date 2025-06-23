@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>健康計算ポータル - ローカルテスト</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+            background: #f8f9fa;
+        }
+        .header {
+            text-align: center;
+            background: #2c3e50;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        .section {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .url-link {
+            display: block;
+            background: #e3f2fd;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #1976d2;
+            border-left: 4px solid #2196f3;
+            transition: background 0.3s;
+        }
+        .url-link:hover {
+            background: #bbdefb;
+        }
+        .status {
+            color: #4caf50;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .category {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🌐 健康計算ポータル</h1>
+        <h2>ローカルテストメニュー</h2>
+        <div class="status">✅ サーバー稼働中 (localhost:8000)</div>
+    </div>
+
+    <div class="section">
+        <div class="category">📱 メインページ</div>
+        <a href="index.html" class="url-link">
+            <strong>トップページ</strong><br>
+            健康計算ポータルのメインページ
+        </a>
+        <a href="about.html" class="url-link">
+            <strong>運営者情報</strong><br>
+            リニューアルされた運営者ページ
+        </a>
+        <a href="blog.html" class="url-link">
+            <strong>健康ブログ</strong><br>
+            ブログ一覧ページ（デザイン確認）
+        </a>
+    </div>
+
+    <div class="section">
+        <div class="category">🤰 新規作成コンテンツ</div>
+        <a href="pregnancy-symptoms-checker.html" class="url-link">
+            <strong>妊娠超初期症状チェッカー</strong><br>
+            15項目の症状チェック機能
+        </a>
+        <a href="women-health-complete-guide.html" class="url-link">
+            <strong>妊活から出産まで女性の健康完全ガイド</strong><br>
+            包括的なピラーページコンテンツ
+        </a>
+        <a href="blog/morning-sickness-guide.html" class="url-link">
+            <strong>つわりの乗り切り方ガイド</strong><br>
+            詳細なブログ記事（1,500語超）
+        </a>
+    </div>
+
+    <div class="section">
+        <div class="category">📊 計算機サンプル</div>
+        <a href="calculators/pages/bmi.html" class="url-link">
+            <strong>BMI計算機</strong><br>
+            体重・身長からBMIを計算
+        </a>
+        <a href="calculators/pages/pregnancy-due-date.html" class="url-link">
+            <strong>出産予定日計算機</strong><br>
+            最終月経日から出産予定日を計算
+        </a>
+        <a href="calculators/pages/ovulation.html" class="url-link">
+            <strong>排卵日計算機</strong><br>
+            妊活に役立つ排卵日予測
+        </a>
+    </div>
+
+    <div class="section">
+        <div class="category">🔧 修正確認項目</div>
+        <ul>
+            <li>✅ ナビゲーションリンクに.html拡張子追加済み</li>
+            <li>✅ ブログページのCSSパス修正済み</li>
+            <li>✅ 計算機リンクの相対パス修正済み</li>
+            <li>✅ 新規コンテンツのリンク修正済み</li>
+            <li>⚠️ 上記リンクをクリックして動作確認してください</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <div class="category">📝 テスト手順</div>
+        <ol>
+            <li><strong>ナビゲーション</strong>：トップページ→ブログ→運営者情報→ホーム</li>
+            <li><strong>症状チェッカー</strong>：症状を選択して結果表示テスト</li>
+            <li><strong>レスポンシブ</strong>：ブラウザ幅を変更してデザイン確認</li>
+            <li><strong>ブログデザイン</strong>：カテゴリフィルターとカード表示確認</li>
+        </ol>
+    </div>
+</body>
+</html> 

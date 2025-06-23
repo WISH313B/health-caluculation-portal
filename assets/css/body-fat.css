@@ -1,524 +1,596 @@
-/* 体脂肪率計算機 - 統一デザインCSS */
+/* 体脂肪率計算機 - 新デザイン（女性向け洗練スタイル） */
 
-/* カラーパレット */
+/* Google Fonts 読み込み */
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;400;500;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap');
+
+/* 新カラーパレット */
 :root {
-    --primary-color: #007AFF;
-    --primary-hover: #0056CC;
-    --text-primary: #1D1D1F;
-    --text-secondary: #86868B;
-    --background-primary: #F5F5F7;
-    --tile-background: #FFFFFF;
-    --border-color: #E5E5E7;
-    --twitter-blue: #1DA1F2;
+    /* 女性向け新カラーパレット */
+    --base-color: #FFFBF7;           /* オフホワイト/アイボリー */
+    --main-color: #F5EAE6;           /* ダスティピンク/くすみピンク */
+    --accent-color: #D98C7E;         /* テラコッタ/コーラルピンク */
+    --text-main: #5C5452;            /* ダークブラウン */
+    --text-sub: #8B8380;             /* グレージュ */
+    --mint-accent: #A8D8B9;          /* ミントグリーン */
+    --hover-color: #C7776A;          /* ホバー時のダーク */
     
-    /* 体脂肪率分類カラー */
-    --low-bodyfat-color: #5AC8FA;
-    --normal-bodyfat-color: #30D158;
-    --high-bodyfat-color: #FF9500;
-    --very-high-bodyfat-color: #FF3B30;
-    --fat-color: #FF6B35;
-    --lean-color: #34C759;
+    /* 体脂肪率関連カラー */
+    --low-fat: #A8D8B9;             /* 低体脂肪 */
+    --normal-fat: #7BB3A0;          /* 標準体脂肪 */
+    --high-fat: #E6B87D;            /* 高体脂肪 */
+    --very-high-fat: #D98C7E;       /* 過多体脂肪 */
 }
 
 /* メインコンテナ */
 .calculator-container {
-    max-width: 800px;
-    margin: 2rem auto;
-    padding: 2rem;
-    background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    margin: 3rem auto;
+    padding: 3rem;
+    background: linear-gradient(135deg, #FFFFFF 0%, #FEFEFE 100%);
+    border-radius: 24px;
+    box-shadow: 0 12px 48px rgba(92, 84, 82, 0.1);
+    border: 1px solid var(--main-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.calculator-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, var(--accent-color), var(--mint-accent));
+    border-radius: 24px 24px 0 0;
+}
+
+.calculator-container h2 {
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    color: var(--text-main);
+    font-size: 2.2rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.calculator-container h2::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-color), var(--mint-accent));
+    border-radius: 2px;
 }
 
 /* 説明文 */
 .description {
-    color: var(--text-secondary);
-    margin-bottom: 2rem;
+    color: var(--text-sub);
+    margin-bottom: 3rem;
     line-height: 1.8;
-    font-size: 1rem;
+    font-size: 1.1rem;
+    text-align: center;
+    font-family: 'Noto Sans JP', sans-serif;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 3rem;
 }
 
-.description br {
-    display: block;
-    margin: 0.8rem 0;
-    content: "";
+/* 計算方法選択 */
+.method-selector {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
 }
 
-/* フォームスタイル */
+.method-option {
+    background: var(--base-color);
+    border: 2px solid var(--main-color);
+    border-radius: 16px;
+    padding: 2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.method-option::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--accent-color);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.method-option:hover {
+    border-color: var(--accent-color);
+    background: white;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(217, 140, 126, 0.15);
+}
+
+.method-option:hover::before {
+    opacity: 1;
+}
+
+.method-option.selected {
+    border-color: var(--accent-color);
+    background: linear-gradient(135deg, var(--main-color) 0%, var(--base-color) 100%);
+    box-shadow: 0 4px 16px rgba(217, 140, 126, 0.2);
+}
+
+.method-option.selected::before {
+    opacity: 1;
+}
+
+.method-option h3 {
+    color: var(--text-main);
+    margin-bottom: 1rem;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-weight: 600;
+}
+
+.method-option p {
+    color: var(--text-sub);
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* フォーム行 */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* フォームグループ */
 .form-group {
-    margin-bottom: 1.5rem;
+    position: relative;
 }
 
 .form-group label {
     display: block;
-    margin-bottom: 0.5rem;
-    color: var(--text-primary);
+    margin-bottom: 0.8rem;
+    color: var(--text-main);
     font-weight: 500;
-    font-size: 1rem;
+    font-size: 1.1rem;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
 }
 
-.radio-group {
-    display: flex;
-    gap: 1.5rem;
-    margin-top: 0.5rem;
-}
-
-.radio-group input[type="radio"] {
-    margin-right: 0.5rem;
-    accent-color: var(--primary-color);
-}
-
-.radio-group label {
-    margin-bottom: 0;
-    font-weight: normal;
-    cursor: pointer;
-}
-
-input[type="number"] {
+input[type="number"],
+select {
     width: 100%;
-    padding: 1rem;
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    font-size: 1rem;
-    color: var(--text-primary);
-    background-color: var(--tile-background);
+    padding: 1.5rem;
+    border: 2px solid var(--main-color);
+    border-radius: 16px;
+    font-size: 1.1rem;
+    color: var(--text-main);
+    background: var(--base-color);
     transition: all 0.3s ease;
     box-sizing: border-box;
+    font-family: 'Noto Sans JP', sans-serif;
 }
 
-input[type="number"]:focus {
+input[type="number"]:focus,
+select:focus {
     outline: none;
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.1);
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 4px rgba(217, 140, 126, 0.1);
+    transform: translateY(-2px);
+    background: white;
 }
 
-/* 測定ヘルプ */
-.measurement-help {
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
-}
-
-.measurement-help input {
-    flex: 1;
-}
-
-.help-button {
-    background: none;
-    border: none;
-    color: var(--primary-color);
+select {
     cursor: pointer;
-    font-size: 1.2rem;
-    padding: 0.5rem;
-    border-radius: 50%;
-    transition: background-color 0.3s ease;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23D98C7E" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1.2rem;
+    appearance: none;
 }
 
-.help-button:hover {
-    background-color: rgba(0, 122, 255, 0.1);
+/* 測定部位グリッド */
+.measurement-sites {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
 }
 
-.help-button[data-tooltip]:hover::after {
-    content: attr(data-tooltip);
-    position: absolute;
-    right: 0;
-    top: 100%;
-    background-color: var(--text-color);
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    font-size: 0.8rem;
-    white-space: nowrap;
-    z-index: 1;
+.measurement-site {
+    background: var(--main-color);
+    border-radius: 16px;
+    padding: 1.5rem;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.measurement-site:hover {
+    background: white;
+    border-color: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(217, 140, 126, 0.15);
+}
+
+.measurement-site label {
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-weight: 500;
+    color: var(--text-main);
 }
 
 /* ボタンスタイル */
 .primary-button {
-    background-color: var(--primary-color);
+    background: var(--accent-color);
     color: white;
     border: none;
-    border-radius: 12px;
-    padding: 1rem 2rem;
-    font-size: 1rem;
+    border-radius: 24px;
+    padding: 1.5rem 2.5rem;
+    font-size: 1.1rem;
     font-weight: 600;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
     cursor: pointer;
     width: 100%;
     transition: all 0.3s ease;
-    margin-top: 1.5rem;
+    margin-top: 2rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(217, 140, 126, 0.3);
+}
+
+.primary-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
 }
 
 .primary-button:hover {
-    background-color: var(--primary-hover);
-    transform: translateY(-1px);
+    background: var(--hover-color);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 32px rgba(217, 140, 126, 0.4);
 }
 
-.secondary-button {
-    background-color: var(--tile-background);
-    color: var(--primary-color);
-    border: 1px solid var(--primary-color);
-    border-radius: 12px;
-    padding: 1rem 2rem;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.secondary-button:hover {
-    background-color: var(--primary-color);
-    color: white;
-    transform: translateY(-1px);
-}
-
-.share-button {
-    background-color: var(--twitter-blue);
-    color: white;
-    border: none;
-    border-radius: 12px;
-    padding: 1rem 2rem;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-}
-
-.share-button:hover {
-    background-color: #1991DA;
-    transform: translateY(-1px);
+.primary-button:hover::before {
+    left: 100%;
 }
 
 /* 結果セクション */
 .result-box {
-    background-color: var(--tile-background);
-    border-radius: 12px;
-    padding: 2rem;
-    margin-bottom: 2rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    background: linear-gradient(135deg, var(--main-color) 0%, var(--base-color) 100%);
+    border-radius: 20px;
+    padding: 3rem;
+    margin-bottom: 3rem;
+    box-shadow: 0 8px 32px rgba(245, 234, 230, 0.4);
     text-align: center;
+    border: 1px solid var(--accent-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.result-box::before {
+    content: '📊';
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 1.5rem;
+    opacity: 0.6;
 }
 
 .result-box h3 {
-    color: var(--text-primary);
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-    font-weight: 600;
-}
-
-.result-value.primary {
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--primary-color);
-    margin: 1rem 0;
-}
-
-.result-description {
-    color: var(--text-secondary);
-    font-size: 0.95rem;
-    margin-top: 0.5rem;
-}
-
-/* 体組成セクション */
-.composition-section {
-    background-color: var(--tile-background);
-    border-radius: 12px;
-    padding: 2rem;
-    margin-bottom: 2rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-}
-
-.composition-section h3 {
-    color: var(--text-primary);
-    font-size: 1.2rem;
-    margin-bottom: 1.5rem;
-    font-weight: 600;
-    text-align: center;
-}
-
-.composition-bar {
-    display: flex;
-    height: 40px;
-    border-radius: 8px;
-    overflow: hidden;
-    margin-bottom: 1rem;
-    background-color: var(--background-primary);
-}
-
-.fat-mass {
-    background-color: var(--fat-color);
-    transition: width 0.5s ease;
-}
-
-.lean-mass {
-    background-color: var(--lean-color);
-    transition: width 0.5s ease;
-}
-
-.composition-legend {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    flex-wrap: wrap;
-}
-
-.legend-item {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.9rem;
-    color: var(--text-primary);
-}
-
-.legend-color {
-    width: 16px;
-    height: 16px;
-    border-radius: 3px;
-}
-
-.legend-color.fat {
-    background-color: var(--fat-color);
-}
-
-.legend-color.lean {
-    background-color: var(--lean-color);
-}
-
-/* 範囲評価セクション */
-.range-section {
-    background-color: var(--tile-background);
-    border-radius: 12px;
-    padding: 2rem;
-    margin-bottom: 2rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-}
-
-.range-section h3 {
-    color: var(--text-primary);
-    font-size: 1.2rem;
-    margin-bottom: 1.5rem;
-    font-weight: 600;
-    text-align: center;
-}
-
-.range-scale {
-    position: relative;
-    max-width: 500px;
-    margin: 0 auto 1rem;
-}
-
-.range-segments {
-    display: flex;
-    height: 40px;
-    border-radius: 8px;
-    overflow: hidden;
-    margin-bottom: 1rem;
-    position: relative;
-}
-
-.segment {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 0.8rem;
-    font-weight: 600;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-}
-
-.segment.low {
-    background-color: var(--low-bodyfat-color);
-}
-
-.segment.normal {
-    background-color: var(--normal-bodyfat-color);
-}
-
-.segment.high {
-    background-color: var(--high-bodyfat-color);
-}
-
-.segment.very-high {
-    background-color: var(--very-high-bodyfat-color);
-}
-
-.range-marker {
-    position: absolute;
-    top: -5px;
-    width: 10px;
-    height: 50px;
-    background-color: var(--text-primary);
-    border-radius: 5px;
-    transform: translateX(-50%);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    z-index: 10;
-    transition: left 0.3s ease;
-}
-
-.range-marker::after {
-    content: '';
-    position: absolute;
-    top: -5px;
-    left: 50%;
-    transform: translateX(-50%);
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-top: 8px solid var(--text-primary);
-}
-
-.ideal-range-info {
-    text-align: center;
-}
-
-.ideal-range-info p {
-    color: var(--text-secondary);
-    margin: 0;
-    font-size: 0.9rem;
-}
-
-.ideal-range-info span {
-    color: var(--primary-color);
-    font-weight: 600;
-}
-
-/* 情報セクション */
-.info-section {
-    background-color: var(--tile-background);
-    border-radius: 12px;
-    padding: 2rem;
-    margin: 2rem 0;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-}
-
-.info-section h3 {
-    color: var(--text-primary);
+    color: var(--text-main);
     font-size: 1.4rem;
     margin-bottom: 1.5rem;
     font-weight: 600;
-    text-align: center;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
 }
 
-.info-content h4 {
-    color: var(--text-primary);
-    font-size: 1.1rem;
-    margin: 1.5rem 0 1rem 0;
-    font-weight: 600;
-}
-
-.info-content p {
-    color: var(--text-secondary);
-    line-height: 1.7;
-    margin-bottom: 1rem;
-}
-
-.standards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
+.result-value.primary {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--accent-color);
     margin: 1.5rem 0;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    text-shadow: 0 2px 4px rgba(217, 140, 126, 0.2);
 }
 
-.standard-item {
-    background-color: var(--background-primary);
-    border-radius: 8px;
-    padding: 1.5rem;
-    transition: transform 0.3s ease;
+.result-unit {
+    font-size: 1.2rem;
+    color: var(--text-sub);
+    font-weight: 400;
 }
 
-.standard-item:hover {
-    transform: translateY(-2px);
+/* 体脂肪率判定チャート */
+.bodyfat-chart {
+    background: white;
+    border-radius: 20px;
+    padding: 2.5rem;
+    margin: 3rem 0;
+    box-shadow: 0 8px 32px rgba(92, 84, 82, 0.08);
+    border: 1px solid var(--main-color);
 }
 
-.standard-item h5 {
-    color: var(--primary-color);
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
+.bodyfat-chart h3 {
+    color: var(--text-main);
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
     font-weight: 600;
+    text-align: center;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    position: relative;
 }
 
-.standard-item ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+.bodyfat-chart h3::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background: var(--accent-color);
+    border-radius: 1px;
 }
 
-.standard-item li {
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-    line-height: 1.6;
-    margin-bottom: 0.3rem;
+.chart-categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
 }
 
-.health-tips {
-    list-style: none;
-    padding: 0;
-    margin: 1rem 0;
+.category-item {
+    border-radius: 16px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    border-left: 6px solid;
+    position: relative;
+    overflow: hidden;
 }
 
-.health-tips li {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.75rem;
+.category-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -50px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    opacity: 0.1;
+    transition: all 0.3s ease;
+}
+
+.category-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.category-item:hover::before {
+    right: -20px;
+    opacity: 0.2;
+}
+
+.category-item.low {
+    background: rgba(168, 216, 185, 0.1);
+    border-left-color: var(--low-fat);
+}
+
+.category-item.low::before {
+    background: var(--low-fat);
+}
+
+.category-item.normal {
+    background: rgba(123, 179, 160, 0.1);
+    border-left-color: var(--normal-fat);
+}
+
+.category-item.normal::before {
+    background: var(--normal-fat);
+}
+
+.category-item.high {
+    background: rgba(230, 184, 125, 0.1);
+    border-left-color: var(--high-fat);
+}
+
+.category-item.high::before {
+    background: var(--high-fat);
+}
+
+.category-item.very-high {
+    background: rgba(217, 140, 126, 0.1);
+    border-left-color: var(--very-high-fat);
+}
+
+.category-item.very-high::before {
+    background: var(--very-high-fat);
+}
+
+.category-item h4 {
+    color: var(--text-main);
+    font-size: 1.1rem;
     margin-bottom: 0.8rem;
-    color: var(--text-secondary);
-    font-size: 0.95rem;
-    line-height: 1.6;
+    font-weight: 600;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
 }
 
-.health-tips li i {
-    color: var(--primary-color);
-    margin-top: 0.3rem;
-    font-size: 0.5rem;
-    flex-shrink: 0;
-}
-
-/* アクションボタン */
-.action-buttons {
-    display: flex;
-    gap: 1rem;
-    margin-top: 2rem;
-}
-
-.action-buttons button {
-    flex: 1;
+.category-item p {
+    color: var(--text-sub);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 0;
 }
 
 /* レスポンシブデザイン */
 @media (max-width: 768px) {
     .calculator-container {
-        padding: 1rem;
+        padding: 2rem;
+        margin: 2rem auto;
     }
 
-    .result-value.primary {
-        font-size: 1.5rem;
+    .calculator-container h2 {
+        font-size: 1.8rem;
     }
 
-    .standards-grid {
+    .form-row {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 
-    .action-buttons {
-        flex-direction: column;
-    }
-
-    .composition-legend {
+    .method-selector {
+        grid-template-columns: 1fr;
         gap: 1rem;
     }
 
-    .radio-group {
-        flex-direction: column;
-        gap: 0.5rem;
+    .measurement-sites {
+        grid-template-columns: 1fr;
+        gap: 1rem;
     }
 
-    .measurement-help {
-        flex-direction: column;
-        gap: 0.5rem;
+    .chart-categories {
+        grid-template-columns: 1fr;
+        gap: 1rem;
     }
 
-    .measurement-help input {
-        width: 100%;
+    .result-value.primary {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .calculator-container {
+        padding: 1.5rem;
+        margin: 1rem auto;
+    }
+
+    .calculator-container h2 {
+        font-size: 1.6rem;
+    }
+
+    .result-value.primary {
+        font-size: 2rem;
+    }
+
+    .method-option {
+        padding: 1.5rem;
+    }
+
+    .measurement-site {
+        padding: 1rem;
+    }
+
+    .category-item {
+        padding: 1rem;
+    }
+}
+
+/* ブログリンクセクション - 新デザイン */
+.blog-links {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--main-color);
+}
+
+.blog-links h4 {
+    color: var(--text-main);
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    text-align: center;
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.blog-card {
+    background: var(--main-color);
+    border-radius: 16px;
+    padding: 1.5rem;
+    text-decoration: none;
+    color: var(--text-main);
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.blog-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--accent-color);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.blog-card:hover {
+    background: white;
+    border-color: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(217, 140, 126, 0.15);
+}
+
+.blog-card:hover::before {
+    opacity: 1;
+}
+
+.blog-card i {
+    font-size: 1.5rem;
+    color: var(--accent-color);
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+.blog-card:hover i {
+    transform: scale(1.1);
+}
+
+.blog-card span {
+    color: var(--text-main);
+    font-weight: 500;
+    line-height: 1.4;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+@media (max-width: 768px) {
+    .blog-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .blog-card {
+        padding: 1rem;
+        flex-direction: column;
+        text-align: center;
+        gap: 0.8rem;
+    }
+
+    .blog-card i {
+        font-size: 1.3rem;
     }
 } 

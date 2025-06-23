@@ -58,9 +58,9 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // 検索実行関数
         function performSearch(searchTerm) {
-            if (!searchTerm.trim()) {
-                clearSearch();
-                return;
+            // 空白文字のみの場合は検索を実行しない
+            if (!searchTerm || !searchTerm.trim()) {
+                return; // 何もしない（レイアウトを変更しない）
             }
 
             const results = calculators.filter(calc => {

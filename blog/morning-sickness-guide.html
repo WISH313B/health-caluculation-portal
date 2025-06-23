@@ -6,6 +6,7 @@
     <title>つわりのピークはいつ？効果的な乗り切り方完全ガイド | 健康計算ポータル</title>
     <meta name="description" content="つわりの症状、ピーク時期、効果的な対処法を詳しく解説。食事のコツ、栄養管理、いつ病院に相談すべきかまで、妊娠初期を快適に過ごすための実践的アドバイス。">
     <meta name="keywords" content="つわり,妊娠初期,吐き気,嘔吐,妊娠悪阻,食事,栄養,対処法,ピーク時期,妊娠">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="blog-article.css">
     <link rel="icon" type="image/png" href="../assets/images/favicon.png">
@@ -41,39 +42,76 @@
 <body>
     <header>
         <div class="header-content">
-            <h1><a href="/" class="home-link">健康計算ポータル</a></h1>
+            <h1><a href="../index.html" class="home-link">健康計算ポータル</a></h1>
             <div class="search-container">
-                <input type="search" placeholder="計算機能を検索...">
-                <button type="button"><i class="fas fa-search"></i></button>
+                <input type="search" id="search-input" placeholder="計算機能を検索...">
+                <button type="button" id="search-button"><i class="fas fa-search"></i></button>
             </div>
         </div>
     </header>
 
-    <nav class="breadcrumb">
-        <ol>
-            <li><a href="/">ホーム</a></li>
-            <li><a href="../blog.html">ブログ</a></li>
-            <li><span>つわりの乗り切り方完全ガイド</span></li>
-        </ol>
+    <nav class="main-nav">
+        <div class="nav-container">
+            <ul class="nav-menu">
+                <li><a href="../index.html" class="nav-link">ホーム</a></li>
+                <li><a href="../blog.html" class="nav-link active">健康ブログ</a></li>
+                <li><a href="../faq.html" class="nav-link">よくある質問</a></li>
+            </ul>
+        </div>
     </nav>
 
-    <main class="article-container">
-        <article class="blog-article">
-            <header class="article-header">
-                <div class="category-tag">妊娠・出産</div>
-                <h1>つわりのピークはいつ？効果的な乗り切り方完全ガイド</h1>
-                <p class="article-description">
-                    つわりの症状、ピーク時期、効果的な対処法を詳しく解説。
-                    食事のコツから栄養管理まで、妊娠初期を快適に過ごすための実践的アドバイスをお届けします。
-                </p>
+    <div class="breadcrumb">
+        <div class="container">
+            <ol>
+                <li><a href="../index.html">ホーム</a></li>
+                <li><a href="../blog.html">健康ブログ</a></li>
+                <li><span>つわりの乗り切り方完全ガイド</span></li>
+            </ol>
+        </div>
+    </div>
+
+    <article>
+        <div class="article-header">
+            <div class="container">
                 <div class="article-meta">
-                    <time datetime="2024-01-15">2024年1月15日</time>
-                    <span class="reading-time">読了時間：約8分</span>
+                    <span><i class="fas fa-calendar"></i> 2024年1月15日</span>
+                    <span><i class="fas fa-tag"></i> 妊娠・出産</span>
+                    <span><i class="fas fa-clock"></i> 読了時間：約8分</span>
                 </div>
-            </header>
+                <h1>つわりのピークはいつ？効果的な乗り切り方完全ガイド</h1>
+                <p>つわりの症状、ピーク時期、効果的な対処法を詳しく解説。食事のコツから栄養管理まで、妊娠初期を快適に過ごすための実践的アドバイスをお届けします。</p>
+            </div>
+        </div>
+
+        <div class="article-content">
+            <div class="article-image">
+                <i class="fas fa-baby" style="font-size: 3rem; margin-right: 1rem;"></i>
+                つわり対策のイメージ
+            </div>
+
+            <div class="highlight-box">
+                <h3><i class="fas fa-lightbulb"></i> この記事のポイント</h3>
+                <ul>
+                    <li>つわりのピーク時期と症状の変化</li>
+                    <li>効果的な食事のコツと栄養管理</li>
+                    <li>日常生活での対処法</li>
+                    <li>病院に相談すべきタイミング</li>
+                </ul>
+            </div>
+
+            <!-- 計算ツールへの誘導CTA -->
+            <div class="cta-box featured">
+                <h3><i class="fas fa-calculator"></i> まずは妊娠週数を確認しましょう</h3>
+                <p>つわりの時期を把握するために、現在の妊娠週数を正確に計算してみませんか？</p>
+                <a href="../calculators/pages/pregnancy-due-date.html" class="cta-button primary">
+                    <i class="fas fa-calendar-plus"></i>
+                    出産予定日・妊娠週数を計算する
+                </a>
+                <p class="cta-note">※妊娠週数がわかると、つわりの経過をより理解できます</p>
+            </div>
 
             <!-- 医療免責事項 -->
-            <div class="medical-notice">
+            <div class="warning-box">
                 <h3>⚠️ 重要な注意事項</h3>
                 <p>本記事の情報は教育・参考目的のものです。つわりの症状や対処法には個人差があります。症状が重い場合や不安がある場合は、必ず産婦人科医にご相談ください。</p>
             </div>
@@ -175,7 +213,24 @@
 
                 <div class="calculation-tool">
                     <h4>📅 あなたの妊娠週数を確認</h4>
-                    <p><a href="../calculators/pages/pregnancy-due-date.html">出産予定日計算機</a>で現在の妊娠週数を確認し、つわりの時期を把握しましょう。症状の変化を記録することで、医師との相談時にも役立ちます。</p>
+                    <p>現在の妊娠週数を確認し、つわりの時期を把握しましょう。症状の変化を記録することで、医師との相談時にも役立ちます。</p>
+                    
+                    <!-- 中間CTA：関連ツール -->
+                    <div class="inline-cta">
+                        <div class="cta-content">
+                            <h4>🎯 妊娠管理に役立つツール</h4>
+                            <div class="tools-mini-grid">
+                                <a href="../calculators/pages/pregnancy-due-date.html" class="mini-tool-card">
+                                    <i class="fas fa-calendar-plus"></i>
+                                    <span>出産予定日計算</span>
+                                </a>
+                                <a href="../calculators/pages/pregnancy-weight.html" class="mini-tool-card">
+                                    <i class="fas fa-weight"></i>
+                                    <span>妊娠中体重管理</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <p><strong>参考文献：</strong><br>
@@ -583,8 +638,35 @@
                 <p>妊娠に関するより詳しい情報は、<a href="../women-health-complete-guide.html">妊活から出産まで女性の健康完全ガイド</a>をご覧ください。妊娠の各段階について包括的に解説しています。</p>
             </div>
 
+            <div class="related-calculators-box">
+                <h3><i class="fas fa-calculator"></i> 妊娠・つわりに関連する計算機</h3>
+                <p>つわりの管理と妊娠中の健康維持に役立つツールをご活用ください：</p>
+                <div class="calculator-links">
+                    <a href="../calculators/pages/pregnancy-due-date.html" class="calculator-link">
+                        <i class="fas fa-calendar-plus"></i>
+                        <strong>出産予定日計算機</strong><br>
+                        妊娠週数と重要な日程を計算
+                    </a>
+                    <a href="../calculators/pages/pregnancy-weight.html" class="calculator-link">
+                        <i class="fas fa-weight"></i>
+                        <strong>妊娠中の推奨体重計算機</strong><br>
+                        適切な体重増加をチェック
+                    </a>
+                    <a href="../calculators/pages/pregnancy-symptoms-checker.html" class="calculator-link">
+                        <i class="fas fa-stethoscope"></i>
+                        <strong>妊娠症状チェッカー</strong><br>
+                        症状から妊娠の可能性を確認
+                    </a>
+                    <a href="../calculators/pages/water-intake.html" class="calculator-link">
+                        <i class="fas fa-tint"></i>
+                        <strong>必要水分量計算機</strong><br>
+                        つわり中の水分管理に
+                    </a>
+                </div>
+            </div>
+
             <!-- 医療免責事項（記事末尾） -->
-            <div class="medical-notice bottom">
+            <div class="warning-box">
                 <h3>⚠️ 医療に関する重要な注意事項</h3>
                 <p>本記事の情報は教育・参考目的のものです。つわりの症状や対処法には個人差があり、記載された方法が全ての方に効果があるとは限りません。症状が重い場合、不安がある場合、または他の体調不良が疑われる場合は、必ず産婦人科医にご相談ください。緊急の症状がある場合は、直ちに医療機関を受診してください。</p>
             </div>
@@ -595,34 +677,26 @@
                 <div class="related-grid">
                     <a href="../women-health-complete-guide.html" class="related-card">
                         <h4>妊活から出産まで女性の健康完全ガイド</h4>
-                        <p>妊娠・出産に関する包括的な情報</p>
+                        <p>妊娠全期間を通じた健康管理について</p>
                     </a>
                     <a href="pregnancy-weight-guide.html" class="related-card">
-                        <h4>妊娠中の体重管理ガイド</h4>
-                        <p>健康な妊娠のための体重管理のポイント</p>
+                        <h4>妊娠中の体重管理完全ガイド</h4>
+                        <p>適切な体重増加と栄養管理について</p>
                     </a>
                     <a href="nutrition-balance-guide.html" class="related-card">
                         <h4>妊娠中の栄養バランスガイド</h4>
-                        <p>妊娠期に必要な栄養素と食事のポイント</p>
+                        <p>つわり中でも摂りたい重要な栄養素について</p>
                     </a>
                 </div>
             </section>
-        </article>
-    </main>
+        </div>
+    </article>
 
     <footer>
-        <div class="footer-content">
-            <p>&copy; 2024 健康計算ポータル All Rights Reserved.</p>
-            <div class="footer-links">
-                <a href="../privacy-policy.html">プライバシーポリシー</a>
-                <a href="../terms-of-service.html">利用規約</a>
-                <a href="../about.html">運営者情報</a>
-                <a href="../contact.html">お問い合わせ</a>
-            </div>
-        </div>
+        <p>&copy; 2024 健康計算ポータル All Rights Reserved. | <a href="../privacy-policy.html">プライバシーポリシー</a> | <a href="../terms-of-service.html">利用規約</a></p>
     </footer>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="../script.js"></script>
     <script src="../search.js"></script>
 </body>
 </html> 
