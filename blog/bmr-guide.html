@@ -11,16 +11,20 @@
     <meta property="og:title" content="基礎代謝を効果的に上げる5つの方法 | 健康計算ポータル">
     <meta property="og:description" content="基礎代謝量を効果的に向上させる科学的根拠に基づいた5つの方法を詳しく解説。筋力トレーニング、有酸素運動、食事管理など、実践的なアドバイスで理想の体づくりをサポートします。">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://your-domain.com/blog/bmr-guide.html">
-    <meta property="og:image" content="https://your-domain.com/assets/images/bmr-guide-og.jpg">
+    <meta property="og:url"  
+        param($match)
+        $url = $match.Value -replace '\.html"', '"'
+        return $url
+    >
+    <meta property="og:image" content="https://minna-no-kenko.com/assets/images/bmr-guide-og.jpg">
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="基礎代謝を効果的に上げる5つの方法">
     <meta name="twitter:description" content="科学的根拠に基づいた基礎代謝向上法を詳しく解説">
-    <meta name="twitter:image" content="https://your-domain.com/assets/images/bmr-guide-og.jpg">
+    <meta name="twitter:image" content="https://minna-no-kenko.com/assets/images/bmr-guide-og.jpg">
     
-    <link rel="canonical" href="https://your-domain.com/blog/bmr-guide">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="blog-article.css">
@@ -52,6 +56,7 @@
             margin-bottom: 1rem;
         }
     </style>
+    <link rel="canonical" href="https://minna-no-kenko.com/blog/bmr-guide">
 </head>
 <body>
     <header>
@@ -230,22 +235,22 @@
                 <h3><i class="fas fa-calculator"></i> 関連する計算機</h3>
                 <p>基礎代謝向上の効果を数値で確認してみましょう：</p>
                 <div class="calculator-links">
-                    <a href="/calculators/pages/bmr" class="calculator-link">
+                    <a href="calculators/pages/bmr.html" class="calculator-link">
                         <i class="fas fa-fire"></i>
                         <strong>基礎代謝量計算機</strong><br>
                         現在の基礎代謝量を計算
                     </a>
-                    <a href="/calculators/pages/tdee" class="calculator-link">
+                    <a href="calculators/pages/tdee.html" class="calculator-link">
                         <i class="fas fa-chart-line"></i>
                         <strong>1日消費カロリー計算機</strong><br>
                         総消費カロリーを算出
                     </a>
-                    <a href="/calculators/pages/bmi" class="calculator-link">
+                    <a href="calculators/pages/bmi.html" class="calculator-link">
                         <i class="fas fa-weight"></i>
                         <strong>BMI計算機</strong><br>
                         体重管理の指標を確認
                     </a>
-                    <a href="/calculators/pages/body-fat" class="calculator-link">
+                    <a href="calculators/pages/body-fat.html" class="calculator-link">
                         <i class="fas fa-percentage"></i>
                         <strong>体脂肪率計算機</strong><br>
                         体組成の変化を追跡

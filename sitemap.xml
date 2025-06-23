@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml"
@@ -6,168 +6,168 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
     
-    <!-- メインページ -->
+    <!-- 繝｡繧､繝ｳ繝壹・繧ｸ -->
     <url>
-        <loc>https://your-domain.com/</loc>
+        <loc>https://minna-no-kenko.com/</loc>
         <lastmod>2024-12-19T00:00:00+09:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
         <mobile:mobile/>
-        <xhtml:link rel="alternate" hreflang="ja" href="https://your-domain.com/"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://your-domain.com/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://minna-no-kenko.com/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://minna-no-kenko.com/"/>
         <image:image>
-            <image:loc>https://your-domain.com/assets/images/og-image.jpg</image:loc>
-            <image:title>健康計算ポータル - 20種類以上の無料健康計算機</image:title>
-            <image:caption>BMI計算機、基礎代謝量、体脂肪率、カロリー計算など完全無料の健康計算機</image:caption>
+            <image:loc>https://minna-no-kenko.com/assets/images/og-image.jpg</image:loc>
+            <image:title>蛛･蠎ｷ險育ｮ励・繝ｼ繧ｿ繝ｫ - 20遞ｮ鬘樔ｻ･荳翫・辟｡譁吝▼蠎ｷ險育ｮ玲ｩ・/image:title>
+            <image:caption>BMI險育ｮ玲ｩ溘∝渕遉惹ｻ｣隰晞㍼縲∽ｽ楢р閧ｪ邇・√き繝ｭ繝ｪ繝ｼ險育ｮ励↑縺ｩ螳悟・辟｡譁吶・蛛･蠎ｷ險育ｮ玲ｩ・/image:caption>
         </image:image>
     </url>
     
-    <!-- 最重要計算機 - 超高優先度 -->
+    <!-- 譛驥崎ｦ∬ｨ育ｮ玲ｩ・- 雜・ｫ伜━蜈亥ｺｦ -->
     <url>
-        <loc>https://your-domain.com/calculators/pages/bmi</loc>
+        <loc>https://minna-no-kenko.com/calculators/pages/bmi</loc>
         <lastmod>2024-12-19T12:00:00+09:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.95</priority>
         <mobile:mobile/>
     </url>
     <url>
-        <loc>https://your-domain.com/calculators/pages/bmr</loc>
+        <loc>https://minna-no-kenko.com/calculators/pages/bmr</loc>
         <lastmod>2024-12-19T12:00:00+09:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.95</priority>
         <mobile:mobile/>
     </url>
     <url>
-        <loc>https://your-domain.com/calculators/pages/tdee</loc>
+        <loc>https://minna-no-kenko.com/calculators/pages/tdee</loc>
         <lastmod>2024-12-19T12:00:00+09:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.95</priority>
         <mobile:mobile/>
     </url>
     <url>
-        <loc>https://your-domain.com/calculators/pages/body-fat</loc>
+        <loc>https://minna-no-kenko.com/calculators/pages/body-fat</loc>
         <lastmod>2024-12-19T12:00:00+09:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
         <mobile:mobile/>
     </url>
     
-    <!-- 妊娠・女性健康カテゴリ - 高優先度 -->
+    <!-- 螯雁ｨ繝ｻ螂ｳ諤ｧ蛛･蠎ｷ繧ｫ繝・ざ繝ｪ - 鬮伜━蜈亥ｺｦ -->
     <url>
-        <loc>https://your-domain.com/calculators/pages/pregnancy-due-date</loc>
+        <loc>https://minna-no-kenko.com/calculators/pages/pregnancy-due-date</loc>
         <lastmod>2024-12-19T12:00:00+09:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
         <mobile:mobile/>
     </url>
     <url>
-        <loc>https://your-domain.com/calculators/pages/pregnancy-weight</loc>
+        <loc>https://minna-no-kenko.com/calculators/pages/pregnancy-weight</loc>
         <lastmod>2024-12-19T12:00:00+09:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.85</priority>
         <mobile:mobile/>
     </url>
     <url>
-        <loc>https://your-domain.com/calculators/pages/ovulation</loc>
+        <loc>https://minna-no-kenko.com/calculators/pages/ovulation</loc>
         <lastmod>2024-12-19T12:00:00+09:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.85</priority>
         <mobile:mobile/>
     </url>
     <url>
-        <loc>https://your-domain.com/calculators/pages/menstrual</loc>
+        <loc>https://minna-no-kenko.com/calculators/pages/menstrual</loc>
         <lastmod>2024-12-19T12:00:00+09:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.85</priority>
         <mobile:mobile/>
     </url>
     
-    <!-- カロリー・栄養カテゴリ -->
+    <!-- 繧ｫ繝ｭ繝ｪ繝ｼ繝ｻ譬・､翫き繝・ざ繝ｪ -->
     <url>
-        <loc>https://your-domain.com/calculators/pages/meal-calories</loc>
+        <loc>https://minna-no-kenko.com/calculators/pages/meal-calories</loc>
         <lastmod>2024-12-19T12:00:00+09:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
         <mobile:mobile/>
     </url>
     <url>
-        <loc>https://your-domain.com/calculators/pages/calories-burned</loc>
+        <loc>https://minna-no-kenko.com/calculators/pages/calories-burned</loc>
         <lastmod>2024-12-19T12:00:00+09:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
         <mobile:mobile/>
     </url>
     
-    <!-- フィットネス・運動カテゴリ -->
+    <!-- 繝輔ぅ繝・ヨ繝阪せ繝ｻ驕句虚繧ｫ繝・ざ繝ｪ -->
     <url>
-        <loc>https://your-domain.com/calculators/pages/one-rep-max</loc>
+        <loc>https://minna-no-kenko.com/calculators/pages/one-rep-max</loc>
         <lastmod>2024-12-19T12:00:00+09:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.75</priority>
         <mobile:mobile/>
     </url>
     <url>
-        <loc>https://your-domain.com/calculators/pages/target-heart-rate</loc>
+        <loc>https://minna-no-kenko.com/calculators/pages/target-heart-rate</loc>
         <lastmod>2024-12-19T12:00:00+09:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.75</priority>
         <mobile:mobile/>
     </url>
     <url>
-        <loc>https://your-domain.com/calculators/pages/pace</loc>
+        <loc>https://minna-no-kenko.com/calculators/pages/pace</loc>
         <lastmod>2024-12-19T12:00:00+09:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.75</priority>
         <mobile:mobile/>
     </url>
     <url>
-        <loc>https://your-domain.com/calculators/pages/exercise-intensity</loc>
+        <loc>https://minna-no-kenko.com/calculators/pages/exercise-intensity</loc>
         <lastmod>2024-12-19T12:00:00+09:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.75</priority>
         <mobile:mobile/>
     </url>
     
-    <!-- 体重・体型カテゴリ -->
+    <!-- 菴馴㍾繝ｻ菴灘梛繧ｫ繝・ざ繝ｪ -->
     <url>
-        <loc>https://your-domain.com/calculators/pages/ideal-weight</loc>
+        <loc>https://minna-no-kenko.com/calculators/pages/ideal-weight</loc>
         <lastmod>2024-12-19T12:00:00+09:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
         <mobile:mobile/>
     </url>
     <url>
-        <loc>https://your-domain.com/calculators/pages/height-prediction</loc>
+        <loc>https://minna-no-kenko.com/calculators/pages/height-prediction</loc>
         <lastmod>2024-12-19T12:00:00+09:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
         <mobile:mobile/>
     </url>
     
-    <!-- その他の健康カテゴリ -->
+    <!-- 縺昴・莉悶・蛛･蠎ｷ繧ｫ繝・ざ繝ｪ -->
     <url>
-        <loc>https://your-domain.com/calculators/pages/sleep-time</loc>
+        <loc>https://minna-no-kenko.com/calculators/pages/sleep-time</loc>
         <lastmod>2024-12-19T12:00:00+09:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
         <mobile:mobile/>
     </url>
     <url>
-        <loc>https://your-domain.com/calculators/pages/water-intake</loc>
+        <loc>https://minna-no-kenko.com/calculators/pages/water-intake</loc>
         <lastmod>2024-12-19T12:00:00+09:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.75</priority>
         <mobile:mobile/>
     </url>
     <url>
-        <loc>https://your-domain.com/calculators/pages/stress-index</loc>
+        <loc>https://minna-no-kenko.com/calculators/pages/stress-index</loc>
         <lastmod>2024-12-19T12:00:00+09:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
         <mobile:mobile/>
     </url>
     <url>
-        <loc>https://your-domain.com/calculators/pages/health-age</loc>
+        <loc>https://minna-no-kenko.com/calculators/pages/health-age</loc>
         <lastmod>2024-12-19T12:00:00+09:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>

@@ -11,16 +11,20 @@
     <meta property="og:title" content="BMI計算の完全ガイド：正しい理解で健康的なダイエットを | 健康計算ポータル">
     <meta property="og:description" content="BMI（ボディマスインデックス）の正しい理解と活用方法を詳しく解説。WHO基準、筋肉量との関係、年齢による違い、健康的なダイエットへの活用法まで完全ガイド。">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://your-domain.com/blog/bmi-guide.html">
-    <meta property="og:image" content="https://your-domain.com/assets/images/bmi-guide-og.jpg">
+    <meta property="og:url"  
+        param($match)
+        $url = $match.Value -replace '\.html"', '"'
+        return $url
+    >
+    <meta property="og:image" content="https://minna-no-kenko.com/assets/images/bmi-guide-og.jpg">
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="BMI計算の完全ガイド：正しい理解で健康的なダイエットを">
     <meta name="twitter:description" content="BMIの正しい理解と活用方法を詳しく解説">
-    <meta name="twitter:image" content="https://your-domain.com/assets/images/bmi-guide-og.jpg">
+    <meta name="twitter:image" content="https://minna-no-kenko.com/assets/images/bmi-guide-og.jpg">
     
-    <link rel="canonical" href="https://your-domain.com/blog/bmi-guide">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="blog-article.css">
@@ -30,6 +34,7 @@
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
     </style>
+    <link rel="canonical" href="https://minna-no-kenko.com/blog/bmi-guide">
 </head>
 <body>
     <header>
@@ -213,22 +218,22 @@
                 <h3><i class="fas fa-calculator"></i> 関連する計算機</h3>
                 <p>BMIと併せて使用することで、より正確な健康管理が可能です：</p>
                 <div class="calculator-links">
-                    <a href="/calculators/pages/bmi" class="calculator-link">
+                    <a href="calculators/pages/bmi.html" class="calculator-link">
                         <i class="fas fa-weight"></i>
                         <strong>BMI計算機</strong><br>
                         身長・体重からBMIを計算
                     </a>
-                    <a href="/calculators/pages/ideal-weight" class="calculator-link">
+                    <a href="calculators/pages/ideal-weight.html" class="calculator-link">
                         <i class="fas fa-target"></i>
                         <strong>理想体重計算機</strong><br>
                         目標体重を設定
                     </a>
-                    <a href="/calculators/pages/body-fat" class="calculator-link">
+                    <a href="calculators/pages/body-fat.html" class="calculator-link">
                         <i class="fas fa-percentage"></i>
                         <strong>体脂肪率計算機</strong><br>
                         体組成を詳しく分析
                     </a>
-                    <a href="/calculators/pages/bmr" class="calculator-link">
+                    <a href="calculators/pages/bmr.html" class="calculator-link">
                         <i class="fas fa-fire"></i>
                         <strong>基礎代謝量計算機</strong><br>
                         1日の消費カロリーを把握

@@ -16,15 +16,19 @@
     <meta property="og:title" content="体脂肪率計算機 | 無料で体脂肪率を計算・分析 - 健康計算ポータル">
     <meta property="og:description" content="身長・体重・年齢・性別から体脂肪率を簡単計算。健康的な体脂肪率の範囲や改善アドバイスも提供。">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://your-domain.com/calculators/pages/body-fat.html">
-    <meta property="og:image" content="https://your-domain.com/assets/images/body-fat-og-image.jpg">
+    <meta property="og:url"  
+        param($match)
+        $url = $match.Value -replace '\.html"', '"'
+        return $url
+    >
+    <meta property="og:image" content="https://minna-no-kenko.com/assets/images/body-fat-og-image.jpg">
     <meta property="og:site_name" content="健康計算ポータル">
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="体脂肪率計算機 | 無料で体脂肪率を計算・分析">
     <meta name="twitter:description" content="身長・体重・年齢・性別から体脂肪率を簡単計算。健康的な体脂肪率の範囲や改善アドバイスも提供。">
-    <meta name="twitter:image" content="https://your-domain.com/assets/images/body-fat-og-image.jpg">
+    <meta name="twitter:image" content="https://minna-no-kenko.com/assets/images/body-fat-og-image.jpg">
     
     <!-- ファビコン -->
     <link rel="icon" type="image/png" href="../../assets/images/favicon.png">
@@ -36,7 +40,7 @@
         "@type": "WebApplication",
         "name": "体脂肪率計算機",
         "description": "身長・体重・年齢・性別から体脂肪率を計算し、健康的な体組成管理をサポートするツール",
-        "url": "https://your-domain.com/calculators/pages/body-fat.html",
+        "url": "https://minna-no-kenko.com/calculators/pages/body-fat",
         "applicationCategory": "HealthApplication",
         "operatingSystem": "Any",
         "offers": {
@@ -50,6 +54,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="../../style.css">
     <link rel="stylesheet" href="../../assets/css/body-fat.css">
+    <link rel="canonical" href="https://minna-no-kenko.com/calculators/pages/body-fat">
 </head>
 <body>
     <header>

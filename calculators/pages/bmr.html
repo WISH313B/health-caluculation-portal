@@ -16,15 +16,19 @@
     <meta property="og:title" content="基礎代謝量計算機 | 無料でBMR・カロリー消費を計算 - 健康計算ポータル">
     <meta property="og:description" content="身長・体重・年齢・性別から基礎代謝量（BMR）を正確に計算。1日に必要なカロリーや代謝アップのアドバイスも提供。">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://your-domain.com/calculators/pages/bmr.html">
-    <meta property="og:image" content="https://your-domain.com/assets/images/bmr-og-image.jpg">
+    <meta property="og:url"  
+        param($match)
+        $url = $match.Value -replace '\.html"', '"'
+        return $url
+    >
+    <meta property="og:image" content="https://minna-no-kenko.com/assets/images/bmr-og-image.jpg">
     <meta property="og:site_name" content="健康計算ポータル">
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="基礎代謝量計算機 | 無料でBMR・カロリー消費を計算">
     <meta name="twitter:description" content="身長・体重・年齢・性別から基礎代謝量（BMR）を正確に計算。1日に必要なカロリーや代謝アップのアドバイスも提供。">
-    <meta name="twitter:image" content="https://your-domain.com/assets/images/bmr-og-image.jpg">
+    <meta name="twitter:image" content="https://minna-no-kenko.com/assets/images/bmr-og-image.jpg">
     
     <!-- ファビコン -->
     <link rel="icon" type="image/png" href="../../assets/images/favicon.png">
@@ -36,7 +40,7 @@
         "@type": "WebApplication",
         "name": "基礎代謝量計算機",
         "description": "基礎代謝量（BMR）を計算し、1日の必要カロリーや代謝向上をサポートするツール",
-        "url": "https://your-domain.com/calculators/pages/bmr.html",
+        "url": "https://minna-no-kenko.com/calculators/pages/bmr",
         "applicationCategory": "HealthApplication",
         "operatingSystem": "Any",
         "offers": {
@@ -50,6 +54,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="../../style.css">
     <link rel="stylesheet" href="../../assets/css/bmr.css">
+    <link rel="canonical" href="https://minna-no-kenko.com/calculators/pages/bmr">
 </head>
 <body>
     <header>

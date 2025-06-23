@@ -16,15 +16,19 @@
     <meta property="og:title" content="身長予測計算機 | 子供の将来身長を無料で予測 - 健康計算ポータル">
     <meta property="og:description" content="子供の現在の身長と両親の身長から将来の身長を科学的に予測。成長曲線や身長偏差値も表示。">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://your-domain.com/calculators/pages/height-prediction.html">
-    <meta property="og:image" content="https://your-domain.com/assets/images/height-prediction-og-image.jpg">
+    <meta property="og:url"  
+        param($match)
+        $url = $match.Value -replace '\.html"', '"'
+        return $url
+    >
+    <meta property="og:image" content="https://minna-no-kenko.com/assets/images/height-prediction-og-image.jpg">
     <meta property="og:site_name" content="健康計算ポータル">
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="身長予測計算機 | 子供の将来身長を無料で予測">
     <meta name="twitter:description" content="子供の現在の身長と両親の身長から将来の身長を科学的に予測。成長曲線や身長偏差値も表示。">
-    <meta name="twitter:image" content="https://your-domain.com/assets/images/height-prediction-og-image.jpg">
+    <meta name="twitter:image" content="https://minna-no-kenko.com/assets/images/height-prediction-og-image.jpg">
     
     <!-- ファビコン -->
     <link rel="icon" type="image/png" href="../../assets/images/favicon.png">
@@ -36,7 +40,7 @@
         "@type": "WebApplication",
         "name": "身長予測計算機",
         "description": "子供の将来身長を予測し、成長過程をサポートするツール",
-        "url": "https://your-domain.com/calculators/pages/height-prediction.html",
+        "url": "https://minna-no-kenko.com/calculators/pages/height-prediction",
         "applicationCategory": "HealthApplication",
         "operatingSystem": "Any",
         "offers": {
@@ -50,6 +54,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="../../style.css">
     <link rel="stylesheet" href="../../assets/css/height-prediction.css">
+    <link rel="canonical" href="https://minna-no-kenko.com/calculators/pages/height-prediction">
 </head>
 <body>
     <header>
