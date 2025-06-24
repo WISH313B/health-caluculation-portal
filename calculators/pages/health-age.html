@@ -360,7 +360,7 @@ select {
 }
 
 .health-tips li::before {
-    content: "•";
+    content: "?";
     color: var(--primary-color);
     position: absolute;
     left: 0;
@@ -416,7 +416,7 @@ select {
 <body>
     <header>
         <div class="header-content">
-            <h1><a href="/" class="home-link">健康計算ポータル</a></h1>
+            <h1><a href="../../index.html" class="home-link">健康計算ポータル</a></h1>
             <div class="search-container">
                 <input type="search" placeholder="計算機能を検索...">
                 <button type="button"><i class="fas fa-search"></i></button>
@@ -1110,7 +1110,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // 運動に関する提案
         if (formData.exerciseFrequency === 'never' || formData.exerciseFrequency === 'rarely') {
             suggestions.push({
-                icon: '🏃‍♂️',
+                icon: '???♂?',
                 title: '運動習慣の確立',
                 content: '週に2-3回、30分程度の有酸素運動から始めましょう。ウォーキングや軽いジョギングがおすすめです。'
             });
@@ -1119,7 +1119,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // 食事に関する提案
         if (formData.vegetableIntake === 'low' || formData.processedFood === 'high') {
             suggestions.push({
-                icon: '🥗',
+                icon: '??',
                 title: '食生活の改善',
                 content: '野菜・果物を1日5回以上摂取し、加工食品を減らしましょう。バランスの取れた食事を心がけてください。'
             });
@@ -1128,7 +1128,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // 睡眠に関する提案
         if (formData.sleepHours === 'short' || formData.sleepQuality === 'poor') {
             suggestions.push({
-                icon: '😴',
+                icon: '??',
                 title: '睡眠の質向上',
                 content: '規則正しい睡眠時間を確保し、就寝前のスマホ使用を控えましょう。リラックスできる睡眠環境を整えてください。'
             });
@@ -1137,7 +1137,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // 生活習慣に関する提案
         if (formData.smoking === 'current') {
             suggestions.push({
-                icon: '🚭',
+                icon: '??',
                 title: '禁煙',
                 content: '喫煙は健康に深刻な影響を与えます。禁煙外来や禁煙補助剤の利用を検討し、段階的に禁煙に取り組みましょう。'
             });
@@ -1146,7 +1146,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // ストレス管理に関する提案
         if (formData.stressLevel === 'high') {
             suggestions.push({
-                icon: '🧘‍♀️',
+                icon: '???♀?',
                 title: 'ストレス管理',
                 content: '深呼吸、瞑想、ヨガなどのリラクゼーション法を取り入れ、適度な休息を心がけましょう。'
             });
@@ -1155,7 +1155,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // 基本的な提案を追加
         if (suggestions.length < 3) {
             suggestions.push({
-                icon: '💪',
+                icon: '??',
                 title: '継続的な健康管理',
                 content: '小さな変化でも継続することが重要です。無理のない範囲で生活習慣の改善に取り組みましょう。'
             });
@@ -1167,4 +1167,7 @@ document.addEventListener('DOMContentLoaded', function() {
     </script>
 </body>
 </html> 
+
+
+
 

@@ -1,34 +1,34 @@
-<!-- 監修者プロフィールコンポーネント -->
+﻿<!-- 逶｣菫ｮ閠・・繝ｭ繝輔ぅ繝ｼ繝ｫ繧ｳ繝ｳ繝昴・繝阪Φ繝・-->
 <section class="supervisor-profile-component" id="supervisor-profile-component" style="display: none;">
-    <h3><i class="fas fa-user-md"></i> この記事の監修者</h3>
+    <h3><i class="fas fa-user-md"></i> 縺薙・險倅ｺ九・逶｣菫ｮ閠・/h3>
     <div class="profile-card">
         <div class="profile-image">
-            <img src="" alt="監修者写真" id="supervisor-image" class="supervisor-image">
+            <img src="" alt="逶｣菫ｮ閠・・逵・ id="supervisor-image" class="supervisor-image">
         </div>
         <div class="profile-content">
-            <h4 id="supervisor-name" class="supervisor-name">【監修者名を入力】</h4>
-            <p class="supervisor-title" id="supervisor-title">【資格・肩書きを入力】</p>
-            <p class="supervisor-affiliation" id="supervisor-affiliation">【所属機関・クリニック名を入力】</p>
+            <h4 id="supervisor-name" class="supervisor-name">縲千屮菫ｮ閠・錐繧貞・蜉帙・/h4>
+            <p class="supervisor-title" id="supervisor-title">縲占ｳ・ｼ繝ｻ閧ｩ譖ｸ縺阪ｒ蜈･蜉帙・/p>
+            <p class="supervisor-affiliation" id="supervisor-affiliation">縲先園螻樊ｩ滄未繝ｻ繧ｯ繝ｪ繝九ャ繧ｯ蜷阪ｒ蜈･蜉帙・/p>
             <div class="supervisor-bio" id="supervisor-bio">
-                <p>【監修者の経歴、専門分野、実績などを詳しく記載】</p>
+                <p>縲千屮菫ｮ閠・・邨梧ｭｴ縲∝ｰる摩蛻・㍽縲∝ｮ溽ｸｾ縺ｪ縺ｩ繧定ｩｳ縺励￥險倩ｼ峨・/p>
             </div>
             
-            <!-- 資格・認定リスト -->
+            <!-- 雉・ｼ繝ｻ隱榊ｮ壹Μ繧ｹ繝・-->
             <div class="supervisor-credentials" id="supervisor-credentials">
-                <h5><i class="fas fa-certificate"></i> 主な資格・認定</h5>
+                <h5><i class="fas fa-certificate"></i> 荳ｻ縺ｪ雉・ｼ繝ｻ隱榊ｮ・/h5>
                 <ul id="supervisor-credentials-list">
-                    <li>【資格名1】 - 【取得年】</li>
-                    <li>【資格名2】 - 【認定機関】</li>
+                    <li>縲占ｳ・ｼ蜷・縲・- 縲仙叙蠕怜ｹｴ縲・/li>
+                    <li>縲占ｳ・ｼ蜷・縲・- 縲占ｪ榊ｮ壽ｩ滄未縲・/li>
                 </ul>
             </div>
             
-            <!-- 外部リンク -->
+            <!-- 螟夜Κ繝ｪ繝ｳ繧ｯ -->
             <div class="supervisor-links" id="supervisor-links">
                 <a href="" target="_blank" rel="noopener" class="link-button clinic-link" id="supervisor-clinic">
-                    <i class="fas fa-hospital"></i> 公式サイト
+                    <i class="fas fa-hospital"></i> 蜈ｬ蠑上し繧､繝・
                 </a>
                 <a href="" target="_blank" rel="noopener" class="link-button appointment-link" id="supervisor-appointment">
-                    <i class="fas fa-calendar-check"></i> 診療予約
+                    <i class="fas fa-calendar-check"></i> 險ｺ逋ゆｺ育ｴ・
                 </a>
             </div>
         </div>
@@ -131,7 +131,7 @@
 }
 
 .supervisor-profile-component .supervisor-credentials li::before {
-    content: "✓";
+    content: "笨・;
     position: absolute;
     left: 0;
     color: var(--primary-color);
@@ -179,25 +179,25 @@
 </style>
 
 <script>
-// 監修者プロフィールコンポーネントの制御
+// 逶｣菫ｮ閠・・繝ｭ繝輔ぅ繝ｼ繝ｫ繧ｳ繝ｳ繝昴・繝阪Φ繝医・蛻ｶ蠕｡
 class SupervisorProfileComponent {
     constructor(containerId) {
         this.container = document.getElementById(containerId);
         this.checkVisibility();
     }
     
-    // 監修者情報が設定されているかチェック
+    // 逶｣菫ｮ閠・ュ蝣ｱ縺瑚ｨｭ螳壹＆繧後※縺・ｋ縺九メ繧ｧ繝・け
     checkVisibility() {
         const name = this.container.querySelector('#supervisor-name').textContent.trim();
         
-        if (name === '【監修者名を入力】' || name === '') {
+        if (name === '縲千屮菫ｮ閠・錐繧貞・蜉帙・ || name === '') {
             this.container.style.display = 'none';
         } else {
             this.container.style.display = 'block';
         }
     }
     
-    // 監修者情報を設定
+    // 逶｣菫ｮ閠・ュ蝣ｱ繧定ｨｭ螳・
     setSupervisorInfo(supervisorData) {
         if (supervisorData.name) {
             this.container.querySelector('#supervisor-name').textContent = supervisorData.name;
@@ -219,3 +219,4 @@ class SupervisorProfileComponent {
     }
 }
 </script> 
+

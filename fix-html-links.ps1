@@ -2,17 +2,38 @@
 
 Write-Host "HTMLファイルのリンクを.html付きに修正中..." -ForegroundColor Green
 
+# 処理済みファイルをカウント
+$processedFiles = 0
+$modifiedFiles = 0
+
 # 対象となる全てのHTMLファイルを取得
 $htmlFiles = Get-ChildItem -Path "." -Recurse -Include "*.html" | Where-Object { $_.Name -ne "404.html" }
 
 foreach ($file in $htmlFiles) {
-    Write-Host "修正中: $($file.FullName)" -ForegroundColor Yellow
+    $processedFiles++
+    Write-Host "Processing: $($file.FullName)"
     
     $content = Get-Content $file.FullName -Raw -Encoding UTF8
     $originalContent = $content
     
-    # ホームページへのリンクを修正
-    $content = $content -replace 'href="/"', 'href="index.html"'
+    # ファイルの相対的な深さを計算
+    $depth = ($file.FullName.Substring($PSScriptRoot.Length + 1).Split("\") | Where-Object { $_ -ne "" }).Count - 1
+    $relativePrefix = "../" * $depth
+    
+    if ($depth -eq 0) {
+        $relativePrefix = ""
+    }
+    
+    # ホームリンクを相対パスに変換
+    if ($content -match 'href="/"') {
+        $content = $content -replace 'href="/"', "href=`"${relativePrefix}index.html`""
+        $modified = $true
+    }
+    
+    if ($content -match 'href="/index.html"') {
+        $content = $content -replace 'href="/index.html"', "href=`"${relativePrefix}index.html`""
+        $modified = $true
+    }
     
     # ブログページへのリンクを修正
     $content = $content -replace 'href="/blog"', 'href="blog.html"'
@@ -46,6 +67,8 @@ foreach ($file in $htmlFiles) {
     
     # 内容が変更された場合のみファイルを保存
     if ($content -ne $originalContent) {
+        $modifiedFiles++
+        Write-Host "Modifying: $($file.FullName)"
         $content | Out-File -FilePath $file.FullName -Encoding UTF8 -NoNewline
         Write-Host "✓ 修正完了: $($file.Name)" -ForegroundColor Green
     } else {
@@ -53,5 +76,6 @@ foreach ($file in $htmlFiles) {
     }
 }
 
+Write-Host "Processed $processedFiles files, modified $modifiedFiles files."
 Write-Host "`n全ての修正が完了しました！" -ForegroundColor Green
 Write-Host "これで、ローカルでもウェブでも正常に動作するはずです。" -ForegroundColor Cyan 

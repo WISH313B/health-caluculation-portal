@@ -1,16 +1,16 @@
-<!-- 記事執筆者プロフィールコンポーネント -->
+﻿<!-- 險倅ｺ句濤遲・・・繝ｭ繝輔ぅ繝ｼ繝ｫ繧ｳ繝ｳ繝昴・繝阪Φ繝・-->
 <section class="author-profile-component" id="author-profile-component">
-    <h3><i class="fas fa-user-edit"></i> この記事の執筆者</h3>
+    <h3><i class="fas fa-user-edit"></i> 縺薙・險倅ｺ九・蝓ｷ遲・・/h3>
     <div class="profile-card">
         <div class="profile-image">
-            <img src="" alt="執筆者写真" id="author-image" class="author-image">
+            <img src="" alt="蝓ｷ遲・・・逵・ id="author-image" class="author-image">
         </div>
         <div class="profile-content">
-            <h4 id="author-name" class="author-name">【執筆者名を入力】</h4>
-            <p class="author-title" id="author-title">【肩書き・資格を入力】</p>
+            <h4 id="author-name" class="author-name">縲仙濤遲・・錐繧貞・蜉帙・/h4>
+            <p class="author-title" id="author-title">縲占か譖ｸ縺阪・雉・ｼ繧貞・蜉帙・/p>
             <div class="author-bio" id="author-bio">
-                <p>【執筆者の経歴、専門分野、サイト運営の動機などを詳しく記載】</p>
-                <p>【保有資格、実務経験、専門性を示す情報を記載】</p>
+                <p>縲仙濤遲・・・邨梧ｭｴ縲∝ｰる摩蛻・㍽縲√し繧､繝磯°蝟ｶ縺ｮ蜍墓ｩ溘↑縺ｩ繧定ｩｳ縺励￥險倩ｼ峨・/p>
+                <p>縲蝉ｿ晄怏雉・ｼ縲∝ｮ溷漁邨碁ｨ薙∝ｰる摩諤ｧ繧堤､ｺ縺呎ュ蝣ｱ繧定ｨ倩ｼ峨・/p>
             </div>
             <div class="author-social" id="author-social">
                 <a href="" target="_blank" rel="noopener" class="social-link twitter-link" id="author-twitter">
@@ -72,7 +72,7 @@
 }
 
 .author-profile-component .profile-image:empty::before {
-    content: "👤";
+    content: "側";
     font-size: 2rem;
     color: #ccc;
 }
@@ -133,7 +133,7 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* レスポンシブ対応 */
+/* 繝ｬ繧ｹ繝昴Φ繧ｷ繝門ｯｾ蠢・*/
 @media (max-width: 768px) {
     .author-profile-component .profile-card {
         flex-direction: column;
@@ -147,7 +147,7 @@
 </style>
 
 <script>
-// 執筆者プロフィールコンポーネントの制御
+// 蝓ｷ遲・・・繝ｭ繝輔ぅ繝ｼ繝ｫ繧ｳ繝ｳ繝昴・繝阪Φ繝医・蛻ｶ蠕｡
 class AuthorProfileComponent {
     constructor(containerId) {
         this.container = document.getElementById(containerId);
@@ -159,7 +159,7 @@ class AuthorProfileComponent {
         this.validateImageSrc();
     }
     
-    // 空のソーシャルリンクを非表示
+    // 遨ｺ縺ｮ繧ｽ繝ｼ繧ｷ繝｣繝ｫ繝ｪ繝ｳ繧ｯ繧帝撼陦ｨ遉ｺ
     hideEmptySocialLinks() {
         const socialLinks = this.container.querySelectorAll('.social-link');
         socialLinks.forEach(link => {
@@ -169,7 +169,7 @@ class AuthorProfileComponent {
         });
     }
     
-    // 画像の有効性を確認
+    // 逕ｻ蜒上・譛牙柑諤ｧ繧堤｢ｺ隱・
     validateImageSrc() {
         const image = this.container.querySelector('.author-image');
         if (image) {
@@ -179,7 +179,7 @@ class AuthorProfileComponent {
         }
     }
     
-    // 執筆者情報を設定
+    // 蝓ｷ遲・・ュ蝣ｱ繧定ｨｭ螳・
     setAuthorInfo(authorData) {
         if (authorData.name) {
             this.container.querySelector('#author-name').textContent = authorData.name;
@@ -205,16 +205,16 @@ class AuthorProfileComponent {
             }
         }
         
-        this.init(); // 再初期化
+        this.init(); // 蜀榊・譛溷喧
     }
 }
 
-// 使用例:
+// 菴ｿ逕ｨ萓・
 // const authorProfile = new AuthorProfileComponent('author-profile-component');
 // authorProfile.setAuthorInfo({
-//     name: "田中健太郎",
-//     title: "健康管理士・栄養指導員",
-//     bio: "<p>10年以上の健康管理指導経験を持つ専門家。</p>",
+//     name: "逕ｰ荳ｭ蛛･螟ｪ驛・,
+//     title: "蛛･蠎ｷ邂｡逅・｣ｫ繝ｻ譬・､頑欠蟆主藤",
+//     bio: "<p>10蟷ｴ莉･荳翫・蛛･蠎ｷ邂｡逅・欠蟆守ｵ碁ｨ薙ｒ謖√▽蟆る摩螳ｶ縲・/p>",
 //     image: "path/to/author-image.jpg",
 //     social: {
 //         twitter: "https://twitter.com/example",
@@ -222,3 +222,4 @@ class AuthorProfileComponent {
 //     }
 // });
 </script> 
+

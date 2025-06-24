@@ -582,109 +582,135 @@ footer p {
 /* レスポンシブデザイン - 改修 */
 @media (max-width: 768px) {
     .header-content {
-        flex-direction: column;
-        gap: 1.5rem;
-        padding: 1.5rem 1rem;
+        flex-direction: column !important;
+        padding: 1rem !important;
+        gap: 1rem !important;
     }
 
     .header-content h1 {
-        font-size: 1.6rem;
+        font-size: 1.5rem !important;
+        text-align: center !important;
     }
 
     .search-container {
-        width: 100%;
-        justify-content: center;
+        width: 100% !important;
+        max-width: none !important;
+        justify-content: center !important;
+        padding: 0.75rem !important;
     }
 
     .search-container input {
-        width: 200px;
+        width: 100% !important;
+        max-width: 250px !important;
+        font-size: 16px !important;
+        padding: 0.75rem !important;
     }
 
     .search-container input:focus {
-        width: 250px;
+        width: 100% !important;
+        max-width: 280px !important;
     }
 
     main {
-        padding: 0 1rem;
-        margin: 2rem auto;
+        padding: 1rem !important;
+        margin: 1rem auto !important;
     }
 
     .grid-container {
-        grid-template-columns: 1fr;
-        gap: 2rem;
+        display: block !important;
+        grid-template-columns: none !important;
+        gap: 1.5rem !important;
     }
 
     .category-tile {
-        padding: 1.5rem;
+        margin-bottom: 1.5rem !important;
+        padding: 1.5rem !important;
+        border-radius: 12px !important;
+        width: 100% !important;
+        max-width: 100% !important;
     }
 
     .category-header {
-        margin-bottom: 1.5rem;
+        flex-direction: row !important;
+        align-items: center !important;
+        gap: 1rem !important;
+        margin-bottom: 1.5rem !important;
     }
 
     .category-header i {
-        font-size: 1.8rem;
-        padding: 0.8rem;
+        font-size: 1.5rem !important;
+        padding: 0.75rem !important;
+        min-width: auto !important;
     }
 
     .category-header h2 {
-        font-size: 1.2rem;
+        font-size: 1.25rem !important;
+        margin-bottom: 0 !important;
+        flex: 1 !important;
     }
 
     footer {
-        padding: 2rem 1rem 1.5rem;
-        margin-top: 3rem;
+        padding: 2rem 1rem !important;
+        text-align: center !important;
     }
 
     .footer-links {
-        gap: 1rem;
-        flex-direction: column;
-        align-items: center;
+        flex-direction: column !important;
+        gap: 0.5rem !important;
+        margin-top: 1rem !important;
     }
 }
 
 @media (max-width: 480px) {
     .header-content h1 {
-        font-size: 1.4rem;
+        font-size: 1.3rem !important;
     }
 
     .search-container input {
-        width: 150px;
+        width: 100% !important;
+        max-width: 200px !important;
+        font-size: 16px !important;
     }
 
     .search-container input:focus {
-        width: 200px;
+        width: 100% !important;
+        max-width: 220px !important;
     }
 
     .category-header h2 {
-        font-size: 1.1rem;
+        font-size: 1.1rem !important;
     }
 
     .calculator-list a {
-        font-size: 0.9rem;
-        padding: 0.8rem 0.8rem 0.8rem 1.2rem;
+        padding: 1rem 0.75rem !important;
+        font-size: 15px !important;
     }
 
     .category-tile {
-        padding: 1.2rem;
+        padding: 1rem !important;
     }
 
     h1 {
-        font-size: 2rem;
+        font-size: 1.8rem !important;
     }
 
     h2 {
-        font-size: 1.6rem;
+        font-size: 1.4rem !important;
     }
 
     h3 {
-        font-size: 1.3rem;
+        font-size: 1.2rem !important;
     }
 
     .primary-button,
-    #clear-search {
-        padding: 0.8rem 1.5rem;
-        font-size: 0.9rem;
+    button[type="submit"],
+    input[type="submit"] {
+        padding: 1rem 1.5rem !important;
+        font-size: 16px !important;
+        width: 100% !important;
+        max-width: 280px !important;
+        margin: 0 auto !important;
+        display: block !important;
     }
 }
 
@@ -1586,15 +1612,89 @@ footer p {
 
 @media (max-width: 768px) {
     .nav-container {
-        padding: 0 1rem;
+        padding: 0 1rem !important;
     }
-    
+
     .nav-menu {
-        gap: 1rem;
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: 0.5rem !important;
+        padding: 0.75rem 0 !important;
+        justify-content: center !important;
     }
-    
+
     .nav-link {
-        padding: 0.6rem 0.8rem;
-        font-size: 0.9rem;
+        padding: 0.75rem 1rem !important;
+        font-size: 14px !important;
+        white-space: nowrap !important;
+        border-radius: 20px !important;
+        min-width: auto !important;
+        background: var(--main-color, #f5f5f5) !important;
+        color: var(--text-main, #333) !important;
+        text-decoration: none !important;
+        transition: all 0.3s ease !important;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+        background: var(--accent-color, #007bff) !important;
+        color: white !important;
+    }
+}
+
+.disclaimer-section {
+    background-color: #fff8f8;
+    padding: 2rem;
+    margin: 2rem 0;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.disclaimer-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.disclaimer-content h3 {
+    color: #e74c3c;
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.disclaimer-content h3 i {
+    color: #e74c3c;
+}
+
+.disclaimer-content p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+.disclaimer-content p:last-child {
+    margin-bottom: 0;
+}
+
+.disclaimer-content strong {
+    color: #c0392b;
+    font-weight: 600;
+}
+
+/* モバイル対応 */
+@media (max-width: 768px) {
+    .disclaimer-section {
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+    }
+
+    .disclaimer-content h3 {
+        font-size: 1.2rem;
+    }
+
+    .disclaimer-content p {
+        font-size: 0.95rem;
     }
 } 

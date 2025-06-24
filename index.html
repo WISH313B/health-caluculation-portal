@@ -56,7 +56,7 @@
     <link rel="preload" href="style.css" as="style">
     <link rel="preload" href="script.js" as="script">
     <link rel="preload" href="search.js" as="script">
-    <link rel="preload" href="assets/images/favicon.png" as="image">
+    <link rel="preload" href="/images/favicon.png" as="image">
     <meta name="format-detection" content="telephone=no">
     <meta name="format-detection" content="date=no">
     <meta name="format-detection" content="address=no">
@@ -66,9 +66,9 @@
     <meta http-equiv="x-dns-prefetch-control" content="on">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="color-scheme" content="light">
-    <link rel="prefetch" href="calculators/pages/bmi.html">
-    <link rel="prefetch" href="calculators/pages/bmr.html">
-    <link rel="prefetch" href="calculators/pages/body-fat.html">
+    <link rel="prefetch" href="/bmi.html">
+    <link rel="prefetch" href="/bmr.html">
+    <link rel="prefetch" href="/body-fat.html">
     
     <!-- Open Graph -->
     <meta property="og:title" content="健康計算ポータル | BMI・基礎代謝・カロリー計算機など20種類以上の無料健康ツール【最新版】">
@@ -110,9 +110,9 @@
     <meta property="pinterest:image" content="https://minna-no-kenko.com/assets/images/og-image.jpg">
     
     <!-- ファビコン -->
-    <link rel="icon" type="image/png" href="assets/images/favicon.png">
-    <link rel="shortcut icon" type="image/png" href="assets/images/favicon.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon.png">
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="shortcut icon" type="image/png" href="/images/favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png">
     
     <!-- PWA マニフェスト -->
     <link rel="manifest" href="manifest.json">
@@ -377,6 +377,8 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mobile-ux-enhancement.css">
+    <link rel="stylesheet" href="mobile-emergency-fix.css">
 
     <!-- 2024年最新SEO対応 -->
     <meta name="google-site-verification" content="your-google-verification-code">
@@ -430,10 +432,10 @@
 <body>
     <header>
         <div class="header-content">
-            <h1><a href="/" class="home-link">健康計算ポータル</a></h1>
+            <h1><a href="index.html" class="home-link">健康計算ポータル</a></h1>
             <div class="search-container">
-                <input type="search" id="search-input" placeholder="計算機能を検索...">
-                <button type="button" id="search-button"><i class="fas fa-search"></i></button>
+                <input type="text" id="search-input" placeholder="計算機を検索...">
+                <button id="search-button">検索</button>
             </div>
         </div>
     </header>
@@ -606,7 +608,7 @@
                 </div>
                 <div class="featured-articles">
                     <div class="article-preview">
-                        <div class="article-image">
+                        <div class="article-icon">
                             <i class="fas fa-weight" style="font-size: 2rem; color: var(--primary-color);"></i>
                         </div>
                         <h3><a href="blog/bmi-guide.html">BMI計算の完全ガイド</a></h3>
@@ -617,7 +619,7 @@
                         </div>
                     </div>
                     <div class="article-preview">
-                        <div class="article-image">
+                        <div class="article-icon">
                             <i class="fas fa-fire" style="font-size: 2rem; color: #e74c3c;"></i>
                         </div>
                         <h3><a href="blog/bmr-guide.html">基礎代謝を効果的に上げる5つの方法</a></h3>
@@ -628,7 +630,7 @@
                         </div>
                     </div>
                     <div class="article-preview">
-                        <div class="article-image">
+                        <div class="article-icon">
                             <i class="fas fa-heart" style="font-size: 2rem; color: #e84393;"></i>
                         </div>
                         <h3><a href="blog/pregnancy-weight-guide.html">妊娠中の体重管理の重要性</a></h3>
@@ -677,13 +679,19 @@
     <!-- 免責事項エリア -->
     <section class="disclaimer-section">
         <div class="container">
-            <div class="disclaimer-content" id="disclaimer-content">
-                <!-- 運営者様が免責事項の内容を入力 -->
-                <h3><i class="fas fa-exclamation-triangle"></i> 重要な免責事項</h3>
-                <p><strong>医療行為の代替ではありません：</strong> 当サイトの計算結果は参考値であり、医学的診断や治療の代替にはなりません。</p>
-                <p><strong>専門家への相談を推奨：</strong> 健康に関する具体的な判断や治療については、必ず医師や専門家にご相談ください。</p>
-                <p><strong>結果の保証について：</strong> 計算結果の正確性については最善を尽くしていますが、個人差や計測誤差により実際の値と異なる場合があります。</p>
-                <p><strong>緊急時の対応：</strong> 緊急を要する症状がある場合は、計算機を使用せず直ちに医療機関を受診してください。</p>
+            <div class="disclaimer-content">
+                <h3><i class="fas fa-exclamation-triangle"></i> 重要な注意事項</h3>
+                <p><strong>医療行為の代替ではありません：</strong><br>
+                当サイトの計算結果はあくまでも参考値です。医学的診断や治療の代替とはなりません。健康に関する判断は、必ず医療専門家にご相談ください。</p>
+                
+                <p><strong>計算結果について：</strong><br>
+                計算結果の正確性については最善を尽くしていますが、個人差や計測誤差により実際の値と異なる場合があります。継続的な健康管理の参考値としてご活用ください。</p>
+                
+                <p><strong>緊急時の対応：</strong><br>
+                体調不良や急な症状がある場合は、計算機の使用を中止し、直ちに医療機関を受診してください。特に妊娠中や持病をお持ちの方は、必ず担当医に相談の上でご利用ください。</p>
+                
+                <p><strong>個人情報の取り扱い：</strong><br>
+                入力されたデータは全てお使いのデバイス内で処理され、サーバーには保存されません。安心してご利用いただけます。</p>
             </div>
         </div>
     </section>
@@ -740,3 +748,6 @@
     </script>
 </body>
 </html> 
+
+
+

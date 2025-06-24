@@ -351,7 +351,7 @@
 }
 
 .health-tips li::before {
-    content: "•";
+    content: "?";
     color: var(--primary-color);
     position: absolute;
     left: 0;
@@ -412,7 +412,7 @@
 <body>
     <header>
         <div class="header-content">
-            <h1><a href="/" class="home-link">健康計算ポータル</a></h1>
+            <h1><a href="../../index.html" class="home-link">健康計算ポータル</a></h1>
             <div class="search-container">
                 <input type="search" placeholder="計算機能を検索...">
                 <button type="button"><i class="fas fa-search"></i></button>
@@ -950,7 +950,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // 睡眠に関するアドバイス
         if (scores['sleep-duration'] >= 3 || scores['sleep-quality'] >= 3) {
             tips.push({
-                icon: '🛌',
+                icon: '??',
                 title: '睡眠の改善',
                 content: '規則正しい睡眠時間を心がけ、就寝前のスマホ使用を控えましょう。リラックスできる環境を整えることが大切です。'
             });
@@ -959,7 +959,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // 仕事・人間関係に関するアドバイス
         if (scores['work-load'] >= 4 || scores['relationships'] >= 4) {
             tips.push({
-                icon: '💼',
+                icon: '??',
                 title: '仕事のストレス管理',
                 content: 'タスクの優先順位をつけ、適度に休憩を取りましょう。同僚や上司とのコミュニケーションを大切にしましょう。'
             });
@@ -968,7 +968,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // 運動・リラクゼーションに関するアドバイス
         if (scores['relaxation'] >= 3 || scores['exercise-hobby'] >= 3) {
             tips.push({
-                icon: '🏃‍♂️',
+                icon: '???♂?',
                 title: '運動とリラクゼーション',
                 content: '定期的な運動は ストレス解消に効果的です。ウォーキングやヨガなど、気軽に始められる運動から取り入れてみましょう。'
             });
@@ -977,7 +977,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // 心理状態に関するアドバイス
         if (scores['mood'] >= 4 || scores['concentration'] >= 3) {
             tips.push({
-                icon: '🧠',
+                icon: '??',
                 title: 'メンタルケア',
                 content: '深呼吸や瞑想、好きな音楽を聴くなど、心を落ち着ける時間を作りましょう。必要に応じて専門家への相談も検討してください。'
             });
@@ -986,7 +986,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // 基本的なアドバイス
         if (tips.length < 3) {
             tips.push({
-                icon: '🌱',
+                icon: '??',
                 title: '生活リズムの改善',
                 content: '規則正しい生活リズムを心がけ、バランスの取れた食事と適度な運動を日常に取り入れましょう。'
             });
@@ -995,7 +995,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // 高ストレス時の追加アドバイス
         if (score > 75) {
             tips.push({
-                icon: '🆘',
+                icon: '??',
                 title: '専門家への相談',
                 content: 'ストレスレベルが高い状態が続いています。心療内科や精神科の専門医に相談することをお勧めします。'
             });
@@ -1007,4 +1007,7 @@ document.addEventListener('DOMContentLoaded', function() {
     </script>
 </body>
 </html> 
+
+
+
 
