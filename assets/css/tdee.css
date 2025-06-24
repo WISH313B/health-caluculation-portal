@@ -294,10 +294,18 @@ select {
     text-shadow: 0 2px 4px rgba(217, 140, 126, 0.2);
 }
 
+.result-description {
+    color: var(--text-sub);
+    font-size: 1rem;
+    margin-top: 1rem;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
 .result-unit {
     font-size: 1.2rem;
     color: var(--text-sub);
     font-weight: 400;
+    margin-left: 0.3rem;
 }
 
 /* カロリー目標グリッド */

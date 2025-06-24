@@ -1,18 +1,30 @@
-# ブログ記事内の計算機リンクを修正するスクリプト
-$blogFiles = Get-ChildItem "blog/*.html"
+# ブログ記事内の計算機リンクの.html拡張子を削除するスクリプト
 
-foreach ($file in $blogFiles) {
-    $content = Get-Content $file.FullName -Raw -Encoding UTF8
+# 対象ディレクトリの設定
+$directories = @(
+    "blog"
+)
+
+# 対象ファイルの拡張子
+$fileExtensions = @("*.html")
+
+foreach ($dir in $directories) {
+    Write-Host "Processing directory: $dir"
     
-    # 計算機リンクを相対パス + .html拡張子に修正
-    $content = $content -replace 'href="/calculators/pages/([^"]+)"', 'href="../calculators/pages/$1.html"'
-    
-    # 既に.htmlが付いているものは重複を避ける
-    $content = $content -replace '\.html\.html"', '.html"'
-    
-    # ファイルに書き戻し
-    Set-Content $file.FullName $content -Encoding UTF8
-    Write-Host "修正完了: $($file.Name)"
+    # 各ディレクトリ内のHTMLファイルを取得
+    Get-ChildItem -Path $dir -Include $fileExtensions -Recurse | ForEach-Object {
+        $filePath = $_.FullName
+        $content = Get-Content $filePath -Raw -Encoding UTF8
+        
+        # 計算機リンクのパターンを修正
+        $modified = $content -replace '(href="[^"]*?calculators/pages/[^"]*?)\.html"', '$1"'
+        
+        # 変更があった場合のみファイルを更新
+        if ($modified -ne $content) {
+            Write-Host "Fixing calculator links in: $filePath"
+            $modified | Set-Content $filePath -Encoding UTF8
+        }
+    }
 }
 
-Write-Host "全てのブログ記事の計算機リンクを修正しました。" 
+Write-Host "Blog calculator link fixes completed!" 

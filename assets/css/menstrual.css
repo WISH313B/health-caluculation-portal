@@ -14,6 +14,11 @@
     --fertile-color: #E8F7E8;
     --ovulation-color: #FFF3E0;
     --warning-color: #FF3B30;
+    --main-color: #FFE8EE;
+    --base-color: #E8F7E8;
+    --accent-color: #FF3B30;
+    --text-main: #1D1D1F;
+    --text-sub: #86868B;
 }
 
 /* メインコンテナ */
@@ -135,32 +140,48 @@ input[type="number"]:focus {
 
 /* 結果セクション */
 .result-box {
-    background-color: var(--tile-background);
-    border-radius: 12px;
-    padding: 2rem;
-    margin-bottom: 2rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    background: linear-gradient(135deg, var(--main-color) 0%, var(--base-color) 100%);
+    border-radius: 20px;
+    padding: 3rem;
+    margin-bottom: 3rem;
+    box-shadow: 0 8px 32px rgba(245, 234, 230, 0.4);
     text-align: center;
+    border: 1px solid var(--accent-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.result-box::before {
+    content: '📅';
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 1.5rem;
+    opacity: 0.6;
 }
 
 .result-box h3 {
-    color: var(--text-primary);
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
+    color: var(--text-main);
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
     font-weight: 600;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
 }
 
 .result-value.primary {
-    font-size: 2rem;
+    font-size: 3rem;
     font-weight: 700;
-    color: var(--primary-color);
-    margin: 1rem 0;
+    color: var(--accent-color);
+    margin: 1.5rem 0;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    text-shadow: 0 2px 4px rgba(217, 140, 126, 0.2);
 }
 
 .result-description {
-    color: var(--text-secondary);
-    font-size: 0.95rem;
-    margin-top: 0.5rem;
+    color: var(--text-sub);
+    font-size: 1rem;
+    margin-top: 1rem;
+    font-family: 'Noto Sans JP', sans-serif;
 }
 
 /* 予測セクション */

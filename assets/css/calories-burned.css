@@ -92,42 +92,56 @@
 
 /* 結果セクション */
 .result-box {
-    background-color: #F5F5F7;
-    border-radius: 12px;
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, #FFE6E6 0%, #FFF2F2 100%);
+    border-radius: 20px;
+    padding: 3rem;
+    margin-bottom: 3rem;
+    box-shadow: 0 8px 32px rgba(255, 230, 230, 0.4);
     text-align: center;
+    border: 1px solid #FF3B30;
+    position: relative;
+    overflow: hidden;
+}
+
+.result-box::before {
+    content: '🔥';
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 1.5rem;
+    opacity: 0.6;
 }
 
 .result-box h3 {
     color: #1D1D1F;
-    margin-bottom: 1rem;
-    font-size: 1.1rem;
-}
-
-.result-value {
-    font-size: 2.5rem;
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
     font-weight: 600;
-    color: #86868B;
-    margin-bottom: 0.5rem;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
 }
 
 .result-value.primary {
-    color: #007AFF;
-}
-
-.result-value .unit {
-    font-size: 1.2rem;
-    font-weight: 400;
-    color: #86868B;
-    margin-left: 0.3rem;
-    vertical-align: baseline;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #FF3B30;
+    margin: 1.5rem 0;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    text-shadow: 0 2px 4px rgba(255, 59, 48, 0.2);
 }
 
 .result-description {
     color: #86868B;
-    font-size: 0.9rem;
-    margin: 0;
+    font-size: 1rem;
+    margin-top: 1rem;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+.unit {
+    font-size: 1.2rem;
+    color: #86868B;
+    margin-left: 0.3rem;
+    font-weight: 400;
+    vertical-align: baseline;
 }
 
 /* METs セクション */

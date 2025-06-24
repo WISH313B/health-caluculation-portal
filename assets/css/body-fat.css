@@ -310,10 +310,11 @@ select {
     text-shadow: 0 2px 4px rgba(217, 140, 126, 0.2);
 }
 
-.result-unit {
-    font-size: 1.2rem;
+.result-description {
     color: var(--text-sub);
-    font-weight: 400;
+    font-size: 1rem;
+    margin-top: 1rem;
+    font-family: 'Noto Sans JP', sans-serif;
 }
 
 /* 体脂肪率判定チャート */

@@ -93,32 +93,56 @@
 }
 
 /* 結果セクション */
-.result-section {
-    min-width: 300px;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    padding: 1.5rem;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-}
-
-.bmi-result {
+.result-box {
+    background: linear-gradient(135deg, #FFE6F5 0%, #FFF2FA 100%);
+    border-radius: 20px;
+    padding: 3rem;
+    margin-bottom: 3rem;
+    box-shadow: 0 8px 32px rgba(255, 230, 245, 0.4);
     text-align: center;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid #eee;
+    border: 1px solid #FF2D55;
+    position: relative;
+    overflow: hidden;
 }
 
-.bmi-result h3 {
-    color: #333;
-    margin-bottom: 0.5rem;
+.result-box::before {
+    content: '🤰';
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 1.5rem;
+    opacity: 0.6;
 }
 
-.result-value {
-    font-size: 2rem;
-    font-weight: bold;
-    color: var(--primary-color);
+.result-box h3 {
+    color: #1D1D1F;
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+.result-value.primary {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #FF2D55;
+    margin: 1.5rem 0;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    text-shadow: 0 2px 4px rgba(255, 45, 85, 0.2);
+}
+
+.result-description {
+    color: #86868B;
+    font-size: 1rem;
+    margin-top: 1rem;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+.unit {
+    font-size: 1.2rem;
+    color: #86868B;
+    margin-left: 0.3rem;
+    font-weight: 400;
 }
 
 .bmi-category {

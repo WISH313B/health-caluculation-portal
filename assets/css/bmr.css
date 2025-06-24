@@ -182,8 +182,8 @@ select {
 .result-box {
     background: linear-gradient(135deg, var(--main-color) 0%, var(--base-color) 100%);
     border-radius: 20px;
-    padding: 2.5rem;
-    margin-bottom: 2rem;
+    padding: 3rem;
+    margin-bottom: 3rem;
     box-shadow: 0 8px 32px rgba(245, 234, 230, 0.4);
     text-align: center;
     border: 1px solid var(--accent-color);
@@ -191,11 +191,20 @@ select {
     overflow: hidden;
 }
 
+.result-box::before {
+    content: '🔥';
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 1.5rem;
+    opacity: 0.6;
+}
+
 .result-box h3 {
     color: var(--text-main);
     font-size: 1.4rem;
+    margin-bottom: 1.5rem;
     font-weight: 600;
-    margin-bottom: 1rem;
     font-family: 'M PLUS Rounded 1c', sans-serif;
 }
 
@@ -212,9 +221,12 @@ select {
 }
 
 .result-value.primary {
-    font-size: 3.2rem;
+    font-size: 3rem;
+    font-weight: 700;
     color: var(--accent-color);
-    text-shadow: 2px 2px 4px rgba(217, 140, 126, 0.2);
+    margin: 1.5rem 0;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    text-shadow: 0 2px 4px rgba(217, 140, 126, 0.2);
 }
 
 .result-description {

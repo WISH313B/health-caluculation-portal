@@ -177,13 +177,13 @@ select {
 
 /* 結果セクション */
 .result-box {
-    background: linear-gradient(135deg, var(--main-color) 0%, var(--base-color) 100%);
+    background: linear-gradient(135deg, #E6F5FF 0%, #F2FAFF 100%);
     border-radius: 20px;
     padding: 3rem;
     margin-bottom: 3rem;
-    box-shadow: 0 8px 32px rgba(245, 234, 230, 0.4);
+    box-shadow: 0 8px 32px rgba(230, 245, 255, 0.4);
     text-align: center;
-    border: 1px solid var(--accent-color);
+    border: 1px solid #007AFF;
     position: relative;
     overflow: hidden;
 }
@@ -198,7 +198,7 @@ select {
 }
 
 .result-box h3 {
-    color: var(--text-main);
+    color: #1D1D1F;
     font-size: 1.4rem;
     margin-bottom: 1.5rem;
     font-weight: 600;
@@ -208,15 +208,23 @@ select {
 .result-value.primary {
     font-size: 3rem;
     font-weight: 700;
-    color: var(--accent-color);
+    color: #007AFF;
     margin: 1.5rem 0;
     font-family: 'M PLUS Rounded 1c', sans-serif;
-    text-shadow: 0 2px 4px rgba(217, 140, 126, 0.2);
+    text-shadow: 0 2px 4px rgba(0, 122, 255, 0.2);
 }
 
-.result-unit {
+.result-description {
+    color: #86868B;
+    font-size: 1rem;
+    margin-top: 1rem;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+.unit {
     font-size: 1.2rem;
-    color: var(--text-sub);
+    color: #86868B;
+    margin-left: 0.3rem;
     font-weight: 400;
 }
 
