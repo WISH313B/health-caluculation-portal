@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="危険日・安全日計算機で避妊に役立つ情報を提供。生理周期から排卵日と妊娠しやすい危険日、比較的安全な日を予測。自然避妊法の参考ツール。">
+    <meta name="keywords" content="危険日計算機,安全日計算,避妊,生理周期,排卵日,妊娠回避,自然避妊法,女性の健康">
+    <link rel="icon" type="image/png" href="../../assets/images/favicon.png">
+    <title>危険日・安全日計算機 - 健康計算ポータル</title>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1741576930615169"
+     crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../../assets/css/safe-days.css">
+    <link rel="canonical" href="https://minna-no-kenko.com/calculators/pages/safe-days">
+
+    <script src="../../assets/js/url-handler.js"></script>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1><a href="../../index.html" class="home-link">健康計算ポータル</a></h1>
+            <div class="search-container">
+                <input type="search" placeholder="計算機能を検索...">
+                <button type="button"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="calculator-container">
+            <h2>危険日・安全日計算機</h2>
+            <p class="description">
+                最終月経開始日と生理周期から、妊娠しやすい危険日と比較的妊娠しにくい安全日を計算します。<br>
+                <strong>※この結果は避妊の保証をするものではありません。確実な避妊をお考えの場合は、医師にご相談ください。</strong>
+            </p>
+
+            <div class="warning-notice">
+                <i class="fas fa-exclamation-triangle"></i>
+                <div class="warning-content">
+                    <h3>重要な注意事項</h3>
+                    <p>この計算機は避妊の確実性を保証するものではありません。確実な避妊には適切な避妊具や避妊薬の使用をお勧めします。</p>
+                </div>
+            </div>
+
+            <div class="calculator-section">
+                <div class="input-section">
+                    <h3>基本情報を入力</h3>
+                    <div class="input-group">
+                        <label for="lastPeriodDate">最終月経開始日</label>
+                        <input type="date" id="lastPeriodDate">
+                    </div>
+                    <div class="input-group">
+                        <label for="cycleLength">生理周期（日）</label>
+                        <div class="input-with-unit">
+                            <input type="number" id="cycleLength" min="21" max="35" value="28">
+                            <span class="unit">日</span>
+                        </div>
+                        <small>一般的な周期は21～35日です</small>
+                    </div>
+                    <button type="button" id="calculateButton" class="primary-button">
+                        <i class="fas fa-calculator"></i>
+                        計算する
+                    </button>
+                </div>
+
+                <div class="result-section" id="resultSection" style="display: none;">
+                    <div class="period-info">
+                        <h3>今周期の予測</h3>
+                        <div class="info-grid">
+                            <div class="info-item danger">
+                                <h4>危険日（妊娠しやすい期間）</h4>
+                                <div class="date-range" id="dangerPeriod">-</div>
+                                <p class="description">最も妊娠の可能性が高い期間です</p>
+                            </div>
+                            <div class="info-item ovulation">
+                                <h4>排卵予定日</h4>
+                                <div class="date-value" id="ovulationDate">-</div>
+                                <p class="description">最も注意が必要な日です</p>
+                            </div>
+                            <div class="info-item safe">
+                                <h4>比較的安全な期間</h4>
+                                <div class="date-range" id="safePeriod">-</div>
+                                <p class="description">妊娠の可能性が比較的低い期間</p>
+                            </div>
+                            <div class="info-item next-period">
+                                <h4>次回生理予定日</h4>
+                                <div class="date-value" id="nextPeriodDate">-</div>
+                                <p class="description">次の月経開始予定日</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="calendar-section">
+                        <h3>危険日・安全日カレンダー</h3>
+                        <div class="calendar" id="safeDaysCalendar">
+                            <!-- カレンダーはJavaScriptで動的に生成 -->
+                        </div>
+                        <div class="calendar-legend">
+                            <div class="legend-item">
+                                <span class="color-box menstrual"></span>
+                                <span>月経期間</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="color-box danger"></span>
+                                <span>危険日（妊娠しやすい）</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="color-box ovulation"></span>
+                                <span>排卵日</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="color-box safe"></span>
+                                <span>比較的安全日</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <h3>危険日・安全日について</h3>
+                <div class="info-content">
+                    <h4>危険日とは</h4>
+                    <p>危険日とは、妊娠の可能性が高い期間を指します。一般的に排卵日とその前後数日間が該当します。</p>
+
+                    <h4>安全日とは</h4>
+                    <p>安全日とは、比較的妊娠しにくいとされる期間です。ただし、「絶対安全」ではないことを理解しておくことが重要です。</p>
+
+                    <h4>計算の仕組み</h4>
+                    <ul>
+                        <li><strong>排卵日：</strong>次回生理予定日の14日前</li>
+                        <li><strong>危険日：</strong>排卵日前5日から排卵日後2日間</li>
+                        <li><strong>精子の寿命：</strong>女性の体内で3-5日間生存可能</li>
+                        <li><strong>卵子の寿命：</strong>排卵後約24時間</li>
+                    </ul>
+
+                    <h4>自然避妊法の限界</h4>
+                    <div class="limitations">
+                        <div class="limitation-item">
+                            <h5>周期の変動</h5>
+                            <p>ストレス、病気、生活環境の変化により周期が変わることがあります</p>
+                        </div>
+                        <div class="limitation-item">
+                            <h5>予測の不確実性</h5>
+                            <p>排卵日は前後することがあり、100%の予測は困難です</p>
+                        </div>
+                        <div class="limitation-item">
+                            <h5>精子の生存期間</h5>
+                            <p>精子は予想以上に長期間生存する場合があります</p>
+                        </div>
+                    </div>
+
+                    <h4>確実な避妊方法</h4>
+                    <div class="contraception-methods">
+                        <div class="method-item">
+                            <h5>ホルモン系避妊法</h5>
+                            <p>ピル、パッチ、リングなど（医師の処方が必要）</p>
+                        </div>
+                        <div class="method-item">
+                            <h5>バリア法</h5>
+                            <p>コンドーム、ペッサリーなど</p>
+                        </div>
+                        <div class="method-item">
+                            <h5>IUD・IUS</h5>
+                            <p>子宮内器具（医師による装着が必要）</p>
+                        </div>
+                    </div>
+
+                    <h4>注意事項</h4>
+                    <ul class="caution-list">
+                        <li>この計算結果に基づく避妊は確実ではありません</li>
+                        <li>不規則な生理周期の場合、予測精度が大幅に低下します</li>
+                        <li>確実な避妊をお考えの場合は、医師にご相談ください</li>
+                        <li>性感染症の予防には、コンドームの使用が効果的です</li>
+                        <li>月経周期が不規則な方は、この方法は適していません</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <script src="../../search.js"></script>
+    <script src="../../assets/js/safe-days.js"></script>
+</body>
+</html> 

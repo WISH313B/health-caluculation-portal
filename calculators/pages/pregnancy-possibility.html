@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="妊娠可能性判定ツールで症状や生理の遅れから妊娠の可能性をチェック。簡単な質問に答えるだけで初期判定をサポートします。">
+    <meta name="keywords" content="妊娠可能性計算,妊娠判定,妊娠症状,生理遅れ,妊娠チェック,女性の健康,妊娠初期症状">
+    <link rel="icon" type="image/png" href="../../assets/images/favicon.png">
+    <title>妊娠可能性判定ツール - 健康計算ポータル</title>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1741576930615169"
+     crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../../assets/css/pregnancy-possibility.css">
+    <link rel="canonical" href="https://minna-no-kenko.com/calculators/pages/pregnancy-possibility">
+
+    <script src="../../assets/js/url-handler.js"></script>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1><a href="../../index.html" class="home-link">健康計算ポータル</a></h1>
+            <div class="search-container">
+                <input type="search" placeholder="計算機能を検索...">
+                <button type="button"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="calculator-container">
+            <h2>妊娠可能性判定ツール</h2>
+            <p class="description">
+                簡単な質問に答えることで、妊娠の可能性を初期判定します。<br>
+                <strong>※この結果は医学的診断ではありません。正確な判定には妊娠検査薬の使用や医師の診察をお勧めします。</strong>
+            </p>
+
+            <div class="medical-notice">
+                <i class="fas fa-stethoscope"></i>
+                <div class="notice-content">
+                    <h3>医療的注意事項</h3>
+                    <p>この判定ツールはあくまで参考情報です。妊娠の確定診断には医師の診察が必要です。</p>
+                </div>
+            </div>
+
+            <div class="questionnaire-section">
+                <h3>以下の質問にお答えください</h3>
+                
+                <div class="question-group">
+                    <h4>基本情報</h4>
+                    
+                    <div class="question-item">
+                        <label>生理予定日からの遅れ</label>
+                        <div class="radio-options">
+                            <label class="radio-label">
+                                <input type="radio" name="periodDelay" value="0">
+                                <span>まだ遅れていない</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="periodDelay" value="3">
+                                <span>1-3日遅れている</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="periodDelay" value="7">
+                                <span>4-7日遅れている</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="periodDelay" value="14">
+                                <span>1-2週間遅れている</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="periodDelay" value="30">
+                                <span>3週間以上遅れている</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="question-item">
+                        <label>性交渉の有無（生理予定日前2週間以内）</label>
+                        <div class="radio-options">
+                            <label class="radio-label">
+                                <input type="radio" name="intercourse" value="0">
+                                <span>なし</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="intercourse" value="5">
+                                <span>避妊具使用</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="intercourse" value="15">
+                                <span>避妊なし</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question-group">
+                    <h4>身体的症状</h4>
+                    
+                    <div class="question-item">
+                        <label>つわりのような症状</label>
+                        <div class="checkbox-options">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="symptoms" value="3">
+                                <span>吐き気・嘔吐</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="symptoms" value="2">
+                                <span>食べ物の好みの変化</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="symptoms" value="2">
+                                <span>匂いに敏感</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="question-item">
+                        <label>胸の変化</label>
+                        <div class="checkbox-options">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="symptoms" value="3">
+                                <span>胸の張り・痛み</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="symptoms" value="2">
+                                <span>胸のサイズアップ</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="symptoms" value="2">
+                                <span>乳首の色の変化</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="question-item">
+                        <label>その他の症状</label>
+                        <div class="checkbox-options">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="symptoms" value="2">
+                                <span>異常な眠気</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="symptoms" value="2">
+                                <span>頻尿</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="symptoms" value="1">
+                                <span>軽微な腹痛</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="symptoms" value="2">
+                                <span>基礎体温の高温持続</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="symptoms" value="1">
+                                <span>少量の出血（着床出血）</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="button" id="calculateButton" class="primary-button">
+                    <i class="fas fa-calculator"></i>
+                    妊娠可能性を判定する
+                </button>
+            </div>
+
+            <div class="result-section" id="resultSection" style="display: none;">
+                <div class="result-card" id="resultCard">
+                    <div class="result-header">
+                        <h3 id="resultTitle">判定結果</h3>
+                        <div class="result-percentage" id="resultPercentage">-</div>
+                    </div>
+                    <div class="result-description" id="resultDescription">
+                        <!-- 結果の説明がここに表示されます -->
+                    </div>
+                </div>
+
+                <div class="recommendation-section">
+                    <h3>推奨される行動</h3>
+                    <div class="recommendation-list" id="recommendationList">
+                        <!-- 推奨事項がここに表示されます -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <h3>妊娠判定について</h3>
+                <div class="info-content">
+                    <h4>妊娠の初期症状</h4>
+                    <p>妊娠初期には様々な症状が現れる可能性がありますが、個人差が大きく、症状がない場合もあります。</p>
+
+                    <h4>一般的な妊娠初期症状</h4>
+                    <div class="symptoms-grid">
+                        <div class="symptom-item">
+                            <h5>生理の遅れ</h5>
+                            <p>最も一般的で信頼性の高い初期症状</p>
+                        </div>
+                        <div class="symptom-item">
+                            <h5>つわり</h5>
+                            <p>吐き気、嘔吐、食べ物の好みの変化</p>
+                        </div>
+                        <div class="symptom-item">
+                            <h5>胸の変化</h5>
+                            <p>張り、痛み、サイズアップ</p>
+                        </div>
+                        <div class="symptom-item">
+                            <h5>疲労感</h5>
+                            <p>異常な眠気や倦怠感</p>
+                        </div>
+                        <div class="symptom-item">
+                            <h5>頻尿</h5>
+                            <p>トイレの回数の増加</p>
+                        </div>
+                        <div class="symptom-item">
+                            <h5>着床出血</h5>
+                            <p>軽微な出血（全ての人に起こるわけではない）</p>
+                        </div>
+                    </div>
+
+                    <h4>確実な妊娠判定方法</h4>
+                    <div class="testing-methods">
+                        <div class="method-item">
+                            <h5>妊娠検査薬</h5>
+                            <p>生理予定日の1週間後から使用可能。薬局で購入できます。</p>
+                        </div>
+                        <div class="method-item">
+                            <h5>血液検査</h5>
+                            <p>より早期から検出可能。医療機関で実施されます。</p>
+                        </div>
+                        <div class="method-item">
+                            <h5>超音波検査</h5>
+                            <p>妊娠5-6週頃から胎嚢の確認が可能です。</p>
+                        </div>
+                    </div>
+
+                    <h4>妊娠が確定した場合</h4>
+                    <ul class="pregnancy-actions">
+                        <li>産婦人科を受診して正常妊娠を確認</li>
+                        <li>葉酸サプリメントの摂取開始</li>
+                        <li>アルコール・喫煙の中止</li>
+                        <li>薬の服用について医師に相談</li>
+                        <li>適度な運動と栄養バランスの良い食事</li>
+                    </ul>
+
+                    <h4>注意事項</h4>
+                    <ul class="caution-list">
+                        <li>この判定ツールは医学的診断ではありません</li>
+                        <li>症状がなくても妊娠している可能性があります</li>
+                        <li>症状があっても妊娠していない可能性があります</li>
+                        <li>確実な判定には医師の診察が必要です</li>
+                        <li>不正出血や強い腹痛がある場合は直ちに医療機関を受診してください</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <script src="../../search.js"></script>
+    <script src="../../assets/js/pregnancy-possibility.js"></script>
+</body>
+</html> 

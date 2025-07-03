@@ -1,0 +1,423 @@
+/* 危険日・安全日計算機のスタイル */
+
+.warning-notice {
+    background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+    margin: 20px 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+}
+
+.warning-notice i {
+    font-size: 24px;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+.warning-content h3 {
+    margin: 0 0 8px 0;
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+.warning-content p {
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* 入力セクション */
+.input-section {
+    background: #f8f9ff;
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    border: 2px solid #e1e8ff;
+}
+
+.input-section h3 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 1.3em;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #34495e;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1em;
+    transition: border-color 0.3s ease;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+.input-with-unit {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.input-with-unit input {
+    flex: 1;
+}
+
+.unit {
+    background: #ecf0f1;
+    padding: 12px 15px;
+    border-radius: 8px;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.input-group small {
+    display: block;
+    margin-top: 5px;
+    color: #7f8c8d;
+    font-size: 0.9em;
+}
+
+/* 結果セクション */
+.result-section {
+    margin-top: 30px;
+}
+
+.period-info {
+    margin-bottom: 30px;
+}
+
+.period-info h3 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 1.4em;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.info-item {
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.info-item:hover {
+    transform: translateY(-3px);
+}
+
+.info-item.danger {
+    background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+    color: white;
+}
+
+.info-item.ovulation {
+    background: linear-gradient(135deg, #ff9ff3, #f368e0);
+    color: white;
+}
+
+.info-item.safe {
+    background: linear-gradient(135deg, #51cf66, #40c057);
+    color: white;
+}
+
+.info-item.next-period {
+    background: linear-gradient(135deg, #74c0fc, #339af0);
+    color: white;
+}
+
+.info-item h4 {
+    margin: 0 0 15px 0;
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+.date-range, .date-value {
+    font-size: 1.3em;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.info-item .description {
+    margin: 0;
+    font-size: 0.9em;
+    opacity: 0.9;
+}
+
+/* カレンダーセクション */
+.calendar-section {
+    background: #f8f9ff;
+    padding: 25px;
+    border-radius: 12px;
+    border: 2px solid #e1e8ff;
+    margin-bottom: 30px;
+}
+
+.calendar-section h3 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 1.3em;
+}
+
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    margin-bottom: 20px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.calendar-day {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.calendar-day:hover {
+    transform: scale(1.1);
+}
+
+.calendar-day.header {
+    background: #34495e;
+    color: white;
+    font-weight: 700;
+    cursor: default;
+}
+
+.calendar-day.header:hover {
+    transform: none;
+}
+
+.calendar-day.other-month {
+    color: #bdc3c7;
+    background: #ecf0f1;
+}
+
+.calendar-day.today {
+    border-color: #2c3e50;
+    font-weight: 700;
+}
+
+.calendar-day.menstrual {
+    background: #e74c3c;
+    color: white;
+}
+
+.calendar-day.danger {
+    background: #ff6b6b;
+    color: white;
+}
+
+.calendar-day.ovulation {
+    background: #f368e0;
+    color: white;
+}
+
+.calendar-day.safe {
+    background: #51cf66;
+    color: white;
+}
+
+.calendar-day.normal {
+    background: #ecf0f1;
+    color: #2c3e50;
+}
+
+/* カレンダー凡例 */
+.calendar-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9em;
+    font-weight: 600;
+}
+
+.color-box {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+
+.color-box.menstrual {
+    background: #e74c3c;
+}
+
+.color-box.danger {
+    background: #ff6b6b;
+}
+
+.color-box.ovulation {
+    background: #f368e0;
+}
+
+.color-box.safe {
+    background: #51cf66;
+}
+
+/* 情報セクション */
+.info-section {
+    background: white;
+    border: 2px solid #e1e8ff;
+    border-radius: 12px;
+    padding: 30px;
+    margin-top: 30px;
+}
+
+.info-section h3 {
+    color: #2c3e50;
+    border-bottom: 3px solid #3498db;
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+    font-size: 1.4em;
+}
+
+.info-section h4 {
+    color: #34495e;
+    margin: 25px 0 15px 0;
+    font-size: 1.2em;
+}
+
+.info-section h5 {
+    color: #34495e;
+    margin: 15px 0 8px 0;
+    font-size: 1em;
+}
+
+.limitations, .contraception-methods {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.limitation-item, .method-item {
+    background: #f8f9ff;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid #3498db;
+}
+
+.limitation-item h5, .method-item h5 {
+    margin-top: 0;
+    color: #2c3e50;
+}
+
+.caution-list {
+    background: #fff5f5;
+    border: 2px solid #ffebee;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.caution-list li {
+    margin-bottom: 8px;
+    color: #c62828;
+    font-weight: 500;
+}
+
+/* ボタンスタイル */
+.primary-button {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+}
+
+.primary-button:hover {
+    background: linear-gradient(135deg, #2980b9, #3498db);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+}
+
+.primary-button:active {
+    transform: translateY(0);
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .calendar {
+        gap: 4px;
+    }
+    
+    .calendar-day {
+        font-size: 0.8em;
+    }
+    
+    .calendar-legend {
+        justify-content: flex-start;
+    }
+    
+    .legend-item {
+        font-size: 0.8em;
+    }
+    
+    .limitations, .contraception-methods {
+        grid-template-columns: 1fr;
+    }
+    
+    .warning-notice {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .input-section, .calendar-section, .info-section {
+        padding: 20px;
+    }
+} 
