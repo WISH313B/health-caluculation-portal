@@ -27,7 +27,7 @@ Allow: /
 Crawl-delay: 1
 
 # サイトマップの場所
-Sitemap: https://your-domain.com/sitemap.xml
+Sitemap: https://minna-no-kenko.com/sitemap.xml
 
 # 優先的にクロールしてもらいたいページ（最重要）
 Allow: /
@@ -72,6 +72,12 @@ Disallow: /private/
 Disallow: /temp/
 Disallow: /backup/
 
+# リソースディレクトリをブロック
+Disallow: /assets/css/
+Disallow: /assets/js/
+Disallow: /styles/
+Disallow: /components/
+
 # 重複コンテンツを避けるため
 Disallow: /*?print=
 Disallow: /*?utm_
@@ -86,4 +92,4 @@ Disallow: /*&source=
 Crawl-delay: 1
 
 # ホスト指定（正規化）
-Host: your-domain.com 
+Host: minna-no-kenko.com 

@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>マイ健康ダイアリー | 健康計算ポータル</title>
+    <meta name="description" content="あなたの健康データを時系列で管理。BMI、基礎代謝、体脂肪率などの変化をグラフで確認し、継続的な健康管理をサポートします。">
+    <meta name="keywords" content="健康ダイアリー,健康管理,データ記録,BMI推移,体重管理">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="マイ健康ダイアリー | 健康計算ポータル">
+    <meta property="og:description" content="あなたの健康データを時系列で管理。BMI、基礎代謝、体脂肪率などの変化をグラフで確認。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://minna-no-kenko.com/my-diary">
+    <meta property="og:image" content="https://minna-no-kenko.com/assets/images/diary-og-image.jpg">
+    
+    <!-- ファビコン -->
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        .diary-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+        
+        .diary-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--main-color, #f5f5f5) 0%, var(--background-color, #fff) 100%);
+            border-radius: 16px;
+            border: 2px solid var(--accent-color, #d98c7e);
+        }
+        
+        .diary-header h1 {
+            color: var(--accent-color, #d98c7e);
+            margin-bottom: 1rem;
+            font-size: 2.5rem;
+        }
+        
+        .diary-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border: 2px solid var(--main-color, #f5f5f5);
+            transition: all 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            border-color: var(--accent-color, #d98c7e);
+        }
+        
+        .stat-card i {
+            font-size: 2rem;
+            color: var(--accent-color, #d98c7e);
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--text-main, #333);
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            color: var(--text-sub, #666);
+            font-size: 0.9rem;
+        }
+        
+        .diary-filters {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        .filter-row {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .filter-group label {
+            font-weight: 500;
+            color: var(--text-main, #333);
+            font-size: 0.9rem;
+        }
+        
+        .filter-group select,
+        .filter-group input {
+            padding: 0.5rem;
+            border: 1px solid var(--main-color, #ddd);
+            border-radius: 6px;
+            font-size: 0.9rem;
+        }
+        
+        .chart-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .chart-container {
+            position: relative;
+            height: 400px;
+            margin-bottom: 1rem;
+        }
+        
+        .data-list {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .data-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid var(--main-color, #f5f5f5);
+            transition: background-color 0.2s ease;
+        }
+        
+        .data-item:hover {
+            background-color: var(--main-color, #f9f9f9);
+        }
+        
+        .data-item:last-child {
+            border-bottom: none;
+        }
+        
+        .data-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            font-size: 1.2rem;
+            color: white;
+        }
+        
+        .data-icon.bmi { background: #007bff; }
+        .data-icon.bmr { background: #fd7e14; }
+        .data-icon.tdee { background: #20c997; }
+        .data-icon.body-fat { background: #6f42c1; }
+        .data-icon.water-intake { background: #17a2b8; }
+        
+        .data-content {
+            flex: 1;
+        }
+        
+        .data-type {
+            font-weight: 600;
+            color: var(--text-main, #333);
+            margin-bottom: 0.25rem;
+        }
+        
+        .data-value {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: var(--accent-color, #d98c7e);
+            margin-bottom: 0.25rem;
+        }
+        
+        .data-date {
+            font-size: 0.85rem;
+            color: var(--text-sub, #666);
+        }
+        
+        .data-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .btn-small {
+            padding: 0.25rem 0.5rem;
+            font-size: 0.8rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .btn-delete {
+            background: #dc3545;
+            color: white;
+        }
+        
+        .btn-delete:hover {
+            background: #c82333;
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-sub, #666);
+        }
+        
+        .empty-state i {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: var(--main-color, #ddd);
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .btn-primary {
+            background: var(--accent-color, #d98c7e);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: var(--hover-color, #c7776a);
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: var(--accent-color, #d98c7e);
+            border: 2px solid var(--accent-color, #d98c7e);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--accent-color, #d98c7e);
+            color: white;
+        }
+        
+        /* レスポンシブ対応 */
+        @media (max-width: 768px) {
+            .diary-container {
+                padding: 0 1rem;
+            }
+            
+            .diary-header h1 {
+                font-size: 2rem;
+            }
+            
+            .diary-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+            
+            .stat-card {
+                padding: 1rem;
+            }
+            
+            .filter-row {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .filter-group {
+                width: 100%;
+            }
+            
+            .chart-container {
+                height: 300px;
+            }
+            
+            .data-item {
+                padding: 1rem;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+            }
+            
+            .btn {
+                justify-content: center;
+            }
+        }
+    </style>
+    <link rel="canonical" href="https://minna-no-kenko.com/my-diary">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1><a href="index.html" class="home-link">健康計算ポータル</a></h1>
+            <div class="search-container">
+                <input type="search" placeholder="計算機能を検索..." aria-label="計算機能を検索">
+                <button type="button" aria-label="検索"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="nav-container">
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">ホーム</a></li>
+                <li><a href="my-diary.html" class="nav-link active">マイダイアリー</a></li>
+                <li><a href="blog.html" class="nav-link">健康ブログ</a></li>
+                <li><a href="faq.html" class="nav-link">よくある質問</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="diary-container">
+        <div class="diary-header">
+            <h1><i class="fas fa-book"></i> マイ健康ダイアリー</h1>
+            <p>あなたの健康データを記録し、変化を追跡して理想の健康状態を目指しましょう</p>
+        </div>
+
+        <!-- 統計情報 -->
+        <div class="diary-stats" id="diary-stats">
+            <div class="stat-card">
+                <i class="fas fa-database"></i>
+                <div class="stat-value" id="total-entries">0</div>
+                <div class="stat-label">総記録数</div>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-fire"></i>
+                <div class="stat-value" id="streak-days">0</div>
+                <div class="stat-label">連続記録日数</div>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-chart-line"></i>
+                <div class="stat-value" id="data-types">0</div>
+                <div class="stat-label">データ種類</div>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-calendar-check"></i>
+                <div class="stat-value" id="last-entry">-</div>
+                <div class="stat-label">最終記録日</div>
+            </div>
+        </div>
+
+        <!-- フィルター -->
+        <div class="diary-filters">
+            <div class="filter-row">
+                <div class="filter-group">
+                    <label for="data-type-filter">データ種類</label>
+                    <select id="data-type-filter">
+                        <option value="all">すべて</option>
+                        <option value="bmi">BMI</option>
+                        <option value="bmr">基礎代謝量</option>
+                        <option value="tdee">消費カロリー</option>
+                        <option value="body-fat">体脂肪率</option>
+                        <option value="water-intake">水分摂取量</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="period-filter">期間</label>
+                    <select id="period-filter">
+                        <option value="all">すべて</option>
+                        <option value="7">過去7日</option>
+                        <option value="30">過去30日</option>
+                        <option value="90">過去3ヶ月</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="date-from">開始日</label>
+                    <input type="date" id="date-from">
+                </div>
+                <div class="filter-group">
+                    <label for="date-to">終了日</label>
+                    <input type="date" id="date-to">
+                </div>
+            </div>
+        </div>
+
+        <!-- グラフセクション -->
+        <div class="chart-section" id="chart-section" style="display: none;">
+            <h3><i class="fas fa-chart-line"></i> データ推移グラフ</h3>
+            <div class="chart-container">
+                <canvas id="health-chart"></canvas>
+            </div>
+            <p class="chart-note">※時系列でデータの変化を確認できます。複数のデータがある場合のみ表示されます。</p>
+        </div>
+
+        <!-- データリスト -->
+        <div class="data-list" id="data-list">
+            <div class="empty-state" id="empty-state">
+                <i class="fas fa-clipboard-list"></i>
+                <h3>まだデータが記録されていません</h3>
+                <p>健康計算機を使って結果をダイアリーに記録してみましょう！</p>
+            </div>
+        </div>
+
+        <!-- アクションボタン -->
+        <div class="action-buttons">
+            <a href="index.html" class="btn btn-primary">
+                <i class="fas fa-calculator"></i>
+                計算機を使う
+            </a>
+            <button onclick="exportDiaryData()" class="btn btn-secondary">
+                <i class="fas fa-download"></i>
+                データをエクスポート
+            </button>
+            <button onclick="clearDiaryData()" class="btn btn-secondary">
+                <i class="fas fa-trash"></i>
+                データをクリア
+            </button>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 健康計算ポータル All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+    <script src="assets/js/health-diary.js"></script>
+    <script>
+        let currentChart = null;
+        let filteredData = [];
+
+        // ページ読み込み時の初期化
+        document.addEventListener('DOMContentLoaded', function() {
+            loadDiaryData();
+            setupFilters();
+        });
+
+        // ダイアリーデータを読み込み表示
+        function loadDiaryData() {
+            if (!window.healthDiary) {
+                console.error('健康ダイアリーシステムが初期化されていません');
+                return;
+            }
+
+            const data = window.healthDiary.data;
+            const stats = window.healthDiary.getStatistics();
+            
+            // 統計情報を更新
+            updateStatistics(stats);
+            
+            // データリストを更新
+            filteredData = data;
+            updateDataList(filteredData);
+            
+            // グラフを更新
+            updateChart(filteredData);
+        }
+
+        // 統計情報を更新
+        function updateStatistics(stats) {
+            document.getElementById('total-entries').textContent = stats.totalEntries;
+            document.getElementById('streak-days').textContent = stats.longestStreak;
+            document.getElementById('data-types').textContent = Object.keys(stats.dataTypes).length;
+            
+            if (stats.totalEntries > 0) {
+                const lastEntry = stats.recentActivity[0];
+                document.getElementById('last-entry').textContent = new Date(lastEntry.date).toLocaleDateString('ja-JP');
+            }
+        }
+
+        // データリストを更新
+        function updateDataList(data) {
+            const dataList = document.getElementById('data-list');
+            const emptyState = document.getElementById('empty-state');
+            
+            if (data.length === 0) {
+                dataList.innerHTML = '';
+                dataList.appendChild(emptyState);
+                return;
+            }
+
+            // データ種類の日本語名
+            const typeNames = {
+                'bmi': 'BMI',
+                'bmr': '基礎代謝量',
+                'tdee': '消費カロリー',
+                'body-fat': '体脂肪率',
+                'water-intake': '水分摂取量',
+                'heart-rate': '心拍数',
+                'pregnancy': '妊娠情報'
+            };
+
+            dataList.innerHTML = data.map(entry => `
+                <div class="data-item">
+                    <div class="data-icon ${entry.type}">
+                        <i class="fas fa-${getIconForType(entry.type)}"></i>
+                    </div>
+                    <div class="data-content">
+                        <div class="data-type">${typeNames[entry.type] || entry.type}</div>
+                        <div class="data-value">${entry.value}${entry.unit}</div>
+                        <div class="data-date">${new Date(entry.timestamp).toLocaleString('ja-JP')}</div>
+                    </div>
+                    <div class="data-actions">
+                        <button class="btn-small btn-delete" onclick="deleteEntry('${entry.id}')">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // データタイプに応じたアイコンを取得
+        function getIconForType(type) {
+            const icons = {
+                'bmi': 'weight',
+                'bmr': 'fire',
+                'tdee': 'chart-line',
+                'body-fat': 'percentage',
+                'water-intake': 'tint',
+                'heart-rate': 'heartbeat',
+                'pregnancy': 'heart'
+            };
+            return icons[type] || 'chart-bar';
+        }
+
+        // グラフを更新
+        function updateChart(data) {
+            const chartSection = document.getElementById('chart-section');
+            const ctx = document.getElementById('health-chart').getContext('2d');
+            
+            // データタイプごとにグループ化
+            const groupedData = {};
+            data.forEach(entry => {
+                if (!groupedData[entry.type]) {
+                    groupedData[entry.type] = [];
+                }
+                groupedData[entry.type].push(entry);
+            });
+            
+            // 複数のエントリがあるデータタイプのみグラフ表示
+            const validTypes = Object.keys(groupedData).filter(type => groupedData[type].length > 1);
+            
+            if (validTypes.length === 0) {
+                chartSection.style.display = 'none';
+                return;
+            }
+            
+            chartSection.style.display = 'block';
+            
+            // 既存のチャートを破棄
+            if (currentChart) {
+                currentChart.destroy();
+            }
+            
+            // データセットを準備
+            const datasets = validTypes.map((type, index) => {
+                const typeData = groupedData[type].sort((a, b) => new Date(a.date) - new Date(b.date));
+                const colors = ['#007bff', '#fd7e14', '#20c997', '#6f42c1', '#17a2b8'];
+                
+                return {
+                    label: getTypeLabel(type),
+                    data: typeData.map(entry => ({
+                        x: entry.date,
+                        y: entry.value
+                    })),
+                    borderColor: colors[index % colors.length],
+                    backgroundColor: colors[index % colors.length] + '20',
+                    tension: 0.4,
+                    fill: false
+                };
+            });
+            
+            currentChart = new Chart(ctx, {
+                type: 'line',
+                data: { datasets },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top'
+                        },
+                        tooltip: {
+                            mode: 'index',
+                            intersect: false
+                        }
+                    },
+                    scales: {
+                        x: {
+                            type: 'time',
+                            time: {
+                                unit: 'day',
+                                displayFormats: {
+                                    day: 'MM/DD'
+                                }
+                            },
+                            title: {
+                                display: true,
+                                text: '日付'
+                            }
+                        },
+                        y: {
+                            title: {
+                                display: true,
+                                text: '値'
+                            },
+                            beginAtZero: false
+                        }
+                    },
+                    interaction: {
+                        mode: 'nearest',
+                        axis: 'x',
+                        intersect: false
+                    }
+                }
+            });
+        }
+
+        // データタイプの日本語ラベルを取得
+        function getTypeLabel(type) {
+            const labels = {
+                'bmi': 'BMI',
+                'bmr': '基礎代謝量 (kcal)',
+                'tdee': '消費カロリー (kcal)',
+                'body-fat': '体脂肪率 (%)',
+                'water-intake': '水分摂取量 (L)'
+            };
+            return labels[type] || type;
+        }
+
+        // フィルター機能をセットアップ
+        function setupFilters() {
+            const typeFilter = document.getElementById('data-type-filter');
+            const periodFilter = document.getElementById('period-filter');
+            const dateFromFilter = document.getElementById('date-from');
+            const dateToFilter = document.getElementById('date-to');
+            
+            [typeFilter, periodFilter, dateFromFilter, dateToFilter].forEach(filter => {
+                filter.addEventListener('change', applyFilters);
+            });
+        }
+
+        // フィルターを適用
+        function applyFilters() {
+            if (!window.healthDiary) return;
+            
+            let data = window.healthDiary.data;
+            const typeFilter = document.getElementById('data-type-filter').value;
+            const periodFilter = document.getElementById('period-filter').value;
+            const dateFrom = document.getElementById('date-from').value;
+            const dateTo = document.getElementById('date-to').value;
+            
+            // データタイプでフィルター
+            if (typeFilter !== 'all') {
+                data = data.filter(entry => entry.type === typeFilter);
+            }
+            
+            // 期間でフィルター
+            if (periodFilter !== 'all') {
+                const daysAgo = parseInt(periodFilter);
+                const cutoffDate = new Date();
+                cutoffDate.setDate(cutoffDate.getDate() - daysAgo);
+                data = data.filter(entry => new Date(entry.date) >= cutoffDate);
+            }
+            
+            // 日付範囲でフィルター
+            if (dateFrom) {
+                data = data.filter(entry => entry.date >= dateFrom);
+            }
+            if (dateTo) {
+                data = data.filter(entry => entry.date <= dateTo);
+            }
+            
+            filteredData = data.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+            updateDataList(filteredData);
+            updateChart(filteredData);
+        }
+
+        // エントリを削除
+        function deleteEntry(entryId) {
+            if (!window.healthDiary) return;
+            
+            if (confirm('この記録を削除しますか？')) {
+                window.healthDiary.data = window.healthDiary.data.filter(entry => entry.id !== entryId);
+                window.healthDiary.saveData();
+                loadDiaryData();
+                
+                // 成功メッセージ
+                window.healthDiary.showToast('記録を削除しました', 'info');
+            }
+        }
+
+        // データをエクスポート
+        function exportDiaryData() {
+            if (!window.healthDiary) return;
+            window.healthDiary.exportData();
+        }
+
+        // データをクリア
+        function clearDiaryData() {
+            if (!window.healthDiary) return;
+            window.healthDiary.clearData();
+            loadDiaryData();
+        }
+    </script>
+</body>
+</html> 

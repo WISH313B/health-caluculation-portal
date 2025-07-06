@@ -1,0 +1,312 @@
+<div class="download-box">
+    <div class="download-header">
+        <i class="fas fa-gift"></i>
+        <h3 class="download-title">🎁 無料ダウンロード</h3>
+    </div>
+    <div class="download-content">
+        <p class="download-description">[ここにPDFの説明文が入ります]</p>
+        <div class="download-features">
+            <div class="feature-item">
+                <i class="fas fa-check-circle"></i>
+                <span>印刷して使える</span>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-check-circle"></i>
+                <span>完全無料</span>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-check-circle"></i>
+                <span>専門家監修</span>
+            </div>
+        </div>
+        <a href="[ここにPDFのURLが入ります]" class="download-button" download>
+            <i class="fas fa-download"></i>
+            今すぐダウンロード (PDF)
+        </a>
+        <p class="download-note">※PDFファイルが開きます。印刷してご利用ください。</p>
+    </div>
+</div>
+
+<style>
+.download-box {
+    background: linear-gradient(135deg, #fff5f3 0%, #f0f8ff 100%);
+    border: 2px solid var(--accent-color, #d98c7e);
+    border-radius: 16px;
+    padding: 2rem;
+    margin: 2rem 0;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(217, 140, 126, 0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+.download-box::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(217, 140, 126, 0.1) 0%, transparent 70%);
+    animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+.download-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.download-header i {
+    font-size: 2rem;
+    color: var(--accent-color, #d98c7e);
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
+
+.download-title {
+    color: var(--accent-color, #d98c7e);
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.download-description {
+    color: var(--text-main, #5c5452);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.download-features {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-main, #5c5452);
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.feature-item i {
+    color: #28a745;
+    font-size: 1rem;
+}
+
+.download-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    background: linear-gradient(135deg, var(--accent-color, #d98c7e) 0%, #e6a396 100%);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 16px rgba(217, 140, 126, 0.3);
+    border: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.download-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.download-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(217, 140, 126, 0.4);
+    background: linear-gradient(135deg, #c7776a 0%, #d98c7e 100%);
+    text-decoration: none;
+    color: white;
+}
+
+.download-button:hover::before {
+    left: 100%;
+}
+
+.download-button i {
+    font-size: 1.2rem;
+    animation: downloadPulse 2s infinite;
+}
+
+@keyframes downloadPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+.download-note {
+    color: var(--text-sub, #666);
+    font-size: 0.85rem;
+    margin-top: 1rem;
+    font-style: italic;
+}
+
+/* 使用例のスタイル */
+.download-examples {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-top: 2rem;
+    text-align: left;
+}
+
+.download-examples h4 {
+    color: var(--accent-color, #d98c7e);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.example-item {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background: white;
+    border-radius: 8px;
+    border-left: 4px solid var(--accent-color, #d98c7e);
+}
+
+.example-title {
+    font-weight: 600;
+    color: var(--text-main, #333);
+    margin-bottom: 0.5rem;
+}
+
+.example-desc {
+    color: var(--text-sub, #666);
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .download-box {
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+    }
+    
+    .download-title {
+        font-size: 1.3rem;
+    }
+    
+    .download-features {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+    }
+    
+    .download-button {
+        width: 100%;
+        justify-content: center;
+        padding: 1rem;
+    }
+    
+    .download-description {
+        font-size: 1rem;
+    }
+}
+
+/* 運営者向けカスタマイズ用のCSSクラス */
+.download-box.style-healthcare {
+    background: linear-gradient(135deg, #e8f5e8 0%, #f0f8ff 100%);
+    border-color: #28a745;
+}
+
+.download-box.style-healthcare .download-title,
+.download-box.style-healthcare .download-header i {
+    color: #28a745;
+}
+
+.download-box.style-healthcare .download-button {
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+}
+
+.download-box.style-pregnancy {
+    background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+    border-color: #e17055;
+}
+
+.download-box.style-pregnancy .download-title,
+.download-box.style-pregnancy .download-header i {
+    color: #e17055;
+}
+
+.download-box.style-pregnancy .download-button {
+    background: linear-gradient(135deg, #e17055 0%, #fdcb6e 100%);
+}
+</style>
+
+<!-- 運営者向け使用例 -->
+<div class="download-examples" style="display: none;">
+    <h4>📝 運営者向け使用例</h4>
+    
+    <div class="example-item">
+        <div class="example-title">PMSセルフケアチェックリスト</div>
+        <div class="example-desc">
+            生理前症候群（PMS）の症状をセルフチェックできるリストと、症状緩和のための具体的なアドバイスを含むPDF。
+        </div>
+    </div>
+    
+    <div class="example-item">
+        <div class="example-title">1ヶ月レコーディングダイエットシート</div>
+        <div class="example-desc">
+            体重・BMI・食事内容を記録する1ヶ月分のダイエット記録シート。グラフ機能付きで変化を可視化。
+        </div>
+    </div>
+    
+    <div class="example-item">
+        <div class="example-title">妊活カレンダー</div>
+        <div class="example-desc">
+            排卵日予測・基礎体温記録・体調管理を統合した妊活専用カレンダー。3ヶ月分の記録が可能。
+        </div>
+    </div>
+    
+    <div class="example-item">
+        <div class="example-title">健康診断準備チェックリスト</div>
+        <div class="example-desc">
+            健康診断前の準備項目と、結果の見方・改善方法をまとめた実用的なチェックリスト。
+        </div>
+    </div>
+    
+    <div class="example-item">
+        <div class="example-title">使い方の手順</div>
+        <div class="example-desc">
+            1. 上記のHTMLをブログ記事の適切な位置に挿入<br>
+            2. [ここにPDFの説明文が入ります] を具体的な説明に変更<br>
+            3. [ここにPDFのURLが入ります] を実際のPDFファイルのURLに変更<br>
+            4. 必要に応じてスタイルクラス（style-healthcare、style-pregnancy）を追加
+        </div>
+    </div>
+</div> 

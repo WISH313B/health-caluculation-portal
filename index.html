@@ -482,7 +482,42 @@
         <div class="nav-container">
             <ul class="nav-menu">
                 <li><a href="index.html" class="nav-link active">ホーム</a></li>
+                <li class="nav-dropdown">
+                    <a href="#" class="nav-link dropdown-toggle">お悩みから探す <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-overlay"></div>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-category">
+                            <h4><i class="fas fa-weight"></i> ダイエット・体重管理</h4>
+                            <a href="calculators/pages/bmi">BMI・肥満度をチェック</a>
+                            <a href="calculators/pages/tdee">1日の消費カロリーを知る</a>
+                            <a href="calculators/pages/ideal-weight">理想体重を設定</a>
+                            <a href="calculators/pages/body-fat">体脂肪率を測定</a>
+                        </div>
+                        <div class="dropdown-category">
+                            <h4><i class="fas fa-heart"></i> 妊活・妊娠</h4>
+                            <a href="calculators/pages/safe-days">排卵日・危険日を予測</a>
+                            <a href="calculators/pages/pregnancy-possibility">妊娠の可能性をチェック</a>
+                            <a href="calculators/pages/pregnancy-due-date">出産予定日を計算</a>
+                            <a href="qa-hub/pregnancy-and-fertility.html">妊娠Q&A完全ガイド</a>
+                        </div>
+                        <div class="dropdown-category">
+                            <h4><i class="fas fa-dumbbell"></i> 運動・フィットネス</h4>
+                            <a href="calculators/pages/target-heart-rate">効果的な運動強度を設定</a>
+                            <a href="calculators/pages/calories-burned">運動消費カロリーを計算</a>
+                            <a href="calculators/pages/one-rep-max">筋トレの最適重量</a>
+                            <a href="calculators/pages/pace">ランニングペース管理</a>
+                        </div>
+                        <div class="dropdown-category">
+                            <h4><i class="fas fa-bed"></i> 生活習慣・健康</h4>
+                            <a href="calculators/pages/sleep-time">理想の睡眠時間</a>
+                            <a href="calculators/pages/water-intake">必要水分量を計算</a>
+                            <a href="calculators/pages/stress-index">ストレス度をチェック</a>
+                            <a href="calculators/pages/health-age">健康年齢を測定</a>
+                        </div>
+                    </div>
+                </li>
                 <li><a href="blog.html" class="nav-link">健康ブログ</a></li>
+                <li><a href="glossary.html" class="nav-link">用語集</a></li>
                 <li><a href="faq.html" class="nav-link">よくある質問</a></li>
                 <li><a href="about.html" class="nav-link">運営者情報</a></li>
                 <li><a href="contact.html" class="nav-link">お問い合わせ</a></li>
@@ -733,12 +768,16 @@
         </div>
     </section>
 
+    <!-- 私たちの約束コンポーネント -->
+    <div id="our-commitment-section"></div>
+
     <footer>
         <div class="footer-content">
             <p>&copy; <span id="current-year"></span> 健康計算ポータル All Rights Reserved.</p>
             <div class="footer-links">
                 <a href="privacy-policy.html">プライバシーポリシー</a>
                 <a href="terms-of-service.html">利用規約</a>
+                <a href="fact-check-policy.html">ファクトチェック方針</a>
                 <a href="about.html">運営者情報</a>
                 <a href="contact.html">お問い合わせ</a>
             </div>
@@ -749,8 +788,186 @@
     <script src="assets/js/url-handler.js"></script>
     <script src="search.js"></script>
     <script src="assets/js/faq.js"></script>
+    <script src="assets/js/health-diary.js"></script>
+    <script src="glossary-linker.js"></script>
     
-    <!-- 年表示の動的更新 -->
+    <!-- お悩み別ナビゲーション機能 -->
+    <style>
+        /* ドロップダウンメニューのスタイル */
+        .nav-dropdown {
+            position: relative;
+        }
+        
+        .dropdown-toggle {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .dropdown-toggle i {
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .nav-dropdown.active .dropdown-toggle i {
+            transform: rotate(180deg);
+        }
+        
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            min-width: 800px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+            padding: 2rem;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            border: 2px solid #e3f2fd;
+        }
+        
+        .nav-dropdown.active .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .dropdown-category {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .dropdown-category h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .dropdown-category a {
+            display: block;
+            color: var(--text-secondary);
+            text-decoration: none;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #e0e0e0;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+        
+        .dropdown-category a:last-child {
+            border-bottom: none;
+        }
+        
+        .dropdown-category a:hover {
+            color: var(--primary-color);
+            background: white;
+            padding-left: 1rem;
+            border-radius: 4px;
+        }
+        
+        /* モバイル対応 */
+        @media (max-width: 768px) {
+            .dropdown-menu {
+                position: fixed;
+                top: 60px;
+                left: 1rem;
+                right: 1rem;
+                min-width: auto;
+                width: calc(100% - 2rem);
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                padding: 1.5rem;
+                max-height: 70vh;
+                overflow-y: auto;
+            }
+            
+            .dropdown-category {
+                padding: 1rem;
+            }
+            
+            .dropdown-category h4 {
+                font-size: 0.9rem;
+            }
+            
+            .dropdown-category a {
+                font-size: 0.85rem;
+                padding: 0.4rem 0;
+            }
+        }
+        
+        /* タブレット対応 */
+        @media (max-width: 1024px) and (min-width: 769px) {
+            .dropdown-menu {
+                min-width: 600px;
+                left: -100px;
+            }
+        }
+    </style>
+    
+    <script>
+        // ドロップダウンメニューの制御（完全クリックベース）
+        document.addEventListener('DOMContentLoaded', function() {
+            const dropdown = document.querySelector('.nav-dropdown');
+            const dropdownToggle = dropdown.querySelector('.dropdown-toggle');
+            const dropdownMenu = dropdown.querySelector('.dropdown-menu');
+            const dropdownOverlay = dropdown.querySelector('.dropdown-overlay');
+            
+            // 「お悩みから探す」をクリック（全デバイス対応）
+            dropdownToggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                dropdown.classList.toggle('active');
+            });
+            
+            // オーバーレイをクリックして閉じる
+            if (dropdownOverlay) {
+                dropdownOverlay.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    dropdown.classList.remove('active');
+                });
+            }
+            
+            // メニュー外クリックで閉じる
+            document.addEventListener('click', function(e) {
+                if (!dropdown.contains(e.target)) {
+                    dropdown.classList.remove('active');
+                }
+            });
+            
+            // メニュー内リンククリックで閉じる
+            dropdownMenu.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    dropdown.classList.remove('active');
+                }
+            });
+            
+            // Escキーで閉じる
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && dropdown.classList.contains('active')) {
+                    dropdown.classList.remove('active');
+                }
+            });
+            
+            // リサイズ時の処理
+            window.addEventListener('resize', function() {
+                dropdown.classList.remove('active');
+            });
+        });
+    </script>
+    
+    <!-- 年表示の動的更新と私たちの約束コンポーネント読み込み -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const currentYear = new Date().getFullYear();
@@ -782,7 +999,26 @@
             if (twitterTitle) {
                 twitterTitle.content = twitterTitle.content.replace(/【\d{4}年最新版】/, `【${currentYear}年最新版】`);
             }
+            
+            // 私たちの約束コンポーネントの読み込み
+            loadOurCommitment();
         });
+        
+        // 私たちの約束コンポーネントを動的に読み込む
+        async function loadOurCommitment() {
+            try {
+                const response = await fetch('components/our-commitment.html');
+                if (response.ok) {
+                    const html = await response.text();
+                    const commitmentSection = document.getElementById('our-commitment-section');
+                    if (commitmentSection) {
+                        commitmentSection.innerHTML = html;
+                    }
+                }
+            } catch (error) {
+                console.log('私たちの約束コンポーネントの読み込みに失敗しました:', error);
+            }
+        }
     </script>
 </body>
 </html> 

@@ -1,0 +1,48 @@
+RewriteEngine On
+
+# 404エラーURL → 適切なページへの301リダイレクト
+RewriteRule ^calculators/pages/hydration\.html$ /calculators/pages/water-intake.html [R=301,L]
+RewriteRule ^calculators/pages/exercise-hydration\.html$ /calculators/pages/exercise-intensity.html [R=301,L]
+RewriteRule ^heart-rate-calculator\.html$ /calculators/pages/target-heart-rate.html [R=301,L]
+RewriteRule ^sleep-calculator\.html$ /calculators/pages/sleep-time.html [R=301,L]
+
+# 重複コンテンツ問題の解決: .html拡張子なしのURLを正規URLに統一
+RewriteCond %{THE_REQUEST} \s/+calculators/pages/([^.\s]+)\.html[\s?] [NC]
+RewriteRule ^ /calculators/pages/%1? [R=301,L]
+
+# 内部的に .html ファイルを処理
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^calculators/pages/([^/]+)/?$ /calculators/pages/$1.html [L]
+
+# セキュリティ強化
+<Files ~ "^\.ht">
+    Order allow,deny
+    Deny from all
+</Files>
+
+# キャッシュ制御
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/html "access plus 1 hours"
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+</IfModule>
+
+# GZIP圧縮
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/x-javascript
+</IfModule> 

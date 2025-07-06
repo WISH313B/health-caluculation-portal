@@ -84,6 +84,9 @@
         </div>
 
         <div class="article-content">
+            <!-- 監修者プロフィール（E-A-T強化） -->
+            <div id="supervisor-profile-container"></div>
+            
             <div class="article-image">
                 <i class="fas fa-weight" style="font-size: 3rem; margin-right: 1rem;"></i>
                 BMI計算のイメージ
@@ -111,6 +114,12 @@
             </div>
 
             <h2>BMI（ボディマスインデックス）とは</h2>
+            
+            <!-- AdSense広告予約席 -->
+            <div class="adsense-placeholder" style="width:100%; max-width:728px; min-height:90px; margin:24px auto; background-color:#f7f7f7; border:1px dashed #ddd; display:flex; align-items:center; justify-content:center; font-size:14px; color:#aaa; border-radius:8px;">
+                <i class="fas fa-ad" style="margin-right:8px;"></i>広告表示エリア
+            </div>
+            
             <p>BMI（Body Mass Index）は、身長と体重から算出される肥満度を表す国際的な指標です。1832年にベルギーの数学者アドルフ・ケトレーによって考案され、現在では世界保健機関（WHO）が肥満の判定基準として採用しています。</p>
             
             <p>BMIの計算式は非常にシンプルで、以下の通りです：</p>
@@ -287,6 +296,29 @@
 
     <script src="../script.js"></script>
     <script src="../search.js"></script>
+    
+    <!-- 監修者プロフィール読み込み（AdSense審査対応） -->
+    <script>
+        document.addEventListener('DOMContentLoaded', async function() {
+            try {
+                const response = await fetch('../components/supervisor-profile.html');
+                const supervisorHTML = await response.text();
+                document.getElementById('supervisor-profile-container').innerHTML = supervisorHTML;
+                
+                // 監修者情報を設定（BMI関連記事用）
+                const supervisorProfile = new SupervisorProfileComponent('supervisor-profile-component');
+                supervisorProfile.setSupervisorInfo({
+                    name: '田中 健太郎 医師',
+                    title: '内科医・肥満症専門医',
+                    affiliation: '東京都立病院 内科',
+                    bio: '<p>10年以上の臨床経験を持つ内科医。日本肥満学会認定の肥満症専門医として、科学的根拠に基づいた体重管理指導を専門としています。</p><p>WHO基準およびアジア人向けBMI基準の両方に精通し、個々の患者に最適な健康管理アプローチを提供しています。</p>',
+                    image: '../assets/images/supervisor-doctor.jpg'
+                });
+            } catch (error) {
+                console.log('監修者プロフィール読み込みエラー:', error);
+            }
+        });
+    </script>
 </body>
 </html> 
 

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>コンテンツ制作およびファクトチェックに関する方針 | 健康計算ポータル</title>
+    <meta name="description" content="健康計算ポータルの情報正確性担保、ファクトチェック体制、編集方針について詳しくご説明しています。科学的根拠に基づく信頼性の高い健康情報を提供します。">
+    <meta name="robots" content="index, follow">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <link rel="canonical" href="https://minna-no-kenko.com/fact-check-policy">
+
+    <style>
+        .fact-check-page {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+            line-height: 1.8;
+        }
+
+        .fact-check-page h1 {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .last-updated {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            font-style: italic;
+        }
+
+        .fact-check-page section {
+            margin-bottom: 3rem;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .fact-check-page h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            border-left: 5px solid var(--primary-color);
+            padding-left: 1rem;
+        }
+
+        .fact-check-page h3 {
+            color: var(--text-color);
+            margin: 1.5rem 0 1rem 0;
+            font-size: 1.2rem;
+        }
+
+        .fact-check-page p {
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+        }
+
+        .fact-check-page ul {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+
+        .fact-check-page li {
+            margin-bottom: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #e3f2fd, #f8f9fa);
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary-color);
+            margin: 2rem 0;
+        }
+
+        .source-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .source-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+            transition: transform 0.3s ease;
+        }
+
+        .source-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .source-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .process-step {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .process-step h4 {
+            color: var(--secondary-color);
+            margin-bottom: 0.8rem;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, #fff3e0, #ffffff);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 2px solid #ff9800;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .fact-check-page {
+                padding: 0 1rem;
+            }
+
+            .fact-check-page section {
+                padding: 1.5rem;
+            }
+
+            .source-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1><a href="index.html" class="home-link">健康計算ポータル</a></h1>
+        </div>
+    </header>
+
+    <nav class="breadcrumb">
+        <div class="container">
+            <ol>
+                <li><a href="index.html">ホーム</a></li>
+                <li><span>ファクトチェック方針</span></li>
+            </ol>
+        </div>
+    </nav>
+
+    <main class="fact-check-page">
+        <div class="container">
+            <h1>コンテンツ制作およびファクトチェックに関する方針</h1>
+            <p class="last-updated">最終更新日：<span id="current-year"></span>年12月19日</p>
+
+            <div class="highlight-box">
+                <h3><i class="fas fa-shield-alt"></i> 当サイトの使命</h3>
+                <p>健康計算ポータルは、科学的根拠に基づいた正確で信頼性の高い健康情報を提供することで、ユーザーの皆様が適切な健康判断を行えるよう支援することを使命としています。</p>
+            </div>
+
+            <section>
+                <h2>1. 基本方針</h2>
+                <h3>1.1 科学的根拠の重視</h3>
+                <p>当サイトで提供するすべての健康情報は、査読済みの学術論文、公的医療機関のガイドライン、国際的な医学会の基準に基づいて作成されています。個人的な経験や未確認の情報は一切使用しません。</p>
+
+                <h3>1.2 中立性の維持</h3>
+                <p>特定の製品、サービス、治療法を推奨することはありません。複数の選択肢が存在する場合は、それぞれの利点と注意点を公平に説明し、最終的な判断はユーザー自身と医療従事者に委ねます。</p>
+
+                <h3>1.3 医療行為との明確な区別</h3>
+                <p>当サイトは教育・情報提供を目的としており、医学的診断、治療、処方の代替となるものではありません。この点を明確に区別し、適切な医療機関への相談を促しています。</p>
+            </section>
+
+            <section>
+                <h2>2. 情報ソースの選定基準</h2>
+                <p>健康計算ポータルでは、以下の信頼できる情報源のみを使用しています：</p>
+
+                <div class="source-grid">
+                    <div class="source-card">
+                        <h4><i class="fas fa-university"></i> 公的医療機関</h4>
+                        <ul>
+                            <li>厚生労働省</li>
+                            <li>国立健康・栄養研究所</li>
+                            <li>国立がん研究センター</li>
+                            <li>国立循環器病研究センター</li>
+                        </ul>
+                    </div>
+
+                    <div class="source-card">
+                        <h4><i class="fas fa-globe"></i> 国際機関</h4>
+                        <ul>
+                            <li>世界保健機関（WHO）</li>
+                            <li>米国疾病管理予防センター（CDC）</li>
+                            <li>欧州食品安全機関（EFSA）</li>
+                            <li>国際糖尿病連合（IDF）</li>
+                        </ul>
+                    </div>
+
+                    <div class="source-card">
+                        <h4><i class="fas fa-stethoscope"></i> 専門学会</h4>
+                        <ul>
+                            <li>日本医師会</li>
+                            <li>日本産科婦人科学会</li>
+                            <li>日本肥満学会</li>
+                            <li>日本糖尿病学会</li>
+                        </ul>
+                    </div>
+
+                    <div class="source-card">
+                        <h4><i class="fas fa-book"></i> 学術文献</h4>
+                        <ul>
+                            <li>PubMed掲載の査読済み論文</li>
+                            <li>Cochrane Reviews</li>
+                            <li>医学教科書（最新版）</li>
+                            <li>臨床ガイドライン</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>3. 情報の更新プロセス</h2>
+                <p>医学・健康分野は日々進歩しているため、当サイトでは以下のプロセスで情報の正確性を維持しています：</p>
+
+                <div class="process-step">
+                    <h4>ステップ1：定期的な文献レビュー</h4>
+                    <p>最新の医学研究や臨床ガイドラインの更新を3ヶ月ごとに確認し、当サイトの情報との整合性をチェックしています。</p>
+                </div>
+
+                <div class="process-step">
+                    <h4>ステップ2：専門家による監修</h4>
+                    <p>医師、管理栄養士、公認心理師などの有資格者によるコンテンツ監修を実施し、専門的な観点からの正確性を担保しています。</p>
+                </div>
+
+                <div class="process-step">
+                    <h4>ステップ3：継続的な更新</h4>
+                    <p>新しい科学的知見や改訂されたガイドラインに基づいて、コンテンツを適時更新し、最新の情報を提供しています。</p>
+                </div>
+            </section>
+
+            <section>
+                <h2>4. 計算式の検証体制</h2>
+                <h3>4.1 計算式の根拠</h3>
+                <p>当サイトで使用している計算式は、以下の確立された基準に基づいています：</p>
+                <ul>
+                    <li><strong>BMI計算：</strong> WHO（世界保健機関）基準</li>
+                    <li><strong>基礎代謝量：</strong> ハリス・ベネディクト式、ミフリン・セントジョー式</li>
+                    <li><strong>妊娠週数：</strong> 日本産科婦人科学会ガイドライン</li>
+                    <li><strong>体脂肪率：</strong> 日本肥満学会推奨式</li>
+                </ul>
+
+                <h3>4.2 計算結果の検証</h3>
+                <p>すべての計算機について、医学教科書および公的機関の資料と照合し、結果の妥当性を確認しています。また、複数の専門家による交差検証を実施しています。</p>
+            </section>
+
+            <section>
+                <h2>5. 免責事項と利用上の注意</h2>
+                <div class="highlight-box">
+                    <h3><i class="fas fa-exclamation-triangle"></i> 重要な注意事項</h3>
+                    <ul>
+                        <li>当サイトの情報は一般的な教育・参考目的のものです</li>
+                        <li>個別の医学的アドバイスや診断を提供するものではありません</li>
+                        <li>健康に関する重要な判断は、必ず医療従事者にご相談ください</li>
+                        <li>緊急時には直ちに適切な医療機関を受診してください</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h2>6. 情報の透明性</h2>
+                <h3>6.1 引用・参考文献の明記</h3>
+                <p>使用した情報源は可能な限り明記し、読者が原典を確認できるようにしています。外部サイトへのリンクは、信頼性の高い公的機関または学術機関のものに限定しています。</p>
+
+                <h3>6.2 更新履歴の管理</h3>
+                <p>重要な情報の更新については、更新日時と変更内容を記録し、必要に応じて読者に通知しています。</p>
+            </section>
+
+            <section>
+                <h2>7. ユーザーからのフィードバック</h2>
+                <p>当サイトでは、ユーザーの皆様からの情報の正確性に関するご指摘を重要視しています。</p>
+
+                <div class="contact-info">
+                    <h3><i class="fas fa-envelope"></i> お問い合わせ</h3>
+                    <p>情報の正確性に関するご質問、修正のご提案がございましたら、以下までお気軽にお問い合わせください：</p>
+                    <p><strong>メール：</strong> factcheck@minna-no-kenko.com</p>
+                    <p><strong>対応時間：</strong> 平日 9:00-17:00（土日祝日を除く）</p>
+                    <p>いただいたご指摘は、専門家と共に検証し、必要に応じてコンテンツの修正を行います。</p>
+                </div>
+            </section>
+
+            <section>
+                <h2>8. 継続的な改善</h2>
+                <p>健康計算ポータルは、より正確で有用な情報を提供するため、以下の取り組みを継続的に行っています：</p>
+                <ul>
+                    <li>最新の医学研究動向の継続的な調査</li>
+                    <li>専門家ネットワークの拡充</li>
+                    <li>ユーザビリティの向上</li>
+                    <li>多言語対応の検討</li>
+                    <li>アクセシビリティの改善</li>
+                </ul>
+
+                <p>この方針は、医学・健康分野の進歩や法規制の変更に応じて適宜見直し、更新いたします。</p>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="footer-year"></span> 健康計算ポータル All Rights Reserved. | <a href="privacy-policy.html">プライバシーポリシー</a> | <a href="terms-of-service.html">利用規約</a> | <a href="fact-check-policy.html">ファクトチェック方針</a></p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentYear = new Date().getFullYear();
+            document.getElementById('current-year').textContent = currentYear;
+            document.getElementById('footer-year').textContent = currentYear;
+        });
+    </script>
+</body>
+</html> 

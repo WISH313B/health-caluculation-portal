@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>健康用語集｜専門用語を分かりやすく解説 | 健康計算ポータル</title>
+    <meta name="description" content="健康・医療関連の専門用語を分かりやすく解説。BMI、基礎代謝量、PMS、排卵日など、健康管理に役立つ用語を50音順で検索できます。">
+    <meta name="keywords" content="健康用語集,医療用語,BMI,基礎代謝量,PMS,排卵日,専門用語解説">
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        .glossary-page {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+        
+        .glossary-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .glossary-header h1 {
+            font-size: 2.5rem;
+            color: #5C5452;
+            margin-bottom: 1rem;
+        }
+        
+        .search-box {
+            max-width: 600px;
+            margin: 2rem auto;
+            position: relative;
+        }
+        
+        .search-box input {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            border: 2px solid #F5EAE6;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            outline: none;
+        }
+        
+        .search-box input:focus {
+            border-color: #D98C7E;
+        }
+        
+        .index-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            padding: 1.5rem;
+            background: #F5EAE6;
+            border-radius: 20px;
+        }
+        
+        .index-nav a {
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            color: #5C5452;
+            font-weight: 500;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .index-nav a:hover {
+            background: #D98C7E;
+            color: white;
+        }
+        
+        .glossary-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        
+        .term-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border: 1px solid #F5EAE6;
+        }
+        
+        .term-letter {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #D98C7E;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #F5EAE6;
+        }
+        
+        .term-item {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: #FFFBF7;
+            border-radius: 10px;
+            border-left: 4px solid #D98C7E;
+        }
+        
+        .term-name {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #5C5452;
+            margin-bottom: 0.5rem;
+        }
+        
+        .term-reading {
+            font-size: 0.9rem;
+            color: #8B8380;
+            margin-bottom: 1rem;
+        }
+        
+        .term-definition {
+            line-height: 1.8;
+            color: #5C5452;
+            margin-bottom: 1rem;
+        }
+        
+        .term-source {
+            font-size: 0.8rem;
+            color: #8B8380;
+            font-style: italic;
+        }
+        
+        .related-calculators {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #F5EAE6;
+        }
+        
+        .related-calculators h4 {
+            font-size: 0.9rem;
+            color: #D98C7E;
+            margin-bottom: 0.5rem;
+        }
+        
+        .related-calculators a {
+            color: #5C5452;
+            text-decoration: none;
+            margin-right: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .related-calculators a:hover {
+            color: #D98C7E;
+        }
+        
+        @media (max-width: 768px) {
+            .glossary-page {
+                padding: 0 1rem;
+            }
+            
+            .glossary-header h1 {
+                font-size: 2rem;
+            }
+            
+            .index-nav {
+                gap: 0.5rem;
+            }
+            
+            .term-section {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+    <link rel="canonical" href="https://minna-no-kenko.com/glossary">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1><a href="index.html" class="home-link">健康計算ポータル</a></h1>
+            <div class="search-container">
+                <input type="search" id="search-input" placeholder="計算機能を検索...">
+                <button type="button" id="search-button"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="nav-container">
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">ホーム</a></li>
+                <li><a href="blog.html" class="nav-link">健康ブログ</a></li>
+                <li><a href="glossary.html" class="nav-link active">用語集</a></li>
+                <li><a href="faq.html" class="nav-link">よくある質問</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="breadcrumb">
+        <div class="container">
+            <ol>
+                <li><a href="index.html">ホーム</a></li>
+                <li><span>健康用語集</span></li>
+            </ol>
+        </div>
+    </div>
+
+    <main class="glossary-page">
+        <div class="glossary-header">
+            <h1>健康用語集</h1>
+            <p>健康・医療関連の専門用語を分かりやすく解説いたします。</p>
+            
+            <div class="search-box">
+                <input type="text" id="glossary-search" placeholder="用語を検索...">
+            </div>
+        </div>
+
+        <div class="index-nav">
+            <a href="#section-a">あ</a>
+            <a href="#section-i">い</a>
+            <a href="#section-u">う</a>
+            <a href="#section-e">え</a>
+            <a href="#section-o">お</a>
+            <a href="#section-ka">か</a>
+            <a href="#section-ki">き</a>
+            <a href="#section-ku">く</a>
+            <a href="#section-ke">け</a>
+            <a href="#section-ko">こ</a>
+            <a href="#section-sa">さ</a>
+            <a href="#section-shi">し</a>
+            <a href="#section-su">す</a>
+            <a href="#section-se">せ</a>
+            <a href="#section-so">そ</a>
+            <a href="#section-ta">た</a>
+            <a href="#section-chi">ち</a>
+            <a href="#section-tsu">つ</a>
+            <a href="#section-te">て</a>
+            <a href="#section-to">と</a>
+            <a href="#section-na">な</a>
+            <a href="#section-ni">に</a>
+            <a href="#section-nu">ぬ</a>
+            <a href="#section-ne">ね</a>
+            <a href="#section-no">の</a>
+            <a href="#section-ha">は</a>
+            <a href="#section-hi">ひ</a>
+            <a href="#section-fu">ふ</a>
+            <a href="#section-he">へ</a>
+            <a href="#section-ho">ほ</a>
+            <a href="#section-ma">ま</a>
+            <a href="#section-mi">み</a>
+            <a href="#section-mu">む</a>
+            <a href="#section-me">め</a>
+            <a href="#section-mo">も</a>
+            <a href="#section-ya">や</a>
+            <a href="#section-yu">ゆ</a>
+            <a href="#section-yo">よ</a>
+            <a href="#section-ra">ら</a>
+            <a href="#section-ri">り</a>
+            <a href="#section-ru">る</a>
+            <a href="#section-re">れ</a>
+            <a href="#section-ro">ろ</a>
+            <a href="#section-wa">わ</a>
+        </div>
+
+        <div class="glossary-content">
+            <!-- あ行 -->
+            <div class="term-section" id="section-a">
+                <div class="term-letter">あ</div>
+                
+                <div class="term-item">
+                    <div class="term-name">安全日</div>
+                    <div class="term-reading">あんぜんび</div>
+                    <div class="term-definition">
+                        妊娠の可能性が低いとされる期間。一般的に月経開始から排卵日前と、排卵日後から次の月経開始までの期間を指します。ただし、生理周期には個人差があり、完全に妊娠を避けられる期間ではないことに注意が必要です。
+                    </div>
+                    <div class="term-source">参考：日本産婦人科医会</div>
+                    <div class="related-calculators">
+                        <h4>関連ツール:</h4>
+                        <a href="calculators/pages/safe-days.html">安全日計算機</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- い行 -->
+            <div class="term-section" id="section-i">
+                <div class="term-letter">い</div>
+                
+                <div class="term-item">
+                    <div class="term-name">1RM（1レップマックス）</div>
+                    <div class="term-reading">ワンレップマックス</div>
+                    <div class="term-definition">
+                        1回だけ挙上できる最大重量のこと。筋力トレーニングにおいて、個人の筋力レベルを測定し、適切な負荷設定を行うための指標として使用されます。安全で効果的なトレーニングプログラムを作成するのに重要な数値です。
+                    </div>
+                    <div class="term-source">参考：日本体力医学会</div>
+                    <div class="related-calculators">
+                        <h4>関連ツール:</h4>
+                        <a href="calculators/pages/one-rep-max.html">1RM計算機</a>
+                    </div>
+                </div>
+                
+                <div class="term-item">
+                    <div class="term-name">イライラ</div>
+                    <div class="term-reading">いらいら</div>
+                    <div class="term-definition">
+                        精神的な不安定さや怒りっぽさを示す症状。PMS（月経前症候群）の代表的な症状の一つで、ホルモンバランスの変化により引き起こされます。適切なストレス管理や生活習慣の改善により軽減できる場合があります。
+                    </div>
+                    <div class="term-source">参考：日本産婦人科学会</div>
+                    <div class="related-calculators">
+                        <h4>関連ツール:</h4>
+                        <a href="calculators/pages/stress-index.html">ストレス指数計算機</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- う行 -->
+            <div class="term-section" id="section-u">
+                <div class="term-letter">う</div>
+                
+                <div class="term-item">
+                    <div class="term-name">運動強度</div>
+                    <div class="term-reading">うんどうきょうど</div>
+                    <div class="term-definition">
+                        運動の激しさを示す指標。心拍数、酸素摂取量、自覚的運動強度（RPE）などで測定されます。適切な運動強度で運動することで、安全で効果的なトレーニングが可能になり、健康増進や体力向上に役立ちます。
+                    </div>
+                    <div class="term-source">参考：厚生労働省</div>
+                    <div class="related-calculators">
+                        <h4>関連ツール:</h4>
+                        <a href="calculators/pages/exercise-intensity.html">運動強度計算機</a>
+                    </div>
+                </div>
+                
+                <div class="term-item">
+                    <div class="term-name">運動消費カロリー</div>
+                    <div class="term-reading">うんどうしょうひカロリー</div>
+                    <div class="term-definition">
+                        運動によって消費されるエネルギー量のこと。運動の種類、強度、時間、体重によって決まります。効果的なダイエットや体重管理のために、運動消費カロリーを正確に把握することが重要です。
+                    </div>
+                    <div class="term-source">参考：日本体力医学会</div>
+                    <div class="related-calculators">
+                        <h4>関連ツール:</h4>
+                        <a href="calculators/pages/calories-burned.html">運動消費カロリー計算機</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- え行 -->
+            <div class="term-section" id="section-e">
+                <div class="term-letter">え</div>
+                
+                <div class="term-item">
+                    <div class="term-name">エストロゲン</div>
+                    <div class="term-reading">えすとろげん</div>
+                    <div class="term-definition">
+                        女性ホルモンの一種で、卵胞ホルモンとも呼ばれます。月経周期の前半に分泌が増加し、子宮内膜を厚くしたり、女性らしい体の発達を促進したりします。骨密度の維持、コレステロール値の調整など、女性の健康に重要な役割を果たします。
+                    </div>
+                    <div class="term-source">参考：日本産婦人科学会</div>
+                </div>
+            </div>
+
+            <!-- お行 -->
+            <div class="term-section" id="section-o">
+                <div class="term-letter">お</div>
+                
+                <div class="term-item">
+                    <div class="term-name">黄体期</div>
+                    <div class="term-reading">おうたいき</div>
+                    <div class="term-definition">
+                        月経周期の後半部分で、排卵後から次の月経開始までの期間。約14日間続きます。この時期はプロゲステロン（黄体ホルモン）の分泌が増加し、基礎体温が上昇します。PMSの症状が現れやすい時期でもあります。
+                    </div>
+                    <div class="term-source">参考：日本産婦人科学会</div>
+                </div>
+                
+                <div class="term-item">
+                    <div class="term-name">排卵日</div>
+                    <div class="term-reading">はいらんび</div>
+                    <div class="term-definition">
+                        卵巣から卵子が放出される日。一般的に月経開始から約14日目に起こりますが、個人差があります。妊娠の可能性が最も高い時期で、妊活中の女性にとって重要な日です。基礎体温測定や排卵検査薬で予測できます。
+                    </div>
+                    <div class="term-source">参考：日本産婦人科医会</div>
+                    <div class="related-calculators">
+                        <h4>関連ツール:</h4>
+                        <a href="calculators/pages/safe-days.html">排卵日計算機</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- か行 -->
+            <div class="term-section" id="section-ka">
+                <div class="term-letter">か</div>
+                
+                <div class="term-item">
+                    <div class="term-name">カロリー</div>
+                    <div class="term-reading">かろりー</div>
+                    <div class="term-definition">
+                        エネルギーの単位。正式には「キロカロリー（kcal）」と表記されます。食品が持つエネルギー量や、人間が消費するエネルギー量を表すのに使用されます。1グラムの水を1度温度上昇させるのに必要なエネルギーが1カロリーです。
+                    </div>
+                    <div class="term-source">参考：厚生労働省</div>
+                    <div class="related-calculators">
+                        <h4>関連ツール:</h4>
+                        <a href="calculators/pages/meal-calories.html">食事カロリー計算機</a>
+                    </div>
+                </div>
+                
+                <div class="term-item">
+                    <div class="term-name">基礎代謝量</div>
+                    <div class="term-reading">きそたいしゃりょう</div>
+                    <div class="term-definition">
+                        安静時に生命維持のために消費される最低限のエネルギー量のこと。呼吸、心拍、体温維持などに必要なエネルギーを指します。年齢、性別、体重、身長、筋肉量などによって決まり、個人のダイエットや健康管理の基準となる重要な指標です。
+                    </div>
+                    <div class="term-source">参考：日本人の食事摂取基準</div>
+                    <div class="related-calculators">
+                        <h4>関連ツール:</h4>
+                        <a href="calculators/pages/bmr.html">基礎代謝量計算機</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- き行 -->
+            <div class="term-section" id="section-ki">
+                <div class="term-letter">き</div>
+                
+                <div class="term-item">
+                    <div class="term-name">危険日</div>
+                    <div class="term-reading">きけんび</div>
+                    <div class="term-definition">
+                        妊娠の可能性が高い期間。排卵日前後の数日間を指します。精子の生存期間（約3-5日）と卵子の生存期間（約24時間）を考慮して、排卵日前3日から排卵日後1日までが最も妊娠しやすい期間とされています。
+                    </div>
+                    <div class="term-source">参考：日本産婦人科医会</div>
+                    <div class="related-calculators">
+                        <h4>関連ツール:</h4>
+                        <a href="calculators/pages/safe-days.html">危険日計算機</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- す行 -->
+            <div class="term-section" id="section-su">
+                <div class="term-letter">す</div>
+                
+                <div class="term-item">
+                    <div class="term-name">ストレス指数</div>
+                    <div class="term-reading">すとれすしすう</div>
+                    <div class="term-definition">
+                        個人が感じているストレスの程度を数値化した指標。生活環境、人間関係、仕事、健康状態などの要因を総合的に評価します。ストレス指数を把握することで、適切なストレス管理や生活習慣の改善につなげることができます。
+                    </div>
+                    <div class="term-source">参考：日本心理学会</div>
+                    <div class="related-calculators">
+                        <h4>関連ツール:</h4>
+                        <a href="calculators/pages/stress-index.html">ストレス指数計算機</a>
+                    </div>
+                </div>
+                
+                <div class="term-item">
+                    <div class="term-name">睡眠時間</div>
+                    <div class="term-reading">すいみんじかん</div>
+                    <div class="term-definition">
+                        1日に必要な睡眠の時間。成人の場合、一般的に7-9時間が推奨されています。年齢、個人差、生活習慣によって最適な睡眠時間は異なります。十分な睡眠は健康維持、免疫機能の向上、認知機能の維持に重要です。
+                    </div>
+                    <div class="term-source">参考：日本睡眠学会</div>
+                    <div class="related-calculators">
+                        <h4>関連ツール:</h4>
+                        <a href="calculators/pages/sleep-time.html">睡眠時間計算機</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- た行 -->
+            <div class="term-section" id="section-ta">
+                <div class="term-letter">た</div>
+                
+                <div class="term-item">
+                    <div class="term-name">体脂肪率</div>
+                    <div class="term-reading">たいしぼうりつ</div>
+                    <div class="term-definition">
+                        体重に占める体脂肪の割合。健康的な体脂肪率は男性で10-20%、女性で20-30%とされています。体脂肪率が高すぎると生活習慣病のリスクが高まり、低すぎると免疫機能の低下や生理不順などの問題が起こる可能性があります。
+                    </div>
+                    <div class="term-source">参考：日本肥満学会</div>
+                    <div class="related-calculators">
+                        <h4>関連ツール:</h4>
+                        <a href="calculators/pages/body-fat.html">体脂肪率計算機</a>
+                    </div>
+                </div>
+                
+                <div class="term-item">
+                    <div class="term-name">TDEE（総消費エネルギー量）</div>
+                    <div class="term-reading">ティーディーイーイー</div>
+                    <div class="term-definition">
+                        Total Daily Energy Expenditureの略で、1日の総消費エネルギー量のこと。基礎代謝量、活動代謝、食事誘発性熱産生を合計した値です。個人の活動レベルに応じて計算され、適切なカロリー摂取量を決める際の重要な指標となります。
+                    </div>
+                    <div class="term-source">参考：日本栄養士会</div>
+                    <div class="related-calculators">
+                        <h4>関連ツール:</h4>
+                        <a href="calculators/pages/tdee.html">TDEE計算機</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- に行 -->
+            <div class="term-section" id="section-ni">
+                <div class="term-letter">に</div>
+                
+                <div class="term-item">
+                    <div class="term-name">妊娠可能性</div>
+                    <div class="term-reading">にんしんかのうせい</div>
+                    <div class="term-definition">
+                        女性が妊娠する可能性の程度。月経周期、排卵日、年齢、健康状態などの要因によって決まります。排卵日前後の数日間が最も妊娠の可能性が高い期間とされています。妊活中の女性にとって重要な指標です。
+                    </div>
+                    <div class="term-source">参考：日本産婦人科学会</div>
+                    <div class="related-calculators">
+                        <h4>関連ツール:</h4>
+                        <a href="calculators/pages/pregnancy-possibility.html">妊娠可能性計算機</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- は行 -->
+            <div class="term-section" id="section-ha">
+                <div class="term-letter">は</div>
+                
+                <div class="term-item">
+                    <div class="term-name">BMI（ボディマスインデックス）</div>
+                    <div class="term-reading">ビーエムアイ</div>
+                    <div class="term-definition">
+                        Body Mass Indexの略で、身長と体重から算出される肥満度を表す指標。計算式は「体重（kg）÷身長（m）の二乗」です。WHO基準では18.5未満が低体重、18.5-24.9が普通体重、25以上が過体重とされています。健康管理の基本的な指標として広く使用されています。
+                    </div>
+                    <div class="term-source">参考：世界保健機関（WHO）</div>
+                    <div class="related-calculators">
+                        <h4>関連ツール:</h4>
+                        <a href="calculators/pages/bmi.html">BMI計算機</a>
+                    </div>
+                </div>
+                
+                <div class="term-item">
+                    <div class="term-name">PMS（月経前症候群）</div>
+                    <div class="term-reading">ピーエムエス</div>
+                    <div class="term-definition">
+                        Premenstrual Syndromeの略で、月経前に現れる身体的・精神的症状の総称。イライラ、不安、うつ状態、むくみ、頭痛、乳房の張りなどの症状が現れます。ホルモンバランスの変化が原因とされ、生活習慣の改善や医療機関での治療により症状を軽減できます。
+                    </div>
+                    <div class="term-source">参考：日本産婦人科学会</div>
+                    <div class="related-calculators">
+                        <h4>関連ツール:</h4>
+                        <a href="calculators/pages/pregnancy-symptoms-checker.html">妊娠症状チェッカー</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- み行 -->
+            <div class="term-section" id="section-mi">
+                <div class="term-letter">み</div>
+                
+                <div class="term-item">
+                    <div class="term-name">水分摂取量</div>
+                    <div class="term-reading">すいぶんせっしゅりょう</div>
+                    <div class="term-definition">
+                        1日に必要な水分の量。一般的に成人では1日2-2.5リットルが推奨されています。体重、活動量、気温、健康状態によって必要量は変わります。適切な水分摂取は体温調節、栄養素の輸送、老廃物の排出に重要な役割を果たします。
+                    </div>
+                    <div class="term-source">参考：厚生労働省</div>
+                    <div class="related-calculators">
+                        <h4>関連ツール:</h4>
+                        <a href="calculators/pages/water-intake.html">水分摂取量計算機</a>
+                    </div>
+                </div>
+                
+                <div class="term-item">
+                    <div class="term-name">目標心拍数</div>
+                    <div class="term-reading">もくひょうしんぱくすう</div>
+                    <div class="term-definition">
+                        運動時に達成すべき心拍数の目安。運動の目的（脂肪燃焼、心肺機能向上など）によって異なります。一般的に最大心拍数の50-85%の範囲で設定されます。適切な目標心拍数での運動により、安全で効果的なトレーニングが可能になります。
+                    </div>
+                    <div class="term-source">参考：日本体力医学会</div>
+                    <div class="related-calculators">
+                        <h4>関連ツール:</h4>
+                        <a href="calculators/pages/target-heart-rate.html">目標心拍数計算機</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- り行 -->
+            <div class="term-section" id="section-ri">
+                <div class="term-letter">り</div>
+                
+                <div class="term-item">
+                    <div class="term-name">理想体重</div>
+                    <div class="term-reading">りそうたいじゅう</div>
+                    <div class="term-definition">
+                        健康的で理想的とされる体重。一般的にBMI22の体重が理想体重とされています。計算式は「身長（m）の二乗 × 22」です。ただし、筋肉量や体脂肪率、個人の体型などを考慮して、総合的に判断することが重要です。
+                    </div>
+                    <div class="term-source">参考：日本肥満学会</div>
+                    <div class="related-calculators">
+                        <h4>関連ツール:</h4>
+                        <a href="calculators/pages/ideal-weight.html">理想体重計算機</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 健康計算ポータル All Rights Reserved. | <a href="privacy-policy.html">プライバシーポリシー</a> | <a href="terms-of-service.html">利用規約</a></p>
+    </footer>
+
+    <script>
+        // 用語検索機能
+        document.getElementById('glossary-search').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const termItems = document.querySelectorAll('.term-item');
+            
+            termItems.forEach(item => {
+                const termName = item.querySelector('.term-name').textContent.toLowerCase();
+                const termDefinition = item.querySelector('.term-definition').textContent.toLowerCase();
+                
+                if (termName.includes(searchTerm) || termDefinition.includes(searchTerm)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+        
+        // スムーズスクロール
+        document.querySelectorAll('.index-nav a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html> 

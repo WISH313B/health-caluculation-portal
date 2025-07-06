@@ -1,0 +1,105 @@
+<div class="commitment-box">
+    <h4><i class="fas fa-shield-alt"></i> 私たちの約束</h4>
+    <p>「健康計算ポータル」は、ユーザーの皆様に正確で信頼できる情報を提供することをお約束します。</p>
+    <div class="commitment-links">
+        <a href="/fact-check-policy.html" class="commitment-link">
+            <i class="fas fa-check-circle"></i>
+            <span>ファクトチェック方針</span>
+        </a>
+        <a href="/about.html" class="commitment-link">
+            <i class="fas fa-users"></i>
+            <span>運営者情報</span>
+        </a>
+        <a href="/privacy-policy.html" class="commitment-link">
+            <i class="fas fa-lock"></i>
+            <span>プライバシーポリシー</span>
+        </a>
+    </div>
+</div>
+
+<style>
+.commitment-box {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border: 2px solid var(--main-color, #f5f5f5);
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem 0;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.commitment-box h4 {
+    color: var(--accent-color, #d98c7e);
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.commitment-box p {
+    color: var(--text-main, #5c5452);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.commitment-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.commitment-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.2rem;
+    background: white;
+    color: var(--text-main, #5c5452);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    border: 1px solid var(--main-color, #f5f5f5);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.commitment-link:hover {
+    background: var(--accent-color, #d98c7e);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(217, 140, 126, 0.3);
+    text-decoration: none;
+}
+
+.commitment-link i {
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+/* モバイル対応 */
+@media (max-width: 768px) {
+    .commitment-box {
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+    }
+    
+    .commitment-box h4 {
+        font-size: 1.1rem;
+    }
+    
+    .commitment-links {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .commitment-link {
+        justify-content: center;
+        padding: 1rem;
+    }
+}
+</style> 

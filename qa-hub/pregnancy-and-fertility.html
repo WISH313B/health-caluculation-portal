@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>妊娠・出産・妊活に関するQ&A完全ガイド | 健康計算ポータル</title>
+    <meta name="description" content="妊娠・出産・妊活に関する疑問や不安を解消する包括的なQ&Aガイド。基礎体温、排卵日、妊娠症状、体重管理、出産準備まで、専門的な情報を分かりやすく解説します。">
+    <meta name="keywords" content="妊娠,出産,妊活,排卵日,基礎体温,妊娠症状,体重管理,出産準備,FAQ,質問,回答">
+    <meta name="robots" content="index, follow">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="../assets/images/favicon.png">
+    <link rel="canonical" href="https://minna-no-kenko.com/qa-hub/pregnancy-and-fertility">
+
+    <style>
+        .qa-hub-page {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+            line-height: 1.8;
+        }
+
+        .qa-hub-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, #e3f2fd, #ffffff);
+            padding: 3rem 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .qa-hub-header h1 {
+            color: var(--primary-color);
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .qa-hub-header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .qa-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .qa-category {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border: 2px solid #f0f0f0;
+            transition: transform 0.3s ease;
+        }
+
+        .qa-category:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+        }
+
+        .qa-category h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .qa-category h2 i {
+            font-size: 1.5rem;
+        }
+
+        .qa-item {
+            margin-bottom: 2rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .qa-question {
+            background: var(--primary-color);
+            color: white;
+            padding: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            position: relative;
+            transition: background 0.3s ease;
+        }
+
+        .qa-question:hover {
+            background: var(--secondary-color);
+        }
+
+        .qa-question::after {
+            content: "▼";
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: transform 0.3s ease;
+        }
+
+        .qa-question.active::after {
+            transform: translateY(-50%) rotate(180deg);
+        }
+
+        .qa-answer {
+            padding: 1.5rem;
+            background: white;
+            display: none;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .qa-answer.active {
+            display: block;
+        }
+
+        .qa-answer p {
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+        }
+
+        .qa-answer ul {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .qa-answer li {
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+        }
+
+        .important-note {
+            background: #fff3e0;
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid #ff9800;
+            margin: 1rem 0;
+        }
+
+        .important-note p {
+            margin: 0;
+            color: #bf6000;
+            font-weight: bold;
+        }
+
+        .related-tools {
+            background: #e3f2fd;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+
+        .related-tools h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .related-tools a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .related-tools a:hover {
+            text-decoration: underline;
+        }
+
+        .search-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .disclaimer-section {
+            background: #ffebee;
+            padding: 2rem;
+            border-radius: 12px;
+            border: 2px solid #f44336;
+            margin-top: 3rem;
+        }
+
+        .disclaimer-section h3 {
+            color: #d32f2f;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .disclaimer-section p {
+            color: #b71c1c;
+            text-align: center;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .qa-hub-page {
+                padding: 0 1rem;
+            }
+
+            .qa-hub-header {
+                padding: 2rem 1rem;
+            }
+
+            .qa-hub-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .qa-categories {
+                grid-template-columns: 1fr;
+            }
+
+            .qa-category {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1><a href="../index.html" class="home-link">健康計算ポータル</a></h1>
+        </div>
+    </header>
+
+    <nav class="breadcrumb">
+        <div class="container">
+            <ol>
+                <li><a href="../index.html">ホーム</a></li>
+                <li><a href="../faq.html">よくある質問</a></li>
+                <li><span>妊娠・出産・妊活Q&A</span></li>
+            </ol>
+        </div>
+    </nav>
+
+    <main class="qa-hub-page">
+        <div class="container">
+            <div class="qa-hub-header">
+                <h1>妊娠・出産・妊活に関するQ&A完全ガイド</h1>
+                <p>妊娠を希望される方、妊娠中の方、これから出産を迎える方のための包括的なQ&A集です。基礎的な疑問から専門的な内容まで、科学的根拠に基づいた正確な情報をお届けします。</p>
+            </div>
+
+            <div class="search-box">
+                <input type="text" id="qa-search" placeholder="Q&Aを検索...（例：基礎体温、排卵日、妊娠症状）">
+            </div>
+
+            <div class="qa-categories">
+                <!-- 妊活・基礎知識 -->
+                <div class="qa-category">
+                    <h2><i class="fas fa-seedling"></i> 妊活・基礎知識</h2>
+                    
+                    <div class="qa-item">
+                        <div class="qa-question" onclick="toggleAnswer(this)">
+                            妊活を始めたばかりです。まず何から始めればよいでしょうか？
+                        </div>
+                        <div class="qa-answer">
+                            <p>妊活を始める際は、以下の基本的なステップから始めることをお勧めします：</p>
+                            <ul>
+                                <li><strong>基礎体温の測定：</strong>排卵日を予測するために毎朝同じ時間に体温を測定</li>
+                                <li><strong>生理周期の記録：</strong>月経開始日から次の月経開始日までの日数を記録</li>
+                                <li><strong>健康状態の確認：</strong>産婦人科で妊娠前検査を受診</li>
+                                <li><strong>生活習慣の改善：</strong>禁煙、適度な運動、バランスの良い食事</li>
+                                <li><strong>葉酸サプリメントの摂取：</strong>妊娠1か月前から摂取開始</li>
+                            </ul>
+                            <div class="related-tools">
+                                <h4>関連ツール</h4>
+                                <a href="../calculators/pages/safe-days">危険日・安全日計算機</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="qa-item">
+                        <div class="qa-question" onclick="toggleAnswer(this)">
+                            基礎体温はどのように測定すればよいですか？
+                        </div>
+                        <div class="qa-answer">
+                            <p>基礎体温の正しい測定方法：</p>
+                            <ul>
+                                <li><strong>測定時間：</strong>毎朝同じ時間（起床直後、体を動かす前）</li>
+                                <li><strong>測定場所：</strong>舌の裏側（口の中）で測定</li>
+                                <li><strong>測定時間：</strong>5分間測定（体温計の指示に従う）</li>
+                                <li><strong>記録：</strong>専用の基礎体温表やアプリに記録</li>
+                                <li><strong>注意点：</strong>睡眠時間が4時間未満の場合は参考値として扱う</li>
+                            </ul>
+                            <p>基礎体温は排卵の2-3日後に0.3-0.5度上昇し、次の生理まで高温期が続きます。</p>
+                        </div>
+                    </div>
+
+                    <div class="qa-item">
+                        <div class="qa-question" onclick="toggleAnswer(this)">
+                            排卵日はどのようにして特定できますか？
+                        </div>
+                        <div class="qa-answer">
+                            <p>排卵日を特定する方法：</p>
+                            <ul>
+                                <li><strong>基礎体温法：</strong>低温期から高温期に移行する日の前後</li>
+                                <li><strong>オギノ式：</strong>生理予定日の14日前（±2日）</li>
+                                <li><strong>頸管粘液の観察：</strong>透明で伸びる粘液が増加</li>
+                                <li><strong>排卵検査薬：</strong>LHサージを検出</li>
+                                <li><strong>排卵痛：</strong>下腹部の軽い痛み</li>
+                            </ul>
+                            <p>複数の方法を組み合わせることで、より正確な排卵日の予測が可能になります。</p>
+                            <div class="related-tools">
+                                <h4>関連ツール</h4>
+                                <a href="../calculators/pages/safe-days">危険日・安全日計算機</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="qa-item">
+                        <div class="qa-question" onclick="toggleAnswer(this)">
+                            妊活中に避けるべき食べ物はありますか？
+                        </div>
+                        <div class="qa-answer">
+                            <p>妊活中に注意すべき食べ物：</p>
+                            <ul>
+                                <li><strong>アルコール：</strong>妊娠に気づく前から摂取を控える</li>
+                                <li><strong>カフェイン：</strong>1日200mg以下に制限（コーヒー約2杯分）</li>
+                                <li><strong>生魚・生肉：</strong>感染症リスクのため避ける</li>
+                                <li><strong>水銀含有量の多い魚：</strong>マグロ、金目鯛などは週1回程度に</li>
+                                <li><strong>レバー：</strong>ビタミンA過剰摂取を避けるため適量に</li>
+                            </ul>
+                            <p>逆に積極的に摂取すべき栄養素：葉酸、鉄分、カルシウム、タンパク質</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 妊娠初期 -->
+                <div class="qa-category">
+                    <h2><i class="fas fa-heart"></i> 妊娠初期（0-15週）</h2>
+                    
+                    <div class="qa-item">
+                        <div class="qa-question" onclick="toggleAnswer(this)">
+                            妊娠かもしれません。いつから産婦人科を受診すべきですか？
+                        </div>
+                        <div class="qa-answer">
+                            <p>産婦人科受診のタイミング：</p>
+                            <ul>
+                                <li><strong>生理予定日の1週間後：</strong>市販の妊娠検査薬で陽性反応</li>
+                                <li><strong>妊娠5-6週頃：</strong>初回受診の適切な時期</li>
+                                <li><strong>妊娠7-8週頃：</strong>心拍確認可能</li>
+                            </ul>
+                            <p>あまり早く受診すると胎嚢が見えない場合があります。生理予定日から1-2週間後の受診が理想的です。</p>
+                            <div class="related-tools">
+                                <h4>関連ツール</h4>
+                                <a href="../calculators/pages/pregnancy-possibility">妊娠可能性判定ツール</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="qa-item">
+                        <div class="qa-question" onclick="toggleAnswer(this)">
+                            つわりがひどくて食事がとれません。どうすればよいですか？
+                        </div>
+                        <div class="qa-answer">
+                            <p>つわり対策：</p>
+                            <ul>
+                                <li><strong>少量頻回食：</strong>一度に少量ずつ、回数を増やして食べる</li>
+                                <li><strong>食べられるものを：</strong>栄養バランスより食べられるものを優先</li>
+                                <li><strong>水分補給：</strong>脱水を防ぐため、こまめに水分摂取</li>
+                                <li><strong>匂いを避ける：</strong>においの強い食べ物を避ける</li>
+                                <li><strong>空腹を避ける：</strong>空腹時につわりが強くなる場合がある</li>
+                            </ul>
+                            <div class="important-note">
+                                <p>水分も摂取できない、体重が急激に減少する場合は妊娠悪阻の可能性があります。すぐに医師にご相談ください。</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="qa-item">
+                        <div class="qa-question" onclick="toggleAnswer(this)">
+                            妊娠初期に少し出血がありました。大丈夫でしょうか？
+                        </div>
+                        <div class="qa-answer">
+                            <p>妊娠初期の出血について：</p>
+                            <ul>
+                                <li><strong>着床出血：</strong>妊娠3-4週頃の薄いピンク色の出血（1-2日程度）</li>
+                                <li><strong>絨毛膜下血腫：</strong>比較的多い出血、安静で改善することが多い</li>
+                                <li><strong>子宮頸管ポリープ：</strong>妊娠により大きくなったポリープからの出血</li>
+                            </ul>
+                            <div class="important-note">
+                                <p>出血がある場合は、量に関わらず必ず産婦人科に連絡してください。流産の可能性もあるため、自己判断は禁物です。</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="qa-item">
+                        <div class="qa-question" onclick="toggleAnswer(this)">
+                            妊娠初期に服用してはいけない薬はありますか？
+                        </div>
+                        <div class="qa-answer">
+                            <p>妊娠初期（特に4-10週）は器官形成期のため、薬の使用には特に注意が必要です：</p>
+                            <ul>
+                                <li><strong>避けるべき薬：</strong>ワルファリン、ACE阻害薬、一部の抗生物質など</li>
+                                <li><strong>比較的安全な薬：</strong>アセトアミノフェン（カロナール）、一部の抗生物質</li>
+                                <li><strong>漢方薬：</strong>天然でも妊娠中に適さないものがある</li>
+                                <li><strong>市販薬：</strong>妊婦への影響が不明なものが多い</li>
+                            </ul>
+                            <div class="important-note">
+                                <p>妊娠が判明したら、現在服用中の薬について必ず医師に相談してください。自己判断での服用中止も危険な場合があります。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 妊娠中期・後期 -->
+                <div class="qa-category">
+                    <h2><i class="fas fa-baby"></i> 妊娠中期・後期（16週-）</h2>
+                    
+                    <div class="qa-item">
+                        <div class="qa-question" onclick="toggleAnswer(this)">
+                            妊娠中の体重管理はどのように行えばよいですか？
+                        </div>
+                        <div class="qa-answer">
+                            <p>妊娠前BMI別の推奨体重増加量：</p>
+                            <ul>
+                                <li><strong>BMI 18.5未満（やせ）：</strong>12-15kg</li>
+                                <li><strong>BMI 18.5-25（普通）：</strong>10-13kg</li>
+                                <li><strong>BMI 25-30（やや肥満）：</strong>7-10kg</li>
+                                <li><strong>BMI 30以上（肥満）：</strong>5-7kg</li>
+                            </ul>
+                            <p>体重管理のポイント：</p>
+                            <ul>
+                                <li>週300-500g程度の緩やかな増加が理想</li>
+                                <li>急激な体重増加は妊娠高血圧症候群のリスク</li>
+                                <li>バランスの良い食事と適度な運動</li>
+                                <li>定期的な体重測定と記録</li>
+                            </ul>
+                            <div class="related-tools">
+                                <h4>関連ツール</h4>
+                                <a href="../calculators/pages/pregnancy-weight">妊娠中の推奨体重計算機</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="qa-item">
+                        <div class="qa-question" onclick="toggleAnswer(this)">
+                            妊娠中に運動をしても大丈夫ですか？
+                        </div>
+                        <div class="qa-answer">
+                            <p>妊娠中の運動について：</p>
+                            <ul>
+                                <li><strong>推奨される運動：</strong>ウォーキング、マタニティヨガ、水泳</li>
+                                <li><strong>避けるべき運動：</strong>激しい運動、接触スポーツ、転倒リスクの高い運動</li>
+                                <li><strong>運動強度：</strong>軽く息が上がる程度（心拍数150回/分以下）</li>
+                                <li><strong>頻度：</strong>週3-4回、1回30分程度</li>
+                            </ul>
+                            <p>運動の効果：</p>
+                            <ul>
+                                <li>妊娠糖尿病の予防</li>
+                                <li>体重管理</li>
+                                <li>腰痛の軽減</li>
+                                <li>出産時の体力向上</li>
+                            </ul>
+                            <div class="important-note">
+                                <p>運動を始める前には必ず医師に相談し、体調に変化があれば直ちに中止してください。</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="qa-item">
+                        <div class="qa-question" onclick="toggleAnswer(this)">
+                            妊娠中に旅行は可能ですか？
+                        </div>
+                        <div class="qa-answer">
+                            <p>妊娠中の旅行について：</p>
+                            <ul>
+                                <li><strong>適切な時期：</strong>妊娠16-28週頃（安定期）</li>
+                                <li><strong>避けるべき時期：</strong>妊娠初期（流産リスク）と妊娠後期（早産リスク）</li>
+                                <li><strong>交通手段：</strong>長時間の車移動より電車や飛行機が推奨</li>
+                                <li><strong>目的地：</strong>医療機関が近くにある場所</li>
+                            </ul>
+                            <p>旅行時の注意点：</p>
+                            <ul>
+                                <li>母子手帳と健康保険証の携帯</li>
+                                <li>現地の産科医療機関の確認</li>
+                                <li>無理のないスケジュール</li>
+                                <li>水分補給と休息の確保</li>
+                            </ul>
+                            <div class="important-note">
+                                <p>旅行前には必ず医師に相談し、許可を得てから計画してください。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 出産準備 -->
+                <div class="qa-category">
+                    <h2><i class="fas fa-calendar-check"></i> 出産準備</h2>
+                    
+                    <div class="qa-item">
+                        <div class="qa-question" onclick="toggleAnswer(this)">
+                            出産予定日はどのように計算されますか？
+                        </div>
+                        <div class="qa-answer">
+                            <p>出産予定日の計算方法：</p>
+                            <ul>
+                                <li><strong>ネーゲレ概算法：</strong>最終月経開始日+280日</li>
+                                <li><strong>超音波による修正：</strong>胎児の大きさから推定</li>
+                                <li><strong>排卵日からの計算：</strong>排卵日+266日</li>
+                            </ul>
+                            <p>出産予定日の精度：</p>
+                            <ul>
+                                <li>予定日当日に生まれる確率は約5%</li>
+                                <li>予定日前後2週間（37-42週）が正期産</li>
+                                <li>初産婦は予定日より遅れる傾向</li>
+                                <li>経産婦は予定日より早い傾向</li>
+                            </ul>
+                            <div class="related-tools">
+                                <h4>関連ツール</h4>
+                                <a href="../calculators/pages/pregnancy-due-date">出産予定日計算機</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="qa-item">
+                        <div class="qa-question" onclick="toggleAnswer(this)">
+                            陣痛はどのような感じですか？前駆陣痛との違いは？
+                        </div>
+                        <div class="qa-answer">
+                            <p>陣痛の特徴：</p>
+                            <ul>
+                                <li><strong>規則性：</strong>規則的な間隔で起こる</li>
+                                <li><strong>持続時間：</strong>30-60秒続く</li>
+                                <li><strong>強度：</strong>時間とともに強くなる</li>
+                                <li><strong>間隔：</strong>10分→5分→3分と短くなる</li>
+                            </ul>
+                            <p>前駆陣痛との違い：</p>
+                            <ul>
+                                <li><strong>前駆陣痛：</strong>不規則、強さが変わらない、安静で治まる</li>
+                                <li><strong>本陣痛：</strong>規則的、だんだん強くなる、安静でも続く</li>
+                            </ul>
+                            <div class="important-note">
+                                <p>初産婦は10分間隔、経産婦は15分間隔で陣痛が来たら産院に連絡してください。</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="qa-item">
+                        <div class="qa-question" onclick="toggleAnswer(this)">
+                            出産に必要な入院準備品は何ですか？
+                        </div>
+                        <div class="qa-answer">
+                            <p>入院準備品リスト：</p>
+                            <ul>
+                                <li><strong>書類関係：</strong>母子手帳、健康保険証、診察券、印鑑</li>
+                                <li><strong>ママ用品：</strong>パジャマ、下着、スリッパ、洗面用具</li>
+                                <li><strong>赤ちゃん用品：</strong>肌着、おむつ、おくるみ</li>
+                                <li><strong>授乳用品：</strong>母乳パッド、授乳用ブラジャー</li>
+                                <li><strong>その他：</strong>タオル、ティッシュ、携帯充電器</li>
+                            </ul>
+                            <p>準備のタイミング：</p>
+                            <ul>
+                                <li>妊娠32週頃までに準備完了</li>
+                                <li>入院バッグは玄関近くに準備</li>
+                                <li>家族にも置き場所を伝える</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="disclaimer-section">
+                <h3><i class="fas fa-exclamation-triangle"></i> 重要な注意事項</h3>
+                <p>このQ&Aは一般的な情報提供を目的としており、個別の医学的アドバイスに代わるものではありません。妊娠・出産に関する疑問や不安がある場合は、必ず医師や助産師にご相談ください。特に緊急を要する症状がある場合は、直ちに医療機関を受診してください。</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="current-year"></span> 健康計算ポータル All Rights Reserved. | <a href="../privacy-policy.html">プライバシーポリシー</a> | <a href="../terms-of-service.html">利用規約</a> | <a href="../fact-check-policy.html">ファクトチェック方針</a></p>
+    </footer>
+
+    <script>
+        // Q&A展開・収納機能
+        function toggleAnswer(element) {
+            const answer = element.nextElementSibling;
+            const isActive = answer.classList.contains('active');
+            
+            // 他のQ&Aを閉じる
+            document.querySelectorAll('.qa-answer.active').forEach(openAnswer => {
+                openAnswer.classList.remove('active');
+                openAnswer.previousElementSibling.classList.remove('active');
+            });
+            
+            // クリックされたQ&Aを開く/閉じる
+            if (!isActive) {
+                answer.classList.add('active');
+                element.classList.add('active');
+            }
+        }
+
+        // 検索機能
+        document.getElementById('qa-search').addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            const qaItems = document.querySelectorAll('.qa-item');
+            
+            qaItems.forEach(item => {
+                const question = item.querySelector('.qa-question').textContent.toLowerCase();
+                const answer = item.querySelector('.qa-answer').textContent.toLowerCase();
+                
+                if (question.includes(searchTerm) || answer.includes(searchTerm)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = searchTerm === '' ? 'block' : 'none';
+                }
+            });
+        });
+
+        // 年表示の更新
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentYear = new Date().getFullYear();
+            document.getElementById('current-year').textContent = currentYear;
+        });
+    </script>
+</body>
+</html> 

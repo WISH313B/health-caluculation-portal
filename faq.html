@@ -206,6 +206,24 @@
                         </div>
                     </div>
                 </div>
+                
+                <div class="special-qa-section">
+                    <h3>🔗 より詳しい情報</h3>
+                    <div class="qa-hub-link">
+                        <a href="qa-hub/pregnancy-and-fertility.html" class="hub-link-card">
+                            <div class="hub-link-icon">
+                                <i class="fas fa-book-open"></i>
+                            </div>
+                            <div class="hub-link-content">
+                                <h4>妊娠・出産・妊活 完全Q&Aガイド</h4>
+                                <p>妊活から出産まで、30以上の詳細なQ&Aを網羅した専用ページです。基礎体温、排卵日、妊娠症状、体重管理、出産準備まで包括的に解説しています。</p>
+                            </div>
+                            <div class="hub-link-arrow">
+                                <i class="fas fa-chevron-right"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
             </section>
 
             <section class="faq-category">
@@ -357,6 +375,7 @@
         <p>&copy; <span id="current-year"></span> 健康計算ポータル All Rights Reserved. | <a href="privacy-policy">プライバシーポリシー</a> | <a href="terms-of-service">利用規約</a></p>
     </footer>
 
+    <script src="assets/js/health-diary.js"></script>
     <style>
         .faq-page {
             max-width: 1000px;
@@ -498,6 +517,99 @@
 
         .breadcrumb li {
             display: flex;
+        }
+        
+        /* Q&Aハブリンクスタイル */
+        .special-qa-section {
+            margin-top: 2rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, #e3f2fd, #ffffff);
+            border-radius: 12px;
+            border: 2px solid var(--primary-color);
+        }
+        
+        .special-qa-section h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .hub-link-card {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text-color);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .hub-link-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+            color: var(--text-color);
+        }
+        
+        .hub-link-icon {
+            flex-shrink: 0;
+            width: 60px;
+            height: 60px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        .hub-link-content {
+            flex: 1;
+        }
+        
+        .hub-link-content h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+        
+        .hub-link-content p {
+            color: var(--text-secondary);
+            margin: 0;
+            line-height: 1.6;
+        }
+        
+        .hub-link-arrow {
+            flex-shrink: 0;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .hub-link-card:hover .hub-link-arrow {
+            transform: translateX(5px);
+        }
+        
+                 @media (max-width: 768px) {
+             .hub-link-card {
+                 flex-direction: column;
+                 text-align: center;
+                 gap: 1rem;
+             }
+             
+             .hub-link-arrow {
+                 transform: rotate(90deg);
+             }
+             
+             .hub-link-card:hover .hub-link-arrow {
+                 transform: rotate(90deg) translateX(5px);
+             }
+         }
+
+        .breadcrumb li {
             align-items: center;
         }
 
