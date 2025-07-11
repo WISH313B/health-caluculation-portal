@@ -1,0 +1,24 @@
+# PowerShellスクリプト除外
+*.ps1
+
+# バックアップや一時ファイル
+*.bak
+*.tmp
+
+# OS・エディタ固有
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# ローカルテスト・設定ファイル
+ローカルテスト.html
+ローカル確認手順.md
+README-local-setup.md
+start-local-server.bat
+
+# 画像キャッシュや大容量一時ファイル
+*.png
+*.jpg
+*.jpeg
+*.gif 
