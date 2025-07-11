@@ -6,7 +6,7 @@
 > **English** | [日本語](README.md) | [English](README.en.md)
 
 ## Demo
-- [Live Site URL (e.g. https://your-domain.com)](https://your-domain.com)
+- [Live Site URL](https://minna-no-kenko.com/)
 - ![Screenshot](assets/images/screenshot-desktop.png)
 
 ## Features

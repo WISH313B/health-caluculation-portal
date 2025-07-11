@@ -6,7 +6,7 @@
 > **English** | [日本語](README.md) | [English](README.en.md)
 
 ## デモ
-- [公開サイトURL（例: https://your-domain.com）](https://your-domain.com)
+- [公開サイトURL](https://minna-no-kenko.com/)
 - ![スクリーンショット](assets/images/screenshot-desktop.png)
 
 ## 特徴
