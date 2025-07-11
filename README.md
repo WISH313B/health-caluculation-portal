@@ -3,6 +3,8 @@
 > このリポジトリはポートフォリオ公開用です。
 > 20種類以上の健康計算機を搭載した、女性の健康をサポートするWebサイトです。
 
+> **English** | [日本語](README.md) | [English](README.en.md)
+
 ## デモ
 - [公開サイトURL（例: https://your-domain.com）](https://your-domain.com)
 - ![スクリーンショット](assets/images/screenshot-desktop.png)

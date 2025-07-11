@@ -3,6 +3,8 @@
 > This repository is for portfolio publication.  
 > A comprehensive web portal offering over 20 types of free health calculators, supporting women's health.
 
+> **English** | [日本語](README.md) | [English](README.en.md)
+
 ## Demo
 - [Live Site URL (e.g. https://your-domain.com)](https://your-domain.com)
 - ![Screenshot](assets/images/screenshot-desktop.png)
